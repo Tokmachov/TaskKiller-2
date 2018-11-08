@@ -107,8 +107,8 @@
 		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
 			isa = PBXGroup;
 			children = (
-				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
 				B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */,
+				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
 				B96E0EA32193D5900097AB34 /* Create Task */,
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,

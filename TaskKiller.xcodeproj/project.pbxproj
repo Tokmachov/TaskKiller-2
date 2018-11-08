@@ -107,6 +107,7 @@
 		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
 			isa = PBXGroup;
 			children = (
+				B96E0EC42193DC470097AB34 /* Tag.swift */,
 				B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */,
 				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
 				B96E0EA32193D5900097AB34 /* Create Task */,
@@ -171,11 +172,10 @@
 		B96E0EC12193D8360097AB34 /* StaticInfoConstructer */ = {
 			isa = PBXGroup;
 			children = (
-				B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */,
-				B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */,
-				B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */,
-				B96E0EC42193DC470097AB34 /* Tag.swift */,
 				B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */,
+				B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */,
+				B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */,
+				B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */,
 				B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */,
 			);
 			path = StaticInfoConstructer;

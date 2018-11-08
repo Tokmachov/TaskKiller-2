@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol TaskDescriptionReceiving {
+    func receiveTaskDescription(_ taskDescription: String)
+}

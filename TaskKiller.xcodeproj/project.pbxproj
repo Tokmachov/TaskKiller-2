@@ -8,12 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
-		B96E0E83219347E50097AB34 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* ViewController.swift */; };
+		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
 		B96E0E89219347E50097AB34 /* TaskKiller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E87219347E50097AB34 /* TaskKiller.xcdatamodeld */; };
 		B96E0E8B219347E60097AB34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E8A219347E60097AB34 /* Assets.xcassets */; };
 		B96E0E8E219347E60097AB34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */; };
 		B96E0E99219347E60097AB34 /* TaskKillerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E98219347E60097AB34 /* TaskKillerTests.swift */; };
+		B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EA42193D5E20097AB34 /* DeadLineVC.swift */; };
+		B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EA62193D6020097AB34 /* TaskDescriptionVC.swift */; };
+		B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EA82193D61C0097AB34 /* TagsVC.swift */; };
+		B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EAA2193D6650097AB34 /* DeadLineReporting.swift */; };
+		B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EAE2193D6BA0097AB34 /* TagsReporting.swift */; };
+		B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */; };
+		B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */; };
+		B96E0EB52193D6F60097AB34 /* TagsReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */; };
+		B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB82193D7920097AB34 /* TaskDescriptionReporting.swift */; };
+		B96E0EBC2193D7FB0097AB34 /* StaticInfoConstructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */; };
+		B96E0EBE2193D80A0097AB34 /* StaticInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */; };
+		B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */; };
+		B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +42,7 @@
 /* Begin PBXFileReference section */
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B96E0E82219347E50097AB34 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
 		B96E0E85219347E50097AB34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TaskKiller.xcdatamodel; sourceTree = "<group>"; };
 		B96E0E8A219347E60097AB34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +51,19 @@
 		B96E0E94219347E60097AB34 /* TaskKillerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskKillerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E98219347E60097AB34 /* TaskKillerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskKillerTests.swift; sourceTree = "<group>"; };
 		B96E0E9A219347E60097AB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B96E0EA42193D5E20097AB34 /* DeadLineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineVC.swift; sourceTree = "<group>"; };
+		B96E0EA62193D6020097AB34 /* TaskDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionVC.swift; sourceTree = "<group>"; };
+		B96E0EA82193D61C0097AB34 /* TagsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsVC.swift; sourceTree = "<group>"; };
+		B96E0EAA2193D6650097AB34 /* DeadLineReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineReporting.swift; sourceTree = "<group>"; };
+		B96E0EAE2193D6BA0097AB34 /* TagsReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsReporting.swift; sourceTree = "<group>"; };
+		B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadLineReceiving.swift; sourceTree = "<group>"; };
+		B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionReceiving.swift; sourceTree = "<group>"; };
+		B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsReceiving.swift; sourceTree = "<group>"; };
+		B96E0EB82193D7920097AB34 /* TaskDescriptionReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskDescriptionReporting.swift; path = ../TaskDescriptionReporting.swift; sourceTree = "<group>"; };
+		B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructing.swift; sourceTree = "<group>"; };
+		B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfo.swift; sourceTree = "<group>"; };
+		B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructer.swift; sourceTree = "<group>"; };
+		B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoGetable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +105,10 @@
 		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
 			isa = PBXGroup;
 			children = (
+				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
+				B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */,
+				B96E0EA32193D5900097AB34 /* Create Task */,
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
-				B96E0E82219347E50097AB34 /* ViewController.swift */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
@@ -97,6 +125,57 @@
 				B96E0E9A219347E60097AB34 /* Info.plist */,
 			);
 			path = TaskKillerTests;
+			sourceTree = "<group>";
+		};
+		B96E0EA32193D5900097AB34 /* Create Task */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
+				B96E0EB62193D7430097AB34 /* DeadLineVC */,
+				B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */,
+				B96E0EBA2193D7C70097AB34 /* TagsVC */,
+				B96E0EC12193D8360097AB34 /* StaticInfoConstructer */,
+			);
+			path = "Create Task";
+			sourceTree = "<group>";
+		};
+		B96E0EB62193D7430097AB34 /* DeadLineVC */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0EAA2193D6650097AB34 /* DeadLineReporting.swift */,
+				B96E0EA42193D5E20097AB34 /* DeadLineVC.swift */,
+			);
+			path = DeadLineVC;
+			sourceTree = "<group>";
+		};
+		B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0EB82193D7920097AB34 /* TaskDescriptionReporting.swift */,
+				B96E0EA62193D6020097AB34 /* TaskDescriptionVC.swift */,
+			);
+			path = TaskDescriptionVC;
+			sourceTree = "<group>";
+		};
+		B96E0EBA2193D7C70097AB34 /* TagsVC */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0EAE2193D6BA0097AB34 /* TagsReporting.swift */,
+				B96E0EA82193D61C0097AB34 /* TagsVC.swift */,
+			);
+			path = TagsVC;
+			sourceTree = "<group>";
+		};
+		B96E0EC12193D8360097AB34 /* StaticInfoConstructer */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */,
+				B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */,
+				B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */,
+				B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */,
+				B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */,
+			);
+			path = StaticInfoConstructer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +280,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B96E0E89219347E50097AB34 /* TaskKiller.xcdatamodeld in Sources */,
-				B96E0E83219347E50097AB34 /* ViewController.swift in Sources */,
+				B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */,
+				B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */,
+				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
+				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
+				B96E0EBE2193D80A0097AB34 /* StaticInfo.swift in Sources */,
+				B96E0EB52193D6F60097AB34 /* TagsReceiving.swift in Sources */,
+				B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */,
+				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
+				B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */,
+				B96E0EBC2193D7FB0097AB34 /* StaticInfoConstructing.swift in Sources */,
+				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
+				B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */,
+				B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */,
+				B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

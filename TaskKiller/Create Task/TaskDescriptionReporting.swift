@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol TaskDescriptionReporting {
+    func setTaskDescriptionReceiver(_ receiver: TaskDescriptionReceiver)
+}

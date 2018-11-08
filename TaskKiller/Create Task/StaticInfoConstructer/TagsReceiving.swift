@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TagsReceiving {
-    func receiveTags(_ tags: [Tag])
+    mutating func receiveTags(_ tags: [TaskTag])
 }

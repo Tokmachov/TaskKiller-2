@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TaskDescriptionReceiving {
-    func receiveTaskDescription(_ taskDescription: String)
+    mutating func receiveTaskDescription(_ taskDescription: String)
 }

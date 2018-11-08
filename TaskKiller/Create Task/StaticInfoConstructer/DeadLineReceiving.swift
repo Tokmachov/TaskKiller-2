@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DeadLineReceiving {
-    func receiveDeadLine(_ deadLine: TimeInterval)
+    mutating func receiveDeadLine(_ deadLine: TimeInterval)
 }

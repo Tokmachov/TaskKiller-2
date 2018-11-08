@@ -10,9 +10,9 @@ import UIKit
 
 class TagsVC: TagsReporting {
     
-    private var tagsReceiver: TagsReceiving!
+    private var tagsReceiver: TagInfosReceiving!
     
-    func setTagsReceiver(_ receiver: TagsReceiving) {
+    func setTagsReceiver(_ receiver: TagInfosReceiving) {
         self.tagsReceiver = receiver
     }
 }

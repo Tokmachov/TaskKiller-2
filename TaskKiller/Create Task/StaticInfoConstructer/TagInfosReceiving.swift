@@ -1,5 +1,5 @@
 //
-//  StaticInfo.swift
+//  TagsReceiving.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 08.11.2018.
@@ -8,8 +8,6 @@
 
 import Foundation
 
-struct StaticInfo {
-    var taskDescription: String
-    var initialDeadLine: TimeInterval
-    var tags: [TaskTag]
+protocol TagInfosReceiving {
+    mutating func receiveTagsInfos(_ tagsInfos: [TagInfo])
 }

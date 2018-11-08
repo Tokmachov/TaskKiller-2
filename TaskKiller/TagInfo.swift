@@ -8,4 +8,6 @@
 
 import Foundation
 
-typealias TaskTag = String
+struct TagInfo {
+    var progectName: String
+}

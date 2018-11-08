@@ -9,9 +9,9 @@
 import CoreData
 
 // MARK: - Core Data stack
-class PeristanceService {
+class PersistanceService {
     
-    static lazy var persistentContainer: NSPersistentContainer = {
+    private static var persistentContainer: NSPersistentContainer = {
         /*
          The persistent container for the application. This implementation
          creates and returns a container, having loaded the store for the

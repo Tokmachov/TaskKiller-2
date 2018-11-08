@@ -9,5 +9,5 @@
 import Foundation
 
 protocol StaticInfoGetable {
-    func getStaticInfo() -> StaticInfo
+    func getStaticInfo() -> TaskStaticInfo
 }

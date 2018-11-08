@@ -9,13 +9,14 @@
 import Foundation
 
 struct StaticInfoConstructer: StaticInfoConstructing {
+
     
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
-    private var tags: [TaskTag]!
+    private var tagsInfos: [TagInfo]!
     
-    private var staticInfo: StaticInfo {
-        return StaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tags: tags)
+    private var staticInfo: TaskStaticInfo {
+        return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfos)
     }
     
     mutating func receiveTaskDescription(_ taskDescription: String) {
@@ -26,11 +27,11 @@ struct StaticInfoConstructer: StaticInfoConstructing {
         self.initialDeadLine = deadLine
     }
     
-    mutating func receiveTags(_ tags: [TaskTag]) {
-        self.tags = tags
+    mutating func receiveTagsInfos(_ tagsInfos: [TagInfo]) {
+        self.tagsInfos = tagsInfos
     }
     
-    func getStaticInfo() -> StaticInfo {
+    func getStaticInfo() -> TaskStaticInfo {
         return staticInfo
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 protocol ModelInitiatable {
-    init(taskStaticInfoSource: StaticInfoGetable)
+     init(taskStaticInfoSource: TaskStaticInfo)
 }
 
 

@@ -28,6 +28,15 @@
 		B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */; };
 		B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */; };
 		B96E0EC52193DC470097AB34 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC42193DC470097AB34 /* Tag.swift */; };
+		B96E0EC82193E7B80097AB34 /* ModelInitiatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC72193E7B80097AB34 /* ModelInitiatable.swift */; };
+		B96E0ECA2193E82C0097AB34 /* ModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC92193E82C0097AB34 /* ModelHandler.swift */; };
+		B96E0ED12193E8CD0097AB34 /* Period+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECB2193E8CD0097AB34 /* Period+CoreDataClass.swift */; };
+		B96E0ED22193E8CD0097AB34 /* Period+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECC2193E8CD0097AB34 /* Period+CoreDataProperties.swift */; };
+		B96E0ED32193E8CD0097AB34 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECD2193E8CD0097AB34 /* Task+CoreDataClass.swift */; };
+		B96E0ED42193E8CD0097AB34 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECE2193E8CD0097AB34 /* Task+CoreDataProperties.swift */; };
+		B96E0ED52193E8CD0097AB34 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECF2193E8CD0097AB34 /* Tag+CoreDataClass.swift */; };
+		B96E0ED62193E8CD0097AB34 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ED02193E8CD0097AB34 /* Tag+CoreDataProperties.swift */; };
+		B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +75,15 @@
 		B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructer.swift; sourceTree = "<group>"; };
 		B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoGetable.swift; sourceTree = "<group>"; };
 		B96E0EC42193DC470097AB34 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		B96E0EC72193E7B80097AB34 /* ModelInitiatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelInitiatable.swift; sourceTree = "<group>"; };
+		B96E0EC92193E82C0097AB34 /* ModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHandler.swift; sourceTree = "<group>"; };
+		B96E0ECB2193E8CD0097AB34 /* Period+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B96E0ECC2193E8CD0097AB34 /* Period+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B96E0ECD2193E8CD0097AB34 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B96E0ECE2193E8CD0097AB34 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B96E0ECF2193E8CD0097AB34 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B96E0ED02193E8CD0097AB34 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +107,14 @@
 		B96E0E74219347E50097AB34 = {
 			isa = PBXGroup;
 			children = (
+				B96E0ECB2193E8CD0097AB34 /* Period+CoreDataClass.swift */,
+				B96E0ECC2193E8CD0097AB34 /* Period+CoreDataProperties.swift */,
+				B96E0ECD2193E8CD0097AB34 /* Task+CoreDataClass.swift */,
+				B96E0ECE2193E8CD0097AB34 /* Task+CoreDataProperties.swift */,
+				B96E0ECF2193E8CD0097AB34 /* Tag+CoreDataClass.swift */,
+				B96E0ED02193E8CD0097AB34 /* Tag+CoreDataProperties.swift */,
+				B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */,
+				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
 				B96E0E7F219347E50097AB34 /* TaskKiller */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,
 				B96E0E7E219347E50097AB34 /* Products */,
@@ -110,8 +136,8 @@
 				B96E0EC42193DC470097AB34 /* Tag.swift */,
 				B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */,
 				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
+				B96E0EC62193E7740097AB34 /* ModelHandler */,
 				B96E0EA32193D5900097AB34 /* Create Task */,
-				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
@@ -134,8 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
-				B96E0EB62193D7430097AB34 /* DeadLineVC */,
 				B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */,
+				B96E0EB62193D7430097AB34 /* DeadLineVC */,
 				B96E0EBA2193D7C70097AB34 /* TagsVC */,
 				B96E0EC12193D8360097AB34 /* StaticInfoConstructer */,
 			);
@@ -179,6 +205,15 @@
 				B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */,
 			);
 			path = StaticInfoConstructer;
+			sourceTree = "<group>";
+		};
+		B96E0EC62193E7740097AB34 /* ModelHandler */ = {
+			isa = PBXGroup;
+			children = (
+				B96E0EC72193E7B80097AB34 /* ModelInitiatable.swift */,
+				B96E0EC92193E82C0097AB34 /* ModelHandler.swift */,
+			);
+			path = ModelHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,17 +322,26 @@
 				B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */,
 				B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */,
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
+				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
+				B96E0EC82193E7B80097AB34 /* ModelInitiatable.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* StaticInfo.swift in Sources */,
+				B96E0ED32193E8CD0097AB34 /* Task+CoreDataClass.swift in Sources */,
 				B96E0EB52193D6F60097AB34 /* TagsReceiving.swift in Sources */,
+				B96E0ED52193E8CD0097AB34 /* Tag+CoreDataClass.swift in Sources */,
 				B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */,
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
+				B96E0ED12193E8CD0097AB34 /* Period+CoreDataClass.swift in Sources */,
 				B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */,
+				B96E0ED62193E8CD0097AB34 /* Tag+CoreDataProperties.swift in Sources */,
 				B96E0EBC2193D7FB0097AB34 /* StaticInfoConstructing.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
 				B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */,
+				B96E0ED22193E8CD0097AB34 /* Period+CoreDataProperties.swift in Sources */,
+				B96E0ECA2193E82C0097AB34 /* ModelHandler.swift in Sources */,
 				B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */,
+				B96E0ED42193E8CD0097AB34 /* Task+CoreDataProperties.swift in Sources */,
 				B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

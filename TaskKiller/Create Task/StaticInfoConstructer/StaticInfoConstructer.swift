@@ -18,13 +18,14 @@ struct StaticInfoConstructer: StaticInfoConstructing {
         return StaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tags: tags)
     }
     
-    
     mutating func receiveTaskDescription(_ taskDescription: String) {
         self.taskDescription = taskDescription
     }
+    
     mutating func receiveDeadLine(_ deadLine: TimeInterval) {
         self.initialDeadLine = deadLine
     }
+    
     mutating func receiveTags(_ tags: [TaskTag]) {
         self.tags = tags
     }

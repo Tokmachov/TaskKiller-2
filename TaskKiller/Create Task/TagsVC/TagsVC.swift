@@ -6,4 +6,13 @@
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TagsVC: TagsReporting {
+    
+    private var tagsReceiver: TagsReceiving!
+    
+    func setTagsReceiver(_ receiver: TagsReceiving) {
+        self.tagsReceiver = receiver
+    }
+}

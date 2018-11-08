@@ -6,4 +6,15 @@
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TaskDescriptionVC: TaskDescriptionReporting {
+    
+    private var taskDescriptionReceiver: TaskDescriptionReceiving!
+    
+    func setTaskDescriptionReceiver(_ receiver: TaskDescriptionReceiving) {
+        self.taskDescriptionReceiver = receiver
+    }
+    
+    
+}

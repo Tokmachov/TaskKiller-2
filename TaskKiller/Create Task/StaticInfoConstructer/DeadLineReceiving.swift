@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol DeadLineReceiving {
+    func receiveDeadLine(_ deadLine: TimeInterval)
+}

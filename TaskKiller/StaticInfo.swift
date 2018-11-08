@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct StaticInfo {
+    var taskDescription: String
+    var initialDeadLine: TimeInterval
+    var tags: [Tag]
+}

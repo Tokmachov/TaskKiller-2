@@ -1,5 +1,5 @@
 //
-//  TagsReceiving.swift
+//  Tag.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 08.11.2018.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol TagsReceiving {
-    func receiveTags(_ tags: [Tag])
-}
+typealias Tag = String

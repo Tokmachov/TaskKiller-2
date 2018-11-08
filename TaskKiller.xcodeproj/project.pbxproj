@@ -27,6 +27,7 @@
 		B96E0EBE2193D80A0097AB34 /* StaticInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */; };
 		B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */; };
 		B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */; };
+		B96E0EC52193DC470097AB34 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC42193DC470097AB34 /* Tag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		B96E0EBD2193D80A0097AB34 /* StaticInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfo.swift; sourceTree = "<group>"; };
 		B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructer.swift; sourceTree = "<group>"; };
 		B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoGetable.swift; sourceTree = "<group>"; };
+		B96E0EC42193DC470097AB34 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */,
 				B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */,
 				B96E0EB42193D6F60097AB34 /* TagsReceiving.swift */,
+				B96E0EC42193DC470097AB34 /* Tag.swift */,
 				B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */,
 				B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */,
 			);
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96E0EC52193DC470097AB34 /* Tag.swift in Sources */,
 				B96E0E89219347E50097AB34 /* TaskKiller.xcdatamodeld in Sources */,
 				B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */,
 				B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */,

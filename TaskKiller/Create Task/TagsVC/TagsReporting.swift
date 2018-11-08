@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol TagsReporting {
+    func setTagsReceiver(_ receiver: TagsReceiving)
+}

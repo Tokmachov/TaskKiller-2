@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DeadLineReporting {
-    
+    func setDeadLineRer(_ recever: DealineReceiving)
 }

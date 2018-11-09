@@ -37,6 +37,7 @@
 		B96E0ED52193E8CD0097AB34 /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ECF2193E8CD0097AB34 /* Tag+CoreDataClass.swift */; };
 		B96E0ED62193E8CD0097AB34 /* Tag+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ED02193E8CD0097AB34 /* Tag+CoreDataProperties.swift */; };
 		B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */; };
+		B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11321953C540085FCA0 /* TaskListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,8 @@
 		B96E0ECF2193E8CD0097AB34 /* Tag+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B96E0ED02193E8CD0097AB34 /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Tag+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		B9A8B11321953C540085FCA0 /* TaskListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
+		B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +223,7 @@
 		B9A8B11221953A5B0085FCA0 /* TaskListVC */ = {
 			isa = PBXGroup;
 			children = (
+				B9A8B11321953C540085FCA0 /* TaskListVC.swift */,
 			);
 			path = TaskListVC;
 			sourceTree = "<group>";
@@ -332,6 +336,7 @@
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
+				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				B96E0EC82193E7B80097AB34 /* ModelInitiatable.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				B96E0ED32193E8CD0097AB34 /* Task+CoreDataClass.swift in Sources */,
@@ -622,9 +627,10 @@
 		B96E0E87219347E50097AB34 /* TaskKiller.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */,
 				B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */,
 			);
-			currentVersion = B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */;
+			currentVersion = B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */;
 			path = TaskKiller.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

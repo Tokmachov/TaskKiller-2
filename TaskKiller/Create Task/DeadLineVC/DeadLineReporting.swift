@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DeadLineReporting {
-    func setDeadLineRerceiver(_ receiver: DeadLineReceiving)
+    func setDeadLineRerceiver(_ receiver: DeadLineReceiving, deadLinesToChose: [TimeInterval])
 }

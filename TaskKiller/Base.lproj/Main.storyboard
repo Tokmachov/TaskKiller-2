@@ -1,24 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Create TaskVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CreateTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-nz-BOU">
+                                <rect key="frame" x="68" y="38" width="185" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3bN-nz-BOU" secondAttribute="height" multiplier="185:128" id="iF0-0l-93r"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="Zw1-go-OFU" kind="embed" identifier="DeadLineChildVC" id="gw4-dN-knh"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3bN-nz-BOU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="5Kc-dN-Apt"/>
+                            <constraint firstItem="3bN-nz-BOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Qj3-rM-yub"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bN-nz-BOU" secondAttribute="trailing" constant="67" id="U3s-y1-c9j"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="84" y="140"/>
+        </scene>
+        <!--Dead LineVC-->
+        <scene sceneID="3NZ-Au-zVQ">
+            <objects>
+                <viewController id="Zw1-go-OFU" customClass="DeadLineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DuD-ru-KNL">
+                        <rect key="frame" x="0.0" y="0.0" width="185" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmK-VX-geb">
+                                <rect key="frame" x="0.0" y="0.0" width="185" height="128"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NmK-VX-geb" firstAttribute="leading" secondItem="DuD-ru-KNL" secondAttribute="leading" id="MKC-0J-0WY"/>
+                            <constraint firstAttribute="trailing" secondItem="NmK-VX-geb" secondAttribute="trailing" id="Rad-xP-SPB"/>
+                            <constraint firstAttribute="bottom" secondItem="NmK-VX-geb" secondAttribute="bottom" id="y0R-xk-WDz"/>
+                            <constraint firstItem="NmK-VX-geb" firstAttribute="top" secondItem="DuD-ru-KNL" secondAttribute="top" id="yQp-eG-8wi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="deadLinePickerView" destination="NmK-VX-geb" id="kqQ-aQ-H5U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YaH-la-tJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797.8125" y="-91.901408450704224"/>
         </scene>
     </scenes>
 </document>

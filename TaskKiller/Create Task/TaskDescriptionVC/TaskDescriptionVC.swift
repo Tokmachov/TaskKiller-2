@@ -15,6 +15,4 @@ class TaskDescriptionVC: TaskDescriptionReporting {
     func setTaskDescriptionReceiver(_ receiver: TaskDescriptionReceiving) {
         self.taskDescriptionReceiver = receiver
     }
-    
-    
 }

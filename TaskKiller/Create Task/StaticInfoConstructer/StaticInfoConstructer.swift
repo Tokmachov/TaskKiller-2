@@ -8,9 +8,8 @@
 
 import Foundation
 
-struct StaticInfoConstructer: StaticInfoConstructing {
+class StaticInfoConstructer: StaticInfoGathering {
 
-    
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
     private var tagsInfos: [TagInfo]!
@@ -18,16 +17,17 @@ struct StaticInfoConstructer: StaticInfoConstructing {
     private var staticInfo: TaskStaticInfo {
         return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfos)
     }
+    init() {}
     
-    mutating func receiveTaskDescription(_ taskDescription: String) {
+    func receiveTaskDescription(_ taskDescription: String) {
         self.taskDescription = taskDescription
     }
     
-    mutating func receiveDeadLine(_ deadLine: TimeInterval) {
+    func receiveDeadLine(_ deadLine: TimeInterval) {
         self.initialDeadLine = deadLine
     }
     
-    mutating func receiveTagsInfos(_ tagsInfos: [TagInfo]) {
+    func receiveTagsInfos(_ tagsInfos: [TagInfo]) {
         self.tagsInfos = tagsInfos
     }
     

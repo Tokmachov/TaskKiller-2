@@ -23,7 +23,7 @@
 		B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */; };
 		B96E0EB52193D6F60097AB34 /* TagInfosReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB42193D6F60097AB34 /* TagInfosReceiving.swift */; };
 		B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EB82193D7920097AB34 /* TaskDescriptionReporting.swift */; };
-		B96E0EBC2193D7FB0097AB34 /* StaticInfoConstructing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */; };
+		B96E0EBC2193D7FB0097AB34 /* StaticInfoGathering.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBB2193D7FB0097AB34 /* StaticInfoGathering.swift */; };
 		B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBD2193D80A0097AB34 /* TaskStaticInfo.swift */; };
 		B96E0EC02193D82C0097AB34 /* StaticInfoConstructer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */; };
 		B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */; };
@@ -70,7 +70,7 @@
 		B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionReceiving.swift; sourceTree = "<group>"; };
 		B96E0EB42193D6F60097AB34 /* TagInfosReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfosReceiving.swift; sourceTree = "<group>"; };
 		B96E0EB82193D7920097AB34 /* TaskDescriptionReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskDescriptionReporting.swift; path = ../TaskDescriptionReporting.swift; sourceTree = "<group>"; };
-		B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructing.swift; sourceTree = "<group>"; };
+		B96E0EBB2193D7FB0097AB34 /* StaticInfoGathering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoGathering.swift; sourceTree = "<group>"; };
 		B96E0EBD2193D80A0097AB34 /* TaskStaticInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfo.swift; sourceTree = "<group>"; };
 		B96E0EBF2193D82C0097AB34 /* StaticInfoConstructer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoConstructer.swift; sourceTree = "<group>"; };
 		B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticInfoGetable.swift; sourceTree = "<group>"; };
@@ -160,9 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
-				B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */,
 				B96E0EB62193D7430097AB34 /* DeadLineVC */,
 				B96E0EBA2193D7C70097AB34 /* TagsVC */,
+				B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */,
 				B96E0EC12193D8360097AB34 /* StaticInfoConstructer */,
 			);
 			path = "Create Task";
@@ -198,7 +198,7 @@
 		B96E0EC12193D8360097AB34 /* StaticInfoConstructer */ = {
 			isa = PBXGroup;
 			children = (
-				B96E0EBB2193D7FB0097AB34 /* StaticInfoConstructing.swift */,
+				B96E0EBB2193D7FB0097AB34 /* StaticInfoGathering.swift */,
 				B96E0EB22193D6E50097AB34 /* TaskDescriptionReceiving.swift */,
 				B96E0EB02193D6D00097AB34 /* DeadLineReceiving.swift */,
 				B96E0EB42193D6F60097AB34 /* TagInfosReceiving.swift */,
@@ -335,7 +335,7 @@
 				B96E0ED12193E8CD0097AB34 /* Period+CoreDataClass.swift in Sources */,
 				B96E0EC32193D8820097AB34 /* StaticInfoGetable.swift in Sources */,
 				B96E0ED62193E8CD0097AB34 /* Tag+CoreDataProperties.swift in Sources */,
-				B96E0EBC2193D7FB0097AB34 /* StaticInfoConstructing.swift in Sources */,
+				B96E0EBC2193D7FB0097AB34 /* StaticInfoGathering.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
 				B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */,
 				B96E0ED22193E8CD0097AB34 /* Period+CoreDataProperties.swift in Sources */,

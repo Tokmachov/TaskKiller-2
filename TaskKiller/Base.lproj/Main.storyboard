@@ -36,15 +36,27 @@
                                     <segue destination="pE0-ze-mvV" kind="embed" identifier="TagsChildVC" id="Bc9-aW-RRM"/>
                                 </connections>
                             </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Ug-BYH">
+                                <rect key="frame" x="16" y="292" width="288" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="srg-Ug-BYH" secondAttribute="height" multiplier="3:1" id="NlR-6g-lJl"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="e6W-Lf-Op4" kind="embed" identifier="TaskDescriptionChildVC" id="KEm-VP-lhR"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="srg-Ug-BYH" secondAttribute="trailing" constant="16" id="3C2-he-6ja"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Vd-EM-NPj" secondAttribute="trailing" constant="67" id="53G-i7-mG1"/>
                             <constraint firstItem="3bN-nz-BOU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="5Kc-dN-Apt"/>
+                            <constraint firstItem="srg-Ug-BYH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G13-4v-XDt"/>
                             <constraint firstItem="3bN-nz-BOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Qj3-rM-yub"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bN-nz-BOU" secondAttribute="trailing" constant="67" id="U3s-y1-c9j"/>
                             <constraint firstItem="1Vd-EM-NPj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Wfo-Hu-mBX"/>
                             <constraint firstItem="1Vd-EM-NPj" firstAttribute="top" secondItem="3bN-nz-BOU" secondAttribute="bottom" constant="8" id="dHQ-Pg-g6h"/>
+                            <constraint firstItem="srg-Ug-BYH" firstAttribute="top" secondItem="1Vd-EM-NPj" secondAttribute="bottom" constant="36" id="syp-gX-LnO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -108,6 +120,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yai-Wt-Juu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="797.8125" y="88.732394366197184"/>
+        </scene>
+        <!--Task DescriptionVC-->
+        <scene sceneID="hhh-1m-3MN">
+            <objects>
+                <viewController id="e6W-Lf-Op4" customClass="TaskDescriptionVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJR-f1-zGl">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="96"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your task here" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-WJ-6R1">
+                                <rect key="frame" x="16" y="27" width="256" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didEditedText:" destination="e6W-Lf-Op4" eventType="editingChanged" id="EaK-wx-CxZ"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="1Q4-WJ-6R1" secondAttribute="bottom" constant="39" id="GOm-Jd-ZMB"/>
+                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="leading" secondItem="eJR-f1-zGl" secondAttribute="leadingMargin" id="GjF-zb-h4J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Q4-WJ-6R1" secondAttribute="trailing" id="JbF-uP-FrR"/>
+                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="top" secondItem="eJR-f1-zGl" secondAttribute="topMargin" constant="27" id="ghM-tS-Ecy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="taskDescriptionTextField" destination="1Q4-WJ-6R1" id="1wz-YO-FP5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FzF-fE-Quz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="269"/>
         </scene>
     </scenes>
 </document>

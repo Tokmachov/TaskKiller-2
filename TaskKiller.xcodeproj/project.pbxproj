@@ -137,7 +137,8 @@
 				B96E0EBD2193D80A0097AB34 /* TaskStaticInfo.swift */,
 				B96E0EC22193D8820097AB34 /* StaticInfoGetable.swift */,
 				B96E0EC62193E7740097AB34 /* ModelHandler */,
-				B96E0EA32193D5900097AB34 /* Create Task */,
+				B9A8B11221953A5B0085FCA0 /* TaskListVC */,
+				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
@@ -156,7 +157,7 @@
 			path = TaskKillerTests;
 			sourceTree = "<group>";
 		};
-		B96E0EA32193D5900097AB34 /* Create Task */ = {
+		B96E0EA32193D5900097AB34 /* CreateTaskVC */ = {
 			isa = PBXGroup;
 			children = (
 				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
@@ -165,7 +166,7 @@
 				B96E0EB72193D75E0097AB34 /* TaskDescriptionVC */,
 				B96E0EC12193D8360097AB34 /* StaticInfoConstructer */,
 			);
-			path = "Create Task";
+			path = CreateTaskVC;
 			sourceTree = "<group>";
 		};
 		B96E0EB62193D7430097AB34 /* DeadLineVC */ = {
@@ -214,6 +215,13 @@
 				B96E0EC92193E82C0097AB34 /* ModelHandler.swift */,
 			);
 			path = ModelHandler;
+			sourceTree = "<group>";
+		};
+		B9A8B11221953A5B0085FCA0 /* TaskListVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TaskListVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

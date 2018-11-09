@@ -11,12 +11,7 @@ import UIKit
 class CreateTaskVC: UIViewController {
     
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
-    private var taskStaticInfoSource: StaticInfoGathering!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
+    private var taskStaticInfoSource = StaticInfoConstructer()
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
@@ -25,7 +20,6 @@ class CreateTaskVC: UIViewController {
             taskDescriptionVC.setTaskDescriptionReceiver(taskStaticInfoSource)
         case "DeadLineChildVC":
             guard let deadLineVC = segue.destination as? DeadLineReporting else { fatalError() }
-            taskStaticInfoSource = StaticInfoConstructer()
             deadLineVC.setDeadLineRerceiver(taskStaticInfoSource, deadLinesToChose: deadLinesTochose)
         case "TagsChildVC":
             guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }

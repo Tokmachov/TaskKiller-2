@@ -19,28 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-nz-BOU">
-                                <rect key="frame" x="68" y="38" width="185" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="3bN-nz-BOU" secondAttribute="height" multiplier="185:128" id="iF0-0l-93r"/>
-                                </constraints>
+                                <rect key="frame" x="68" y="20" width="184" height="91"/>
                                 <connections>
                                     <segue destination="Zw1-go-OFU" kind="embed" identifier="DeadLineChildVC" id="gw4-dN-knh"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Vd-EM-NPj">
-                                <rect key="frame" x="68" y="174" width="185" height="82"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="1Vd-EM-NPj" secondAttribute="height" multiplier="185:82" id="big-CN-HWv"/>
-                                </constraints>
+                                <rect key="frame" x="68" y="119" width="184" height="56"/>
                                 <connections>
                                     <segue destination="pE0-ze-mvV" kind="embed" identifier="TagsChildVC" id="Bc9-aW-RRM"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Ug-BYH">
-                                <rect key="frame" x="16" y="292" width="288" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="srg-Ug-BYH" secondAttribute="height" multiplier="3:1" id="NlR-6g-lJl"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="183" width="288" height="96"/>
                                 <connections>
                                     <segue destination="e6W-Lf-Op4" kind="embed" identifier="TaskDescriptionChildVC" id="KEm-VP-lhR"/>
                                 </connections>
@@ -48,15 +39,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="srg-Ug-BYH" secondAttribute="trailing" constant="16" id="3C2-he-6ja"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Vd-EM-NPj" secondAttribute="trailing" constant="67" id="53G-i7-mG1"/>
-                            <constraint firstItem="3bN-nz-BOU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="5Kc-dN-Apt"/>
-                            <constraint firstItem="srg-Ug-BYH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G13-4v-XDt"/>
-                            <constraint firstItem="3bN-nz-BOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Qj3-rM-yub"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bN-nz-BOU" secondAttribute="trailing" constant="67" id="U3s-y1-c9j"/>
-                            <constraint firstItem="1Vd-EM-NPj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="Wfo-Hu-mBX"/>
-                            <constraint firstItem="1Vd-EM-NPj" firstAttribute="top" secondItem="3bN-nz-BOU" secondAttribute="bottom" constant="8" id="dHQ-Pg-g6h"/>
-                            <constraint firstItem="srg-Ug-BYH" firstAttribute="top" secondItem="1Vd-EM-NPj" secondAttribute="bottom" constant="36" id="syp-gX-LnO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1Vd-EM-NPj" secondAttribute="trailing" constant="68" id="DCx-C9-bWr"/>
+                            <constraint firstItem="srg-Ug-BYH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="183" id="Gvp-vo-85K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3bN-nz-BOU" secondAttribute="trailing" constant="68" id="M6X-ux-A0v"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="srg-Ug-BYH" secondAttribute="trailing" constant="16" id="OTr-80-6es"/>
+                            <constraint firstItem="srg-Ug-BYH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Q40-iz-eil"/>
+                            <constraint firstItem="3bN-nz-BOU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aE8-Pi-fz7"/>
+                            <constraint firstItem="srg-Ug-BYH" firstAttribute="top" secondItem="1Vd-EM-NPj" secondAttribute="bottom" constant="8" id="cjQ-aM-BT6"/>
+                            <constraint firstItem="3bN-nz-BOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="gGP-RU-eos"/>
+                            <constraint firstItem="1Vd-EM-NPj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="68" id="jfF-7L-Xcs"/>
+                            <constraint firstItem="1Vd-EM-NPj" firstAttribute="top" secondItem="3bN-nz-BOU" secondAttribute="bottom" constant="8" id="x4n-bY-Sik"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="srg-Ug-BYH" secondAttribute="bottom" constant="289" id="zIb-4E-l2E"/>
+                            <constraint firstItem="1Vd-EM-NPj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="119" id="zsa-lU-jbC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -70,11 +64,11 @@
             <objects>
                 <viewController id="Zw1-go-OFU" customClass="DeadLineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DuD-ru-KNL">
-                        <rect key="frame" x="0.0" y="0.0" width="185" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="91"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmK-VX-geb">
-                                <rect key="frame" x="0.0" y="0.0" width="185" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="183" height="91"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,11 +92,11 @@
             <objects>
                 <viewController id="pE0-ze-mvV" customClass="TagsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qzY-qV-6b6">
-                        <rect key="frame" x="0.0" y="0.0" width="185" height="82"/>
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="56"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="place for tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GAz-ff-ptL">
-                                <rect key="frame" x="36" y="20" width="113" height="42"/>
+                                <rect key="frame" x="40" y="18" width="104.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -110,10 +104,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="GAz-ff-ptL" secondAttribute="bottom" constant="20" id="ERS-eZ-Zff"/>
-                            <constraint firstItem="GAz-ff-ptL" firstAttribute="leading" secondItem="qzY-qV-6b6" secondAttribute="leadingMargin" constant="20" id="JCF-kn-Vd1"/>
-                            <constraint firstItem="GAz-ff-ptL" firstAttribute="top" secondItem="qzY-qV-6b6" secondAttribute="topMargin" constant="20" id="iRM-Xg-SRa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="GAz-ff-ptL" secondAttribute="trailing" constant="20" id="zl8-U1-Et0"/>
+                            <constraint firstItem="GAz-ff-ptL" firstAttribute="centerX" secondItem="qzY-qV-6b6" secondAttribute="centerX" id="9Ht-qW-1gU"/>
+                            <constraint firstItem="GAz-ff-ptL" firstAttribute="centerY" secondItem="qzY-qV-6b6" secondAttribute="centerY" id="CRa-v1-9Jc"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -130,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your task here" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-WJ-6R1">
-                                <rect key="frame" x="16" y="27" width="256" height="30"/>
+                                <rect key="frame" x="43.5" y="33" width="201.5" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -141,10 +133,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="1Q4-WJ-6R1" secondAttribute="bottom" constant="39" id="GOm-Jd-ZMB"/>
-                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="leading" secondItem="eJR-f1-zGl" secondAttribute="leadingMargin" id="GjF-zb-h4J"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1Q4-WJ-6R1" secondAttribute="trailing" id="JbF-uP-FrR"/>
-                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="top" secondItem="eJR-f1-zGl" secondAttribute="topMargin" constant="27" id="ghM-tS-Ecy"/>
+                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="centerY" secondItem="eJR-f1-zGl" secondAttribute="centerY" id="1my-5K-p9b"/>
+                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="centerX" secondItem="eJR-f1-zGl" secondAttribute="centerX" id="hle-CC-O5k"/>
                         </constraints>
                     </view>
                     <connections>

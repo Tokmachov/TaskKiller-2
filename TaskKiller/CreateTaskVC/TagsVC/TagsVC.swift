@@ -17,7 +17,7 @@ class TagsVC: UIViewController, TagsReporting {
         self.tagsReceiver = receiver
     }
     override func viewDidLoad() {
-        self.viewDidLoad()
+        super.viewDidLoad()
         tagsReceiver.receiveTagsInfos(tagsSamples)
     }
 }

@@ -17,7 +17,7 @@ class DeadLineVC: UIViewController, DeadLineReporting, UIPickerViewDataSource, U
         didSet {
             deadLinePickerView.dataSource = self
             deadLinePickerView.delegate = self
-            let chosenRow = deadLinePickerView.selectedRow(inComponent: 1)
+            let chosenRow = deadLinePickerView.selectedRow(inComponent: 0)
             let chosenDeadLine = deadLinesTochose[chosenRow]
             deadLineReceiver.receiveDeadLine(chosenDeadLine)
         }

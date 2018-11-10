@@ -9,14 +9,28 @@
 import Foundation
 import CoreData
 
-struct ModelHandler: ModelInitiatable {
+struct ModelHandler: ModelInitiatable, TaskStaticInfoGetable {
     
     private var task: Task?
     
+    //MARK:ModelInitiatable
     init(taskStaticInfoSource: TaskStaticInfo) {
         self.task = nil
         self.task = createTask(from: taskStaticInfoSource)
     }
+    init(task: Task) {
+        self.task = task
+    }
+    
+    //MARK: TaskStaticInfoGetable
+    func getStaticInfo() -> TaskStaticInfo {
+        let taskDescription = task!.description
+        let initialDeadLine = TimeInterval(task!.deadLine)
+        let tagsInfoList = getTagsInfosList()
+        let taskStaticInfo = TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfoList)
+        return taskStaticInfo
+    }
+    
     private func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
@@ -28,19 +42,28 @@ struct ModelHandler: ModelInitiatable {
         task.goalDescription = taskDescription
         task.deadLine = initiaLdeadLine
         task.postponableDeadLine = postponableDeadline
-        for tag in tags {
-            task.addToTags(tag)
-        }
+        task.addToTags(tags)
         PersistanceService.saveContext()
         return task
     }
-    private func createTags(from tagInfos: [TagInfo]) -> [Tag] {
+    private func createTags(from tagInfos: TagsInfosList) -> NSSet {
         var tags = [Tag]()
-        for tagInfo in tagInfos {
+        for tagInfo in tagInfos.getTagsInfos() {
             let tag = Tag(context: PersistanceService.context)
             tag.projectName = tagInfo.projectName
             tags.append(tag)
         }
-        return tags
+        return NSSet(array: tags)
+    }
+    private func getTagsInfosList() -> TagsInfosList {
+        guard task?.tags != nil else { return TagsInfosList() }
+        var tagsInfosList = TagsInfosList()
+        for tag in task!.tags! {
+            let tagName = (tag as! Tag).projectName!
+            let  tagInfo = TagInfo(projectName: tagName)
+            tagsInfosList.addTagInfo(tagInfo)
+        }
+        return tagsInfosList
     }
 }
+

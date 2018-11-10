@@ -45,6 +45,9 @@
 		B9A8B11F2196C7D10085FCA0 /* TaskProgressTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11E2196C7D10085FCA0 /* TaskProgressTime.swift */; };
 		B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */; };
 		B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */; };
+		B9A8B1252196E2820085FCA0 /* TaskStaticInfoUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1242196E2820085FCA0 /* TaskStaticInfoUpdating.swift */; };
+		B9A8B1272196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1262196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift */; };
+		B9A8B1292196E5890085FCA0 /* TagsInfosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1282196E5890085FCA0 /* TagsInfosList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		B9A8B11E2196C7D10085FCA0 /* TaskProgressTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTime.swift; sourceTree = "<group>"; };
 		B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatting.swift; sourceTree = "<group>"; };
+		B9A8B1242196E2820085FCA0 /* TaskStaticInfoUpdating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfoUpdating.swift; sourceTree = "<group>"; };
+		B9A8B1262196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfoUpdater.swift; sourceTree = "<group>"; };
+		B9A8B1282196E5890085FCA0 /* TagsInfosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsInfosList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				B96E0EC42193DC470097AB34 /* TagInfo.swift */,
+				B9A8B1282196E5890085FCA0 /* TagsInfosList.swift */,
 				B96E0EBD2193D80A0097AB34 /* TaskStaticInfo.swift */,
 				B96E0EC22193D8820097AB34 /* TaskStaticInfoGetable.swift */,
 				B9A8B1182196C75C0085FCA0 /* TaskStaticInfoSetable.swift */,
@@ -159,6 +166,8 @@
 				B9A8B11C2196C7A40085FCA0 /* TaskProgressTimeSetable.swift */,
 				B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */,
 				B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */,
+				B9A8B1242196E2820085FCA0 /* TaskStaticInfoUpdating.swift */,
+				B9A8B1262196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift */,
 				B96E0EC62193E7740097AB34 /* ModelHandler */,
 				B9A8B11221953A5B0085FCA0 /* TaskListVC */,
 				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
@@ -361,12 +370,15 @@
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTime.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
+				B9A8B1292196E5890085FCA0 /* TagsInfosList.swift in Sources */,
 				B9A8B1192196C75C0085FCA0 /* TaskStaticInfoSetable.swift in Sources */,
 				B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */,
 				B96E0EC82193E7B80097AB34 /* ModelInitiatable.swift in Sources */,
+				B9A8B1252196E2820085FCA0 /* TaskStaticInfoUpdating.swift in Sources */,
 				B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				B96E0ED32193E8CD0097AB34 /* Task+CoreDataClass.swift in Sources */,
+				B9A8B1272196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* TaskProgressTimeSetable.swift in Sources */,
 				B96E0EB52193D6F60097AB34 /* TagInfosReceiving.swift in Sources */,
 				B96E0ED52193E8CD0097AB34 /* Tag+CoreDataClass.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 class TagsVC: UIViewController, TagsReporting {
     
-    private var tagsSamples: [TagInfo] = [TagInfo(projectName: "Work"), TagInfo(projectName: "Programming")]
+    private var tagsSamples: TagsInfosList!
     private var tagsReceiver: TagInfosReceiving!
     
     func setTagsReceiver(_ receiver: TagInfosReceiving) {
@@ -18,6 +18,7 @@ class TagsVC: UIViewController, TagsReporting {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tagsSamples.addTagInfo(TagInfo(projectName: "Some tag"))
         tagsReceiver.receiveTagsInfos(tagsSamples)
     }
 }

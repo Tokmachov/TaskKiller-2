@@ -11,10 +11,14 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     private var fetchRequestController: NSFetchedResultsController<Task>!
+    private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
+        taskStaticInfoUpdater = TaskStaticInfoUpdater()
     }
+    
     //MARK: TableViewDelegate, datasource methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchRequestController.sections!.count
@@ -24,7 +28,13 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         let sectionInfo = sections[section]
         return sectionInfo.numberOfObjects
     }
-    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
+        let taskObject = fetchRequestController.object(at: indexPath)
+        let modelHandelerForTask = ModelHandler(task: taskObject)
+        taskStaticInfoUpdater.update(taskCell, from: modelHandelerForTask)
+        return taskCell
+    }
 }
 extension TaskListVC {
     private func createFetchResultsController() -> NSFetchedResultsController<Task> {

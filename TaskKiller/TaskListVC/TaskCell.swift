@@ -21,12 +21,11 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimeSetable 
     func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
         let taskDesription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
-        let tagsInfos = staticInfo.tagsInfos.reduce("", { result, tag in
-            result + tag.projectName
-        })
+        let tagsInfoList = staticInfo.tagsInfos
+        let tagsNamesString = tagsInfoList.getStringOfAllTagNames()
         taskDescriptionLabel.text = taskDesription
         initialDeadLineLabel.text = timeIntervalFormatter.format(initialDeadLine)
-        tagsLabel.text = tagsInfos
+        tagsLabel.text = tagsNamesString
     }
     
     func setProgressTime(_ progresstime: TaskProgressTime) {

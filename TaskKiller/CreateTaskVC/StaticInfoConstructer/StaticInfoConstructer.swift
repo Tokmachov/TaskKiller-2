@@ -12,7 +12,7 @@ class StaticInfoConstructer: StaticInfoGathering {
 
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
-    private var tagsInfos: [TagInfo]!
+    private var tagsInfos: TagsInfosList!
     
     private var staticInfo: TaskStaticInfo {
         return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfos)
@@ -27,7 +27,7 @@ class StaticInfoConstructer: StaticInfoGathering {
         self.initialDeadLine = deadLine
     }
     
-    func receiveTagsInfos(_ tagsInfos: [TagInfo]) {
+    func receiveTagsInfos(_ tagsInfos: TagsInfosList) {
         self.tagsInfos = tagsInfos
     }
     

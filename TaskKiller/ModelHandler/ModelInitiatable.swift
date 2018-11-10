@@ -11,6 +11,7 @@ import CoreData
 
 protocol ModelInitiatable {
      init(taskStaticInfoSource: TaskStaticInfo)
+     init(task: Task)
 }
 
 

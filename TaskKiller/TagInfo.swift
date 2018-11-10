@@ -9,5 +9,5 @@
 import Foundation
 
 struct TagInfo {
-    var progectName: String
+    var projectName: String
 }

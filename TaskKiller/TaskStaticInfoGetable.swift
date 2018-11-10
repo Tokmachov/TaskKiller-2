@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol StaticInfoGetable {
+protocol TaskStaticInfoGetable {
     func getStaticInfo() -> TaskStaticInfo
 }

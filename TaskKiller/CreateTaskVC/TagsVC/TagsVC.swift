@@ -10,7 +10,7 @@ import UIKit
 
 class TagsVC: UIViewController, TagsReporting {
     
-    private var tagsSamples: [TagInfo] = [TagInfo(progectName: "Work"), TagInfo(progectName: "Programming")]
+    private var tagsSamples: [TagInfo] = [TagInfo(projectName: "Work"), TagInfo(projectName: "Programming")]
     private var tagsReceiver: TagInfosReceiving!
     
     func setTagsReceiver(_ receiver: TagInfosReceiving) {

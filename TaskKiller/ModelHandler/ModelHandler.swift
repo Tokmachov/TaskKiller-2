@@ -38,7 +38,7 @@ struct ModelHandler: ModelInitiatable {
         var tags = [Tag]()
         for tagInfo in tagInfos {
             let tag = Tag(context: PersistanceService.context)
-            tag.projectName = tagInfo.progectName
+            tag.projectName = tagInfo.projectName
             tags.append(tag)
         }
         return tags

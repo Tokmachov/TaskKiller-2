@@ -8,7 +8,6 @@
 
 import Foundation
 
-protocol TaskModelCreating {
-    init()
-    mutating func createTask(from taskStaticInfo: TaskStaticInfo)
+protocol TaskModelCreatingModelHandler {
+    mutating func createTask(from taskStaticInfo: TaskStaticInfo) -> Task
 }

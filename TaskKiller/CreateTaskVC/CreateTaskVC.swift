@@ -7,22 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class CreateTaskVC: UIViewController {
     
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
-    private var taskModelHandler: TaskModelCreating!
+    private var taskModelCreator: TaskModelCreatingModelHandler!
     
     
     override func viewDidLoad() {
          super.viewDidLoad()
-        taskModelHandler = TaskModelHandler()
+        taskModelCreator = TaskModelCreator()
     }
     @IBAction func go(_ sender: UIButton) {
-        let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
-        taskModelHandler.createTask(from: taskStaticInfo)
-        presentingViewController?.dismiss(animated: true, completion: nil)
+       performSegue(withIdentifier: "TaskVC", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -36,6 +35,12 @@ class CreateTaskVC: UIViewController {
         case "TagsChildVC":
             guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
             tagsVC.setTagsReceiver(taskStaticInfoSource)
+        case "TaskVC":
+            guard let taskVC = segue.destination as? TaskProgressTracking else { fatalError() }
+            let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
+            let task = taskModelCreator.createTask(from: taskStaticInfo)
+            let taskProgressTracker = TaskProgressTracker(task: task)
+            taskVC.setTaskProgressTracker(taskProgressTracker)
         default: break
         }
     }

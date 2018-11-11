@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias TaskInfoGetableHandler = WithTaskInitiatable & TaskStaticInfoGetable & TaskProgressTimesGetable
+typealias TaskProgressTrackingModelHandler = WithTaskInitiatable & TaskStaticInfoGetable & TaskProgressTimesGetable

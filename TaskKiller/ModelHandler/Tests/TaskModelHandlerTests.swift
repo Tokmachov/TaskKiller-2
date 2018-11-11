@@ -12,7 +12,8 @@ import CoreData
 
 class TaskModelHandlerTests: XCTestCase {
     
-    var taskModelHandler: TaskModelCreating & TaskInfoGetableHandler = TaskModelHandler()
+    var taskModelCreator: TaskModelCreatingModelHandler = TaskModelCreator()
+    var taskProgressTracker: TaskProgressTrackingModelHandler!
     let taskDescription = "SomeDescription"
     let taskInitialDeadline = TimeInterval(20)
     let tagInfo = TagInfo(projectName: "SomeTag")
@@ -25,13 +26,14 @@ class TaskModelHandlerTests: XCTestCase {
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: taskInitialDeadline, tagsInfos: tagsInfosList)
     }
     
-    func testThatTaskStaticInfoTakenFormTaskModelHandlerAfterCreationIsEqualToTaskModelInfoHandlerWasCreatedFrom() {
+    func testThatCorrectStaticInfoIsGottenFromTracker() {
         //Arrange
-        taskModelHandler.createTask(from: taskStaticIfo)
+        let task = taskModelCreator.createTask(from: taskStaticIfo)
+       taskProgressTracker = TaskProgressTracker(task: task)
         //Act
-        let taskStaticInfoFromModelHandler = taskModelHandler.getStaticInfo()
+        let taskStaticInfoFromTracker = taskProgressTracker.getStaticInfo()
         //Assert
-        XCTAssert(taskStaticIfo == taskStaticInfoFromModelHandler, "taskStaticIfo \(taskStaticIfo), taskStaticInfoFromModelHandler \(taskStaticInfoFromModelHandler)")
+        XCTAssert(taskStaticIfo == taskStaticInfoFromTracker, "taskStaticIfo \(taskStaticIfo), taskStaticInfoFromModelHandler \(taskStaticInfoFromTracker)")
     }
 }
 

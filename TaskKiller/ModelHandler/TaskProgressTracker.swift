@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-struct TaskModelHandler: TaskModelCreating, TaskInfoGetableHandler {
+struct TaskProgressTracker: TaskProgressTrackingModelHandler  {
   
     private var task: Task?
     
@@ -30,44 +30,10 @@ struct TaskModelHandler: TaskModelCreating, TaskInfoGetableHandler {
         let taskProgressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInprogress, currentDeadLine: postponableDeadLine)
         return taskProgressTimes
     }
-    
-    //MARK: TaskModelCreating
-    init() {
-        self.task = nil
-    }
-    mutating func createTask(from taskStaticInfo: TaskStaticInfo) {
-        let taskDescription = taskStaticInfo.taskDescription
-        let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
-        let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
-        let tagsInfos = taskStaticInfo.tagsInfos
-        let currentDate = Date() as NSDate
-        let task = Task(context: PersistanceService.context)
-        let tags = createTags(from: tagsInfos)
-        let noTimeSpentInProgress = Int16(0)
-        
-        task.goalDescription = taskDescription
-        task.deadLine = initiaLdeadLine
-        task.postponableDeadLine = postponableDeadline
-        task.addToTags(tags)
-        task.dateCreated = currentDate
-        task.timeSpentInProgress = noTimeSpentInProgress
-        
-        self.task = task
-        
-        PersistanceService.saveContext()
-    }
 }
 
-extension TaskModelHandler {
-    private func createTags(from tagInfos: TagsInfosList) -> NSSet {
-        var tags = [Tag]()
-        for tagInfo in tagInfos.getTagsInfos() {
-            let tag = Tag(context: PersistanceService.context)
-            tag.projectName = tagInfo.projectName
-            tags.append(tag)
-        }
-        return NSSet(array: tags)
-    }
+extension TaskProgressTracker {
+
     private func getTagsInfosList() -> TagsInfosList {
         guard task?.tags != nil else { return TagsInfosList() }
         var tagsInfosList = TagsInfosList()

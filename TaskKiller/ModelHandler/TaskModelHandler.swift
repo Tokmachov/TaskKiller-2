@@ -9,8 +9,6 @@
 import Foundation
 import CoreData
 
-typealias TaskInfoGetableHandler = WithTaskInitiatable & TaskStaticInfoGetable & TaskProgressTimesGetable
-
 struct TaskModelHandler: TaskModelCreating, TaskInfoGetableHandler {
   
     private var task: Task?
@@ -20,10 +18,10 @@ struct TaskModelHandler: TaskModelCreating, TaskInfoGetableHandler {
         self.task = task
     }
     func getStaticInfo() -> TaskStaticInfo {
-        let taskDescription = task!.description
+        let taskDescription = task!.goalDescription!
         let initialDeadLine = TimeInterval(task!.deadLine)
         let tagsInfoList = getTagsInfosList()
-        let taskStaticInfo = TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfoList)
+        let taskStaticInfo = TaskStaticInfo.init(taskDescription: taskDescription , initialDeadLine: initialDeadLine, tagsInfos: tagsInfoList)
         return taskStaticInfo
     }
     func getProgressTimes() -> TaskProgressTimes {

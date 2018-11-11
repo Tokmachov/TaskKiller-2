@@ -24,3 +24,9 @@ struct TagsInfosList {
         tagsInfosList.append(tagInfo)
     }
 }
+
+extension TagsInfosList: Equatable {
+    static func == (lhs: TagsInfosList, rhs: TagsInfosList) -> Bool {
+        return lhs.tagsInfosList == rhs.tagsInfosList
+    }
+}

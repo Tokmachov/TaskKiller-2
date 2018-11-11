@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct TagInfo {
+struct TagInfo: Equatable {
     var projectName: String
 }

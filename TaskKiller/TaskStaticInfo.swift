@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct TaskStaticInfo {
+struct TaskStaticInfo: Equatable {
     var taskDescription: String
     var initialDeadLine: TimeInterval
     var tagsInfos: TagsInfosList

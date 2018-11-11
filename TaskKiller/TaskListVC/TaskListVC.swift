@@ -10,9 +10,11 @@ import UIKit
 import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
+    
     private var fetchRequestController: NSFetchedResultsController<Task>!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
     private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
+    private var taskModelHandler: TaskInfoGetableHandler!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,9 +35,9 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskObject = fetchRequestController.object(at: indexPath)
-        let modelHandelerForTask = TaskModelHandler(task: taskObject)
-        taskStaticInfoUpdater.update(taskCell, from: modelHandelerForTask)
-        taskProgressTimesUpdater.update(taskCell, from: modelHandelerForTask)
+        self.taskModelHandler = TaskModelHandler(task: taskObject)
+        taskStaticInfoUpdater.update(taskCell, from: taskModelHandler)
+        taskProgressTimesUpdater.update(taskCell, from: taskModelHandler)
         return taskCell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -47,6 +49,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         default: break
         }
     }
+    
     //MARK: NSFetchedResultsControllerDelegate
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()

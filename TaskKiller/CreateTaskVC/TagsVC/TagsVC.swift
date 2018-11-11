@@ -18,6 +18,7 @@ class TagsVC: UIViewController, TagsReporting {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        tagsSamples = TagsInfosList()
         tagsSamples.addTagInfo(TagInfo(projectName: "Some tag"))
         tagsReceiver.receiveTagsInfos(tagsSamples)
     }

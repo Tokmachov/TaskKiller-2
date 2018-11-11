@@ -11,7 +11,19 @@ import UIKit
 class CreateTaskVC: UIViewController {
     
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
-    private var taskStaticInfoSource = StaticInfoConstructer()
+    private var taskStaticInfoSource = TaskStaticInfoGatherer()
+    private var taskModelHandler: TaskModelCreating!
+    
+    
+    override func viewDidLoad() {
+         super.viewDidLoad()
+        taskModelHandler = TaskModelHandler()
+    }
+    @IBAction func go(_ sender: UIButton) {
+        let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
+        taskModelHandler.createTask(from: taskStaticInfo)
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StaticInfoConstructer: StaticInfoGathering {
+class TaskStaticInfoGatherer: StaticInfoGathering {
 
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
@@ -32,6 +32,7 @@ class StaticInfoConstructer: StaticInfoGathering {
     }
     
     func getStaticInfo() -> TaskStaticInfo {
+        print("info is!!!!!!!!!!!!! \(staticInfo)")
         return staticInfo
     }
 }

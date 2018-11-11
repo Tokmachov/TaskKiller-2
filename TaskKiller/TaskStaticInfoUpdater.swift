@@ -12,7 +12,6 @@ struct TaskStaticInfoUpdater: TaskStaticInfoUpdating {
     
     func update(_ updatable: TaskStaticInfoSetable, from source: TaskStaticInfoGetable) {
         let taskStaticInfo = source.getStaticInfo()
-        var taskStaticInfoUpdatable = updatable
-        taskStaticInfoUpdatable.setTaskStaticInfo(staticInfo: taskStaticInfo)
+        updatable.setTaskStaticInfo(staticInfo: taskStaticInfo)
     }
 }

@@ -9,20 +9,16 @@
 import Foundation
 import CoreData
 
-struct ModelHandler: ModelInitiatable, TaskStaticInfoGetable {
-    
+typealias TaskInfoGetableHandler = WithTaskInitiatable & TaskStaticInfoGetable & TaskProgressTimesGetable
+
+struct TaskModelHandler: TaskModelCreating, TaskInfoGetableHandler {
+  
     private var task: Task?
     
-    //MARK:ModelInitiatable
-    init(taskStaticInfoSource: TaskStaticInfo) {
-        self.task = nil
-        self.task = createTask(from: taskStaticInfoSource)
-    }
+    //MARK: TaskInfoGetableHandler
     init(task: Task) {
         self.task = task
     }
-    
-    //MARK: TaskStaticInfoGetable
     func getStaticInfo() -> TaskStaticInfo {
         let taskDescription = task!.description
         let initialDeadLine = TimeInterval(task!.deadLine)
@@ -30,22 +26,41 @@ struct ModelHandler: ModelInitiatable, TaskStaticInfoGetable {
         let taskStaticInfo = TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfoList)
         return taskStaticInfo
     }
+    func getProgressTimes() -> TaskProgressTimes {
+        let timeSpentInprogress = TimeInterval(task!.timeSpentInProgress)
+        let postponableDeadLine = TimeInterval(task!.postponableDeadLine)
+        let taskProgressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInprogress, currentDeadLine: postponableDeadLine)
+        return taskProgressTimes
+    }
     
-    private func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
+    //MARK: TaskModelCreating
+    init() {
+        self.task = nil
+    }
+    mutating func createTask(from taskStaticInfo: TaskStaticInfo) {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
         let tagsInfos = taskStaticInfo.tagsInfos
-        
+        let currentDate = Date() as NSDate
         let task = Task(context: PersistanceService.context)
         let tags = createTags(from: tagsInfos)
+        let noTimeSpentInProgress = Int16(0)
+        
         task.goalDescription = taskDescription
         task.deadLine = initiaLdeadLine
         task.postponableDeadLine = postponableDeadline
         task.addToTags(tags)
+        task.dateCreated = currentDate
+        task.timeSpentInProgress = noTimeSpentInProgress
+        
+        self.task = task
+        
         PersistanceService.saveContext()
-        return task
     }
+}
+
+extension TaskModelHandler {
     private func createTags(from tagInfos: TagsInfosList) -> NSSet {
         var tags = [Tag]()
         for tagInfo in tagInfos.getTagsInfos() {
@@ -66,4 +81,3 @@ struct ModelHandler: ModelInitiatable, TaskStaticInfoGetable {
         return tagsInfosList
     }
 }
-

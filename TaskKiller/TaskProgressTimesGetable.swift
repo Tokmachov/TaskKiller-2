@@ -1,5 +1,5 @@
 //
-//  TaskProgressTime.swift
+//  TaskTimeProgressGetable.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 10.11.2018.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct TaskProgressTime {
-    var timeSpentInprogress: TimeInterval
-    var currentDeadLine: TimeInterval
+protocol TaskProgressTimesGetable {
+    func getProgressTimes() -> TaskProgressTimes
 }

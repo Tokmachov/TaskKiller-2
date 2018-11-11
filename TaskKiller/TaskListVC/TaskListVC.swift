@@ -12,11 +12,13 @@ import CoreData
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     private var fetchRequestController: NSFetchedResultsController<Task>!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
+    private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
         taskStaticInfoUpdater = TaskStaticInfoUpdater()
+        taskProgressTimesUpdater = TaskProgressTimesUpdater()
     }
     
     //MARK: TableViewDelegate, datasource methods
@@ -31,9 +33,38 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskObject = fetchRequestController.object(at: indexPath)
-        let modelHandelerForTask = ModelHandler(task: taskObject)
+        let modelHandelerForTask = TaskModelHandler(task: taskObject)
         taskStaticInfoUpdater.update(taskCell, from: modelHandelerForTask)
+        taskProgressTimesUpdater.update(taskCell, from: modelHandelerForTask)
         return taskCell
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let task = fetchRequestController.object(at: indexPath)
+            PersistanceService.context.delete(task)
+            PersistanceService.saveContext()
+        default: break
+        }
+    }
+    //MARK: NSFetchedResultsControllerDelegate
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .move:
+            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+        case .update:
+            tableView.rectForRow(at: indexPath!)
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
     }
 }
 extension TaskListVC {

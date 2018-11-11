@@ -1,5 +1,5 @@
 //
-//  TaskTimeProgressSetable.swift
+//  TaskModelCreating.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 10.11.2018.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol TaskProgressTimeSetable {
-    func setProgressTime(_ progresstime: TaskProgressTime)
+protocol TaskModelCreating {
+    init()
+    mutating func createTask(from taskStaticInfo: TaskStaticInfo)
 }

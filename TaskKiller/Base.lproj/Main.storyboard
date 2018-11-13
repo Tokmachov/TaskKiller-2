@@ -320,6 +320,7 @@
                     </view>
                     <connections>
                         <outlet property="initialDeadLineLabel" destination="9jZ-N1-Se9" id="Lay-wA-GIa"/>
+                        <outlet property="startButton" destination="zU9-IF-fUT" id="Whf-kC-E78"/>
                         <outlet property="tagsLabel" destination="blE-da-mVC" id="wIa-4e-It1"/>
                         <outlet property="taskDescriptionLabel" destination="P6e-tt-Sdv" id="Y7Y-Xu-7Gp"/>
                     </connections>

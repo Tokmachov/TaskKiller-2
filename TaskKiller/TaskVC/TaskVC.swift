@@ -14,10 +14,13 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var initialDeadLineLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     private var taskModelProgressEditingHandler: IInfoGetableTaskHandler!
     private var taskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
+    private var stateRepresentor: StateRepresenting!
+    private var stateRepresentingUIComponents: StateRepresentingUIComponents!
     
     //MARK: VC lifeCycle
     override func viewDidLoad() {
@@ -25,9 +28,13 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
         taskStaticInfoDisplayingUIComponents =  TaskStaticInfoDisplayingUIComponents(taskDescriptionLabel: taskDescriptionLabel,
                                                                                      initialDeadLineLabel: initialDeadLineLabel,
                                                                                      tagsLabel:            tagsLabel)
+        stateRepresentingUIComponents = StateUIComponents(startButton: startButton)
+        
         taskStaticInfoUpdater = TaskStaticInfoUpdater()
+        stateRepresentor = StateRepresentor()
         
         taskStaticInfoUpdater.update(taskStaticInfoDisplayingUIComponents, from: taskModelProgressEditingHandler)
+        stateRepresentor.makeStopped(stateRepresentingUIComponents)
     }
     
     //MARK: TaskProgressTracking

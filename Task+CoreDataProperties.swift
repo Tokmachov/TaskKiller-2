@@ -2,7 +2,7 @@
 //  Task+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by Oleg Tokmachov on 11.11.2018.
+//  Created by Oleg Tokmachov on 12.11.2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -19,7 +19,7 @@ extension Task {
 
     @NSManaged public var dateCreated: NSDate?
     @NSManaged public var deadLine: Int16
-    @NSManaged public var goalDescription: String?
+    @NSManaged public var taskDescription: String?
     @NSManaged public var postponableDeadLine: Int16
     @NSManaged public var timeSpentInProgress: Int16
     @NSManaged public var periodsOfProcess: NSSet?

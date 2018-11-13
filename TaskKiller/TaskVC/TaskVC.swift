@@ -9,13 +9,31 @@
 import UIKit
 
 
-class TaskVC: UIViewController, TaskProgressTracking  {
+class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupable  {
     
-    private var taskProgressTracker: TaskProgressTrackingModelHandler!
+    @IBOutlet weak var taskDescriptionLabel: UILabel!
+    @IBOutlet weak var initialDeadLineLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
+    
+    private var taskModelProgressEditingHandler: IInfoGetableTaskHandler!
+    private var taskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable!
+    private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
+    
+    //MARK: VC lifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        taskStaticInfoDisplayingUIComponents =  TaskStaticInfoDisplayingUIComponents(taskDescriptionLabel: taskDescriptionLabel,
+                                                                                     initialDeadLineLabel: initialDeadLineLabel,
+                                                                                     tagsLabel:            tagsLabel)
+        taskStaticInfoUpdater = TaskStaticInfoUpdater()
+        
+        taskStaticInfoUpdater.update(taskStaticInfoDisplayingUIComponents, from: taskModelProgressEditingHandler)
+    }
     
     //MARK: TaskProgressTracking
-    func setTaskProgressTracker(_ tracker: TaskProgressTrackingModelHandler) {
-        self.taskProgressTracker = tracker
+    func setTaskProgressTracker(_ tracker: IInfoGetableTaskHandler) {
+        self.taskModelProgressEditingHandler = tracker
     }
 
+    
 }

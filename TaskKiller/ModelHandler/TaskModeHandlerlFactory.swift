@@ -1,17 +1,25 @@
 //
-//  TaskModelCreator.swift
+//  TaskModelFactory.swift
 //  TaskKiller
 //
-//  Created by Oleg Tokmachov on 11.11.2018.
+//  Created by Oleg Tokmachov on 12.11.2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
 import Foundation
+import CoreData
 
-struct TaskModelCreator: TaskModelCreatingModelHandler {
+struct TaskModelFacadeFactory: ITaskModelFacadeFactory {
     
-    //MARK: TaskModelCreating
-    mutating func createTask(from taskStaticInfo: TaskStaticInfo) -> Task  {
+    static func createTaskModelHendler(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade {
+        let task = createTask(from: taskStaticInfo)
+        let taskModelHandler = TaskModelFacade(task: task)
+        return taskModelHandler
+    }
+}
+
+extension TaskModelFacadeFactory {
+    static private func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
@@ -21,7 +29,7 @@ struct TaskModelCreator: TaskModelCreatingModelHandler {
         let tags = createTags(from: tagsInfos)
         let noTimeSpentInProgress = Int16(0)
         
-        task.goalDescription = taskDescription
+        task.taskDescription = taskDescription
         task.deadLine = initiaLdeadLine
         task.postponableDeadLine = postponableDeadline
         task.addToTags(tags)
@@ -29,11 +37,10 @@ struct TaskModelCreator: TaskModelCreatingModelHandler {
         task.timeSpentInProgress = noTimeSpentInProgress
         
         PersistanceService.saveContext()
+        
         return task
     }
-}
-extension TaskModelCreator {
-    private func createTags(from tagInfos: TagsInfosList) -> NSSet {
+    static private func createTags(from tagInfos: TagsInfosList) -> NSSet {
         var tags = [Tag]()
         for tagInfo in tagInfos.getTagsInfos() {
             let tag = Tag(context: PersistanceService.context)
@@ -43,4 +50,5 @@ extension TaskModelCreator {
         return NSSet(array: tags)
     }
 }
+
 

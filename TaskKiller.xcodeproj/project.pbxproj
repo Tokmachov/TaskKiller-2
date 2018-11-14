@@ -62,6 +62,9 @@
 		B9A8B161219A83740085FCA0 /* StateUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B160219A83740085FCA0 /* StateUIComponents.swift */; };
 		B9A8B163219A84310085FCA0 /* StateRepresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B162219A84310085FCA0 /* StateRepresenting.swift */; };
 		B9A8B165219A84C50085FCA0 /* StateRepresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B164219A84C40085FCA0 /* StateRepresentor.swift */; };
+		B9A8B168219BBCC30085FCA0 /* TimeIncrementing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B167219BBCC30085FCA0 /* TimeIncrementing.swift */; };
+		B9A8B16A219BBDC20085FCA0 /* TimeIncrementsReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B169219BBDC10085FCA0 /* TimeIncrementsReceiving.swift */; };
+		B9A8B16D219BBED20085FCA0 /* TimeIncrementor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B16C219BBED20085FCA0 /* TimeIncrementor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,9 @@
 		B9A8B160219A83740085FCA0 /* StateUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUIComponents.swift; sourceTree = "<group>"; };
 		B9A8B162219A84310085FCA0 /* StateRepresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepresenting.swift; sourceTree = "<group>"; };
 		B9A8B164219A84C40085FCA0 /* StateRepresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepresentor.swift; sourceTree = "<group>"; };
+		B9A8B167219BBCC30085FCA0 /* TimeIncrementing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIncrementing.swift; sourceTree = "<group>"; };
+		B9A8B169219BBDC10085FCA0 /* TimeIncrementsReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIncrementsReceiving.swift; sourceTree = "<group>"; };
+		B9A8B16C219BBED20085FCA0 /* TimeIncrementor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIncrementor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +346,7 @@
 				B9A8B142219843980085FCA0 /* TaskVC.swift */,
 				B9A8B14721984C6F0085FCA0 /* TaskProgressTracking.swift */,
 				B9A8B14921991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift */,
+				B9A8B16B219BBE680085FCA0 /* TimeIncrementor */,
 				B9A8B166219A84FE0085FCA0 /* StateRepresentation */,
 			);
 			path = TaskVC;
@@ -354,6 +361,16 @@
 				B9A8B164219A84C40085FCA0 /* StateRepresentor.swift */,
 			);
 			path = StateRepresentation;
+			sourceTree = "<group>";
+		};
+		B9A8B16B219BBE680085FCA0 /* TimeIncrementor */ = {
+			isa = PBXGroup;
+			children = (
+				B9A8B167219BBCC30085FCA0 /* TimeIncrementing.swift */,
+				B9A8B169219BBDC10085FCA0 /* TimeIncrementsReceiving.swift */,
+				B9A8B16C219BBED20085FCA0 /* TimeIncrementor.swift */,
+			);
+			path = TimeIncrementor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +485,7 @@
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
+				B9A8B168219BBCC30085FCA0 /* TimeIncrementing.swift in Sources */,
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
@@ -504,10 +522,12 @@
 				B9A8B14821984C6F0085FCA0 /* TaskProgressTracking.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
 				B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */,
+				B9A8B16A219BBDC20085FCA0 /* TimeIncrementsReceiving.swift in Sources */,
 				B96E0ED22193E8CD0097AB34 /* Period+CoreDataProperties.swift in Sources */,
 				B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */,
 				B96E0ED42193E8CD0097AB34 /* Task+CoreDataProperties.swift in Sources */,
 				B96E0EC02193D82C0097AB34 /* TaskStaticInfoGatherer.swift in Sources */,
+				B9A8B16D219BBED20085FCA0 /* TimeIncrementor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,6 @@
 
 import Foundation
 
-protocol Alarmable {
+protocol Alarmable: AnyObject {
     func alarmDidFire()
 }

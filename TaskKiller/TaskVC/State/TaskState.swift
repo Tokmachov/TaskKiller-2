@@ -9,13 +9,12 @@
 import Foundation
 
 struct TaskState: TaskStatable, TaskProgressTimesGetable {
-    
+ 
     private var state: States
     private var timeSpentInProgress: TimeInterval
     private var postponableDeadLine: TimeInterval
-    
-    private var startDate: Date?
-    private var endDate: Date?
+    private weak var postponableDeadLineChangesReceiver: PostponableDeadlineChangesReceiving!
+    private weak var currentTimeSpentInProgressReceiving: CurrentTimeSpentInProgressReceiving!
     
     private var progressTimes: TaskProgressTimes {
         set {
@@ -28,12 +27,13 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable {
     }
     
     //MARK: TaskStatable
-    init(taskProgressTimes: TaskProgressTimes) {
+    init(taskProgressTimes: TaskProgressTimes, postponableDeadLineChangesReceiver: PostponableDeadlineChangesReceiving, currentTimeSpentInProgressReceiver currentTimeSpentInProgressReceiving: CurrentTimeSpentInProgressReceiving) {
         self.timeSpentInProgress = taskProgressTimes.timeSpentInprogress
         self.postponableDeadLine = taskProgressTimes.currentDeadLine
+        self.postponableDeadLineChangesReceiver = postponableDeadLineChangesReceiver
+        self.currentTimeSpentInProgressReceiving = currentTimeSpentInProgressReceiving
         self.state = States.hasNotStarted
     }
-    
     
     mutating func changeState() {
         switch state {
@@ -54,22 +54,20 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable {
     
     mutating func incrementTimeSpentInProcess(by increment: TimeInterval) {
         self.timeSpentInProgress += increment
+        self.currentTimeSpentInProgressReceiving.receiveCurrentTimeSpentInProgress(timeSpentInProgress)
     }
     
-    mutating func setNewDeadLine(_ deadLine: TimeInterval) {
+    mutating func setPostponableDeadLine(_ deadLine: TimeInterval) {
         self.postponableDeadLine = deadLine
+        self.postponableDeadLineChangesReceiver.postponableDeadLineDidchanged(deadLine)
+    }
+    
+    func getCurrentTimeSpentInProgress() -> TimeInterval {
+        return timeSpentInProgress
     }
     
     //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {
         return progressTimes
-    }
-    
-    private mutating func setStartDate() {
-        self.startDate = Date()
-    }
-    
-    private mutating func setEndDate() {
-        self.endDate = Date()
     }
 }

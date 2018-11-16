@@ -9,7 +9,7 @@
 import UIKit
 
 
-class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupable, TimeIncrementsReceiving {
+class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupable, TimeIncrementsReceiving, Alarmable, PostponableDeadlineChangesReceiving, CurrentTimeSpentInProgressReceiving {
     
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var initialDeadLineLabel: UILabel!
@@ -20,7 +20,7 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     private var taskModelProgressEditingHandler: IInfoGetableTaskHandler! {
         didSet {
             let progressTimes = taskModelProgressEditingHandler.getProgressTimes()
-            taskState = TaskState(taskProgressTimes: progressTimes)
+            taskState = TaskState(taskProgressTimes: progressTimes, postponableDeadLineChangesReceiver: self, currentTimeSpentInProgressReceiver: self)
         }
     }
     private var taskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable!
@@ -28,6 +28,7 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     private var stateRepresentor: StateRepresenting!
     private var stateRepresentingUIComponents: StateRepresentingUIComponents!
     private var timeIncrementor: TimeIncrementing!
+    private var alarmClock: Alarming!
     
     //MARK: VC lifeCycle
     override func viewDidLoad() {
@@ -41,6 +42,7 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
         taskStaticInfoUpdater = TaskStaticInfoUpdater()
         stateRepresentor = StateRepresentor()
         timeIncrementor = TimeIncrementor(timeIncrementsReceiver: self)
+        alarmClock = AlarmClock(alarmReceiver: self)
         
         taskStaticInfoUpdater.update(taskStaticInfoDisplayingUIComponents, from: taskModelProgressEditingHandler)
         stateRepresentor.makeStopped(stateRepresentingUIComponents)
@@ -64,7 +66,22 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     
     //MARK: TimeIncrementsReceiving
     func receiveTimeIncrement(_ incrementValue: TimeInterval) {
-        taskState.incrementTimeSpentInProcess(by: incrementValue)
+        self.taskState.incrementTimeSpentInProcess(by: incrementValue)
+    }
+    
+    //MARK: Alarmable
+    func alarmDidFire() {
+        timeIncrementor.stop()
+    }
+    
+    //MARK: PostponableDeadLineChangesReceiving
+    func postponableDeadLineDidchanged(_ deadline: TimeInterval) {
+        alarmClock.setTimeWhenFires(deadline)
+    }
+    
+    //MARK: CurrentTimeSpentInProgressReceiving
+    func receiveCurrentTimeSpentInProgress(_ time: TimeInterval) {
+        alarmClock.updateCurrentTime(time)
     }
 }
 

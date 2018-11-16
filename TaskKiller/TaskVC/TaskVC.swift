@@ -15,6 +15,8 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     @IBOutlet weak var initialDeadLineLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var timeSpentInProgressLabel: UILabel!
+    @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
     
     private var taskState: TaskStatable!
     private var taskModelProgressEditingHandler: IInfoGetableTaskHandler! {

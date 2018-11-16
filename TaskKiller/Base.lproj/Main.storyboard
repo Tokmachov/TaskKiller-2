@@ -323,6 +323,8 @@
                         <outlet property="startButton" destination="zU9-IF-fUT" id="Whf-kC-E78"/>
                         <outlet property="tagsLabel" destination="blE-da-mVC" id="wIa-4e-It1"/>
                         <outlet property="taskDescriptionLabel" destination="P6e-tt-Sdv" id="Y7Y-Xu-7Gp"/>
+                        <outlet property="timeSpentInProgressLabel" destination="gWD-Pj-uA0" id="8g2-0f-iGo"/>
+                        <outlet property="timeToNextDeadlineLabel" destination="l4W-WO-EpF" id="3LY-Mz-X9q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVB-wm-ePC" userLabel="First Responder" sceneMemberID="firstResponder"/>

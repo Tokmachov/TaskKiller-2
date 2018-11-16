@@ -11,4 +11,7 @@ import Foundation
 struct TaskProgressTimes {
     var timeSpentInprogress: TimeInterval
     var currentDeadLine: TimeInterval
+    var timeLeftToCurrentDeadLine: TimeInterval {
+        return currentDeadLine - timeSpentInprogress
+    }
 }

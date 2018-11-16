@@ -29,6 +29,8 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
     private var stateRepresentor: StateRepresenting!
     private var stateRepresentingUIComponents: StateRepresentingUIComponents!
+    private var taskProgressTimesDisplayingUIComponents: TaskProgressTimesSetable!
+    private var taskProgressTimesDisplayUpdater: TaskProgressTimesUpdating!
     private var timeIncrementor: TimeIncrementing!
     private var alarmClock: Alarming!
     
@@ -43,6 +45,11 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
         
         taskStaticInfoUpdater = TaskStaticInfoUpdater()
         stateRepresentor = StateRepresentor()
+        taskProgressTimesDisplayingUIComponents = TaskProgressTimesDisplayingUIComponents(timeSpentInprogressDisplay: timeSpentInProgressLabel,
+                                                                                          timeLeftToNextDeadLineDisplay: timeToNextDeadlineLabel)
+        
+        taskProgressTimesDisplayUpdater = TaskProgressTimesUpdater()
+        
         timeIncrementor = TimeIncrementor(timeIncrementsReceiver: self)
         alarmClock = AlarmClock(alarmReceiver: self)
         

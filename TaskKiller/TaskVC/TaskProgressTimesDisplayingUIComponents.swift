@@ -8,9 +8,7 @@
 
 import UIKit
 
-struct TimeChangesDiplayingUIComponents: TaskProgressTimesSetable {
-    
-    
+struct TaskProgressTimesDisplayingUIComponents: TaskProgressTimesSetable {
     
     private weak var timeSpentInprogressDisplay: UILabel!
     private weak var timeLeftToNextDeadLineDisplay: UILabel!

@@ -9,12 +9,10 @@
 import Foundation
 
 struct TaskState: TaskStatable, TaskProgressTimesGetable {
- 
+   
     private var state: States
     private var timeSpentInProgress: TimeInterval
     private var postponableDeadLine: TimeInterval
-    private weak var postponableDeadLineChangesReceiver: PostponableDeadlineChangesReceiving!
-    private weak var currentTimeSpentInProgressReceiving: CurrentTimeSpentInProgressReceiving!
     
     private var progressTimes: TaskProgressTimes {
         set {
@@ -27,11 +25,9 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable {
     }
     
     //MARK: TaskStatable
-    init(taskProgressTimes: TaskProgressTimes, postponableDeadLineChangesReceiver: PostponableDeadlineChangesReceiving, currentTimeSpentInProgressReceiver currentTimeSpentInProgressReceiving: CurrentTimeSpentInProgressReceiving) {
+    init(taskProgressTimes: TaskProgressTimes) {
         self.timeSpentInProgress = taskProgressTimes.timeSpentInprogress
         self.postponableDeadLine = taskProgressTimes.currentDeadLine
-        self.postponableDeadLineChangesReceiver = postponableDeadLineChangesReceiver
-        self.currentTimeSpentInProgressReceiving = currentTimeSpentInProgressReceiving
         self.state = States.hasNotStarted
     }
     
@@ -51,21 +47,13 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable {
     func getCurrentState() -> States {
         return state
     }
-    
-    mutating func incrementTimeSpentInProcess(by increment: TimeInterval) {
-        self.timeSpentInProgress += increment
-        self.currentTimeSpentInProgressReceiving.receiveCurrentTimeSpentInProgress(timeSpentInProgress)
+    mutating func updateTimeSpentInProgress(_ newTime: TimeInterval) {
+        self.timeSpentInProgress = newTime
     }
     
     mutating func setPostponableDeadLine(_ deadLine: TimeInterval) {
         self.postponableDeadLine = deadLine
-        self.postponableDeadLineChangesReceiver.postponableDeadLineDidchanged(deadLine)
     }
-    
-    func getCurrentTimeSpentInProgress() -> TimeInterval {
-        return timeSpentInProgress
-    }
-    
     //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {
         return progressTimes

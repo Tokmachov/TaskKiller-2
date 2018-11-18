@@ -301,6 +301,9 @@
                                 <rect key="frame" x="120" y="385" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Started"/>
+                                <connections>
+                                    <action selector="playButtonPressed" destination="vDa-62-zss" eventType="touchUpInside" id="ySp-9Q-9yi"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-lT-KFS">
                                 <rect key="frame" x="120" y="423" width="76" height="30"/>

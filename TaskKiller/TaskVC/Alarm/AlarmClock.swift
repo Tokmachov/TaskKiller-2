@@ -9,23 +9,20 @@
 import Foundation
 
 struct AlarmClock: Alarming {
+   
+    private var fireTime: TimeInterval!
+    private var currentTime: TimeInterval!
     
-    private weak var alarmReceiver: Alarmable!
-    private var currentTime: TimeInterval! {
-        didSet {
-            if currentTime == timeWhenFires { alarmReceiver.alarmDidFire() }
-        }
+    init(fireTime: TimeInterval) {
+        self.fireTime = fireTime
     }
-    private var timeWhenFires: TimeInterval!
-    init(alarmReceiver: Alarmable) {
-        self.alarmReceiver = alarmReceiver
-    }
-    
-    mutating func updateCurrentTime(_ time: TimeInterval) {
-        currentTime = time
-    }
-    
+  
     mutating func setTimeWhenFires(_ time: TimeInterval) {
-        timeWhenFires = time
+        fireTime = time
+    }
+  
+    mutating func updateCurrentTime(_ time: TimeInterval, fireAction: () -> ()) {
+        currentTime = time
+        if fireTime >= time { fireAction() }
     }
 }

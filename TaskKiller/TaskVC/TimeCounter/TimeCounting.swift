@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol TimeIncrementing {    
-    init(timeIncrementsReceiver: TimeIncrementsReceiving)
-    mutating func start()
+protocol TimeCounting {    
+    init(initialTimeSpentInProgress: TimeInterval, timeSpentInprogressReceiver: TimeSpentInProgressReceiving)
+    func start()
     func stop()
 }

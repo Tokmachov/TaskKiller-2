@@ -10,7 +10,8 @@ import Foundation
 
 
 protocol Alarming {
-    init(alarmReceiver: Alarmable)
-    mutating func updateCurrentTime(_ time: TimeInterval)
+    
+    init(fireTime: TimeInterval)
+    mutating func updateCurrentTime(_ time: TimeInterval, fireAction: ()->())
     mutating func setTimeWhenFires(_ time: TimeInterval)
 }

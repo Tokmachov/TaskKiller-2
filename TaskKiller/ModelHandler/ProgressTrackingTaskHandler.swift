@@ -7,15 +7,20 @@
 //
 
 import Foundation
+typealias  IProgressTrackingTaskHandler = TaskHandling & TaskProgressTimesGetable & TaskStaticInfoGetable & TaskProgressSaving
 
-struct InfoGetableTaskHandler: IInfoGetableTaskHandler {
+struct ProgressTrackingTaskHandler: IProgressTrackingTaskHandler {
+    
+    
     
     private let taskModelFacade: ITaskModelFacade
     
+    //MARK:TaskHandling
     init(taskModelFacade: ITaskModelFacade) {
         self.taskModelFacade = taskModelFacade
     }
     
+    //MARK: TaskStaticInfoGetable
     func getStaticInfo() -> TaskStaticInfo {
         let taskDescription = taskModelFacade.getTaskDescription()
         let deadLine = taskModelFacade.getDeadLine()
@@ -23,11 +28,15 @@ struct InfoGetableTaskHandler: IInfoGetableTaskHandler {
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tagsInfos: tagsInfosList)
     }
     
+    //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {
         let timeSpentInProgress = taskModelFacade.getTimeSpentInProgress()
         let postponableDeadLines = taskModelFacade.getPostponableDeadLine()
         return TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, currentDeadLine: postponableDeadLines)
     }
     
-    
+    //MARK: TaskProgressSaving
+    func saveTaskProgress(progressTimes: TaskProgressTimes, progressPeriod: TaskProgressPeriod) {
+        taskModelFacade.saveProgress(progressTimes: progressTimes, taskProgressPeriod: progressPeriod)
+    }
 }

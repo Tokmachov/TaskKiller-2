@@ -9,7 +9,7 @@
 import Foundation
 
 struct TaskModelFacade: ITaskModelFacade {
-    
+ 
     private var task: Task
     init(task: Task) {
         self.task = task
@@ -37,5 +37,25 @@ struct TaskModelFacade: ITaskModelFacade {
             tagsInfosList.addTagInfo(tagInfo)
         }
         return tagsInfosList
+    }
+    func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod) {
+        let timeSpentInProgress = Int16(progressTimes.timeSpentInprogress)
+        let postponableDeadline = Int16(progressTimes.currentDeadLine)
+        let period = createPeriod(from: taskProgressPeriod)
+        task.timeSpentInProgress = timeSpentInProgress
+        task.postponableDeadLine = postponableDeadline
+        task.addToPeriodsOfProcess(period)
+        PersistanceService.saveContext()
+    }
+}
+
+extension TaskModelFacade {
+    private func createPeriod(from taskProgressPeriod: TaskProgressPeriod) -> Period {
+        let period = Period(context: PersistanceService.context)
+        let dateStarted = taskProgressPeriod.dateStarted as NSDate
+        let dateFinished = taskProgressPeriod.dateEnded as NSDate
+        period.dateStarted = dateStarted
+        period.dateFinished = dateFinished
+        return period
     }
 }

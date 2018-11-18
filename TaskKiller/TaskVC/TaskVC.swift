@@ -21,7 +21,7 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     private let possibleDeadlines: [TimeInterval] = [10, 20, 30]
     
     private var taskState: (TaskStatable & TaskProgressTimesGetable)!
-    private var taskModelProgressEditingHandler: IInfoGetableTaskHandler! {
+    private var taskModelProgressEditingHandler: IProgressTrackingTaskHandler! {
         didSet {
             let progressTimes = taskModelProgressEditingHandler.getProgressTimes()
             taskState = TaskState(taskProgressTimes: progressTimes)
@@ -93,7 +93,7 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     }
     
     //MARK: TaskProgressTracking
-    func setTaskProgressTracker(_ tracker: IInfoGetableTaskHandler) {
+    func setTaskProgressTracker(_ tracker: IProgressTrackingTaskHandler) {
         self.taskModelProgressEditingHandler = tracker
     }
 }

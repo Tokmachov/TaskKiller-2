@@ -9,6 +9,6 @@
 import Foundation
 import CoreData
 
-protocol IInfoGetableTaskHandler: TaskStaticInfoGetable, TaskProgressTimesGetable {
+protocol TaskHandling {
     init(taskModelFacade: ITaskModelFacade)
 }

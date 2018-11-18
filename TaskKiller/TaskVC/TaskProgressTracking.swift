@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TaskModelHandlingProgressEditingDecoratorSetupable {
-    func setTaskProgressTracker(_ tracker: IInfoGetableTaskHandler)
+    func setTaskProgressTracker(_ tracker: IProgressTrackingTaskHandler)
 }

@@ -21,4 +21,6 @@ protocol ITaskModelFacade {
     func getTimeSpentInProgress() -> TimeInterval
     
     func getTagsInfosList() -> TagsInfosList
+    
+    func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
 }

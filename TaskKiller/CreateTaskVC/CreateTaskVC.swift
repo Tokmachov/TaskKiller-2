@@ -33,7 +33,7 @@ class CreateTaskVC: UIViewController {
             guard let taskVC = segue.destination as? TaskModelHandlingProgressEditingDecoratorSetupable else { fatalError() }
             let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
             let taskModelFacade = TaskModelFacadeFactory.createTaskModelHendler(from: taskStaticInfo)
-            let taskProgressTracker = InfoGetableTaskHandler(taskModelFacade: taskModelFacade)
+            let taskProgressTracker = ProgressTrackingTaskHandler(taskModelFacade: taskModelFacade)
             taskVC.setTaskProgressTracker(taskProgressTracker)
         default: break
         }

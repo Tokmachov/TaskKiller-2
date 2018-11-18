@@ -51,8 +51,8 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable {
         self.timeSpentInProgress = newTime
     }
     
-    mutating func setPostponableDeadLine(_ deadLine: TimeInterval) {
-        self.postponableDeadLine = deadLine
+    mutating func postponeDeadLine(for time: TimeInterval) {
+        self.postponableDeadLine += time
     }
     //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {

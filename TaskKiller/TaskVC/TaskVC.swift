@@ -18,6 +18,8 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
     
+    private let possibleDeadlines: [TimeInterval] = [10, 20, 30]
+    
     private var taskState: (TaskStatable & TaskProgressTimesGetable)!
     private var taskModelProgressEditingHandler: IInfoGetableTaskHandler! {
         didSet {
@@ -33,7 +35,12 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     private var taskProgressTimesDisplayUpdater: TaskProgressTimesUpdating!
     private var timeCounter: TimeCounting!
     private var alarmClock: Alarming!
-    
+    private var deadLinePostponingVC: DeadlinePostponingVC!
+    private lazy var postponeDeadline: (TimeInterval) -> () = { [weak self] postponeTime in
+        guard let self = self else { fatalError() }
+        self.receivePostponeTime(postponeTime)
+    }
+    private var deadlinePostponingVC: DeadlinePostponingVC!
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +56,8 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
         taskProgressTimesDisplayUpdater = TaskProgressTimesUpdater()
         timeCounter = createTimeCounter(initialTimeSpecntInProgressSource: taskState, timeSpentInProgressReceiver: self)
         alarmClock = createAlarmClock(timeWhenFiresSource: taskState)
-        
+        let deadLinePostponingVCFactory = DeadlinePostponingVCFactory(possibleDeadlines: possibleDeadlines, postponeAction: postponeDeadline, finishAction: {})
+        deadLinePostponingVC = deadLinePostponingVCFactory.createDeadlinePostponingVC()
         taskStaticInfoUpdater.update(taskStaticInfoDisplayingUIComponents, from: taskModelProgressEditingHandler)
         stateRepresentor.makeStopped(stateRepresentingUIComponents)
         taskProgressTimesDisplayUpdater.update(taskProgressTimesDisplayingUIComponents, from: taskState)
@@ -69,15 +77,18 @@ class TaskVC: UIViewController, TaskModelHandlingProgressEditingDecoratorSetupab
     
     //MARK: TimeSpentInProgressReceiving
     func receiveTime(_ timeSpentInProgress: TimeInterval) {
-        alarmClock.updateCurrentTime(timeSpentInProgress, fireAction: {  self.timeCounter.stop() } )
+        alarmClock.updateCurrentTime(timeSpentInProgress, fireAction: {  
+            self.timeCounter.stop()
+            self.present(deadLinePostponingVC, animated: true, completion: nil)
+        })
         taskState.updateTimeSpentInProgress(timeSpentInProgress)
         taskProgressTimesDisplayUpdater.update(taskProgressTimesDisplayingUIComponents, from: taskState)
     }
     
     //MARK: PostponableDeadlineReceiving
-    func receivePostponableDeadline(_ newDeadLine: TimeInterval) {
-        alarmClock.setTimeWhenFires(newDeadLine)
-        taskState.setPostponableDeadLine(newDeadLine)
+    func receivePostponeTime(_ postponeTime: TimeInterval) {
+        alarmClock.postponeDeadLine(for: postponeTime)
+        taskState.postponeDeadLine(for: postponeTime)
         timeCounter.start()
     }
     

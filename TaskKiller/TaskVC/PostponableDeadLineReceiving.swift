@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PostponableDeadlineReceiving {
-    func receivePostponableDeadline(_ newDeadLine: TimeInterval)
+    func receivePostponeTime(_ postponeTime: TimeInterval)
 }

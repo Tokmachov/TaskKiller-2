@@ -13,7 +13,7 @@ protocol TaskStatable {
     init(taskProgressTimes: TaskProgressTimes)
     
     mutating func updateTimeSpentInProgress(_ newTime: TimeInterval)
-    mutating func setPostponableDeadLine(_ deadLine: TimeInterval)
+    mutating func postponeDeadLine(for time: TimeInterval)
     mutating func changeState()
     func getCurrentState() -> States
 }

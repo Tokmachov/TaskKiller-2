@@ -17,12 +17,12 @@ struct AlarmClock: Alarming {
         self.fireTime = fireTime
     }
   
-    mutating func setTimeWhenFires(_ time: TimeInterval) {
-        fireTime = time
+    mutating func postponeDeadLine(for time: TimeInterval) {
+        fireTime += time
     }
   
     mutating func updateCurrentTime(_ time: TimeInterval, fireAction: () -> ()) {
         currentTime = time
-        if fireTime >= time { fireAction() }
+        if fireTime <= time { fireAction() }
     }
 }

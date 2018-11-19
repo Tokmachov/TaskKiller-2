@@ -49,15 +49,15 @@
 		B9A8B12F2196FF140085FCA0 /* TaskProgressTimesUpdating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B12E2196FF140085FCA0 /* TaskProgressTimesUpdating.swift */; };
 		B9A8B1312196FF530085FCA0 /* TaskProgressTimesUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1302196FF530085FCA0 /* TaskProgressTimesUpdater.swift */; };
 		B9A8B143219843980085FCA0 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B142219843980085FCA0 /* TaskVC.swift */; };
-		B9A8B14821984C6F0085FCA0 /* TaskProgressTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14721984C6F0085FCA0 /* TaskProgressTracking.swift */; };
+		B9A8B14821984C6F0085FCA0 /* ITaskProgressTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14721984C6F0085FCA0 /* ITaskProgressTrackingVC.swift */; };
 		B9A8B14A21991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14921991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift */; };
 		B9A8B14C21991FB20085FCA0 /* UILableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14B21991FB20085FCA0 /* UILableExtension.swift */; };
 		B9A8B14E219929E50085FCA0 /* ITaskModelFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14D219929E50085FCA0 /* ITaskModelFacade.swift */; };
 		B9A8B15021992C260085FCA0 /* TaskModelFacadeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14F21992C260085FCA0 /* TaskModelFacadeFactory.swift */; };
 		B9A8B15221992D270085FCA0 /* ITaskModelFacadeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15121992D270085FCA0 /* ITaskModelFacadeFactory.swift */; };
 		B9A8B15421992ECD0085FCA0 /* TaskModelFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15321992ECD0085FCA0 /* TaskModelFacade.swift */; };
-		B9A8B1562199326C0085FCA0 /* TaskHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1552199326C0085FCA0 /* TaskHandling.swift */; };
-		B9A8B15D219A74B90085FCA0 /* ProgressTrackingTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15C219A74B90085FCA0 /* ProgressTrackingTaskHandler.swift */; };
+		B9A8B1562199326C0085FCA0 /* TaskModelHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1552199326C0085FCA0 /* TaskModelHandling.swift */; };
+		B9A8B15D219A74B90085FCA0 /* TaskProgressTrackingModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15C219A74B90085FCA0 /* TaskProgressTrackingModelHandler.swift */; };
 		B9A8B15F219A826F0085FCA0 /* StateRepresentingUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15E219A826F0085FCA0 /* StateRepresentingUIComponents.swift */; };
 		B9A8B161219A83740085FCA0 /* StateUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B160219A83740085FCA0 /* StateUIComponents.swift */; };
 		B9A8B163219A84310085FCA0 /* StateRepresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B162219A84310085FCA0 /* StateRepresenting.swift */; };
@@ -79,6 +79,9 @@
 		B9A8B18F21A1E5AC0085FCA0 /* TaskProgressInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18E21A1E5AC0085FCA0 /* TaskProgressInfo.swift */; };
 		B9A8B19221A1E61E0085FCA0 /* TaskProgressInfoGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19121A1E61E0085FCA0 /* TaskProgressInfoGetable.swift */; };
 		B9A8B19621A2B6250085FCA0 /* TaskModelHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19321A2B5EE0085FCA0 /* TaskModelHandlerTests.swift */; };
+		B9A8B19821A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19721A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift */; };
+		B9A8B19B21A2D6C90085FCA0 /* ITaskProgressTrackingModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19A21A2D6C90085FCA0 /* ITaskProgressTrackingModelHandler.swift */; };
+		B9A8B19D21A2D70D0085FCA0 /* ITaskInfoGetableModelHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19C21A2D70D0085FCA0 /* ITaskInfoGetableModelHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,18 +147,18 @@
 		B9A8B13321970AB80085FCA0 /* TaskKiller 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 6.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B13D21983DFF0085FCA0 /* TaskKiller 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 7.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B142219843980085FCA0 /* TaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskVC.swift; sourceTree = "<group>"; };
-		B9A8B14721984C6F0085FCA0 /* TaskProgressTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTracking.swift; sourceTree = "<group>"; };
+		B9A8B14721984C6F0085FCA0 /* ITaskProgressTrackingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITaskProgressTrackingVC.swift; sourceTree = "<group>"; };
 		B9A8B14921991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfoDisplayingUIComponents.swift; sourceTree = "<group>"; };
 		B9A8B14B21991FB20085FCA0 /* UILableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILableExtension.swift; sourceTree = "<group>"; };
 		B9A8B14D219929E50085FCA0 /* ITaskModelFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITaskModelFacade.swift; sourceTree = "<group>"; };
 		B9A8B14F21992C260085FCA0 /* TaskModelFacadeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelFacadeFactory.swift; sourceTree = "<group>"; };
 		B9A8B15121992D270085FCA0 /* ITaskModelFacadeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITaskModelFacadeFactory.swift; sourceTree = "<group>"; };
 		B9A8B15321992ECD0085FCA0 /* TaskModelFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelFacade.swift; sourceTree = "<group>"; };
-		B9A8B1552199326C0085FCA0 /* TaskHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHandling.swift; sourceTree = "<group>"; };
+		B9A8B1552199326C0085FCA0 /* TaskModelHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelHandling.swift; sourceTree = "<group>"; };
 		B9A8B1592199359B0085FCA0 /* TaskKiller 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 8.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B15A219936070085FCA0 /* TaskKiller 9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 9.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B15B219936310085FCA0 /* TaskKiller 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 10.xcdatamodel"; sourceTree = "<group>"; };
-		B9A8B15C219A74B90085FCA0 /* ProgressTrackingTaskHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackingTaskHandler.swift; sourceTree = "<group>"; };
+		B9A8B15C219A74B90085FCA0 /* TaskProgressTrackingModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTrackingModelHandler.swift; sourceTree = "<group>"; };
 		B9A8B15E219A826F0085FCA0 /* StateRepresentingUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepresentingUIComponents.swift; sourceTree = "<group>"; };
 		B9A8B160219A83740085FCA0 /* StateUIComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateUIComponents.swift; sourceTree = "<group>"; };
 		B9A8B162219A84310085FCA0 /* StateRepresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateRepresenting.swift; sourceTree = "<group>"; };
@@ -177,6 +180,9 @@
 		B9A8B18E21A1E5AC0085FCA0 /* TaskProgressInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressInfo.swift; sourceTree = "<group>"; };
 		B9A8B19121A1E61E0085FCA0 /* TaskProgressInfoGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressInfoGetable.swift; sourceTree = "<group>"; };
 		B9A8B19321A2B5EE0085FCA0 /* TaskModelHandlerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModelHandlerTests.swift; sourceTree = "<group>"; };
+		B9A8B19721A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskInfoGetableModelHandler.swift; sourceTree = "<group>"; };
+		B9A8B19A21A2D6C90085FCA0 /* ITaskProgressTrackingModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITaskProgressTrackingModelHandler.swift; sourceTree = "<group>"; };
+		B9A8B19C21A2D70D0085FCA0 /* ITaskInfoGetableModelHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ITaskInfoGetableModelHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,13 +315,12 @@
 		B96E0EC62193E7740097AB34 /* ModelHandler */ = {
 			isa = PBXGroup;
 			children = (
-				B9A8B14D219929E50085FCA0 /* ITaskModelFacade.swift */,
-				B9A8B15321992ECD0085FCA0 /* TaskModelFacade.swift */,
-				B9A8B15121992D270085FCA0 /* ITaskModelFacadeFactory.swift */,
 				B9A8B14F21992C260085FCA0 /* TaskModelFacadeFactory.swift */,
-				B9A8B1552199326C0085FCA0 /* TaskHandling.swift */,
+				B9A8B15321992ECD0085FCA0 /* TaskModelFacade.swift */,
 				B9A8B18C21A1E0E50085FCA0 /* TaskProgressSaving.swift */,
-				B9A8B15C219A74B90085FCA0 /* ProgressTrackingTaskHandler.swift */,
+				B9A8B19721A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift */,
+				B9A8B15C219A74B90085FCA0 /* TaskProgressTrackingModelHandler.swift */,
+				B9A8B19921A2D6800085FCA0 /* ModelHandlerInterfaces */,
 				B9A8B19321A2B5EE0085FCA0 /* TaskModelHandlerTests.swift */,
 			);
 			path = ModelHandler;
@@ -375,16 +380,16 @@
 		B9A8B14621984A740085FCA0 /* TaskVC */ = {
 			isa = PBXGroup;
 			children = (
-				B9A8B14721984C6F0085FCA0 /* TaskProgressTracking.swift */,
+				B9A8B14721984C6F0085FCA0 /* ITaskProgressTrackingVC.swift */,
 				B9A8B142219843980085FCA0 /* TaskVC.swift */,
 				B9A8B18521A1C1AA0085FCA0 /* PostponableDeadLineReceiving.swift */,
 				B9A8B14921991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift */,
 				B9A8B183219E68D90085FCA0 /* TaskProgressTimesDisplayingUIComponents.swift */,
-				B9A8B17B219D20130085FCA0 /* Alarm */,
 				B9A8B17C219D20230085FCA0 /* State */,
+				B9A8B17B219D20130085FCA0 /* Alarm */,
 				B9A8B16B219BBE680085FCA0 /* TimeCounter */,
 				B9A8B166219A84FE0085FCA0 /* StateRepresentation */,
-				B9A8B18921A1C5F00085FCA0 /* PosponableDeadLineVC */,
+				B9A8B18921A1C5F00085FCA0 /* PosponingDeadLineVC */,
 			);
 			path = TaskVC;
 			sourceTree = "<group>";
@@ -437,13 +442,13 @@
 			path = State;
 			sourceTree = "<group>";
 		};
-		B9A8B18921A1C5F00085FCA0 /* PosponableDeadLineVC */ = {
+		B9A8B18921A1C5F00085FCA0 /* PosponingDeadLineVC */ = {
 			isa = PBXGroup;
 			children = (
 				B9A8B18721A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift */,
 				B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift */,
 			);
-			path = PosponableDeadLineVC;
+			path = PosponingDeadLineVC;
 			sourceTree = "<group>";
 		};
 		B9A8B19021A1E5B50085FCA0 /* ProgressInfo */ = {
@@ -453,6 +458,18 @@
 				B9A8B19121A1E61E0085FCA0 /* TaskProgressInfoGetable.swift */,
 			);
 			path = ProgressInfo;
+			sourceTree = "<group>";
+		};
+		B9A8B19921A2D6800085FCA0 /* ModelHandlerInterfaces */ = {
+			isa = PBXGroup;
+			children = (
+				B9A8B15121992D270085FCA0 /* ITaskModelFacadeFactory.swift */,
+				B9A8B14D219929E50085FCA0 /* ITaskModelFacade.swift */,
+				B9A8B1552199326C0085FCA0 /* TaskModelHandling.swift */,
+				B9A8B19C21A2D70D0085FCA0 /* ITaskInfoGetableModelHandler.swift */,
+				B9A8B19A21A2D6C90085FCA0 /* ITaskProgressTrackingModelHandler.swift */,
+			);
+			path = ModelHandlerInterfaces;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -592,33 +609,36 @@
 				B96E0ED52193E8CD0097AB34 /* Tag+CoreDataClass.swift in Sources */,
 				B9A8B12F2196FF140085FCA0 /* TaskProgressTimesUpdating.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoDisplayingUIComponents.swift in Sources */,
-				B9A8B1562199326C0085FCA0 /* TaskHandling.swift in Sources */,
+				B9A8B1562199326C0085FCA0 /* TaskModelHandling.swift in Sources */,
 				B9A8B14E219929E50085FCA0 /* ITaskModelFacade.swift in Sources */,
 				B9A8B184219E68D90085FCA0 /* TaskProgressTimesDisplayingUIComponents.swift in Sources */,
 				B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */,
-				B9A8B15D219A74B90085FCA0 /* ProgressTrackingTaskHandler.swift in Sources */,
+				B9A8B15D219A74B90085FCA0 /* TaskProgressTrackingModelHandler.swift in Sources */,
 				B9A8B19221A1E61E0085FCA0 /* TaskProgressInfoGetable.swift in Sources */,
 				B9A8B15021992C260085FCA0 /* TaskModelFacadeFactory.swift in Sources */,
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* TaskProgressPeriod.swift in Sources */,
+				B9A8B19821A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift in Sources */,
 				B9A8B15F219A826F0085FCA0 /* StateRepresentingUIComponents.swift in Sources */,
 				B9A8B17E219D206F0085FCA0 /* AlarmClock.swift in Sources */,
 				B9A8B15221992D270085FCA0 /* ITaskModelFacadeFactory.swift in Sources */,
 				B9A8B174219BD3220085FCA0 /* TaskState.swift in Sources */,
 				B9A8B14C21991FB20085FCA0 /* UILableExtension.swift in Sources */,
+				B9A8B19B21A2D6C90085FCA0 /* ITaskProgressTrackingModelHandler.swift in Sources */,
 				B96E0ED12193E8CD0097AB34 /* Period+CoreDataClass.swift in Sources */,
 				B9A8B15421992ECD0085FCA0 /* TaskModelFacade.swift in Sources */,
 				B96E0EC32193D8820097AB34 /* TaskStaticInfoGetable.swift in Sources */,
 				B9A8B165219A84C50085FCA0 /* StateRepresentor.swift in Sources */,
 				B96E0ED62193E8CD0097AB34 /* Tag+CoreDataProperties.swift in Sources */,
 				B96E0EBC2193D7FB0097AB34 /* StaticInfoGathering.swift in Sources */,
-				B9A8B14821984C6F0085FCA0 /* TaskProgressTracking.swift in Sources */,
+				B9A8B14821984C6F0085FCA0 /* ITaskProgressTrackingVC.swift in Sources */,
 				B9A8B178219D18AC0085FCA0 /* Alarming.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
 				B96E0EAF2193D6BA0097AB34 /* TagsReporting.swift in Sources */,
 				B9A8B16A219BBDC20085FCA0 /* TimeSpentInProgressReceiving.swift in Sources */,
 				B96E0ED22193E8CD0097AB34 /* Period+CoreDataProperties.swift in Sources */,
+				B9A8B19D21A2D70D0085FCA0 /* ITaskInfoGetableModelHandler.swift in Sources */,
 				B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */,
 				B96E0ED42193E8CD0097AB34 /* Task+CoreDataProperties.swift in Sources */,
 				B96E0EC02193D82C0097AB34 /* TaskStaticInfoGatherer.swift in Sources */,

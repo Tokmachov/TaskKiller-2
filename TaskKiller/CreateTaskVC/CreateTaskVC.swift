@@ -29,12 +29,12 @@ class CreateTaskVC: UIViewController {
         case "TagsChildVC":
             guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
             tagsVC.setTagsReceiver(taskStaticInfoSource)
-        case "TaskVC":
-            guard let taskVC = segue.destination as? TaskModelHandlingProgressEditingDecoratorSetupable else { fatalError() }
+        case "Start New Task":
+            guard let taskVC = segue.destination as? ITaskProgressTrackingVC else { fatalError() }
             let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
-            let taskModelFacade = TaskModelFacadeFactory.createTaskModelHendler(from: taskStaticInfo)
-            let taskProgressTracker = ProgressTrackingTaskHandler(taskModelFacade: taskModelFacade)
-            taskVC.setTaskProgressTracker(taskProgressTracker)
+            let taskModelFacade = TaskModelFacadeFactory.createTaskModelFacade(from: taskStaticInfo)
+            let taskProgressTrackingModelHandler = TaskProgressTrackingModelHandler(taskModelFacade: taskModelFacade)
+            taskVC.setTaskProgressTrackingModelHandler(taskProgressTrackingModelHandler)
         default: break
         }
     }

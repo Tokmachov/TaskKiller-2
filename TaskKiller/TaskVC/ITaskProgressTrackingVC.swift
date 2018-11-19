@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TaskModelHandlingProgressEditingDecoratorSetupable {
-    func setTaskProgressTracker(_ tracker: IProgressTrackingTaskHandler)
+protocol ITaskProgressTrackingVC {
+    func setTaskProgressTrackingModelHandler(_ tracker: ITaskProgressTrackingModelHandler)
 }

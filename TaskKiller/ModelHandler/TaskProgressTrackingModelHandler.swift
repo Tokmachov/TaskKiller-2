@@ -7,9 +7,8 @@
 //
 
 import Foundation
-typealias  IProgressTrackingTaskHandler = TaskHandling & TaskProgressTimesGetable & TaskStaticInfoGetable & TaskProgressSaving
 
-struct ProgressTrackingTaskHandler: IProgressTrackingTaskHandler {
+struct TaskProgressTrackingModelHandler: ITaskProgressTrackingModelHandler {
     
     private let taskModelFacade: ITaskModelFacade
     

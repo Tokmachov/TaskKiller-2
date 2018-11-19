@@ -14,7 +14,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     private var fetchRequestController: NSFetchedResultsController<Task>!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
     private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
-    private var taskInfoGetableHandler: IProgressTrackingTaskHandler!
+    private var taskInfoGetableHandler: ITaskInfoGetableModelHandler!
     
     override func viewWillAppear(_ animated: Bool) {
        super.viewWillAppear(animated)
@@ -37,11 +37,11 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
-        let taskObject = fetchRequestController.object(at: indexPath)
-        let taskModelFacade = TaskModelFacade(task: taskObject)
-        let taskInfoGetableHandler = ProgressTrackingTaskHandler(taskModelFacade: taskModelFacade)
-        taskStaticInfoUpdater.update(taskCell, from: taskInfoGetableHandler)
-        taskProgressTimesUpdater.update(taskCell, from: taskInfoGetableHandler)
+        let taskModel = fetchRequestController.object(at: indexPath)
+        let taskModelFacade = TaskModelFacadeFactory.createTaskModelFacade(from: taskModel)
+        let taskInfoGetableModelHandler = TaskInfoGetableModelHandler(taskModelFacade: taskModelFacade)
+        taskStaticInfoUpdater.update(taskCell, from: taskInfoGetableModelHandler)
+        taskProgressTimesUpdater.update(taskCell, from: taskInfoGetableModelHandler)
         return taskCell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -74,6 +74,18 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
     @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "Continue Task":
+            guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
+            let task = fetchRequestController.object(at: indexPathOfSelectedRow)
+            let taskModelFacade = TaskModelFacadeFactory.createTaskModelFacade(from: task)
+            let taskProgressTrackingModelHandler = TaskProgressTrackingModelHandler(taskModelFacade: taskModelFacade)
+            guard let taskVC = segue.destination as? ITaskProgressTrackingVC else { fatalError() }
+            taskVC.setTaskProgressTrackingModelHandler(taskProgressTrackingModelHandler)
+        default: break
+        }
+    }
 }
 extension TaskListVC {
     private func createFetchResultsController() -> NSFetchedResultsController<Task> {

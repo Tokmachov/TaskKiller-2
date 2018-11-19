@@ -90,6 +90,7 @@
                                     <outlet property="taskDescriptionLabel" destination="NVy-4X-okx" id="XMD-cl-CYf"/>
                                     <outlet property="timeSpentInProgressLabel" destination="lsp-yI-N5Q" id="Giy-n0-Hc6"/>
                                     <outlet property="timeToNextDeadLineLabel" destination="V7J-53-8L5" id="Qhf-HN-zTS"/>
+                                    <segue destination="vDa-62-zss" kind="presentation" identifier="Continue Task" modalTransitionStyle="crossDissolve" id="Mb3-T5-EQg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -163,7 +164,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="vDa-62-zss" kind="presentation" identifier="TaskVC" modalTransitionStyle="crossDissolve" id="TKV-Ta-oOb"/>
+                        <segue destination="vDa-62-zss" kind="presentation" identifier="Start New Task" modalTransitionStyle="crossDissolve" id="TKV-Ta-oOb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -302,7 +303,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Started"/>
                                 <connections>
-                                    <action selector="playButtonPressed" destination="vDa-62-zss" eventType="touchUpInside" id="ySp-9Q-9yi"/>
+                                    <action selector="playButtonPressed" destination="vDa-62-zss" eventType="touchUpInside" id="iZP-Vz-9nS"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-lT-KFS">
@@ -310,8 +311,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="done"/>
                                 <connections>
-                                    <action selector="doneButtonPressed:" destination="vDa-62-zss" eventType="touchUpInside" id="0Zf-Xj-uwX"/>
-                                    <segue destination="zlV-WV-wfT" kind="unwind" unwindAction="backFromTaskVCWithSegue:" id="HCl-yf-Hem"/>
+                                    <action selector="doneButtonPressed" destination="vDa-62-zss" eventType="touchUpInside" id="ZZm-7U-BkO"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="some tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blE-da-mVC">
@@ -332,12 +332,13 @@
                         <outlet property="taskDescriptionLabel" destination="P6e-tt-Sdv" id="Y7Y-Xu-7Gp"/>
                         <outlet property="timeSpentInProgressLabel" destination="gWD-Pj-uA0" id="8g2-0f-iGo"/>
                         <outlet property="timeToNextDeadlineLabel" destination="l4W-WO-EpF" id="3LY-Mz-X9q"/>
+                        <segue destination="zlV-WV-wfT" kind="unwind" identifier="Back To Task List" unwindAction="backFromTaskVCWithSegue:" id="bMI-Lu-phm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVB-wm-ePC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zlV-WV-wfT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2525.625" y="134.1549295774648"/>
+            <point key="canvasLocation" x="733" y="948"/>
         </scene>
         <!--Task DescriptionVC-->
         <scene sceneID="hhh-1m-3MN">
@@ -391,4 +392,7 @@
             <point key="canvasLocation" x="-686.25" y="127.8169014084507"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="TKV-Ta-oOb"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -11,7 +11,11 @@ import CoreData
 
 struct TaskModelFacadeFactory: ITaskModelFacadeFactory {
     
-    static func createTaskModelHendler(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade {
+    static func createTaskModelFacade(from taskModel: Task) -> ITaskModelFacade {
+        return TaskModelFacade(task: taskModel)
+    }
+    
+    static func createTaskModelFacade(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade {
         let task = createTask(from: taskStaticInfo)
         let taskModelHandler = TaskModelFacade(task: task)
         return taskModelHandler

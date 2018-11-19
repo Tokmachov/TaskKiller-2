@@ -9,7 +9,7 @@
 import Foundation
 
 struct StateRepresentor: StateRepresenting {
-    func makeGoing(_ uIComponents: StateRepresentingUIComponents) {
+    func makeStarted(_ uIComponents: StateRepresentingUIComponents) {
         uIComponents.showStartButton()
     }
     

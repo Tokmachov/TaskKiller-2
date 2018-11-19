@@ -9,6 +9,6 @@
 import Foundation
 import CoreData
 
-protocol TaskHandling {
+protocol TaskModelHandling {
     init(taskModelFacade: ITaskModelFacade)
 }

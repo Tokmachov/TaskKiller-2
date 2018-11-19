@@ -9,6 +9,6 @@
 import Foundation
 
 protocol StateRepresenting {
-    func makeGoing(_ uIComponents: StateRepresentingUIComponents)
+    func makeStarted(_ uIComponents: StateRepresentingUIComponents)
     func makeStopped(_ uIComponents: StateRepresentingUIComponents)
 }

@@ -54,10 +54,13 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable, TaskProgressInfoGetabl
     mutating func postponeDeadLine(for time: TimeInterval) {
         self.postponableDeadLine += time
     }
+    
     //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {
         return progressTimes
     }
+    
+    //MARK: TaskProgressInfoGetable
     func getProgressInfo() -> TaskProgressInfo {
         guard case let States.ended(datesStarted: started, dateEnded: ended) = state else { fatalError() }
         let taskProgressPeriod = TaskProgressPeriod.init(dateStarted: started, dateEnded: ended)

@@ -1,5 +1,5 @@
 //
-//  TaskProgressSaving.swift
+//  ProgressInfoGetable.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 18.11.2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol  TaskProgressSaving {
-    func saveTaskProgress(progressInfoSource: TaskProgressInfoGetable)
+protocol TaskProgressInfoGetable {
+    func getProgressInfo() -> TaskProgressInfo
 }

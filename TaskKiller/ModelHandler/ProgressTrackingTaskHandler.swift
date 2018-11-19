@@ -11,8 +11,6 @@ typealias  IProgressTrackingTaskHandler = TaskHandling & TaskProgressTimesGetabl
 
 struct ProgressTrackingTaskHandler: IProgressTrackingTaskHandler {
     
-    
-    
     private let taskModelFacade: ITaskModelFacade
     
     //MARK:TaskHandling
@@ -36,7 +34,10 @@ struct ProgressTrackingTaskHandler: IProgressTrackingTaskHandler {
     }
     
     //MARK: TaskProgressSaving
-    func saveTaskProgress(progressTimes: TaskProgressTimes, progressPeriod: TaskProgressPeriod) {
+    func saveTaskProgress(progressInfoSource: TaskProgressInfoGetable) {
+        let progressInfo = progressInfoSource.getProgressInfo()
+        let progressTimes = progressInfo.progressTimes
+        let progressPeriod = progressInfo.progressPeriod
         taskModelFacade.saveProgress(progressTimes: progressTimes, taskProgressPeriod: progressPeriod)
     }
 }

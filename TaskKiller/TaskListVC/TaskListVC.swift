@@ -16,13 +16,16 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
     private var taskInfoGetableHandler: IProgressTrackingTaskHandler!
     
+    override func viewWillAppear(_ animated: Bool) {
+       super.viewWillAppear(animated)
+        taskStaticInfoUpdater = TaskStaticInfoUpdater()
+        taskProgressTimesUpdater = TaskProgressTimesUpdater()
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
-        taskStaticInfoUpdater = TaskStaticInfoUpdater()
-        taskProgressTimesUpdater = TaskProgressTimesUpdater()
     }
-    
     //MARK: TableViewDelegate, datasource methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchRequestController.sections!.count
@@ -64,12 +67,13 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         case .move:
             tableView.moveRow(at: indexPath!, to: newIndexPath!)
         case .update:
-            tableView.rectForRow(at: indexPath!)
+            tableView.reloadRows(at: [indexPath!], with: UITableView.RowAnimation.fade)
         }
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
+    @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
 }
 extension TaskListVC {
     private func createFetchResultsController() -> NSFetchedResultsController<Task> {

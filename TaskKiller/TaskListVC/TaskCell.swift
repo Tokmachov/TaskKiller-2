@@ -19,7 +19,6 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable
     let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
     func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
-        print(staticInfo)
         let taskDesription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
         let tagsInfoList = staticInfo.tagsInfos
@@ -30,12 +29,10 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable
     }
     
     func setProgressTime(_ progresstime: TaskProgressTimes) {
-        print(progresstime)
         let timeSpentInprogress = progresstime.timeSpentInprogress
-        let currentDeadLine = progresstime.currentDeadLine
-        let timeLeftToCurrentDeadLine = currentDeadLine - timeSpentInprogress
-        timeSpentInProgressLabel.text = timeIntervalFormatter.format(timeSpentInprogress)
-        timeToNextDeadLineLabel.text = timeIntervalFormatter.format(timeLeftToCurrentDeadLine)
+        let timeLeftToCurrentDeadLine = progresstime.timeLeftToCurrentDeadLine
+        timeSpentInProgressLabel.setText(timeIntervalFormatter.format(timeSpentInprogress))
+        timeToNextDeadLineLabel.setText(timeIntervalFormatter.format(timeLeftToCurrentDeadLine))
     }
 }
 

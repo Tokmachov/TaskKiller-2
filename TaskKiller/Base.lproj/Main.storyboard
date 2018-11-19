@@ -309,6 +309,10 @@
                                 <rect key="frame" x="120" y="423" width="76" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="done"/>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="vDa-62-zss" eventType="touchUpInside" id="0Zf-Xj-uwX"/>
+                                    <segue destination="zlV-WV-wfT" kind="unwind" unwindAction="backFromTaskVCWithSegue:" id="HCl-yf-Hem"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="some tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blE-da-mVC">
                                 <rect key="frame" x="83" y="49" width="160" height="21"/>
@@ -331,6 +335,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVB-wm-ePC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zlV-WV-wfT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2525.625" y="134.1549295774648"/>
         </scene>

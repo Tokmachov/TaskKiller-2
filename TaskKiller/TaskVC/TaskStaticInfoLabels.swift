@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TaskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable {
+struct TaskStaticInfoLabels: TaskStaticInfoSetable {
 
     let taskDescriptionLabel: UILabel
     let initialDeadLineLabel: UILabel
@@ -16,10 +16,10 @@ struct TaskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable {
     
     let timeIntrvalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
-    init(taskDescriptionLabel: UILabel, initialDeadLineLabel: UILabel, tagsLabel: UILabel) {
-        self.taskDescriptionLabel = taskDescriptionLabel
-        self.initialDeadLineLabel = initialDeadLineLabel
-        self.tagsLabel = tagsLabel
+    init(forDescription: UILabel, forInitialDeadLine: UILabel, forTags: UILabel) {
+        self.taskDescriptionLabel = forDescription
+        self.initialDeadLineLabel = forInitialDeadLine
+        self.tagsLabel = forTags
     }
     
     func setTaskStaticInfo(staticInfo: TaskStaticInfo) {

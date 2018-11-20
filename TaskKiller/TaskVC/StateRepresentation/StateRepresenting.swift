@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol StateRepresenting {
-    func makeStarted(_ uIComponents: StateRepresentingUIComponents)
-    func makeStopped(_ uIComponents: StateRepresentingUIComponents)
+protocol TaskStateRepresenting {
+    func makeStarted(_ views: TaskStateRepresentable)
+    func makeStopped(_ views: TaskStateRepresentable)
 }

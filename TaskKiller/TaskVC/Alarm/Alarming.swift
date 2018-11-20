@@ -13,5 +13,5 @@ protocol Alarming {
     
     init(fireTime: TimeInterval)
     mutating func updateCurrentTime(_ time: TimeInterval, fireAction: ()->())
-    mutating func postponeDeadLine(for time: TimeInterval)
+    mutating func postponeCurrentDeadLine(for time: TimeInterval)
 }

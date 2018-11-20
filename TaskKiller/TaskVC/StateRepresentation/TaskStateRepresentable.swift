@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TaskStateRepresentingViews {
+protocol TaskStateRepresentable {
     func showStartButton()
     func showStoppedButton()
 }

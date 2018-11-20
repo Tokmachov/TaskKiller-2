@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct StateUIComponents: StateRepresentingUIComponents {
+struct TaskStateRepresentableViews: TaskStateRepresentable {
     
     private let startButton: UIButton
     

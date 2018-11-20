@@ -15,9 +15,9 @@ class TimeCounter: TimeCounting {
     private var timeSpentInProgress: TimeInterval
     private weak var timeSpentInprogressReceiver: TimeSpentInProgressReceiving!
     
-    required init(initialTimeSpentInProgress: TimeInterval, timeSpentInprogressReceiver: TimeSpentInProgressReceiving) {
-        self.timeSpentInProgress = initialTimeSpentInProgress
-        self.timeSpentInprogressReceiver = timeSpentInprogressReceiver
+    required init(initialTime: TimeInterval, timeUpdatesReceiver: TimeSpentInProgressReceiving) {
+        self.timeSpentInProgress = initialTime
+        self.timeSpentInprogressReceiver = timeUpdatesReceiver
     }
     
     func start() {

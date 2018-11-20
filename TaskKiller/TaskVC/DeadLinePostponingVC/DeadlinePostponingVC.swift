@@ -15,10 +15,10 @@ struct DeadlinePostponingVCFactory: IDeadlinePostponingVCFactory {
     private let possibleDeadlines: [TimeInterval]
     private let postponeAction: (TimeInterval)->()
     private let finishAction: ()->()
-    init(possibleDeadlines: [TimeInterval], postponeAction: @escaping (TimeInterval) -> (), finishAction: @escaping  () -> ()) {
+    init(possibleDeadlines: [TimeInterval], postponeHandler: @escaping (TimeInterval) -> (), finishHandler: @escaping  () -> ()) {
         self.possibleDeadlines = possibleDeadlines
-        self.postponeAction = postponeAction
-        self.finishAction = finishAction
+        self.postponeAction = postponeHandler
+        self.finishAction = finishHandler
     }
     
     func createDeadlinePostponingVC() -> DeadlinePostponingVC {

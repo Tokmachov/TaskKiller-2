@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct StateRepresentor: StateRepresenting {
-    func makeStarted(_ uIComponents: StateRepresentingUIComponents) {
-        uIComponents.showStartButton()
+struct StateRepresentor: TaskStateRepresenting {
+    func makeStarted(_ views: TaskStateRepresentable) {
+        views.showStartButton()
     }
     
-    func makeStopped(_ uIComponents: StateRepresentingUIComponents) {
-        uIComponents.showStoppedButton()
+    func makeStopped(_ views: TaskStateRepresentable) {
+        views.showStoppedButton()
     }
 }

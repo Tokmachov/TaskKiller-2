@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TimeCounting {    
-    init(initialTimeSpentInProgress: TimeInterval, timeSpentInprogressReceiver: TimeSpentInProgressReceiving)
+    init(initialTime: TimeInterval, timeUpdatesReceiver: TimeSpentInProgressReceiving)
     func start()
     func stop()
 }

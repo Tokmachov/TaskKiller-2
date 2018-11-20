@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TaskState: TaskStatable, TaskProgressTimesGetable, TaskProgressInfoGetable {
+struct TaskState: ITaskState {
   
     private var state: States
     private var timeSpentInProgress: TimeInterval
@@ -25,7 +25,8 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable, TaskProgressInfoGetabl
     }
     
     //MARK: TaskStatable
-    init(taskProgressTimes: TaskProgressTimes) {
+    init(taskProgressTimesSource: TaskProgressTimesGetable) {
+        let taskProgressTimes = taskProgressTimesSource.getProgressTimes()
         self.timeSpentInProgress = taskProgressTimes.timeSpentInprogress
         self.postponableDeadLine = taskProgressTimes.currentDeadLine
         self.state = States.hasNotStarted
@@ -51,8 +52,8 @@ struct TaskState: TaskStatable, TaskProgressTimesGetable, TaskProgressInfoGetabl
         self.timeSpentInProgress = newTime
     }
     
-    mutating func postponeDeadLine(for time: TimeInterval) {
-        self.postponableDeadLine += time
+    mutating func postponeCurrentDeadline(for additionalTime: TimeInterval) {
+        self.postponableDeadLine += additionalTime
     }
     
     //MARK: TaskProgressTimesGetable

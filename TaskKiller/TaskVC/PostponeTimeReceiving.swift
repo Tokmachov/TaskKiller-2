@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PostponableDeadlineReceiving {
+protocol PostponeTimeReceiving {
     func receivePostponeTime(_ postponeTime: TimeInterval)
 }

@@ -8,15 +8,15 @@
 
 import UIKit
 
-struct TaskProgressTimesDisplayingUIComponents: TaskProgressTimesSetable {
+struct TaskProgressTimesLabels: TaskProgressTimesSetable {
     
-    private weak var timeSpentInprogressDisplay: UILabel!
-    private weak var timeLeftToNextDeadLineDisplay: UILabel!
+    private weak var timeSpentInprogressLabel: UILabel!
+    private weak var timeLeftToNextDeadLineLabel: UILabel!
     private let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
-    init(timeSpentInprogressDisplay: UILabel, timeLeftToNextDeadLineDisplay: UILabel) {
-        self.timeSpentInprogressDisplay = timeSpentInprogressDisplay
-        self.timeLeftToNextDeadLineDisplay = timeLeftToNextDeadLineDisplay
+    init(forTimeSpentInProgress timeSpentInProgressLabel: UILabel, forTimeLeft timeLeftLabel: UILabel) {
+        self.timeSpentInprogressLabel = timeSpentInProgressLabel
+        self.timeLeftToNextDeadLineLabel = timeLeftLabel
     }
     
     //MARK: TaskProgressTimesSetable
@@ -27,7 +27,7 @@ struct TaskProgressTimesDisplayingUIComponents: TaskProgressTimesSetable {
         let timeSpentInProgressFormatted = timeIntervalFormatter.format(timeSpentInProgress)
         let timeLeftToCurrentDeadLineFormatted = timeIntervalFormatter.format(timeLeftToNextDeadline)
         
-        timeSpentInprogressDisplay.setText(timeSpentInProgressFormatted)
-        timeLeftToNextDeadLineDisplay.setText(timeLeftToCurrentDeadLineFormatted)
+        timeSpentInprogressLabel.setText(timeSpentInProgressFormatted)
+        timeLeftToNextDeadLineLabel.setText(timeLeftToCurrentDeadLineFormatted)
     }
 }

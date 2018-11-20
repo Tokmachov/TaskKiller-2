@@ -11,3 +11,4 @@ import Foundation
 protocol TaskStaticInfoGetable {
     func getStaticInfo() -> TaskStaticInfo
 }
+

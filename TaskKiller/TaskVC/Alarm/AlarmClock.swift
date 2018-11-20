@@ -17,7 +17,7 @@ struct AlarmClock: Alarming {
         self.fireTime = fireTime
     }
   
-    mutating func postponeDeadLine(for time: TimeInterval) {
+    mutating func postponeCurrentDeadLine(for time: TimeInterval) {
         fireTime += time
     }
   

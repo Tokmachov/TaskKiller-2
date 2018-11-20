@@ -9,60 +9,60 @@
 import UIKit
 
 
-class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeSpentInProgressReceiving, PostponableDeadlineReceiving {
-  
+class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeSpentInProgressReceiving, PostponeTimeReceiving {
+    
+    private let possibleDeadlines: [TimeInterval] = [10, 20, 30]
    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
-    @IBOutlet weak var initialDeadLineLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var taskInitialDeadLineLabel: UILabel!
+    @IBOutlet weak var taskTagsLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
     
-    private let possibleDeadlines: [TimeInterval] = [10, 20, 30]
-    
-    private var taskState: (TaskStatable & TaskProgressTimesGetable & TaskProgressInfoGetable)!
-    private var modelHandler: ITaskProgressTrackingModelHandler! {
-        didSet {
-            let progressTimes = modelHandler.getProgressTimes()
-            taskState = TaskState(taskProgressTimes: progressTimes)
-        }
-    }
-    private var taskStaticInfoDisplayingUIComponents: TaskStaticInfoSetable!
+    private var taskModelHandler: ITaskProgressTrackingModelHandler!
+    private var taskState: ITaskState!
+    private var taskStaticInfoViews: TaskStaticInfoSetable!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
-    private var stateRepresentor: StateRepresenting!
-    private var stateRepresentingUIComponents: StateRepresentingUIComponents!
-    private var taskProgressTimesDisplayingUIComponents: TaskProgressTimesSetable!
-    private var taskProgressTimesDisplayUpdater: TaskProgressTimesUpdating!
+    private var taskStateRepresentableViews: TaskStateRepresentable!
+    private var taskStateRepresentor: TaskStateRepresenting!
+    private var taskProgressTimesViews: TaskProgressTimesSetable!
+    private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
     private var timeCounter: TimeCounting!
     private var alarmClock: Alarming!
+    
     private var deadLinePostponingVC: DeadlinePostponingVC!
-    private lazy var postponeDeadline: (TimeInterval) -> () = { [weak self] postponeTime in
+    private lazy var postponeDeadlineHandler: (TimeInterval) -> () = { [weak self] postponeTime in
         guard let self = self else { fatalError() }
         self.receivePostponeTime(postponeTime)
     }
-    private lazy var finishTaskAction: ()->() = { self.finishWorkingWithTask() }
+    private lazy var finishTaskHandler: ()->() = { self.finishWorkingWithTask() }
+    
+    //MARK: ITaskProgressTrackingVC
+    func setTaskProgressTrackingModelHandler(_ taskModelHandler: ITaskProgressTrackingModelHandler) {
+        self.taskModelHandler = taskModelHandler
+    }
     
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        taskStaticInfoDisplayingUIComponents =  TaskStaticInfoDisplayingUIComponents(taskDescriptionLabel: taskDescriptionLabel,
-                                                                                     initialDeadLineLabel: initialDeadLineLabel,
-                                                                                     tagsLabel:            tagsLabel)
-        stateRepresentingUIComponents = StateUIComponents(startButton: startButton)
-        taskProgressTimesDisplayingUIComponents = TaskProgressTimesDisplayingUIComponents(timeSpentInprogressDisplay: timeSpentInProgressLabel,
-                                                                                          timeLeftToNextDeadLineDisplay: timeToNextDeadlineLabel)
-        taskStaticInfoUpdater = TaskStaticInfoUpdater()
-        stateRepresentor = StateRepresentor()
-        taskProgressTimesDisplayUpdater = TaskProgressTimesUpdater()
-        timeCounter = createTimeCounter(initialTimeSpecntInProgressSource: taskState, timeSpentInProgressReceiver: self)
-        alarmClock = createAlarmClock(timeWhenFiresSource: taskState)
-        let deadLinePostponingVCFactory = DeadlinePostponingVCFactory(possibleDeadlines: possibleDeadlines, postponeAction: postponeDeadline, finishAction: finishTaskAction )
-        deadLinePostponingVC = deadLinePostponingVCFactory.createDeadlinePostponingVC()
-        taskStaticInfoUpdater.update(taskStaticInfoDisplayingUIComponents, from: modelHandler)
-        stateRepresentor.makeStopped(stateRepresentingUIComponents)
-        taskProgressTimesDisplayUpdater.update(taskProgressTimesDisplayingUIComponents, from: taskState)
+        self.taskState = TaskState(taskProgressTimesSource: taskModelHandler)
+        self.taskStaticInfoViews =  TaskStaticInfoLabels(forDescription: taskDescriptionLabel, forInitialDeadLine: taskInitialDeadLineLabel, forTags: taskTagsLabel)
+        self.taskStaticInfoUpdater = TaskStaticInfoUpdater()
+        self.taskStateRepresentableViews = TaskStateRepresentableViews(startButton: startButton)
+        self.taskStateRepresentor = StateRepresentor()
+        self.taskProgressTimesViews = TaskProgressTimesLabels(forTimeSpentInProgress: timeSpentInProgressLabel,forTimeLeft: timeToNextDeadlineLabel)
+        self.taskProgressTimesUpdater = TaskProgressTimesUpdater()
+        self.timeCounter = createTimeCounter(initialTimeSource: taskState, timeUpdatesReceiver: self)
+        self.alarmClock = createAlarmClock(timeWhenFiresSource: taskState)
+        let deadLinePostponingVCFactory = DeadlinePostponingVCFactory(possibleDeadlines: possibleDeadlines, postponeHandler: postponeDeadlineHandler, finishHandler: finishTaskHandler )
+        self.deadLinePostponingVC = deadLinePostponingVCFactory.createDeadlinePostponingVC()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.taskStaticInfoUpdater.update(taskStaticInfoViews, from: taskModelHandler)
+        self.taskStateRepresentor.makeStopped(taskStateRepresentableViews)
+        self.taskProgressTimesUpdater.update(taskProgressTimesViews, from: taskState)
     }
     @IBAction func playButtonPressed() {
         switch taskState.getCurrentState() {
@@ -75,7 +75,6 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeSpentInProgressRece
         case .hasNotStarted:
             taskState.changeState()
             startTask()
-        default: break
         }
     }
     @IBAction func doneButtonPressed() {
@@ -89,20 +88,17 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeSpentInProgressRece
             self.present(deadLinePostponingVC, animated: true, completion: nil)
         })
         taskState.updateTimeSpentInProgress(timeSpentInProgress)
-        taskProgressTimesDisplayUpdater.update(taskProgressTimesDisplayingUIComponents, from: taskState)
+        taskProgressTimesUpdater.update(taskProgressTimesViews, from: taskState)
     }
     
-    //MARK: PostponableDeadlineReceiving
+    //MARK: PostponeTimeReceiving
     func receivePostponeTime(_ postponeTime: TimeInterval) {
-        alarmClock.postponeDeadLine(for: postponeTime)
-        taskState.postponeDeadLine(for: postponeTime)
+        alarmClock.postponeCurrentDeadLine(for: postponeTime)
+        taskState.postponeCurrentDeadline(for: postponeTime)
         timeCounter.start()
     }
     
-    //MARK: ITaskProgressTrackingVC
-    func setTaskProgressTrackingModelHandler(_ tracker: ITaskProgressTrackingModelHandler) {
-        self.modelHandler = tracker
-    }
+    
 }
 
 extension TaskVC {
@@ -111,10 +107,10 @@ extension TaskVC {
         let timeWhenFires = progresstimes.currentDeadLine
         return AlarmClock(fireTime: timeWhenFires)
     }
-    private func createTimeCounter(initialTimeSpecntInProgressSource: TaskProgressTimesGetable, timeSpentInProgressReceiver: TimeSpentInProgressReceiving) -> TimeCounting {
-        let progessTimes = initialTimeSpecntInProgressSource.getProgressTimes()
+    private func createTimeCounter(initialTimeSource: TaskProgressTimesGetable, timeUpdatesReceiver: TimeSpentInProgressReceiving) -> TimeCounting {
+        let progessTimes = initialTimeSource.getProgressTimes()
         let initialTimeSpentInProgress = progessTimes.timeSpentInprogress
-        return TimeCounter(initialTimeSpentInProgress: initialTimeSpentInProgress, timeSpentInprogressReceiver: self)
+        return TimeCounter(initialTime: initialTimeSpentInProgress, timeUpdatesReceiver: self)
     }
     private func finishWorkingWithTask() {
         switch taskState.getCurrentState() {
@@ -127,11 +123,11 @@ extension TaskVC {
     }
     private func startTask() {
         timeCounter.start()
-        stateRepresentor.makeStarted(stateRepresentingUIComponents)
+        taskStateRepresentor.makeStarted(taskStateRepresentableViews)
     }
     private func stopTask() {
         timeCounter.stop()
-        stateRepresentor.makeStopped(stateRepresentingUIComponents)
-        modelHandler.saveTaskProgress(progressInfoSource: taskState)
+        taskStateRepresentor.makeStopped(taskStateRepresentableViews)
+        taskModelHandler.saveTaskProgress(progressInfoSource: taskState)
     }
 }

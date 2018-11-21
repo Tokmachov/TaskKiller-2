@@ -15,7 +15,7 @@ class CreateTaskVC: UIViewController {
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
     
     @IBAction func go(_ sender: UIButton) {
-       performSegue(withIdentifier: "TaskVC", sender: nil)
+       performSegue(withIdentifier: "Start New Task", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

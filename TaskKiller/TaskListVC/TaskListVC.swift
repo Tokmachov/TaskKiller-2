@@ -75,8 +75,8 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier! {
-        case "Continue Task":
+        switch segue.identifier {
+        case "Continue Task"?:
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
             let task = fetchRequestController.object(at: indexPathOfSelectedRow)
             let taskModelFacade = TaskModelFacadeFactory.createTaskModelFacade(from: task)

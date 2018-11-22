@@ -9,47 +9,68 @@
 import Foundation
 
 struct TaskState: ITaskState {
-  
-    private var state: States
-    private var timeSpentInProgress: TimeInterval
-    private var postponableDeadLine: TimeInterval
     
-    private var progressTimes: TaskProgressTimes {
+    private weak var stateChangesReceiver: TaskStateChangesReceiving!
+    private var timeSpentInProgress: TimeInterval!
+    private var postponableDeadLine: TimeInterval!
+    private var progressTimes: TaskProgressTimes! {
         set {
-          timeSpentInProgress = newValue.timeSpentInprogress
+            timeSpentInProgress = newValue.timeSpentInprogress
             postponableDeadLine = newValue.currentDeadLine
         }
         get {
             return TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, currentDeadLine: postponableDeadLine)
         }
     }
-    
-    //MARK: TaskStatable
-    init(taskProgressTimesSource: TaskProgressTimesGetable) {
-        let taskProgressTimes = taskProgressTimesSource.getProgressTimes()
-        self.timeSpentInProgress = taskProgressTimes.timeSpentInprogress
-        self.postponableDeadLine = taskProgressTimes.currentDeadLine
-        self.state = States.hasNotStarted
+    private var state: States! {
+        didSet {
+            switch state! {
+            case .started:
+                stateChangesReceiver.taskStateDidChangedToStarted()
+            case .stopped:
+                stateChangesReceiver.taskStateDidChangedToStopped(self)
+            case .hasNotStarted: break
+            }
+        }
     }
-    
+   
+    //MARK: TaskStatable
+    init(stateChangesReceiver: TaskStateChangesReceiving) {
+        self.stateChangesReceiver = stateChangesReceiver
+    }
+   
     mutating func changeState() {
-        switch state {
+        switch state! {
         case .hasNotStarted:
             let currentDate = Date()
             state = .started(datesStarted: currentDate)
         case .started(datesStarted: let date):
             let currentDate = Date()
-            state = .ended(datesStarted: date, dateEnded: currentDate)
-        case .ended(datesStarted: _, dateEnded: _):
+            state = .stopped(dateStarted: date, dateStopped: currentDate)
+        case .stopped(dateStarted: _, dateStopped: _):
             let currentDate = Date()
             state = .started(datesStarted: currentDate)
         }
     }
-    func getCurrentState() -> States {
-        return state
+    mutating func prepareToStartTaskStateTracking(withInitialInfoFrom taskProgressTimesSource: TaskProgressTimesGetable) {
+        self.progressTimes = taskProgressTimesSource.getProgressTimes()
+        self.state = States.hasNotStarted
     }
-    mutating func updateTimeSpentInProgress(_ newTime: TimeInterval) {
-        self.timeSpentInProgress = newTime
+    
+    mutating func prapareToStopTaskStateTracking() {
+        switch state! {
+        case .hasNotStarted:
+            break
+        case .started(datesStarted: let date):
+            let currentDate = Date()
+            state = States.stopped(dateStarted: date, dateStopped: currentDate)
+        case .stopped:
+            break
+        }
+    }
+    
+    mutating func incrementTimeSpentInProgress(by timeIncrement: TimeInterval) {
+        self.timeSpentInProgress += timeIncrement
     }
     
     mutating func postponeCurrentDeadline(for additionalTime: TimeInterval) {
@@ -63,7 +84,7 @@ struct TaskState: ITaskState {
     
     //MARK: TaskProgressInfoGetable
     func getProgressInfo() -> TaskProgressInfo {
-        guard case let States.ended(datesStarted: started, dateEnded: ended) = state else { fatalError() }
+        guard case let States.stopped(dateStarted: started, dateStopped: ended) = state! else { fatalError() }
         let taskProgressPeriod = TaskProgressPeriod.init(dateStarted: started, dateEnded: ended)
         return TaskProgressInfo.init(progressTimes: progressTimes, progressPeriod: taskProgressPeriod)
     }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TimeSpentInProgressReceiving: AnyObject {
-    func receiveTime(_ timeSpentInProgress: TimeInterval)
+protocol TimeIncrementsReceiving: AnyObject {
+    func receiveTimeIncrement(_ timeIncrement: TimeInterval)
 }

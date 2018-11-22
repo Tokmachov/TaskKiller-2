@@ -11,7 +11,8 @@ import Foundation
 
 protocol Alarming {
     
-    init(fireTime: TimeInterval)
-    mutating func updateCurrentTime(_ time: TimeInterval, fireAction: ()->())
-    mutating func postponeCurrentDeadLine(for time: TimeInterval)
+    init(alarmReceiver: AlarmReceiving)
+    mutating func setAlarmClockCurrentAndFireTimes(from progressTimesSource: TaskProgressTimesGetable)
+    mutating func incrementCurrentTime(_ timeIncrement: TimeInterval)
+    mutating func postponeFireTime(for time: TimeInterval)
 }

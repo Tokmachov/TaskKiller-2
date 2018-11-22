@@ -10,10 +10,12 @@ import Foundation
 
 protocol TaskStatable {
     
-    init(taskProgressTimesSource: TaskProgressTimesGetable)
+    init(stateChangesReceiver: TaskStateChangesReceiving)
     
-    mutating func updateTimeSpentInProgress(_ newTime: TimeInterval)
-    mutating func postponeCurrentDeadline(for additionalTime: TimeInterval)
     mutating func changeState()
-    func getCurrentState() -> States
+    mutating func prepareToStartTaskStateTracking(withInitialInfoFrom taskProgressTimesSource: TaskProgressTimesGetable)
+    mutating func prapareToStopTaskStateTracking()
+    mutating func incrementTimeSpentInProgress(by timeIncrement: TimeInterval)
+    mutating func postponeCurrentDeadline(for additionalTime: TimeInterval)
+   
 }

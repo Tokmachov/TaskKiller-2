@@ -9,20 +9,29 @@
 import Foundation
 
 struct AlarmClock: Alarming {
-   
+    
     private var fireTime: TimeInterval!
     private var currentTime: TimeInterval!
+    private weak var alarmReceiver: AlarmReceiving!
     
-    init(fireTime: TimeInterval) {
+    //MARK: Alarming
+    init(alarmReceiver: AlarmReceiving) {
+        self.alarmReceiver = alarmReceiver
+    }
+    
+    mutating func setAlarmClockCurrentAndFireTimes(from progressTimesSource: TaskProgressTimesGetable) {
+        let progressTimes = progressTimesSource.getProgressTimes()
+        let currentTime = progressTimes.timeSpentInprogress
+        let fireTime = progressTimes.currentDeadLine
         self.fireTime = fireTime
+        self.currentTime = currentTime
     }
-  
-    mutating func postponeCurrentDeadLine(for time: TimeInterval) {
+
+    mutating func incrementCurrentTime(_ timeIncrement: TimeInterval) {
+        self.currentTime += timeIncrement
+        if fireTime <= currentTime { alarmReceiver.alarmDidFire() }
+    }
+    mutating func postponeFireTime(for time: TimeInterval) {
         fireTime += time
-    }
-  
-    mutating func updateCurrentTime(_ time: TimeInterval, fireAction: () -> ()) {
-        currentTime = time
-        if fireTime <= time { fireAction() }
     }
 }

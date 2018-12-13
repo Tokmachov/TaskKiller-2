@@ -1,8 +1,8 @@
 //
-//  Task+CoreDataClass.swift
+//  TagModel+CoreDataClass.swift
 //  TaskKiller
 //
-//  Created by Oleg Tokmachov on 08.11.2018.
+//  Created by mac on 13/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Task)
-public class Task: NSManagedObject {
+@objc(TagModel)
+public class TagModel: NSManagedObject {
 
 }

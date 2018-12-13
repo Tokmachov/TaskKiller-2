@@ -20,7 +20,7 @@ protocol ITaskModelFacade {
     
     func getTimeSpentInProgress() -> TimeInterval
     
-    func getTagsInfosList() -> TagsInfosList
+    func getTagsInfosList() -> AllTags
     
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
 }

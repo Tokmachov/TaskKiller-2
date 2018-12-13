@@ -44,7 +44,7 @@ extension TaskModelFacadeFactory {
         
         return task
     }
-    static private func createTags(from tagInfos: TagsInfosList) -> NSSet {
+    static private func createTags(from tagInfos: AllTags) -> NSSet {
         var tags = [Tag]()
         for tagInfo in tagInfos.getTagsInfos() {
             let tag = Tag(context: PersistanceService.context)

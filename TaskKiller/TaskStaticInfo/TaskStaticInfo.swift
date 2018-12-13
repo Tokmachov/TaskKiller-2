@@ -12,5 +12,5 @@ import Foundation
 struct TaskStaticInfo: Equatable {
     var taskDescription: String
     var initialDeadLine: TimeInterval
-    var tagsInfos: TagsInfosList
+    var tagsInfos: AllTags
 }

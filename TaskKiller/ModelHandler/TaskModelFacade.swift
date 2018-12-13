@@ -28,12 +28,12 @@ struct TaskModelFacade: ITaskModelFacade {
         return TimeInterval(task.timeSpentInProgress)
     }
     
-    func getTagsInfosList() -> TagsInfosList {
-        guard task.tags != nil else { return TagsInfosList() }
-        var tagsInfosList = TagsInfosList()
+    func getTagsInfosList() -> AllTags {
+        guard task.tags != nil else { return AllTags() }
+        var tagsInfosList = AllTags()
         for tag in task.tags! {
             let tagName = (tag as! Tag).projectName!
-            let  tagInfo = TagInfo(projectName: tagName)
+            let  tagInfo = Tag(projectName: tagName)
             tagsInfosList.addTagInfo(tagInfo)
         }
         return tagsInfosList

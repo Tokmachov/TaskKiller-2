@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct TagsInfosList {
+struct AllTags {
     
-    private var tagsInfosList: [TagInfo] = []
+    private var tagsInfosList: [Tag] = []
     
-    func getTagsInfos() -> [TagInfo] {
+    func getTagsInfos() -> [Tag] {
         return tagsInfosList
     }
     func getStringOfAllTagNames() -> String {
@@ -20,13 +20,13 @@ struct TagsInfosList {
             result + tag.projectName
         })
     }
-    mutating func addTagInfo(_ tagInfo: TagInfo) {
+    mutating func addTagInfo(_ tagInfo: Tag) {
         tagsInfosList.append(tagInfo)
     }
 }
 
-extension TagsInfosList: Equatable {
-    static func == (lhs: TagsInfosList, rhs: TagsInfosList) -> Bool {
+extension AllTags: Equatable {
+    static func == (lhs: AllTags, rhs: AllTags) -> Bool {
         return lhs.tagsInfosList == rhs.tagsInfosList
     }
 }

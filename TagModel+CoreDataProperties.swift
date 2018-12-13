@@ -1,8 +1,8 @@
 //
-//  Tag+CoreDataProperties.swift
+//  TagModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by Oleg Tokmachov on 10.11.2018.
+//  Created by mac on 13/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -11,10 +11,10 @@ import Foundation
 import CoreData
 
 
-extension Tag {
+extension TagModel {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
-        return NSFetchRequest<Tag>(entityName: "Tag")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TagModel> {
+        return NSFetchRequest<TagModel>(entityName: "TagModel")
     }
 
     @NSManaged public var projectName: String?
@@ -23,13 +23,13 @@ extension Tag {
 }
 
 // MARK: Generated accessors for tasks
-extension Tag {
+extension TagModel {
 
     @objc(addTasksObject:)
-    @NSManaged public func addToTasks(_ value: Task)
+    @NSManaged public func addToTasks(_ value: TaskModel)
 
     @objc(removeTasksObject:)
-    @NSManaged public func removeFromTasks(_ value: Task)
+    @NSManaged public func removeFromTasks(_ value: TaskModel)
 
     @objc(addTasks:)
     @NSManaged public func addToTasks(_ values: NSSet)

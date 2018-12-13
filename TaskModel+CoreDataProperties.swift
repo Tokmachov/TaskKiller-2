@@ -1,8 +1,8 @@
 //
-//  Task+CoreDataProperties.swift
+//  TaskModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by Oleg Tokmachov on 12.11.2018.
+//  Created by mac on 13/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -11,16 +11,16 @@ import Foundation
 import CoreData
 
 
-extension Task {
+extension TaskModel {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
-        return NSFetchRequest<Task>(entityName: "Task")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TaskModel> {
+        return NSFetchRequest<TaskModel>(entityName: "TaskModel")
     }
 
     @NSManaged public var dateCreated: NSDate?
     @NSManaged public var deadLine: Int16
-    @NSManaged public var taskDescription: String?
     @NSManaged public var postponableDeadLine: Int16
+    @NSManaged public var taskDescription: String?
     @NSManaged public var timeSpentInProgress: Int16
     @NSManaged public var periodsOfProcess: NSSet?
     @NSManaged public var tags: NSSet?
@@ -28,13 +28,13 @@ extension Task {
 }
 
 // MARK: Generated accessors for periodsOfProcess
-extension Task {
+extension TaskModel {
 
     @objc(addPeriodsOfProcessObject:)
-    @NSManaged public func addToPeriodsOfProcess(_ value: Period)
+    @NSManaged public func addToPeriodsOfProcess(_ value: PeriodModel)
 
     @objc(removePeriodsOfProcessObject:)
-    @NSManaged public func removeFromPeriodsOfProcess(_ value: Period)
+    @NSManaged public func removeFromPeriodsOfProcess(_ value: PeriodModel)
 
     @objc(addPeriodsOfProcess:)
     @NSManaged public func addToPeriodsOfProcess(_ values: NSSet)
@@ -45,13 +45,13 @@ extension Task {
 }
 
 // MARK: Generated accessors for tags
-extension Task {
+extension TaskModel {
 
     @objc(addTagsObject:)
-    @NSManaged public func addToTags(_ value: Tag)
+    @NSManaged public func addToTags(_ value: TagModel)
 
     @objc(removeTagsObject:)
-    @NSManaged public func removeFromTags(_ value: Tag)
+    @NSManaged public func removeFromTags(_ value: TagModel)
 
     @objc(addTags:)
     @NSManaged public func addToTags(_ values: NSSet)

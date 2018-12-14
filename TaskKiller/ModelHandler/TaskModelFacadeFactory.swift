@@ -27,31 +27,19 @@ extension TaskModelFacadeFactory {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
-        let tags = taskStaticInfo.tags
         let currentDate = Date() as NSDate
         let taskModel = TaskModel(context: PersistanceService.context)
-        let tagModels = createTagModels(from: tags)
         let noTimeSpentInProgress = Int16(0)
         
         taskModel.taskDescription = taskDescription
         taskModel.deadLine = initiaLdeadLine
         taskModel.postponableDeadLine = postponableDeadline
-        taskModel.addToTags(tagModels)
         taskModel.dateCreated = currentDate
         taskModel.timeSpentInProgress = noTimeSpentInProgress
         
         PersistanceService.saveContext()
         
         return taskModel
-    }
-    static private func createTagModels(from tags: TagsStore) -> NSSet {
-        var tagModels = [TagModel]()
-        for tag in tags.getTags() {
-            let tagModel = TagModel(context: PersistanceService.context)
-            tagModel.name = tag.getName()
-            tagModels.append(tagModel)
-        }
-        return NSSet(array: tagModels)
     }
 }
 

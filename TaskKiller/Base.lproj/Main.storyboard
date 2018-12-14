@@ -86,7 +86,6 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="initialDeadLineLabel" destination="AFC-wn-zsi" id="Sur-yh-aQr"/>
-                                    <outlet property="tagsLabel" destination="v9a-iu-82I" id="Tge-nM-gcf"/>
                                     <outlet property="taskDescriptionLabel" destination="NVy-4X-okx" id="XMD-cl-CYf"/>
                                     <outlet property="timeSpentInProgressLabel" destination="lsp-yI-N5Q" id="Giy-n0-Hc6"/>
                                     <outlet property="timeToNextDeadLineLabel" destination="V7J-53-8L5" id="Qhf-HN-zTS"/>
@@ -434,6 +433,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TKV-Ta-oOb"/>
+        <segue reference="Mb3-T5-EQg"/>
     </inferredMetricsTieBreakers>
 </document>

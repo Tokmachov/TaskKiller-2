@@ -49,7 +49,7 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
         taskState = TaskState(stateChangesReceiver: self)
         alarmClock = AlarmClock(alarmReceiver: self)
         timeCounter = TimeCounter(timeUpdatesReceiver: self)
-        taskStaticInfoViews =  TaskStaticInfoLabels(forDescription: taskDescriptionLabel, forInitialDeadLine: taskInitialDeadLineLabel, forTags: taskTagsLabel)
+        taskStaticInfoViews =  TaskStaticInfoLabels(forDescription: taskDescriptionLabel, forInitialDeadLine: taskInitialDeadLineLabel)
         taskStaticInfoUpdater = TaskStaticInfoUpdater()
         taskStateRepresentableViews = TaskStateRepresentableViews(startButton: startButton)
         taskStateRepresentor = StateRepresentor()

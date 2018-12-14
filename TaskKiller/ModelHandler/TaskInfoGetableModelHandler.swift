@@ -27,7 +27,6 @@ struct TaskInfoGetableModelHandler: ITaskInfoGetableModelHandler {
     func getStaticInfo() -> TaskStaticInfo {
         let taskDescription = taskModelFacade.getTaskDescription()
         let initialDeadline = taskModelFacade.getInitialDeadLine()
-        let tagsInfosList = taskModelFacade.getTagsStore()
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline, tags: tagsInfosList)
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline)
     }
 }

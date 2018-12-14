@@ -14,18 +14,14 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable
     @IBOutlet weak var initialDeadLineLabel: UILabel!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadLineLabel: UILabel!
-    @IBOutlet weak var tagsLabel: UILabel!
     
     let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
     func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
         let taskDesription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
-        let tagsInfoList = staticInfo.tags
-        let tagsNamesString = tagsInfoList.getStringOfAllTagNames()
         taskDescriptionLabel.text = taskDesription
         initialDeadLineLabel.text = timeIntervalFormatter.format(initialDeadLine)
-        tagsLabel.text = tagsNamesString
     }
     
     func setProgressTime(_ progresstime: TaskProgressTimes) {

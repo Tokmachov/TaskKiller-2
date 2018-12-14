@@ -10,17 +10,17 @@ import Foundation
 import CoreData
 
 protocol ITaskModelFacade {
-    init(task: Task)
+    init(task: TaskModel)
     
     func getTaskDescription() -> String
    
-    func getDeadLine() -> TimeInterval
+    func getInitialDeadLine() -> TimeInterval
     
     func getPostponableDeadLine() -> TimeInterval
     
     func getTimeSpentInProgress() -> TimeInterval
     
-    func getTagsInfosList() -> AllTags
+    func getTagsStore() -> TagsStore
     
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
 }

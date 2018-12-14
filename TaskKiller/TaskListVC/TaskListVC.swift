@@ -11,7 +11,7 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var fetchRequestController: NSFetchedResultsController<Task>!
+    private var fetchRequestController: NSFetchedResultsController<TaskModel>!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
     private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
     private var taskInfoGetableHandler: ITaskInfoGetableModelHandler!
@@ -88,8 +88,8 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
 }
 extension TaskListVC {
-    private func createFetchResultsController() -> NSFetchedResultsController<Task> {
-        let fetchResuest: NSFetchRequest<Task> = Task.fetchRequest()
+    private func createFetchResultsController() -> NSFetchedResultsController<TaskModel> {
+        let fetchResuest: NSFetchRequest<TaskModel> = TaskModel.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: true)
         fetchResuest.sortDescriptors = [sortDescriptor]
         let fetchRequestController = NSFetchedResultsController(fetchRequest: fetchResuest, managedObjectContext: PersistanceService.context, sectionNameKeyPath: nil, cacheName: "TaskCache")

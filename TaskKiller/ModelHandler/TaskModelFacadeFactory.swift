@@ -11,47 +11,47 @@ import CoreData
 
 struct TaskModelFacadeFactory: ITaskModelFacadeFactory {
     
-    static func createTaskModelFacade(from taskModel: Task) -> ITaskModelFacade {
+    static func createTaskModelFacade(from taskModel: TaskModel) -> ITaskModelFacade {
         return TaskModelFacade(task: taskModel)
     }
     
     static func createTaskModelFacade(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade {
-        let task = createTask(from: taskStaticInfo)
-        let taskModelHandler = TaskModelFacade(task: task)
-        return taskModelHandler
+        let taskModel = createTaskModel(from: taskStaticInfo)
+        let taskModelFacade = TaskModelFacade(task: taskModel)
+        return taskModelFacade
     }
 }
 
 extension TaskModelFacadeFactory {
-    static private func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
+    static private func createTaskModel(from taskStaticInfo: TaskStaticInfo) -> TaskModel {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
-        let tagsInfos = taskStaticInfo.tagsInfos
+        let tags = taskStaticInfo.tags
         let currentDate = Date() as NSDate
-        let task = Task(context: PersistanceService.context)
-        let tags = createTags(from: tagsInfos)
+        let taskModel = TaskModel(context: PersistanceService.context)
+        let tagModels = createTagModels(from: tags)
         let noTimeSpentInProgress = Int16(0)
         
-        task.taskDescription = taskDescription
-        task.deadLine = initiaLdeadLine
-        task.postponableDeadLine = postponableDeadline
-        task.addToTags(tags)
-        task.dateCreated = currentDate
-        task.timeSpentInProgress = noTimeSpentInProgress
+        taskModel.taskDescription = taskDescription
+        taskModel.deadLine = initiaLdeadLine
+        taskModel.postponableDeadLine = postponableDeadline
+        taskModel.addToTags(tagModels)
+        taskModel.dateCreated = currentDate
+        taskModel.timeSpentInProgress = noTimeSpentInProgress
         
         PersistanceService.saveContext()
         
-        return task
+        return taskModel
     }
-    static private func createTags(from tagInfos: AllTags) -> NSSet {
-        var tags = [Tag]()
-        for tagInfo in tagInfos.getTagsInfos() {
-            let tag = Tag(context: PersistanceService.context)
-            tag.projectName = tagInfo.projectName
-            tags.append(tag)
+    static private func createTagModels(from tags: TagsStore) -> NSSet {
+        var tagModels = [TagModel]()
+        for tag in tags.getTags() {
+            let tagModel = TagModel(context: PersistanceService.context)
+            tagModel.name = tag.getName()
+            tagModels.append(tagModel)
         }
-        return NSSet(array: tags)
+        return NSSet(array: tagModels)
     }
 }
 

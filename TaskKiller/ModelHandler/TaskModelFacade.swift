@@ -6,52 +6,52 @@
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct TaskModelFacade: ITaskModelFacade {
  
-    private var task: Task
-    init(task: Task) {
-        self.task = task
+    private var taskModel: TaskModel
+    init(task: TaskModel) {
+        self.taskModel = task
     }
     func getTaskDescription() -> String {
-        return self.task.taskDescription!
+        return self.taskModel.taskDescription!
     }
-    func getDeadLine() -> TimeInterval {
-        return TimeInterval(task.deadLine)
+    func getInitialDeadLine() -> TimeInterval {
+        return TimeInterval(taskModel.deadLine)
     }
     func getPostponableDeadLine() -> TimeInterval {
-        return TimeInterval(task.postponableDeadLine)
+        return TimeInterval(taskModel.postponableDeadLine)
     }
     
     func getTimeSpentInProgress() -> TimeInterval {
-        return TimeInterval(task.timeSpentInProgress)
+        return TimeInterval(taskModel.timeSpentInProgress)
     }
     
-    func getTagsInfosList() -> AllTags {
-        guard task.tags != nil else { return AllTags() }
-        var tagsInfosList = AllTags()
-        for tag in task.tags! {
-            let tagName = (tag as! Tag).projectName!
-            let  tagInfo = Tag(projectName: tagName)
-            tagsInfosList.addTagInfo(tagInfo)
+    func getTagsStore() -> TagsStore {
+        guard taskModel.tags != nil else { return TagsStore() }
+        var tagsStore = TagsStore()
+        for tagModel in taskModel.tags! {
+            let tagName = (tagModel as! TagModel).name!
+            let  tag = Tag(name: tagName, color: UIColor.gray)
+            tagsStore.addTag(tag)
         }
-        return tagsInfosList
+        return tagsStore
     }
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod) {
         let timeSpentInProgress = Int16(progressTimes.timeSpentInprogress)
         let postponableDeadline = Int16(progressTimes.currentDeadLine)
-        let period = createPeriod(from: taskProgressPeriod)
-        task.timeSpentInProgress = timeSpentInProgress
-        task.postponableDeadLine = postponableDeadline
-        task.addToPeriodsOfProcess(period)
+        let period = createPeriodModel(from: taskProgressPeriod)
+        taskModel.timeSpentInProgress = timeSpentInProgress
+        taskModel.postponableDeadLine = postponableDeadline
+        taskModel.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
     }
 }
 
 extension TaskModelFacade {
-    private func createPeriod(from taskProgressPeriod: TaskProgressPeriod) -> Period {
-        let period = Period(context: PersistanceService.context)
+    private func createPeriodModel(from taskProgressPeriod: TaskProgressPeriod) -> PeriodModel {
+        let period = PeriodModel(context: PersistanceService.context)
         let dateStarted = taskProgressPeriod.dateStarted as NSDate
         let dateFinished = taskProgressPeriod.dateEnded as NSDate
         period.dateStarted = dateStarted

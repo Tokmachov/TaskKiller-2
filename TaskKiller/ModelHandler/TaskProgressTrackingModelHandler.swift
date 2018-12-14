@@ -20,9 +20,9 @@ struct TaskProgressTrackingModelHandler: ITaskProgressTrackingModelHandler {
     //MARK: TaskStaticInfoGetable
     func getStaticInfo() -> TaskStaticInfo {
         let taskDescription = taskModelFacade.getTaskDescription()
-        let deadLine = taskModelFacade.getDeadLine()
-        let tagsInfosList = taskModelFacade.getTagsInfosList()
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tagsInfos: tagsInfosList)
+        let deadLine = taskModelFacade.getInitialDeadLine()
+        let tagsInfosList = taskModelFacade.getTagsStore()
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tagsInfosList)
     }
     
     //MARK: TaskProgressTimesGetable

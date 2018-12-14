@@ -25,7 +25,7 @@ struct TaskStaticInfoLabels: TaskStaticInfoSetable {
     func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
         let taskDescription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
-        let tagsNames = staticInfo.tagsInfos
+        let tagsNames = staticInfo.tags
         
         let stringInitialDeadline = timeIntrvalFormatter.format(initialDeadLine)
         let stringTagsNamses = tagsNames.getStringOfAllTagNames()

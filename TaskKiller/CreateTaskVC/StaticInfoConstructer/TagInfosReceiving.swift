@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TagInfosReceiving {
-    mutating func receiveTagsInfos(_ tagsInfos: AllTags)
+    mutating func receiveTags(_ tagsInfos: TagsStore)
 }

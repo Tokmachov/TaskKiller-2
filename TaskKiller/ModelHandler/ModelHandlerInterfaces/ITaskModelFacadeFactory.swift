@@ -10,5 +10,5 @@ import Foundation
 
 protocol ITaskModelFacadeFactory {
     static func createTaskModelFacade(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade
-    static func createTaskModelFacade(from taskModel: Task) -> ITaskModelFacade
+    static func createTaskModelFacade(from taskModel: TaskModel) -> ITaskModelFacade
 }

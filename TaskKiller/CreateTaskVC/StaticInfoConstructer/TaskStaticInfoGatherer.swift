@@ -12,10 +12,10 @@ class TaskStaticInfoGatherer: StaticInfoGathering {
 
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
-    private var tagsInfos: AllTags!
+    private var tagsInfos: TagsStore!
     
     private var staticInfo: TaskStaticInfo {
-        return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tagsInfos: tagsInfos)
+        return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine, tags: tagsInfos)
     }
     init() {}
     
@@ -27,7 +27,7 @@ class TaskStaticInfoGatherer: StaticInfoGathering {
         self.initialDeadLine = deadLine
     }
     
-    func receiveTagsInfos(_ tagsInfos: AllTags) {
+    func receiveTags(_ tagsInfos: TagsStore) {
         self.tagsInfos = tagsInfos
     }
     

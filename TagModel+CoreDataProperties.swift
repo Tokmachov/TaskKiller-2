@@ -2,7 +2,7 @@
 //  TagModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by mac on 13/12/2018.
+//  Created by mac on 14/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension TagModel {
         return NSFetchRequest<TagModel>(entityName: "TagModel")
     }
 
-    @NSManaged public var projectName: String?
+    @NSManaged public var name: String?
     @NSManaged public var tasks: NSSet?
 
 }

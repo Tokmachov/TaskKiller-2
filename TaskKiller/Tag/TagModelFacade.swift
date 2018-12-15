@@ -20,7 +20,7 @@ struct TagModelFacade: Equatable {
         return name
     }
     func getColor() -> UIColor {
-        
-        return UIColor.white
+        guard let color = tagModel.color else { fatalError() }
+        return color
     }
 }

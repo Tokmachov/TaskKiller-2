@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0407E0A421C4BA1800704082 /* DeleteButtonActionReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0A321C4BA1800704082 /* DeleteButtonActionReceiving.swift */; };
 		0407E0A621C4BA4400704082 /* ColorButtonActionReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0A521C4BA4400704082 /* ColorButtonActionReceiving.swift */; };
+		0407E0AB21C4EFA100704082 /* EditTagControlPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0AA21C4EFA100704082 /* EditTagControlPanelVC.swift */; };
 		044723B821C219AF00F0214F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B721C219AF00F0214F /* TagView.swift */; };
 		044723BA21C219F600F0214F /* HideableShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B921C219F600F0214F /* HideableShowable.swift */; };
 		044723BC21C21A7100F0214F /* ColorChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723BB21C21A7100F0214F /* ColorChangeButton.swift */; };
@@ -110,6 +111,7 @@
 		0407E0A321C4BA1800704082 /* DeleteButtonActionReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButtonActionReceiving.swift; sourceTree = "<group>"; };
 		0407E0A521C4BA4400704082 /* ColorButtonActionReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButtonActionReceiving.swift; sourceTree = "<group>"; };
 		0407E0A821C4C01700704082 /* TaskKiller 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 13.xcdatamodel"; sourceTree = "<group>"; };
+		0407E0AA21C4EFA100704082 /* EditTagControlPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagControlPanelVC.swift; sourceTree = "<group>"; };
 		044723B721C219AF00F0214F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		044723B921C219F600F0214F /* HideableShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideableShowable.swift; sourceTree = "<group>"; };
 		044723BB21C21A7100F0214F /* ColorChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeButton.swift; sourceTree = "<group>"; };
@@ -240,13 +242,20 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		0407E0A921C4EB5700704082 /* TagEditControlPanel */ = {
+			isa = PBXGroup;
+			children = (
+				0407E0AA21C4EFA100704082 /* EditTagControlPanelVC.swift */,
+			);
+			path = TagEditControlPanel;
+			sourceTree = "<group>";
+		};
 		044723B621C2156900F0214F /* TagView */ = {
 			isa = PBXGroup;
 			children = (
 				044723B721C219AF00F0214F /* TagView.swift */,
 				044723BB21C21A7100F0214F /* ColorChangeButton.swift */,
 				044723BD21C21A9800F0214F /* DeleteButton.swift */,
-				0407E0A721C4BA6200704082 /* Protocols */,
 			);
 			path = TagView;
 			sourceTree = "<group>";
@@ -312,6 +321,7 @@
 		B96E0EA32193D5900097AB34 /* CreateTaskVC */ = {
 			isa = PBXGroup;
 			children = (
+				0407E0A921C4EB5700704082 /* TagEditControlPanel */,
 				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
 				B96E0EB62193D7430097AB34 /* DeadLineVC */,
 				B96E0EBA2193D7C70097AB34 /* TagsVC */,
@@ -343,6 +353,7 @@
 			isa = PBXGroup;
 			children = (
 				B96E0EA82193D61C0097AB34 /* TagsVC.swift */,
+				0407E0A721C4BA6200704082 /* Protocols */,
 				044723B621C2156900F0214F /* TagView */,
 			);
 			path = TagsVC;
@@ -668,6 +679,7 @@
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				B9A8B18621A1C1AA0085FCA0 /* PostponeTimeReceiving.swift in Sources */,
 				B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */,
+				0407E0AB21C4EFA100704082 /* EditTagControlPanelVC.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				0407E0A621C4BA4400704082 /* ColorButtonActionReceiving.swift in Sources */,
 				B997F67421AF27DC00750092 /*  TagCell.swift in Sources */,

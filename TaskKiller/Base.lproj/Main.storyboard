@@ -148,10 +148,17 @@
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQW-Vl-ZCD">
-                                <rect key="frame" x="40" y="234" width="240" height="128"/>
+                                <rect key="frame" x="7" y="234" width="304" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="bnH-FR-KcX" kind="embed" identifier="Tag CollectionView ChildViewController" id="IMJ-qW-ccP"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBJ-L1-hi0">
+                                <rect key="frame" x="-1" y="341" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="LaJ-jH-E05" kind="embed" identifier="Tag Edit Control Panel" id="eNM-rV-eBJ"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -193,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaH-la-tJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.375" y="-92.429577464788736"/>
+            <point key="canvasLocation" x="2265" y="-8"/>
         </scene>
         <!--TagsVC-->
         <scene sceneID="sa3-Kn-zI9">
@@ -220,14 +227,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yai-Wt-Juu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1794.375" y="88.732394366197184"/>
+            <point key="canvasLocation" x="2265" y="117"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="yfb-qt-SSW">
             <objects>
                 <collectionViewController id="bnH-FR-KcX" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qCJ-ij-dlk">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <rect key="frame" x="0.0" y="0.0" width="304" height="82"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2hd-iw-2rI">
@@ -245,6 +252,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fG-3D-o2v">
+                                            <rect key="frame" x="0.0" y="0.0" width="34" height="0.0"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>
@@ -265,7 +273,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILD-KL-G8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="441.54929577464787"/>
+            <point key="canvasLocation" x="2284" y="396"/>
         </scene>
         <!--TaskVC-->
         <scene sceneID="EKI-3W-5U3">
@@ -411,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FzF-fE-Quz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1815" y="268.3098591549296"/>
+            <point key="canvasLocation" x="2299" y="243"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRi-Eu-R4V">
@@ -431,8 +439,95 @@
             </objects>
             <point key="canvasLocation" x="-686.25" y="127.8169014084507"/>
         </scene>
+        <!--Edit Tag Control PanelVC-->
+        <scene sceneID="zIg-ud-qx1">
+            <objects>
+                <viewController id="LaJ-jH-E05" customClass="EditTagControlPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-13-U3D">
+                                <rect key="frame" x="78.5" y="13.5" width="63" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Add tag">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTagPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="T72-cU-7OQ"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWI-wr-NE0">
+                                <rect key="frame" x="178.5" y="13.5" width="63" height="30"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="Edit Tags">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="editTagButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="V0m-3j-67o"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-rs-LCV">
+                                <rect key="frame" x="-194" y="13.5" width="254" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-FK-xB5">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-y0-vFi">
+                                        <rect key="frame" x="170" y="0.0" width="37" height="30"/>
+                                        <state key="normal" title="Color"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-iZ-Mcg">
+                                        <rect key="frame" x="217" y="0.0" width="37" height="30"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneTagCreationButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="045-Gv-OmG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKC-od-DjB">
+                                <rect key="frame" x="266" y="13.5" width="88" height="30"/>
+                                <state key="normal" title="Done Editing"/>
+                                <connections>
+                                    <action selector="doneEditingButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="alN-aD-5HN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xKC-od-DjB" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="150" id="56F-Vs-T1R"/>
+                            <constraint firstItem="JWI-wr-NE0" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="50" id="Erf-sY-WIS"/>
+                            <constraint firstItem="P4t-13-U3D" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="-50" id="KTw-s5-FlN"/>
+                            <constraint firstItem="xKC-od-DjB" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="KY1-7B-h5Q"/>
+                            <constraint firstItem="P4t-13-U3D" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="SBz-lK-xMV"/>
+                            <constraint firstItem="P4t-13-U3D" firstAttribute="width" secondItem="JWI-wr-NE0" secondAttribute="width" id="ZZc-O9-zNK"/>
+                            <constraint firstItem="T9I-FK-xB5" firstAttribute="width" secondItem="yBj-6L-dNb" secondAttribute="width" multiplier="0.5" id="d6O-QR-nFv"/>
+                            <constraint firstItem="JWI-wr-NE0" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="nZF-by-AcK"/>
+                            <constraint firstItem="aVw-rs-LCV" firstAttribute="leading" secondItem="yBj-6L-dNb" secondAttribute="leadingMargin" constant="-210" id="oGI-7z-Mgk"/>
+                            <constraint firstItem="aVw-rs-LCV" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="za9-P4-FqY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p4A-l0-FsU"/>
+                    </view>
+                    <connections>
+                        <outlet property="addTag" destination="P4t-13-U3D" id="scC-Qj-LhO"/>
+                        <outlet property="creationControlsConstraint" destination="oGI-7z-Mgk" id="im8-fh-Ejj"/>
+                        <outlet property="creationControlsStack" destination="aVw-rs-LCV" id="9Si-hN-4Yd"/>
+                        <outlet property="doneEditing" destination="xKC-od-DjB" id="A1U-ZQ-TWW"/>
+                        <outlet property="doneEditingXConstraint" destination="56F-Vs-T1R" id="8K0-yn-Z2d"/>
+                        <outlet property="editTag" destination="JWI-wr-NE0" id="C7o-GI-DM4"/>
+                        <outlet property="tagNameInput" destination="T9I-FK-xB5" id="Ag5-UC-lDV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ify-dC-aCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283.75" y="606.86619718309862"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mb3-T5-EQg"/>
+        <segue reference="TKV-Ta-oOb"/>
     </inferredMetricsTieBreakers>
 </document>

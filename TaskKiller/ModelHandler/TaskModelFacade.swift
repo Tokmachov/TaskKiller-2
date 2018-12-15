@@ -28,16 +28,7 @@ struct TaskModelFacade: ITaskModelFacade {
         return TimeInterval(taskModel.timeSpentInProgress)
     }
     
-    func getTagsStore() -> TagsStore {
-        guard taskModel.tags != nil else { return TagsStore() }
-        var tagsStore = TagsStore()
-        for tagModel in taskModel.tags! {
-            let tagName = (tagModel as! TagModel).name!
-            let  tag = Tag(name: tagName, color: UIColor.gray)
-            tagsStore.addTag(tag)
-        }
-        return tagsStore
-    }
+   
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod) {
         let timeSpentInProgress = Int16(progressTimes.timeSpentInprogress)
         let postponableDeadline = Int16(progressTimes.currentDeadLine)

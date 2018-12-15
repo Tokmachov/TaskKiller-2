@@ -8,17 +8,19 @@
 
 import UIKit
 
-struct Tag: Equatable {
-    private var name: String
-    private var color: UIColor
-    init(name: String, color: UIColor) {
-        self.name = name
-        self.color = color
+struct TagModelFacade: Equatable {
+    
+    private var tagModel: TagModel
+    init(tagModel: TagModel) {
+        self.tagModel = tagModel
     }
+    
     func getName() -> String {
+        guard let name = tagModel.name else { fatalError() }
         return name
     }
     func getColor() -> UIColor {
-        return color
+        
+        return UIColor.white
     }
 }

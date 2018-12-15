@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TagInfoSetable {
-    func setTagInfo(from tag: Tag)
+    func setTagInfo(from tag: TagModelFacade)
 }

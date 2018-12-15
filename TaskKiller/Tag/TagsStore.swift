@@ -10,9 +10,9 @@ import Foundation
 
 struct TagsStore {
     
-    private var tags: [Tag] = []
+    private var tags: [TagModelFacade] = []
     
-    func getTags() -> [Tag] {
+    func getTags() -> [TagModelFacade] {
         return tags
     }
     func getStringOfAllTagNames() -> String {
@@ -20,7 +20,7 @@ struct TagsStore {
             result + tag.getName()
         })
     }
-    mutating func addTag(_ tag: Tag) {
+    mutating func addTag(_ tag: TagModelFacade) {
         tags.append(tag)
     }
 }

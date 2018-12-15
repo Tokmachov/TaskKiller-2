@@ -19,7 +19,7 @@ class TagsVC: UIViewController, TagsReporting {
     override func viewDidLoad() {
         super.viewDidLoad()
         tagsSamples = TagsStore()
-        tagsSamples.addTag(Tag(name: "SomeName", color: UIColor.green))
+        
         tagsReceiver.receiveTags(tagsSamples)
     }
 }

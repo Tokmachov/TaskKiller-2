@@ -156,7 +156,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBJ-L1-hi0">
-                                <rect key="frame" x="-1" y="341" width="320" height="57"/>
+                                <rect key="frame" x="-1" y="341" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="LaJ-jH-E05" kind="embed" identifier="EditTagControlPanelChildVC" id="eNM-rV-eBJ"/>
@@ -445,11 +445,11 @@
             <objects>
                 <viewController id="LaJ-jH-E05" customClass="EditTagControlPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-13-U3D">
-                                <rect key="frame" x="78.5" y="13.5" width="63" height="30"/>
+                                <rect key="frame" x="78.5" y="27" width="63" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Add tag">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -459,7 +459,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWI-wr-NE0">
-                                <rect key="frame" x="178.5" y="13.5" width="63" height="30"/>
+                                <rect key="frame" x="178.5" y="27" width="63" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Edit Tags">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -469,7 +469,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-rs-LCV">
-                                <rect key="frame" x="-194" y="13.5" width="254" height="30"/>
+                                <rect key="frame" x="-194" y="27" width="247" height="30"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-FK-xB5">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="30"/>
@@ -477,15 +477,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-y0-vFi">
-                                        <rect key="frame" x="170" y="0.0" width="37" height="30"/>
-                                        <state key="normal" title="Color"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-y0-vFi" userLabel="ColorPaneCallButton" customClass="ColorPaneCallButton" customModule="TaskKiller" customModuleProvider="target">
+                                        <rect key="frame" x="170" y="0.0" width="30" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5GS-y0-vFi" secondAttribute="height" multiplier="1:1" id="1NY-m8-kaN"/>
+                                        </constraints>
                                         <connections>
-                                            <action selector="choseColorButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="UKv-qd-bJ3"/>
+                                            <action selector="colorPaneCallButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="UKv-qd-bJ3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-iZ-Mcg">
-                                        <rect key="frame" x="217" y="0.0" width="37" height="30"/>
+                                        <rect key="frame" x="210" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Done"/>
                                         <connections>
                                             <action selector="doneTagCreationButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="045-Gv-OmG"/>
@@ -494,19 +497,19 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKC-od-DjB">
-                                <rect key="frame" x="266" y="13.5" width="88" height="30"/>
+                                <rect key="frame" x="266" y="27" width="88" height="30"/>
                                 <state key="normal" title="Done Editing"/>
                                 <connections>
                                     <action selector="doneEditingButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="alN-aD-5HN"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-rN-9Rl">
-                                <rect key="frame" x="50" y="0.0" width="220" height="168"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-rN-9Rl" userLabel="ColorPane Container View">
+                                <rect key="frame" x="50" y="-15" width="220" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="4IS-NZ-UF2"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="3A7-sV-jgU" kind="embed" id="NiE-zn-pDE"/>
+                                    <segue destination="3A7-sV-jgU" kind="embed" identifier="Color Pane ChildVC" id="NiE-zn-pDE"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -520,9 +523,9 @@
                             <constraint firstItem="QFf-rN-9Rl" firstAttribute="leading" secondItem="p4A-l0-FsU" secondAttribute="leading" constant="50" id="MaQ-vA-DeZ"/>
                             <constraint firstItem="p4A-l0-FsU" firstAttribute="trailing" secondItem="QFf-rN-9Rl" secondAttribute="trailing" constant="50" id="PYp-i1-kID"/>
                             <constraint firstItem="P4t-13-U3D" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="SBz-lK-xMV"/>
-                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="top" secondItem="p4A-l0-FsU" secondAttribute="top" id="Vu9-3a-dP6"/>
                             <constraint firstItem="P4t-13-U3D" firstAttribute="width" secondItem="JWI-wr-NE0" secondAttribute="width" id="ZZc-O9-zNK"/>
                             <constraint firstItem="T9I-FK-xB5" firstAttribute="width" secondItem="yBj-6L-dNb" secondAttribute="width" multiplier="0.5" id="d6O-QR-nFv"/>
+                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="hiT-kv-ZVC"/>
                             <constraint firstItem="JWI-wr-NE0" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="nZF-by-AcK"/>
                             <constraint firstItem="aVw-rs-LCV" firstAttribute="leading" secondItem="yBj-6L-dNb" secondAttribute="leadingMargin" constant="-210" id="oGI-7z-Mgk"/>
                             <constraint firstItem="aVw-rs-LCV" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="za9-P4-FqY"/>
@@ -531,7 +534,9 @@
                     </view>
                     <connections>
                         <outlet property="addTag" destination="P4t-13-U3D" id="scC-Qj-LhO"/>
-                        <outlet property="creationControlsConstraint" destination="oGI-7z-Mgk" id="im8-fh-Ejj"/>
+                        <outlet property="colorPaineXPosition" destination="hiT-kv-ZVC" id="M7G-lR-O7M"/>
+                        <outlet property="colorPaneCallButton" destination="5GS-y0-vFi" id="Q3e-F9-jrX"/>
+                        <outlet property="creationControlsLeadingConstraint" destination="oGI-7z-Mgk" id="im8-fh-Ejj"/>
                         <outlet property="creationControlsStack" destination="aVw-rs-LCV" id="9Si-hN-4Yd"/>
                         <outlet property="doneEditing" destination="xKC-od-DjB" id="A1U-ZQ-TWW"/>
                         <outlet property="doneEditingXConstraint" destination="56F-Vs-T1R" id="8K0-yn-Z2d"/>
@@ -543,10 +548,10 @@
             </objects>
             <point key="canvasLocation" x="2283.75" y="606.86619718309862"/>
         </scene>
-        <!--View Controller-->
+        <!--Color PaneVC-->
         <scene sceneID="v5W-T3-ALy">
             <objects>
-                <viewController id="3A7-sV-jgU" sceneMemberID="viewController">
+                <viewController id="3A7-sV-jgU" customClass="ColorPaneVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="Nca-HT-NKH" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="168"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,7 +562,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bp3-Hm-DyD">
                                         <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-xM-ULv" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-xM-ULv" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -569,8 +574,11 @@
                                                         <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="printSomething" destination="3A7-sV-jgU" eventType="touchUpInside" id="bjg-RM-zrg"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-Df-e4O" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-Df-e4O" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -582,8 +590,11 @@
                                                         <color key="value" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="4t2-sh-Shp"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-9x-0k7" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-9x-0k7" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -594,8 +605,11 @@
                                                         <color key="value" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="csu-o4-CEf"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-OB-hIa" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-OB-hIa" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -606,8 +620,11 @@
                                                         <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="TJJ-au-3Kq"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-bQ-dIM" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-bQ-dIM" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -618,6 +635,9 @@
                                                         <color key="value" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="Bqb-dS-3hb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -633,7 +653,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cu7-TI-jTN">
                                         <rect key="frame" x="0.0" y="35" width="182" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-dD-h1I" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-dD-h1I" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -644,8 +664,11 @@
                                                         <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="9CV-XD-whH"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Kv-zuN" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Kv-zuN" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -656,8 +679,11 @@
                                                         <color key="value" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="oky-jl-am9"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-iQ-O6N" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-iQ-O6N" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -668,8 +694,11 @@
                                                         <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="hox-fB-PbA"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-ey-f4I" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-ey-f4I" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -680,8 +709,11 @@
                                                         <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="P5a-1e-cjp"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdP-td-yNU" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdP-td-yNU" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -692,6 +724,9 @@
                                                         <color key="value" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="0PV-dU-d43"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -707,7 +742,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BpG-Pf-cPs">
                                         <rect key="frame" x="0.0" y="70" width="182" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thn-xP-nsB" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thn-xP-nsB" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -718,8 +753,11 @@
                                                         <color key="value" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="dJF-4a-oAW"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odm-1S-2uy" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odm-1S-2uy" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -730,8 +768,11 @@
                                                         <color key="value" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="Vl4-Dt-9DR"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-FN-cul" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-FN-cul" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -742,8 +783,11 @@
                                                         <color key="value" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="UiX-TQ-GJc"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Ib-Mgn" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Ib-Mgn" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -754,8 +798,11 @@
                                                         <color key="value" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="2IA-HW-Hb3"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-3N-fI2" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-3N-fI2" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -766,6 +813,9 @@
                                                         <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="vIl-Fv-uw9"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -781,7 +831,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3uM-73-epr">
                                         <rect key="frame" x="0.0" y="105" width="182" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF9-d2-ibO" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF9-d2-ibO" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -792,8 +842,11 @@
                                                         <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="gt8-bQ-9mV"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxO-9k-Z9U" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxO-9k-Z9U" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="38" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -804,8 +857,11 @@
                                                         <color key="value" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="ogZ-oa-Z3K"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lud-Ww-BAn" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lud-Ww-BAn" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="76" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -816,8 +872,11 @@
                                                         <color key="value" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="2U7-MH-jdN"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr3-CC-B5g" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr3-CC-B5g" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="114" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -828,8 +887,11 @@
                                                         <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="a5x-E5-Ymm"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRD-54-VcH" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRD-54-VcH" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
                                                 <rect key="frame" x="152" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -840,6 +902,9 @@
                                                         <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="ict-Nd-deP"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>

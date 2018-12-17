@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable
 
-class ColorSelectionRepresentingButton: UIButton {
+class ColorSelectionButton: UIButton {
     
     @IBInspectable var color: UIColor = UIColor.green
     override func draw(_ rect: CGRect) {

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -158,7 +159,7 @@
                                 <rect key="frame" x="-1" y="341" width="320" height="57"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="LaJ-jH-E05" kind="embed" identifier="Tag Edit Control Panel" id="eNM-rV-eBJ"/>
+                                    <segue destination="LaJ-jH-E05" kind="embed" identifier="EditTagControlPanelChildVC" id="eNM-rV-eBJ"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -479,6 +480,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-y0-vFi">
                                         <rect key="frame" x="170" y="0.0" width="37" height="30"/>
                                         <state key="normal" title="Color"/>
+                                        <connections>
+                                            <action selector="choseColorButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="UKv-qd-bJ3"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-iZ-Mcg">
                                         <rect key="frame" x="217" y="0.0" width="37" height="30"/>
@@ -496,6 +500,15 @@
                                     <action selector="doneEditingButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="alN-aD-5HN"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-rN-9Rl">
+                                <rect key="frame" x="50" y="0.0" width="220" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="4IS-NZ-UF2"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="3A7-sV-jgU" kind="embed" id="NiE-zn-pDE"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -503,7 +516,11 @@
                             <constraint firstItem="JWI-wr-NE0" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="50" id="Erf-sY-WIS"/>
                             <constraint firstItem="P4t-13-U3D" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="-50" id="KTw-s5-FlN"/>
                             <constraint firstItem="xKC-od-DjB" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="KY1-7B-h5Q"/>
+                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" id="Lh8-ro-sDK"/>
+                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="leading" secondItem="p4A-l0-FsU" secondAttribute="leading" constant="50" id="MaQ-vA-DeZ"/>
+                            <constraint firstItem="p4A-l0-FsU" firstAttribute="trailing" secondItem="QFf-rN-9Rl" secondAttribute="trailing" constant="50" id="PYp-i1-kID"/>
                             <constraint firstItem="P4t-13-U3D" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="SBz-lK-xMV"/>
+                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="top" secondItem="p4A-l0-FsU" secondAttribute="top" id="Vu9-3a-dP6"/>
                             <constraint firstItem="P4t-13-U3D" firstAttribute="width" secondItem="JWI-wr-NE0" secondAttribute="width" id="ZZc-O9-zNK"/>
                             <constraint firstItem="T9I-FK-xB5" firstAttribute="width" secondItem="yBj-6L-dNb" secondAttribute="width" multiplier="0.5" id="d6O-QR-nFv"/>
                             <constraint firstItem="JWI-wr-NE0" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="nZF-by-AcK"/>
@@ -525,6 +542,337 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ify-dC-aCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2283.75" y="606.86619718309862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v5W-T3-ALy">
+            <objects>
+                <viewController id="3A7-sV-jgU" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Nca-HT-NKH" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="220" height="168"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-gf-VWu">
+                                <rect key="frame" x="19" y="16.5" width="182" height="135"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bp3-Hm-DyD">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-xM-ULv" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Lda-xM-ULv" secondAttribute="height" multiplier="1:1" id="s8Y-vR-BHD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-Df-e4O" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="nRU-Df-e4O" secondAttribute="height" multiplier="1:1" id="YaM-1r-x0t"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-9x-0k7" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="f0q-fU-WOu"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-OB-hIa" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="5fD-MT-4kD"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-bQ-dIM" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="VNi-ZZ-DsK"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="KTo-9x-0k7" firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="Psp-hz-7UF"/>
+                                            <constraint firstItem="KTo-9x-0k7" firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="Q6J-or-ntC"/>
+                                            <constraint firstItem="iZO-bQ-dIM" firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="Qy8-e4-jai"/>
+                                            <constraint firstItem="cjV-OB-hIa" firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="RH8-iJ-srd"/>
+                                            <constraint firstItem="cjV-OB-hIa" firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="ZA9-Hc-UaF"/>
+                                            <constraint firstItem="iZO-bQ-dIM" firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="d09-Za-Kdh"/>
+                                            <constraint firstItem="nRU-Df-e4O" firstAttribute="width" secondItem="nRU-Df-e4O" secondAttribute="height" multiplier="1:1" id="oBO-Sl-62f"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cu7-TI-jTN">
+                                        <rect key="frame" x="0.0" y="35" width="182" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-dD-h1I" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="YyC-dD-h1I" secondAttribute="height" multiplier="1:1" id="63A-bL-7sg"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Kv-zuN" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="6Ik-Kv-zuN" secondAttribute="height" multiplier="1:1" id="Pi1-Eb-nrl"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-iQ-O6N" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="hbq-hw-uao"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-ey-f4I" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="Ly8-pg-D0B"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdP-td-yNU" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="OHi-Rl-QIz"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="jdP-td-yNU" firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="0OW-kp-Yj4"/>
+                                            <constraint firstItem="bW3-iQ-O6N" firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="NoN-MY-SY8"/>
+                                            <constraint firstItem="bW3-iQ-O6N" firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="SRw-9Z-LCQ"/>
+                                            <constraint firstItem="zgF-ey-f4I" firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="UWy-aP-gV8"/>
+                                            <constraint firstItem="zgF-ey-f4I" firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="c03-1V-5I0"/>
+                                            <constraint firstItem="6Ik-Kv-zuN" firstAttribute="width" secondItem="6Ik-Kv-zuN" secondAttribute="height" multiplier="1:1" id="eMz-rP-nrY"/>
+                                            <constraint firstItem="jdP-td-yNU" firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="swJ-e8-ABd"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BpG-Pf-cPs">
+                                        <rect key="frame" x="0.0" y="70" width="182" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thn-xP-nsB" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="thn-xP-nsB" secondAttribute="height" multiplier="1:1" id="cI0-od-ShV"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odm-1S-2uy" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="odm-1S-2uy" secondAttribute="height" multiplier="1:1" id="bTk-gm-GNF"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-FN-cul" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="qtQ-PE-pCD"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Ib-Mgn" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="uzw-lo-NMn"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-3N-fI2" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="Djw-8G-arI"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="0l4-FN-cul" firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="0tp-cx-4hD"/>
+                                            <constraint firstItem="vq8-Ib-Mgn" firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="2JO-xb-OqV"/>
+                                            <constraint firstItem="Mvh-3N-fI2" firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="4WN-7w-dDH"/>
+                                            <constraint firstItem="odm-1S-2uy" firstAttribute="width" secondItem="odm-1S-2uy" secondAttribute="height" multiplier="1:1" id="BmN-if-A4J"/>
+                                            <constraint firstItem="0l4-FN-cul" firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="Cft-gS-6fP"/>
+                                            <constraint firstItem="vq8-Ib-Mgn" firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="Coh-65-NsH"/>
+                                            <constraint firstItem="Mvh-3N-fI2" firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="tCj-0k-BPI"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3uM-73-epr">
+                                        <rect key="frame" x="0.0" y="105" width="182" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF9-d2-ibO" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="dF9-d2-ibO" secondAttribute="height" multiplier="1:1" id="bTa-Dw-FwM"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxO-9k-Z9U" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="YxO-9k-Z9U" secondAttribute="height" multiplier="1:1" id="EpH-tL-rzV"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lud-Ww-BAn" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="Hnf-qK-jNe"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr3-CC-B5g" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="3P9-jX-vD0"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRD-54-VcH" customClass="ColorSelectionRepresentingButton" customModule="TaskKiller" customModuleProvider="target">
+                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="nR2-lD-clQ"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rRD-54-VcH" firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="9R0-vS-ATw"/>
+                                            <constraint firstItem="Wr3-CC-B5g" firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="Flz-rq-EZz"/>
+                                            <constraint firstItem="Wr3-CC-B5g" firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="Of5-s6-9NE"/>
+                                            <constraint firstItem="Lud-Ww-BAn" firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="UIw-Zc-V09"/>
+                                            <constraint firstItem="Lud-Ww-BAn" firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="egY-Kl-yWd"/>
+                                            <constraint firstItem="rRD-54-VcH" firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="jAt-ZR-z1k"/>
+                                            <constraint firstItem="YxO-9k-Z9U" firstAttribute="width" secondItem="YxO-9k-Z9U" secondAttribute="height" multiplier="1:1" id="sdS-5V-9Wj"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YaT-gf-VWu" firstAttribute="centerX" secondItem="Nca-HT-NKH" secondAttribute="centerX" id="cAr-Ym-KLy"/>
+                            <constraint firstItem="YaT-gf-VWu" firstAttribute="centerY" secondItem="Nca-HT-NKH" secondAttribute="centerY" id="hQq-Of-foU"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
+                                <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.35106734154929575" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dHf-Ke-4zo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3126" y="606"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

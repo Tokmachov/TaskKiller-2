@@ -7,14 +7,21 @@
 //
 
 import UIKit
-class EditTagControlPanelVC: UIViewController {
+class EditTagControlPanelVC: UIViewController, TagInfoReporting {
+    
+    //MARK: TagInfoReporting
+    private weak var tagInfoReceiver: TagInfoReceiving!
+    func setTagInfoReceiver(_ receiver: TagInfoReceiving) {
+        self.tagInfoReceiver = receiver
+    }
     
     let addAndEditTagButtonsAnimationTime: Double = 0.5
-    let creationControlAnimationTime: Double = 2
+    let creationControlsAnimationTime: Double = 2
     let opaqeAlpfa: CGFloat = 1
     let transparentAlpha: CGFloat = 0
     let doneEditingButtonAnimationTime: Double = 1
     let doneEditingButtonXPosition: CGFloat = 0.0
+    
     @IBOutlet weak var addTag: UIButton!
     @IBOutlet weak var editTag: UIButton!
     
@@ -48,6 +55,9 @@ class EditTagControlPanelVC: UIViewController {
     @IBAction func doneEditingButtonPressed() {
         moveDoneEditingButtonOffScreen()
         moveAddAndEditTagButtonsOnScreen()
+    }
+    @IBAction func choseColorButtonPressed() {
+        
     }
 }
 //MARK: AddButton, EditButton movements and animations
@@ -104,14 +114,14 @@ extension EditTagControlPanelVC {
 //MARK: CreationControls movements and animations
 extension EditTagControlPanelVC {
     private func moveCreationControlsOffScreen() {
-        UIView.animate(withDuration: creationControlAnimationTime, animations: { [weak self] in
+        UIView.animate(withDuration: creationControlsAnimationTime, animations: { [weak self] in
             guard let self = self else { fatalError() }
             self.creationControlsConstraint.constant = 2 * self.view.bounds.width
             self.creationControlsStack.alpha = self.transparentAlpha
             }, completion: nil)
     }
     private func moveCreationControlsOnScreen() {
-        UIView.animate(withDuration: creationControlAnimationTime, animations: { [weak self] in
+        UIView.animate(withDuration: creationControlsAnimationTime, animations: { [weak self] in
             guard let self = self else { fatalError() }
             self.creationControlsConstraint!.constant = self.view.bounds.width / 10
             self.creationControlsStack.alpha = self.opaqeAlpfa

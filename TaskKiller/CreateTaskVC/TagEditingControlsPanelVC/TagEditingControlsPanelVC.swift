@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColorReceiving {
+class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColorReceiving, TagNameReceiving {
     
     private var tagName: String!
     private var tagColor: UIColor!
@@ -17,9 +17,6 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     func setTagInfoReceiver(_ receiver: TagInfoReceiving) {
         self.tagInfoReceiver = receiver
     }
-    
-    let addAndEditTagButtonsAnimationTime: Double = 0.5
-    let creationControlsAnimationTime: Double = 2
     
     let opaqeAlpfa: CGFloat = 1
     let transparentAlpha: CGFloat = 0
@@ -33,9 +30,7 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     @IBOutlet weak var addTag: UIButton!
     @IBOutlet weak var editTag: UIButton!
     
-    @IBOutlet weak var tagNameInput: UITextField!
-    @IBOutlet weak var creationControlsStack: UIStackView!
-    
+    @IBOutlet weak var creationControls: UIStackView!
     @IBOutlet weak var creationControlsLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var doneEditing: UIButton!
@@ -50,37 +45,51 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         moveCreationControlsOffScreen()
-        moveAddAndEditTagButtonsOnScreen()
+        moveAddAndEditButtonsOnScreen()
         moveDoneEditingButtonOffScreen()
         moveColorPaneOffScreen()
     }
     
     //MARK: Events
     @IBAction func addTagPressed() {
-        moveAddAndEditTagButtonsOffScreen()
+        moveAddAndEditButtonsOffScreen()
         moveCreationControlsOnScreen()
     }
     @IBAction func editTagButtonPressed() {
-        moveAddAndEditTagButtonsOffScreen()
+        moveAddAndEditButtonsOffScreen()
         moveDoneEditingButtonOnScreen()
     }
     @IBAction func doneTagCreationButtonPressed() {
         moveCreationControlsOffScreen()
-        moveAddAndEditTagButtonsOnScreen()
+        moveAddAndEditButtonsOnScreen()
+        reportNewTagInfo()
     }
+    
     @IBAction func doneEditingButtonPressed() {
         moveDoneEditingButtonOffScreen()
-        moveAddAndEditTagButtonsOnScreen()
+        moveAddAndEditButtonsOnScreen()
     }
     @IBAction func colorPaneCallButtonPressed() {
+        moveCreationControlsOffScreen()
         moveColorPaneOnScreen()
+    }
+    
+    @IBAction func cancelCreationWasPressed() {
+        moveCreationControlsOffScreen()
+        moveAddAndEditButtonsOnScreen()
     }
     
     //MARK: ChosenColorReceiving
     func colorWasChosen(_ color: UIColor) {
         self.tagColor = color
-        colorPaneCallButton.setChosenColor(color)
+        changeColorPaneCallButton(to: color)
         moveColorPaneOffScreen()
+        moveCreationControlsOnScreen()
+    }
+    
+    //MARK: TagNameReceiving
+    func receiveTagName(_ name: String) {
+        self.tagName = name
     }
     
     //MARK: Segues
@@ -89,57 +98,50 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
         case "Color Pane ChildVC":
             guard let chosenColorReporter = segue.destination as? ChosenColorReporting else { fatalError() }
             chosenColorReporter.setChosenColorReceiver(self)
+        case "Child TagNameVC":
+            guard let tagNameReporter = segue.destination as? TagNameReporting else { fatalError() }
+            tagNameReporter.setTagNameReceiver(self)
         default: break
         }
     }
 }
 //MARK: AddButton, EditButton movements and animations
 extension TagEditingControlsPanelVC {
-    private func moveAddAndEditTagButtonsOffScreen() {
-        moveAddTagOffScreen()
-        moveEditTagOffScreen()
+    private func moveAddAndEditButtonsOffScreen() {
+        moveAddBttonOffScreen()
+        moveEditButtonOffScreen()
     }
-    private func moveAddAndEditTagButtonsOnScreen() {
-        moveAddTagOnScreen()
-        moveEditTagOnScreen()
+    private func moveAddAndEditButtonsOnScreen() {
+        moveAddButtonOnScreen()
+        moveEditButtonOnScreen()
     }
-    private func moveAddTagOffScreen() {
-        fadeViewWithAnimation(addTag, then: { [weak self ] in
-            guard let self = self else { fatalError() }
-            self.addTag.hide() })
-    }
-    
-    private func moveAddTagOnScreen() {
-        UIView.animate(withDuration: addAndEditTagButtonsAnimationTime, animations: { [weak self] in
-            guard let self = self else { fatalError() }
-            self.addTag.alpha = self.opaqeAlpfa
-            }, completion: { [weak self] (isAnimationFinished) in
-                guard let self = self else { fatalError() }
-                self.addTag.show()
-        })
+    private func moveAddBttonOffScreen() {
+        //fadeOut(view: addTag, withDuration: AnimationTimes.addButtonOffScreen)
+        addTag.hide()
     }
     
-    private func moveEditTagOffScreen() {
-        fadeViewWithAnimation(editTag, then: { [weak self ] in
-            guard let self = self else { fatalError() }
-            self.editTag.hide() })
+    private func moveAddButtonOnScreen() {
+       fadeIn(view: addTag, withDuration: AnimationTimes.addButtonOnScreen)
+        addTag.show()
     }
-    private func moveEditTagOnScreen() {
-        UIView.animate(withDuration: addAndEditTagButtonsAnimationTime, animations: { [weak self] in
-            guard let self = self else { fatalError() }
-            self.editTag.alpha = self.opaqeAlpfa
-            }, completion: { [weak self] (isAnimationFinished) in
-                guard let self = self else { fatalError() }
-                self.editTag.show()
+    
+    private func moveEditButtonOffScreen() {
+        //fadeOut(view: editTag, withDuration: AnimationTimes.editButtonOffScreen)
+        editTag.hide()
+    }
+    private func moveEditButtonOnScreen() {
+        fadeIn(view: editTag, withDuration: AnimationTimes.editButtonOnScreen)
+        editTag.show()
+    }
+    
+    private func fadeOut(view: UIView, withDuration duration: Double) {
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            self!.view.alpha = self!.transparentAlpha
         })
     }
-    private func fadeViewWithAnimation(_ view: UIView, then animationCompletion: @escaping ()->()) {
-        UIView.animate(withDuration: addAndEditTagButtonsAnimationTime, animations: { [weak view, weak self] in
-            guard let view = view,
-                  let self = self else { fatalError() }
-            view.alpha = self.transparentAlpha
-            }, completion: { (isFinished) in
-                animationCompletion()
+    private func fadeIn(view: UIView, withDuration duration: Double) {
+        UIView.animate(withDuration: duration, animations: { [weak self] in
+            self!.view.alpha = self!.opaqeAlpfa
         })
     }
 }
@@ -147,24 +149,26 @@ extension TagEditingControlsPanelVC {
 //MARK: CreationControls movements and animations
 extension TagEditingControlsPanelVC {
     private func moveCreationControlsOffScreen() {
-        UIView.animate(withDuration: creationControlsAnimationTime, animations: { [weak self] in
+        creationControlsLeadingConstraint.constant = 2 * view.bounds.width
+        UIView.animate(withDuration: AnimationTimes.creationControlsOffScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
-            self.creationControlsLeadingConstraint.constant = 2 * self.view.bounds.width
-            self.creationControlsStack.alpha = self.transparentAlpha
+            self.view.layoutIfNeeded()
+            self.creationControls.alpha = self.transparentAlpha
             }, completion: nil)
     }
     private func moveCreationControlsOnScreen() {
-        UIView.animate(withDuration: creationControlsAnimationTime, animations: { [weak self] in
+        creationControlsLeadingConstraint.constant = 5
+        UIView.animate(withDuration: AnimationTimes.creationControlsOnScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
-            self.creationControlsLeadingConstraint!.constant = self.view.bounds.width / 10
-            self.creationControlsStack.alpha = self.opaqeAlpfa
+            self.view.layoutIfNeeded()
+            self.creationControls.alpha = self.opaqeAlpfa
         }, completion: nil)
     }
 }
 //MARK: DoneEditingButton movements
 extension TagEditingControlsPanelVC {
     private func moveDoneEditingButtonOffScreen() {
-        UIView.animate(withDuration: doneEditingButtonAnimationTime, animations: { [weak self] in
+        UIView.animate(withDuration: AnimationTimes.doneEditingButtonOffScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
             self.doneEditing.alpha = self.transparentAlpha
             self.doneEditingXConstraint.constant = 2 * self.view.bounds.width
@@ -172,7 +176,7 @@ extension TagEditingControlsPanelVC {
         , completion: nil)
     }
     private func moveDoneEditingButtonOnScreen() {
-        UIView.animate(withDuration: doneEditingButtonAnimationTime, animations: { [weak self] in
+        UIView.animate(withDuration: AnimationTimes.doneEditingButtonOnScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
             self.doneEditing.alpha = self.opaqeAlpfa
             self.doneEditingXConstraint.constant = self.doneEditingButtonXPosition
@@ -185,11 +189,11 @@ extension TagEditingControlsPanelVC {
 extension TagEditingControlsPanelVC {
     private func moveColorPaneOffScreen() {
         changeXPositionOfColorPaneToOffscreen()
-        animateChangeOfConstraintWithDuration(offScreenColorPaneMovementTime)
+        animateChangeOfConstraintWithDuration(AnimationTimes.colorPaneOffScreen)
     }
     private func moveColorPaneOnScreen() {
         changeXPositionOfColorPanelToOnScreen()
-        animateChangeOfConstraintWithDuration(onScreenColorPaneMovementTime)
+        animateChangeOfConstraintWithDuration(AnimationTimes.colorPaneOnScreen)
     }
     
     private func changeXPositionOfColorPaneToOffscreen() {
@@ -203,4 +207,31 @@ extension TagEditingControlsPanelVC {
             self!.view.layoutIfNeeded()
         }, completion: nil)
     }
+}
+
+extension TagEditingControlsPanelVC {
+    private func reportNewTagInfo() {
+        tagInfoReceiver.receiveTagInfo(name: tagName, color: tagColor)
+    }
+    private func changeColorPaneCallButton(to color: UIColor) {
+        colorPaneCallButton.setChosenColor(color)
+    }
+}
+
+struct AnimationTimes {
+    
+    static var addButtonOnScreen: Double = 0.5
+    static var addButtonOffScreen: Double = 0.5
+    
+    static var editButtonOnScreen: Double = 0.5
+    static var editButtonOffScreen: Double = 0.5
+    
+    static var creationControlsOnScreen: Double = 1
+    static var creationControlsOffScreen: Double = 1
+    
+    static var doneEditingButtonOnScreen: Double = 1
+    static var doneEditingButtonOffScreen: Double = 1
+    
+    static var colorPaneOnScreen: Double = 1
+    static var colorPaneOffScreen: Double = 1
 }

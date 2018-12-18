@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class EditTagControlPanelVC: UIViewController, TagInfoReporting, ChosenColorReceiving {
+class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColorReceiving {
     
     private var tagName: String!
     private var tagColor: UIColor!
@@ -94,7 +94,7 @@ class EditTagControlPanelVC: UIViewController, TagInfoReporting, ChosenColorRece
     }
 }
 //MARK: AddButton, EditButton movements and animations
-extension EditTagControlPanelVC {
+extension TagEditingControlsPanelVC {
     private func moveAddAndEditTagButtonsOffScreen() {
         moveAddTagOffScreen()
         moveEditTagOffScreen()
@@ -145,7 +145,7 @@ extension EditTagControlPanelVC {
 }
 
 //MARK: CreationControls movements and animations
-extension EditTagControlPanelVC {
+extension TagEditingControlsPanelVC {
     private func moveCreationControlsOffScreen() {
         UIView.animate(withDuration: creationControlsAnimationTime, animations: { [weak self] in
             guard let self = self else { fatalError() }
@@ -162,7 +162,7 @@ extension EditTagControlPanelVC {
     }
 }
 //MARK: DoneEditingButton movements
-extension EditTagControlPanelVC {
+extension TagEditingControlsPanelVC {
     private func moveDoneEditingButtonOffScreen() {
         UIView.animate(withDuration: doneEditingButtonAnimationTime, animations: { [weak self] in
             guard let self = self else { fatalError() }
@@ -182,7 +182,7 @@ extension EditTagControlPanelVC {
 }
 
 //MARK: ColorPane movements
-extension EditTagControlPanelVC {
+extension TagEditingControlsPanelVC {
     private func moveColorPaneOffScreen() {
         changeXPositionOfColorPaneToOffscreen()
         animateChangeOfConstraintWithDuration(offScreenColorPaneMovementTime)

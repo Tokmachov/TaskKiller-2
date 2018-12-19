@@ -18,7 +18,7 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving {
        performSegue(withIdentifier: "Start New Task", sender: nil)
     }
     func receiveInfoForTag(name: String, color: UIColor) {
-        print("Tag Info Received: Tag Name: \(name), tag color: \(color)")
+        _ = TagFactoryImp.createTag(from: name, and: color)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -29,9 +29,9 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving {
         case "DeadLineChildVC":
             guard let deadLineVC = segue.destination as? DeadLineReporting else { fatalError() }
             deadLineVC.setDeadLineRerceiver(taskStaticInfoSource, deadLinesToChose: deadLinesTochose)
-        case "TagsChildVC":
-            guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
-            tagsVC.setTagsReceiver(taskStaticInfoSource)
+//        case "TagsChildVC":
+//            guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
+//            tagsVC.setTagsReceiver(taskStaticInfoSource)
         case "EditTagControlPanelChildVC":
             guard let tagInfoReporter = segue.destination as? InfoForTagReporting else { fatalError() }
             tagInfoReporter.setInfoForTagReceiver(self)
@@ -41,9 +41,8 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving {
             let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
             let task = TaskFactoryImp.createTask(from: taskStaticInfo)
             let progressTrackingTaskHandler = ProgressTrackingTaskHandlerImp(task: task)
-            taskVC.setTaskProgressTrackingModelHandler(progressTrackingTaskHandler)
+            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         
-            
         default: break
         }
     }

@@ -27,10 +27,6 @@ class TaskStaticInfoGatherer: StaticInfoGathering {
         self.initialDeadLine = deadLine
     }
     
-    func receiveTags(_ tagsInfos: TagsStore) {
-        self.tagsInfos = tagsInfos
-    }
-    
     func getStaticInfo() -> TaskStaticInfo {
         return staticInfo
     }

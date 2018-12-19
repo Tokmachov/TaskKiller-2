@@ -80,9 +80,9 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
             let task = fetchRequestController.object(at: indexPathOfSelectedRow)
             let taskModelFacade = TaskFactoryImp.createTask(from: task)
-            let taskProgressTrackingModelHandler = ProgressTrackingTaskHandlerImp(task: taskModelFacade)
+            let progressTrackingTaskHandler = ProgressTrackingTaskHandlerImp(task: taskModelFacade)
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-            taskVC.setTaskProgressTrackingModelHandler(taskProgressTrackingModelHandler)
+            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break
         }
     }

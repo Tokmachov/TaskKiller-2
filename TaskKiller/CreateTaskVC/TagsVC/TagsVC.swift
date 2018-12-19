@@ -8,18 +8,6 @@
 
 import UIKit
 
-class TagsVC: UIViewController, TagsReporting {
+class TagsVC: UICollectionViewController {
     
-    private var tagsSamples: TagsStore!
-    private var tagsReceiver: TagsReceiving!
-    
-    func setTagsReceiver(_ receiver: TagsReceiving) {
-        self.tagsReceiver = receiver
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tagsSamples = TagsStore()
-        
-        tagsReceiver.receiveTags(tagsSamples)
-    }
 }

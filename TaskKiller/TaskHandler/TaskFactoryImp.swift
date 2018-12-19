@@ -9,20 +9,20 @@
 import Foundation
 import CoreData
 
-struct TaskModelFacadeFactory: ITaskModelFacadeFactory {
+struct TaskFactoryImp: TaskFactory {
     
-    static func createTaskModelFacade(from taskModel: TaskModel) -> ITaskModelFacade {
-        return TaskModelFacade(task: taskModel)
+    static func createTask(from taskModel: TaskModel) -> Task {
+        return TaskModelAdapter(task: taskModel)
     }
     
-    static func createTaskModelFacade(from taskStaticInfo: TaskStaticInfo) -> ITaskModelFacade {
+    static func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
-        let taskModelFacade = TaskModelFacade(task: taskModel)
+        let taskModelFacade = TaskModelAdapter(task: taskModel)
         return taskModelFacade
     }
 }
 
-extension TaskModelFacadeFactory {
+extension TaskFactoryImp {
     static private func createTaskModel(from taskStaticInfo: TaskStaticInfo) -> TaskModel {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)

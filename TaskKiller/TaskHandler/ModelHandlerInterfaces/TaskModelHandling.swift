@@ -10,5 +10,5 @@ import Foundation
 import CoreData
 
 protocol TaskModelHandling {
-    init(taskModelFacade: ITaskModelFacade)
+    init(taskModelFacade: Task)
 }

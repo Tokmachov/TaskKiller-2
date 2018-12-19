@@ -19,7 +19,7 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
     
-    private var taskModelHandler: ITaskProgressTrackingModelHandler!
+    private var taskModelHandler: ProgressTrackingTaskHandler!
     private var taskState: ITaskState!
     private var alarmClock: Alarming!
     private var timeCounter: TimeCounting!
@@ -39,7 +39,7 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     private var deadlinePostponingVC: DeadlinePostponingVC!
     
     //MARK: ITaskProgressTrackingVC
-    func setTaskProgressTrackingModelHandler(_ taskModelHandler: ITaskProgressTrackingModelHandler) {
+    func setTaskProgressTrackingModelHandler(_ taskModelHandler: ProgressTrackingTaskHandler) {
         self.taskModelHandler = taskModelHandler
     }
     

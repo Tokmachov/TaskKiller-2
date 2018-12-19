@@ -8,4 +8,4 @@
 
 import Foundation
 
-typealias StaticInfoGathering = DeadLineReceiving & TaskDescriptionReceiving & TagInfosReceiving & TaskStaticInfoGetable
+typealias StaticInfoGathering = DeadLineReceiving & TaskDescriptionReceiving & TagsReceiving & TaskStaticInfoGetable

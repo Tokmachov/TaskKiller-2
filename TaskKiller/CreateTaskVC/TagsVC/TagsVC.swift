@@ -11,9 +11,9 @@ import UIKit
 class TagsVC: UIViewController, TagsReporting {
     
     private var tagsSamples: TagsStore!
-    private var tagsReceiver: TagInfosReceiving!
+    private var tagsReceiver: TagsReceiving!
     
-    func setTagsReceiver(_ receiver: TagInfosReceiving) {
+    func setTagsReceiver(_ receiver: TagsReceiving) {
         self.tagsReceiver = receiver
     }
     override func viewDidLoad() {

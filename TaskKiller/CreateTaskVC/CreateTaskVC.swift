@@ -39,8 +39,8 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving {
         case "Start New Task":
             guard let taskVC = segue.destination as? ITaskProgressTrackingVC else { fatalError() }
             let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
-            let taskModelFacade = TaskModelFacadeFactory.createTaskModelFacade(from: taskStaticInfo)
-            let taskProgressTrackingModelHandler = TaskProgressTrackingModelHandler(taskModelFacade: taskModelFacade)
+            let taskModelFacade = TaskFactoryImp.createTask(from: taskStaticInfo)
+            let taskProgressTrackingModelHandler = ProgressTrackingTaskHandlerImp(taskModelFacade: taskModelFacade)
             taskVC.setTaskProgressTrackingModelHandler(taskProgressTrackingModelHandler)
         
             

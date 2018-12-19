@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol ITaskModelFacade {
+protocol Task {
     init(task: TaskModel)
     
     func getTaskDescription() -> String

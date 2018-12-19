@@ -10,11 +10,11 @@ import Foundation
 
 
 
-struct TaskInfoGetableModelHandler: ITaskInfoGetableModelHandler {
+struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
     
-    private let taskModelFacade: ITaskModelFacade
+    private let taskModelFacade: Task
     
-    init(taskModelFacade: ITaskModelFacade) {
+    init(taskModelFacade: Task) {
         self.taskModelFacade = taskModelFacade
     }
     

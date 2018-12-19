@@ -8,24 +8,24 @@
 
 import UIKit
 
-struct TaskModelFacade: ITaskModelFacade {
+struct TaskModelAdapter: Task {
  
-    private var taskModel: TaskModel
+    private var adaptee: TaskModel
     init(task: TaskModel) {
-        self.taskModel = task
+        self.adaptee = task
     }
     func getTaskDescription() -> String {
-        return self.taskModel.taskDescription!
+        return self.adaptee.taskDescription!
     }
     func getInitialDeadLine() -> TimeInterval {
-        return TimeInterval(taskModel.deadLine)
+        return TimeInterval(adaptee.deadLine)
     }
     func getPostponableDeadLine() -> TimeInterval {
-        return TimeInterval(taskModel.postponableDeadLine)
+        return TimeInterval(adaptee.postponableDeadLine)
     }
     
     func getTimeSpentInProgress() -> TimeInterval {
-        return TimeInterval(taskModel.timeSpentInProgress)
+        return TimeInterval(adaptee.timeSpentInProgress)
     }
     
    
@@ -33,14 +33,14 @@ struct TaskModelFacade: ITaskModelFacade {
         let timeSpentInProgress = Int16(progressTimes.timeSpentInprogress)
         let postponableDeadline = Int16(progressTimes.currentDeadLine)
         let period = createPeriodModel(from: taskProgressPeriod)
-        taskModel.timeSpentInProgress = timeSpentInProgress
-        taskModel.postponableDeadLine = postponableDeadline
-        taskModel.addToPeriodsOfProcess(period)
+        adaptee.timeSpentInProgress = timeSpentInProgress
+        adaptee.postponableDeadLine = postponableDeadline
+        adaptee.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
     }
 }
 
-extension TaskModelFacade {
+extension TaskModelAdapter {
     private func createPeriodModel(from taskProgressPeriod: TaskProgressPeriod) -> PeriodModel {
         let period = PeriodModel(context: PersistanceService.context)
         let dateStarted = taskProgressPeriod.dateStarted as NSDate

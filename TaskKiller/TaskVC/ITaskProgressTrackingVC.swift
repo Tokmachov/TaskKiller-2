@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ITaskProgressTrackingVC {
-    func setTaskProgressTrackingModelHandler(_ tracker: ITaskProgressTrackingModelHandler)
+    func setTaskProgressTrackingModelHandler(_ tracker: ProgressTrackingTaskHandler)
 }

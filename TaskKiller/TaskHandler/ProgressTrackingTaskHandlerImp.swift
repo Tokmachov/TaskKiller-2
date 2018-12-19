@@ -8,27 +8,27 @@
 
 import Foundation
 
-struct TaskProgressTrackingModelHandler: ITaskProgressTrackingModelHandler {
+struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     
-    private let taskModelFacade: ITaskModelFacade
+    private let task: Task
     
     //MARK:TaskHandling
-    init(taskModelFacade: ITaskModelFacade) {
-        self.taskModelFacade = taskModelFacade
+    init(taskModelFacade: Task) {
+        self.task = taskModelFacade
     }
     
     //MARK: TaskStaticInfoGetable
     func getStaticInfo() -> TaskStaticInfo {
-        let taskDescription = taskModelFacade.getTaskDescription()
-        let deadLine = taskModelFacade.getInitialDeadLine()
+        let taskDescription = task.getTaskDescription()
+        let deadLine = task.getInitialDeadLine()
         
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine)
     }
     
     //MARK: TaskProgressTimesGetable
     func getProgressTimes() -> TaskProgressTimes {
-        let timeSpentInProgress = taskModelFacade.getTimeSpentInProgress()
-        let postponableDeadLines = taskModelFacade.getPostponableDeadLine()
+        let timeSpentInProgress = task.getTimeSpentInProgress()
+        let postponableDeadLines = task.getPostponableDeadLine()
         return TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, currentDeadLine: postponableDeadLines)
     }
     
@@ -37,6 +37,6 @@ struct TaskProgressTrackingModelHandler: ITaskProgressTrackingModelHandler {
         let progressInfo = progressInfoSource.getProgressInfo()
         let progressTimes = progressInfo.progressTimes
         let progressPeriod = progressInfo.progressPeriod
-        taskModelFacade.saveProgress(progressTimes: progressTimes, taskProgressPeriod: progressPeriod)
+        task.saveProgress(progressTimes: progressTimes, taskProgressPeriod: progressPeriod)
     }
 }

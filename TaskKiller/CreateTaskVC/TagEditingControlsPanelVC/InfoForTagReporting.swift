@@ -1,5 +1,5 @@
 //
-//  TagInfoReceiving.swift
+//  TagInfoProviding.swift
 //  TaskKiller
 //
 //  Created by mac on 16/12/2018.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol TagInfoReceiving: AnyObject {
-    func receiveTagInfo(name: String, color: UIColor)
+protocol InfoForTagReporting {
+    func setInfoForTagReceiver(_ receiver: InfoForTagReceiving)
 }

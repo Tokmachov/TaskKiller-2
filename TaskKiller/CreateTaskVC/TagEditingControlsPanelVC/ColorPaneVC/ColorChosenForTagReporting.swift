@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol ChosenColorReporting {
-    func setChosenColorReceiver(_ receiver: ChosenColorReceiving)
+protocol ColorChosenForTagReporting {
+    func setColorChosenForTagReceiver(_ receiver: ColorChosenForTagReceiving)
 }

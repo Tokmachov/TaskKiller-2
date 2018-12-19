@@ -7,14 +7,14 @@
 //
 
 import UIKit
-class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColorReceiving, TagNameReceiving {
+class TagEditingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChosenForTagReceiving, NameForTagReceiving {
     
     private var tagName: String!
     private var tagColor: UIColor!
     
     //MARK: TagInfoReporting
-    private weak var tagInfoReceiver: TagInfoReceiving!
-    func setTagInfoReceiver(_ receiver: TagInfoReceiving) {
+    private weak var tagInfoReceiver: InfoForTagReceiving!
+    func setInfoForTagReceiver(_ receiver: InfoForTagReceiving) {
         self.tagInfoReceiver = receiver
     }
     
@@ -80,7 +80,7 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     }
     
     //MARK: ChosenColorReceiving
-    func colorWasChosen(_ color: UIColor) {
+    func colorForTagWasChosen(_ color: UIColor) {
         self.tagColor = color
         changeColorPaneCallButton(to: color)
         moveColorPaneOffScreen()
@@ -88,7 +88,7 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     }
     
     //MARK: TagNameReceiving
-    func receiveTagName(_ name: String) {
+    func receiveNameForTag(_ name: String) {
         self.tagName = name
     }
     
@@ -96,11 +96,11 @@ class TagEditingControlsPanelVC: UIViewController, TagInfoReporting, ChosenColor
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "Color Pane ChildVC":
-            guard let chosenColorReporter = segue.destination as? ChosenColorReporting else { fatalError() }
-            chosenColorReporter.setChosenColorReceiver(self)
+            guard let chosenColorReporter = segue.destination as? ColorChosenForTagReporting else { fatalError() }
+            chosenColorReporter.setColorChosenForTagReceiver(self)
         case "Child TagNameVC":
-            guard let tagNameReporter = segue.destination as? TagNameReporting else { fatalError() }
-            tagNameReporter.setTagNameReceiver(self)
+            guard let tagNameReporter = segue.destination as? NameForTagReporting else { fatalError() }
+            tagNameReporter.setNameForTagReceiver(self)
         default: break
         }
     }
@@ -211,7 +211,7 @@ extension TagEditingControlsPanelVC {
 
 extension TagEditingControlsPanelVC {
     private func reportNewTagInfo() {
-        tagInfoReceiver.receiveTagInfo(name: tagName, color: tagColor)
+        tagInfoReceiver.receiveInfoForTag(name: tagName, color: tagColor)
     }
     private func changeColorPaneCallButton(to color: UIColor) {
         colorPaneCallButton.setChosenColor(color)

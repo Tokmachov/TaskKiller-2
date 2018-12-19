@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TagNameReporting {
-    func setTagNameReceiver(_ receiver: TagNameReceiving)
+protocol NameForTagReporting {
+    func setNameForTagReceiver(_ receiver: NameForTagReceiving)
 }

@@ -11,8 +11,8 @@
 		0407E0A621C4BA4400704082 /* ColorButtonActionReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0A521C4BA4400704082 /* ColorButtonActionReceiving.swift */; };
 		0407E0AB21C4EFA100704082 /* TagEditingControlsPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0AA21C4EFA100704082 /* TagEditingControlsPanelVC.swift */; };
 		04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7421C88DA000967F50 /* TagNameVC.swift */; };
-		04091E7721C88E3A00967F50 /* TagNameReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7621C88E3A00967F50 /* TagNameReporting.swift */; };
-		04091E7921C88E4A00967F50 /* TagNameReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7821C88E4A00967F50 /* TagNameReceiving.swift */; };
+		04091E7721C88E3A00967F50 /* NameForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7621C88E3A00967F50 /* NameForTagReporting.swift */; };
+		04091E7921C88E4A00967F50 /* NameForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7821C88E4A00967F50 /* NameForTagReceiving.swift */; };
 		044723B821C219AF00F0214F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B721C219AF00F0214F /* TagView.swift */; };
 		044723BA21C219F600F0214F /* HideableShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B921C219F600F0214F /* HideableShowable.swift */; };
 		044723BC21C21A7100F0214F /* ColorChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723BB21C21A7100F0214F /* ColorChangeButton.swift */; };
@@ -24,13 +24,13 @@
 		044723CB21C21DB200F0214F /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C521C21DB200F0214F /* TagModel+CoreDataProperties.swift */; };
 		044723CC21C21DB200F0214F /* TaskModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C621C21DB200F0214F /* TaskModel+CoreDataClass.swift */; };
 		044723CD21C21DB200F0214F /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C721C21DB200F0214F /* TaskModel+CoreDataProperties.swift */; };
-		047C4B3021C67AC30009ED40 /* TagInfoReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B2F21C67AC20009ED40 /* TagInfoReporting.swift */; };
-		047C4B3221C685AB0009ED40 /* TagInfoReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3121C685AB0009ED40 /* TagInfoReceiving.swift */; };
+		047C4B3021C67AC30009ED40 /* InfoForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B2F21C67AC20009ED40 /* InfoForTagReporting.swift */; };
+		047C4B3221C685AB0009ED40 /* InfoForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3121C685AB0009ED40 /* InfoForTagReceiving.swift */; };
 		047C4B3421C68FD80009ED40 /* ColorPaneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3321C68FD80009ED40 /* ColorPaneVC.swift */; };
 		047C4B3721C690DB0009ED40 /* ColorSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */; };
 		047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */; };
-		047C4B3B21C7548F0009ED40 /* ChosenColorReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3A21C7548F0009ED40 /* ChosenColorReporting.swift */; };
-		047C4B3D21C754FD0009ED40 /* ChosenColorReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3C21C754FD0009ED40 /* ChosenColorReceiving.swift */; };
+		047C4B3B21C7548F0009ED40 /* ColorChosenForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */; };
+		047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */; };
 		047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
@@ -124,8 +124,8 @@
 		0407E0A821C4C01700704082 /* TaskKiller 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 13.xcdatamodel"; sourceTree = "<group>"; };
 		0407E0AA21C4EFA100704082 /* TagEditingControlsPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditingControlsPanelVC.swift; sourceTree = "<group>"; };
 		04091E7421C88DA000967F50 /* TagNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameVC.swift; sourceTree = "<group>"; };
-		04091E7621C88E3A00967F50 /* TagNameReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameReporting.swift; sourceTree = "<group>"; };
-		04091E7821C88E4A00967F50 /* TagNameReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameReceiving.swift; sourceTree = "<group>"; };
+		04091E7621C88E3A00967F50 /* NameForTagReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameForTagReporting.swift; sourceTree = "<group>"; };
+		04091E7821C88E4A00967F50 /* NameForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameForTagReceiving.swift; sourceTree = "<group>"; };
 		044723B721C219AF00F0214F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		044723B921C219F600F0214F /* HideableShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideableShowable.swift; sourceTree = "<group>"; };
 		044723BB21C21A7100F0214F /* ColorChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeButton.swift; sourceTree = "<group>"; };
@@ -138,13 +138,13 @@
 		044723C521C21DB200F0214F /* TagModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TagModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		044723C621C21DB200F0214F /* TaskModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		044723C721C21DB200F0214F /* TaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		047C4B2F21C67AC20009ED40 /* TagInfoReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoReporting.swift; sourceTree = "<group>"; };
-		047C4B3121C685AB0009ED40 /* TagInfoReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoReceiving.swift; sourceTree = "<group>"; };
+		047C4B2F21C67AC20009ED40 /* InfoForTagReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForTagReporting.swift; sourceTree = "<group>"; };
+		047C4B3121C685AB0009ED40 /* InfoForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoForTagReceiving.swift; sourceTree = "<group>"; };
 		047C4B3321C68FD80009ED40 /* ColorPaneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneVC.swift; sourceTree = "<group>"; };
 		047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionButton.swift; sourceTree = "<group>"; };
 		047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneBackgroundView.swift; sourceTree = "<group>"; };
-		047C4B3A21C7548F0009ED40 /* ChosenColorReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenColorReporting.swift; sourceTree = "<group>"; };
-		047C4B3C21C754FD0009ED40 /* ChosenColorReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChosenColorReceiving.swift; sourceTree = "<group>"; };
+		047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReporting.swift; sourceTree = "<group>"; };
+		047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReceiving.swift; sourceTree = "<group>"; };
 		047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneCallButton.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -268,12 +268,12 @@
 			isa = PBXGroup;
 			children = (
 				0407E0AA21C4EFA100704082 /* TagEditingControlsPanelVC.swift */,
-				04091E7821C88E4A00967F50 /* TagNameReceiving.swift */,
+				04091E7821C88E4A00967F50 /* NameForTagReceiving.swift */,
+				047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */,
+				047C4B2F21C67AC20009ED40 /* InfoForTagReporting.swift */,
+				047C4B3521C690520009ED40 /* ColorPaneVC */,
 				04091E7321C88D6C00967F50 /* TagNameVC */,
 				047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */,
-				047C4B2F21C67AC20009ED40 /* TagInfoReporting.swift */,
-				047C4B3C21C754FD0009ED40 /* ChosenColorReceiving.swift */,
-				047C4B3521C690520009ED40 /* ColorPaneVC */,
 			);
 			path = TagEditingControlsPanelVC;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				04091E7421C88DA000967F50 /* TagNameVC.swift */,
-				04091E7621C88E3A00967F50 /* TagNameReporting.swift */,
+				04091E7621C88E3A00967F50 /* NameForTagReporting.swift */,
 			);
 			path = TagNameVC;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 				047C4B3321C68FD80009ED40 /* ColorPaneVC.swift */,
 				047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */,
 				047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */,
-				047C4B3A21C7548F0009ED40 /* ChosenColorReporting.swift */,
+				047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */,
 			);
 			path = ColorPaneVC;
 			sourceTree = "<group>";
@@ -370,7 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				B96E0E82219347E50097AB34 /* CreateTaskVC.swift */,
-				047C4B3121C685AB0009ED40 /* TagInfoReceiving.swift */,
+				047C4B3121C685AB0009ED40 /* InfoForTagReceiving.swift */,
 				0407E0A921C4EB5700704082 /* TagEditingControlsPanelVC */,
 				B96E0EB62193D7430097AB34 /* DeadLineVC */,
 				B96E0EBA2193D7C70097AB34 /* TagsVC */,
@@ -714,7 +714,7 @@
 				B9A8B163219A84310085FCA0 /* StateRepresenting.swift in Sources */,
 				0407E0A421C4BA1800704082 /* DeleteButtonActionReceiving.swift in Sources */,
 				B9A8B18D21A1E0E50085FCA0 /* TaskProgressSaving.swift in Sources */,
-				047C4B3221C685AB0009ED40 /* TagInfoReceiving.swift in Sources */,
+				047C4B3221C685AB0009ED40 /* InfoForTagReceiving.swift in Sources */,
 				B997F63A21A500BF00750092 /* TaskStateChangesReceiving.swift in Sources */,
 				B96E0E89219347E50097AB34 /* TaskKiller.xcdatamodeld in Sources */,
 				B997F63C21A654E400750092 /* AlarmReceiving.swift in Sources */,
@@ -736,13 +736,13 @@
 				B997F67421AF27DC00750092 /*  TagCell.swift in Sources */,
 				B9A8B168219BBCC30085FCA0 /* TimeCounting.swift in Sources */,
 				044723CB21C21DB200F0214F /* TagModel+CoreDataProperties.swift in Sources */,
-				04091E7721C88E3A00967F50 /* TagNameReporting.swift in Sources */,
+				04091E7721C88E3A00967F50 /* NameForTagReporting.swift in Sources */,
 				044723B821C219AF00F0214F /* TagView.swift in Sources */,
 				047C4B3421C68FD80009ED40 /* ColorPaneVC.swift in Sources */,
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
-				047C4B3021C67AC30009ED40 /* TagInfoReporting.swift in Sources */,
+				047C4B3021C67AC30009ED40 /* InfoForTagReporting.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
-				047C4B3D21C754FD0009ED40 /* ChosenColorReceiving.swift in Sources */,
+				047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				B9A8B1292196E5890085FCA0 /* TagsStore.swift in Sources */,
@@ -765,7 +765,7 @@
 				B9A8B19F21A2ED890085FCA0 /* ITaskState.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabels.swift in Sources */,
 				B9A8B1562199326C0085FCA0 /* TaskModelHandling.swift in Sources */,
-				04091E7921C88E4A00967F50 /* TagNameReceiving.swift in Sources */,
+				04091E7921C88E4A00967F50 /* NameForTagReceiving.swift in Sources */,
 				044723C921C21DB200F0214F /* PeriodModel+CoreDataProperties.swift in Sources */,
 				B9A8B14E219929E50085FCA0 /* ITaskModelFacade.swift in Sources */,
 				B9A8B184219E68D90085FCA0 /* TaskProgressTimesLabels.swift in Sources */,
@@ -777,7 +777,7 @@
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
 				04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* TaskProgressPeriod.swift in Sources */,
-				047C4B3B21C7548F0009ED40 /* ChosenColorReporting.swift in Sources */,
+				047C4B3B21C7548F0009ED40 /* ColorChosenForTagReporting.swift in Sources */,
 				B9A8B19821A2D2F50085FCA0 /* TaskInfoGetableModelHandler.swift in Sources */,
 				B9A8B15F219A826F0085FCA0 /* TaskStateRepresentable.swift in Sources */,
 				047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */,

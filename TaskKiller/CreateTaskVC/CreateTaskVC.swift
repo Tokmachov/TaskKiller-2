@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateTaskVC: UIViewController, TagInfoReceiving {
+class CreateTaskVC: UIViewController, InfoForTagReceiving {
     
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
@@ -17,7 +17,7 @@ class CreateTaskVC: UIViewController, TagInfoReceiving {
     @IBAction func go(_ sender: UIButton) {
        performSegue(withIdentifier: "Start New Task", sender: nil)
     }
-    func receiveTagInfo(name: String, color: UIColor) {
+    func receiveInfoForTag(name: String, color: UIColor) {
         print("Tag Info Received: Tag Name: \(name), tag color: \(color)")
     }
     
@@ -33,8 +33,8 @@ class CreateTaskVC: UIViewController, TagInfoReceiving {
             guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
             tagsVC.setTagsReceiver(taskStaticInfoSource)
         case "EditTagControlPanelChildVC":
-            guard let tagInfoReporter = segue.destination as? TagInfoReporting else { fatalError() }
-            tagInfoReporter.setTagInfoReceiver(self)
+            guard let tagInfoReporter = segue.destination as? InfoForTagReporting else { fatalError() }
+            tagInfoReporter.setInfoForTagReceiver(self)
         
         case "Start New Task":
             guard let taskVC = segue.destination as? ITaskProgressTrackingVC else { fatalError() }

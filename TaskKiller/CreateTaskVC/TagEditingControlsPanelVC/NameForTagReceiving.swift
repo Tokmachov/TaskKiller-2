@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TagNameReceiving: AnyObject {
-    func receiveTagName(_ name: String)
+protocol NameForTagReceiving: AnyObject {
+    func receiveNameForTag(_ name: String)
 }

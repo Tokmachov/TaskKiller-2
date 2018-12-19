@@ -12,21 +12,21 @@ import Foundation
 
 struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
     
-    private let taskModelFacade: Task
+    private let task: Task
     
-    init(taskModelFacade: Task) {
-        self.taskModelFacade = taskModelFacade
+    init(task: Task) {
+        self.task = task
     }
     
     func getProgressTimes() -> TaskProgressTimes {
-        let timeSpentInProgress = taskModelFacade.getTimeSpentInProgress()
-        let currentDeadline = taskModelFacade.getPostponableDeadLine()
+        let timeSpentInProgress = task.getTimeSpentInProgress()
+        let currentDeadline = task.getPostponableDeadLine()
         return TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, currentDeadLine: currentDeadline)
     }
     
     func getStaticInfo() -> TaskStaticInfo {
-        let taskDescription = taskModelFacade.getTaskDescription()
-        let initialDeadline = taskModelFacade.getInitialDeadLine()
+        let taskDescription = task.getTaskDescription()
+        let initialDeadline = task.getInitialDeadLine()
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline)
     }
 }

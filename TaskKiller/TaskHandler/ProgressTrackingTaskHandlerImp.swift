@@ -13,8 +13,8 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     private let task: Task
     
     //MARK:TaskHandling
-    init(taskModelFacade: Task) {
-        self.task = taskModelFacade
+    init(task: Task) {
+        self.task = task
     }
     
     //MARK: TaskStaticInfoGetable

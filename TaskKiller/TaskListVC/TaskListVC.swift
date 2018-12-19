@@ -39,7 +39,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskModel = fetchRequestController.object(at: indexPath)
         let taskModelFacade = TaskFactoryImp.createTask(from: taskModel)
-        let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(taskModelFacade: taskModelFacade)
+        let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(task: taskModelFacade)
         taskStaticInfoUpdater.update(taskCell, from: taskInfoGetableModelHandler)
         taskProgressTimesUpdater.update(taskCell, from: taskInfoGetableModelHandler)
         return taskCell
@@ -80,8 +80,8 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
             let task = fetchRequestController.object(at: indexPathOfSelectedRow)
             let taskModelFacade = TaskFactoryImp.createTask(from: task)
-            let taskProgressTrackingModelHandler = ProgressTrackingTaskHandlerImp(taskModelFacade: taskModelFacade)
-            guard let taskVC = segue.destination as? ITaskProgressTrackingVC else { fatalError() }
+            let taskProgressTrackingModelHandler = ProgressTrackingTaskHandlerImp(task: taskModelFacade)
+            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
             taskVC.setTaskProgressTrackingModelHandler(taskProgressTrackingModelHandler)
         default: break
         }

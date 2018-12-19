@@ -8,19 +8,19 @@
 
 import UIKit
 
-struct TagModelFacade: Equatable {
+struct TagModelAdapter: Tag, Equatable {
     
-    private var tagModel: TagModel
+    private var adaptee: TagModel
     init(tagModel: TagModel) {
-        self.tagModel = tagModel
+        self.adaptee = tagModel
     }
     
     func getName() -> String {
-        guard let name = tagModel.name else { fatalError() }
+        guard let name = adaptee.name else { fatalError() }
         return name
     }
     func getColor() -> UIColor {
-        guard let color = tagModel.color else { fatalError() }
+        guard let color = adaptee.color else { fatalError() }
         return color
     }
 }

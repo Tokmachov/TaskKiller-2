@@ -33,7 +33,7 @@ class TagView: UIView, TagInfoSetable {
         tagColor.setFill()
         path.fill()
     }
-    func setTagInfo(from tag: TagModelFacade) {
+    func setTagInfo(from tag: TagModelAdapter) {
         let tagName = tag.getName()
         let tagColor = tag.getColor()
         self.setTagName(tagName)

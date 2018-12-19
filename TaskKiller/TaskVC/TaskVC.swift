@@ -8,8 +8,13 @@
 
 import UIKit
 
-class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving, PostponeTimeReceiving, TaskStateChangesReceiving, AlarmReceiving {
-   
+class TaskVC: UIViewController, TaskProgressTrackingVC, TimeIncrementsReceiving, PostponeTimeReceiving, TaskStateChangesReceiving, AlarmReceiving {
+    
+    //MARK: TaskProgressTrackingVC
+    func setProgressTrackingTaskHandler(_ taskHandler: ProgressTrackingTaskHandler) {
+        self.taskHandler = taskHandler
+    }
+    
     private let possibleDeadlines: [TimeInterval] = [10, 20, 30]
    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
@@ -19,7 +24,7 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
     
-    private var taskModelHandler: ProgressTrackingTaskHandler!
+    private var taskHandler: ProgressTrackingTaskHandler!
     private var taskState: ITaskState!
     private var alarmClock: Alarming!
     private var timeCounter: TimeCounting!
@@ -38,11 +43,6 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     private lazy var finishTaskHandler: ()->() = { self.doneButtonPressed() }
     private var deadlinePostponingVC: DeadlinePostponingVC!
     
-    //MARK: ITaskProgressTrackingVC
-    func setTaskProgressTrackingModelHandler(_ taskModelHandler: ProgressTrackingTaskHandler) {
-        self.taskModelHandler = taskModelHandler
-    }
-    
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,9 +60,9 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        taskState.prepareToStartTaskStateTracking(withInitialInfoFrom: taskModelHandler)
+        taskState.prepareToStartTaskStateTracking(withInitialInfoFrom: taskHandler)
         alarmClock.setAlarmClockCurrentAndFireTimes(from: taskState)
-        taskStaticInfoUpdater.update(taskStaticInfoViews, from: taskModelHandler)
+        taskStaticInfoUpdater.update(taskStaticInfoViews, from: taskHandler)
         taskStateRepresentor.makeStopped(taskStateRepresentableViews)
         taskProgressTimesUpdater.update(taskProgressTimesViews, from: taskState)
     }
@@ -81,7 +81,7 @@ class TaskVC: UIViewController, ITaskProgressTrackingVC, TimeIncrementsReceiving
     func taskStateDidChangedToStopped(_ taskState: TaskProgressInfoGetable) {
         timeCounter.stop()
         taskStateRepresentor.makeStopped(taskStateRepresentableViews)
-        taskModelHandler.saveTaskProgress(progressInfoSource: taskState)
+        taskHandler.saveTaskProgress(progressInfoSource: taskState)
     }
     
     //MARK: TimeIncrementsReceiving

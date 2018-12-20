@@ -2,14 +2,14 @@
 //  TagModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by mac on 15/12/2018.
+//  Created by mac on 20/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
 
 import Foundation
 import CoreData
-import UIKit
+
 
 extension TagModel {
 
@@ -17,8 +17,9 @@ extension TagModel {
         return NSFetchRequest<TagModel>(entityName: "TagModel")
     }
 
+    @NSManaged public var color: NSObject?
     @NSManaged public var name: String?
-    @NSManaged public var color: UIColor?
+    @NSManaged public var dateCreated: NSDate?
     @NSManaged public var tasks: NSSet?
 
 }

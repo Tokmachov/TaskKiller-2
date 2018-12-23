@@ -10,19 +10,32 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class TagView: UIView, TagInfoSetable {
+class TagView: UIView {
     
     @IBInspectable var cornerRadius: CGFloat = 10
-    
-    @IBOutlet weak var tagNameLabel: UILabel!
-    @IBOutlet weak var tagTextField: UITextField!
-    @IBOutlet weak var colorButton: ColorChangeButton!
-    @IBOutlet weak var deleteButton: DeleteButton!
     
     private var tagColor: UIColor = UIColor.green {
         didSet {
             setNeedsDisplay()
         }
+    }
+    private var name: String = ""
+    
+    private var nameFontSize: CGFloat = 17
+    private var nameFont: UIFont {
+        return UIFont.systemFont(ofSize: nameFontSize)
+    }
+    private var tagViewNameLabelPadding: CGFloat {
+        return cornerRadius / 2
+    }
+    private var nameLabel: UILabel!
+    
+    
+    convenience init(tag: Tag) {
+        self.init(frame: CGRect.zero)
+        setTagName(tag.getName())
+        setTagColor(tag.getColor())
+        setupNameLabel()
     }
     
     override func draw(_ rect: CGRect) {
@@ -33,45 +46,37 @@ class TagView: UIView, TagInfoSetable {
         tagColor.setFill()
         path.fill()
     }
-    func setTagInfo(from tag: Tag) {
-        let tagName = tag.getName()
-        let tagColor = tag.getColor()
-        self.setTagName(tagName)
-        self.setTagColor(tagColor)
-    }
     
-    
-    //MARK: TagViewModeSetable
-    func goToEditingMode() {
-        prepareInterfaceForEditingMode()
-    }
-    func goToNotEditingMode() {
-        prepareInterfaceForNotEditingMode()
+    func getEstimatedTagViewSize() -> CGSize {
+        let width = nameLabel.getWidth() + cornerRadius
+        let height = nameLabel.getHeight() + cornerRadius
+        return CGSize(width: width, height: height)
     }
 }
 
 extension TagView {
     private func setTagName(_ tagName: String) {
-        tagNameLabel.text = tagName
-        tagTextField.text = tagName
+        self.name = tagName
     }
-    
     private func setTagColor(_ tagColor: UIColor) {
         self.tagColor = tagColor
-        colorButton.setColorDotColor(tagColor)
     }
     
-    private func prepareInterfaceForEditingMode() {
-        colorButton.show()
-        deleteButton.show()
-        tagNameLabel.hide()
-        tagTextField.show()
+    private func setupNameLabel() {
+        self.nameLabel = UILabel()
+        nameLabel.setText(name)
+        nameLabel.font = nameFont
+        nameLabel.sizeToFit()
+        addSubview(nameLabel)
+        constraintNameLabelToTagView()
     }
-    
-    private func prepareInterfaceForNotEditingMode() {
-        colorButton.hide()
-        deleteButton.hide()
-        tagTextField.hide()
-        tagNameLabel.show()
+    private func constraintNameLabelToTagView() {
+        self.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: tagViewNameLabelPadding).isActive = true
+        self.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: tagViewNameLabelPadding).isActive = true
+        self.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: tagViewNameLabelPadding).isActive = true
+        self.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: tagViewNameLabelPadding).isActive = true
     }
 }
+

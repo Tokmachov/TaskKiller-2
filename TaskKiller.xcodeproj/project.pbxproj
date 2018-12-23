@@ -20,7 +20,6 @@
 		044723BA21C219F600F0214F /* HideableShowable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B921C219F600F0214F /* HideableShowable.swift */; };
 		044723BC21C21A7100F0214F /* ColorChangeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723BB21C21A7100F0214F /* ColorChangeButton.swift */; };
 		044723BE21C21A9800F0214F /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723BD21C21A9800F0214F /* DeleteButton.swift */; };
-		044723C021C21B1F00F0214F /* TagInfoSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723BF21C21B1F00F0214F /* TagInfoSetable.swift */; };
 		044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */; };
 		044723C921C21DB200F0214F /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C321C21DB200F0214F /* PeriodModel+CoreDataProperties.swift */; };
 		044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C421C21DB200F0214F /* TagModel+CoreDataClass.swift */; };
@@ -35,6 +34,9 @@
 		047C4B3B21C7548F0009ED40 /* ColorChosenForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */; };
 		047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */; };
 		047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */; };
+		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
+		049909BE21CF78E700DCC3CA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */; };
+		049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -134,7 +136,6 @@
 		044723B921C219F600F0214F /* HideableShowable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideableShowable.swift; sourceTree = "<group>"; };
 		044723BB21C21A7100F0214F /* ColorChangeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChangeButton.swift; sourceTree = "<group>"; };
 		044723BD21C21A9800F0214F /* DeleteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
-		044723BF21C21B1F00F0214F /* TagInfoSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoSetable.swift; sourceTree = "<group>"; };
 		044723C121C21D4B00F0214F /* TaskKiller 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 11.xcdatamodel"; sourceTree = "<group>"; };
 		044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		044723C321C21DB200F0214F /* PeriodModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -151,6 +152,9 @@
 		047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReceiving.swift; sourceTree = "<group>"; };
 		047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneCallButton.swift; sourceTree = "<group>"; };
 		049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 14.xcdatamodel"; sourceTree = "<group>"; };
+		049909BB21CB49E500DCC3CA /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
+		049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoSetable.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -258,7 +262,6 @@
 		0407E0A721C4BA6200704082 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				044723BF21C21B1F00F0214F /* TagInfoSetable.swift */,
 				044723B921C219F600F0214F /* HideableShowable.swift */,
 				0407E0A321C4BA1800704082 /* DeleteButtonActionReceiving.swift */,
 				0407E0A521C4BA4400704082 /* ColorButtonActionReceiving.swift */,
@@ -349,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				B9A8B14B21991FB20085FCA0 /* UILableExtension.swift */,
+				049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */,
 				B9A8B141219842810085FCA0 /* Tag */,
 				04091E7E21C9EBA400967F50 /* Interfaces */,
 				B9A8B13E219841FC0085FCA0 /* TaskStaticInfo */,
@@ -414,6 +418,8 @@
 			isa = PBXGroup;
 			children = (
 				B96E0EA82193D61C0097AB34 /* TagsVC.swift */,
+				049909BB21CB49E500DCC3CA /* TagCell.swift */,
+				049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */,
 				0407E0A721C4BA6200704082 /* Protocols */,
 				044723B621C2156900F0214F /* TagView */,
 			);
@@ -722,8 +728,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				04091E8021C9EBBE00967F50 /* Tag.swift in Sources */,
+				049909BE21CF78E700DCC3CA /* UIViewExtensions.swift in Sources */,
 				044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */,
 				B96E0EC52193DC470097AB34 /* TagModelAdapter.swift in Sources */,
+				049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */,
 				B9A8B163219A84310085FCA0 /* StateRepresenting.swift in Sources */,
 				0407E0A421C4BA1800704082 /* DeleteButtonActionReceiving.swift in Sources */,
 				B9A8B18D21A1E0E50085FCA0 /* TaskProgressSaving.swift in Sources */,
@@ -789,6 +797,7 @@
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
 				04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */,
+				049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* TaskProgressPeriod.swift in Sources */,
 				04091E8421C9ED4100967F50 /* TagFactoryImp.swift in Sources */,
 				047C4B3B21C7548F0009ED40 /* ColorChosenForTagReporting.swift in Sources */,
@@ -809,7 +818,6 @@
 				B9A8B178219D18AC0085FCA0 /* Alarming.swift in Sources */,
 				047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
-				044723C021C21B1F00F0214F /* TagInfoSetable.swift in Sources */,
 				044723CC21C21DB200F0214F /* TaskModel+CoreDataClass.swift in Sources */,
 				B9A8B16A219BBDC20085FCA0 /* TimeIncrementsReceiving.swift in Sources */,
 				B9A8B19D21A2D70D0085FCA0 /* InfoGetableTaskHandler.swift in Sources */,

@@ -11,11 +11,17 @@ import CoreData
 
 class TagsVC: UICollectionViewController {
     
+    private var tagCellID = "Tag Cell"
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
-    
+    private var collectionViewChangeContentsOperations = [BlockOperation]()
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchResultsController = createTagFetchResultsController()
+        fetchResultsController.delegate = self
+        
+        collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
+        
+        collectionView.backgroundColor = UIColor.red
     }
     
 }
@@ -32,5 +38,50 @@ extension TagsVC {
             fatalError("Failed to fetch entities")
         }
         return fetchResultsController
+    }
+}
+
+//MARK: UICollectionViewDataSource
+extension TagsVC {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let tagsLoadedFromMemory = fetchResultsController.fetchedObjects else { fatalError("Tags are not loaded from memory") }
+        return tagsLoadedFromMemory.count
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as? TagCell else { fatalError() }
+        return tagCell
+    }
+}
+
+//MARK: NSFetchResultsControllerDelegate
+extension TagsVC: NSFetchedResultsControllerDelegate {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            collectionViewChangeContentsOperations.append(
+                BlockOperation(block: {
+                    self.collectionView.insertItems(at: [newIndexPath!])
+                })
+            )
+        default: break
+        }
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        for block in collectionViewChangeContentsOperations {
+            block.start()
+        }
+    }
+}
+
+//MARK: UICollectionViewDelegateFlowLayout
+extension TagsVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let tagModel = fetchResultsController.object(at: indexPath)
+        let tag = TagFactoryImp.createTag(from: tagModel)
+        let tagView = TagView(tag: tag)
+        return tagView.getEstimatedTagViewSize()
     }
 }

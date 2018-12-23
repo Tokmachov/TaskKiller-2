@@ -66,7 +66,7 @@ extension DeleteButton {
         deleteCrossPath.move(to: rightUpPoint)
         deleteCrossPath.addLine(to: leftDownPoint)
         deleteCrossPath.lineWidth = crossLineWidth
-        UIColor.white.setStroke()
+        crossColor.setStroke()
         deleteCrossPath.stroke()
     }
     private func drawDeleteCrossClippingArea() {

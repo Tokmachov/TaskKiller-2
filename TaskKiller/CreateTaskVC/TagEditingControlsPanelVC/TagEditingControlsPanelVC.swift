@@ -10,7 +10,7 @@ import UIKit
 class TagEditingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChosenForTagReceiving, NameForTagReceiving {
     
     private var tagName: String!
-    private var tagColor: UIColor!
+    private var tagColor: UIColor = UIColor.gray
     
     //MARK: TagInfoReporting
     private weak var tagInfoReceiver: InfoForTagReceiving!

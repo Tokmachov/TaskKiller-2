@@ -10,10 +10,14 @@ import UIKit
 import CoreData
 
 struct TagFactoryImp: TagFactory {
+    
     static func createTag(from name: String, and color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)
         let tag = TagModelAdapter(tagModel: tagModel)
         return tag
+    }
+    static func createTag(from tagModel: TagModel) -> Tag {
+        return TagModelAdapter(tagModel: tagModel)
     }
 }
 
@@ -22,6 +26,7 @@ extension TagFactoryImp {
         let tagModel = TagModel(context: PersistanceService.context)
         tagModel.name = name
         tagModel.color = color
+        tagModel.dateCreated = Date() as NSDate
         PersistanceService.saveContext()
         return tagModel
     }

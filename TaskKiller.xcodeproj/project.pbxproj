@@ -37,6 +37,7 @@
 		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
 		049909BE21CF78E700DCC3CA /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */; };
 		049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */; };
+		049909C221D1514600DCC3CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909C121D1514600DCC3CA /* HeaderView.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -155,6 +156,9 @@
 		049909BB21CB49E500DCC3CA /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoSetable.swift; sourceTree = "<group>"; };
+		049909C121D1514600DCC3CA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		049909C321D460E800DCC3CA /* TaskKiller 15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 15.xcdatamodel"; sourceTree = "<group>"; };
+		049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 16.xcdatamodel"; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -419,6 +423,7 @@
 			children = (
 				B96E0EA82193D61C0097AB34 /* TagsVC.swift */,
 				049909BB21CB49E500DCC3CA /* TagCell.swift */,
+				049909C121D1514600DCC3CA /* HeaderView.swift */,
 				049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */,
 				0407E0A721C4BA6200704082 /* Protocols */,
 				044723B621C2156900F0214F /* TagView */,
@@ -796,6 +801,7 @@
 				B9A8B15021992C260085FCA0 /* TaskFactoryImp.swift in Sources */,
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
+				049909C221D1514600DCC3CA /* HeaderView.swift in Sources */,
 				04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */,
 				049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* TaskProgressPeriod.swift in Sources */,
@@ -1095,6 +1101,8 @@
 		B96E0E87219347E50097AB34 /* TaskKiller.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */,
+				049909C321D460E800DCC3CA /* TaskKiller 15.xcdatamodel */,
 				049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */,
 				0407E0A821C4C01700704082 /* TaskKiller 13.xcdatamodel */,
 				0407E0A221C343CB00704082 /* TaskKiller 12.xcdatamodel */,
@@ -1110,7 +1118,7 @@
 				B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */,
 				B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */,
 			);
-			currentVersion = 049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */;
+			currentVersion = 049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */;
 			path = TaskKiller.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

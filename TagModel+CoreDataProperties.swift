@@ -2,7 +2,7 @@
 //  TagModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by mac on 20/12/2018.
+//  Created by mac on 27/12/2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -18,8 +18,9 @@ extension TagModel {
     }
 
     @NSManaged public var color: NSObject?
-    @NSManaged public var name: String?
     @NSManaged public var dateCreated: NSDate?
+    @NSManaged public var name: String?
+    @NSManaged public var positionInUserSelectedOrder: Int16
     @NSManaged public var tasks: NSSet?
 
 }

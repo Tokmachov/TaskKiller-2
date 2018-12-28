@@ -27,7 +27,18 @@ extension TagFactoryImp {
         tagModel.name = name
         tagModel.color = color
         tagModel.dateCreated = Date() as NSDate
+        tagModel.positionInUserSelectedOrder = getOrderNumberForNewTag()
         PersistanceService.saveContext()
         return tagModel
+    }
+    static private func getOrderNumberForNewTag() -> Int16 {
+        let fetchRequest: NSFetchRequest = TagModel.fetchRequest()
+        var numberOfCreatedTags: Int = 0
+        do {
+            numberOfCreatedTags = try PersistanceService.context.count(for: fetchRequest)
+        } catch {
+            print("error occured when getting amount of created Tags")
+        }
+        return Int16(numberOfCreatedTags)
     }
 }

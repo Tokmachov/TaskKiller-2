@@ -8,15 +8,50 @@
 
 import UIKit
 
-class TagCell: UICollectionViewCell {
+class TagCell: UICollectionViewCell, TagInfoSetable {
+    private var tagView = TagView()
+    private var cellBackgroundColor = UIColor.clear
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.white
+        setupView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK: TagInfoSetable
+    func setTagInfo(_ tag: Tag) {
+        tagView.setTagInfo(tag)
+    }
+    
+    func getSizeNeededForItsView() -> CGSize {
+        return tagView.getEstimatedTagViewSize()
+    }
+    func changeSizeToLarge() {
+        tagView.changeSizeToLarge()
+    }
+    func changeSizeToNormal() {
+        tagView.changeSizeToNormal()
+    }
 }
 
+extension TagCell {
+    private func setupView() {
+        addSubview(tagView)
+        constraintTagViewToContentView()
+        setCellBackgroundColor()
+    }
+    private func constraintTagViewToContentView() {
+        tagView.translatesAutoresizingMaskIntoConstraints = false
+        tagView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        tagView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        tagView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        tagView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+    }
+    private func setCellBackgroundColor() {
+        backgroundColor = cellBackgroundColor
+    }
+    
+}
 

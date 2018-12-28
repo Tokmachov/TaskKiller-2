@@ -13,7 +13,6 @@ extension UIView {
         return self.bounds.size.width
     }
     func getHeight() -> CGFloat {
-        self.hide()
         return self.bounds.size.height
     }
     

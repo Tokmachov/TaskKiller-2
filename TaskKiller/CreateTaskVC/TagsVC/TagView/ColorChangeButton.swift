@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+
 
 class ColorChangeButton: UIButton  {
     

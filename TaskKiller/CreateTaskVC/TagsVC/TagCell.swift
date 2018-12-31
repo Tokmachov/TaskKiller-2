@@ -9,6 +9,7 @@
 import UIKit
 
 class TagCell: UICollectionViewCell, TagInfoSetable {
+    
     private var tagView = TagView()
     private var cellBackgroundColor = UIColor.clear
     
@@ -24,15 +25,11 @@ class TagCell: UICollectionViewCell, TagInfoSetable {
     func setTagInfo(_ tag: Tag) {
         tagView.setTagInfo(tag)
     }
-    
-    func getSizeNeededForItsView() -> CGSize {
+    func setSize(_ size: ViewSize) {
+        tagView.setSize(size)
+    }
+    func getSizeNeededForContentView() -> CGSize {
         return tagView.getEstimatedTagViewSize()
-    }
-    func changeSizeToLarge() {
-        tagView.changeSizeToLarge()
-    }
-    func changeSizeToNormal() {
-        tagView.changeSizeToNormal()
     }
 }
 

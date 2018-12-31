@@ -31,6 +31,10 @@ class TagsVC: UICollectionViewController {
         collectionView.backgroundColor = UIColor.red
         longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longTapGestureRecognizer)
+//        for object in fetchResultsController.fetchedObjects! {
+//            PersistanceService.context.delete(object)
+//            PersistanceService.saveContext()
+//        }
     }
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
         switch(gesture.state) {
@@ -92,6 +96,9 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
             collectionViewChangeContentsOperations.removeAll()
         }
         changeIsUserDriven = false
+        for object in fetchResultsController.fetchedObjects! {
+            print(" \(object.name!) \(object.color!) \(object.positionInUserSelectedOrder)")
+        }
     }
 }
 //MARK: UICollectionViewDataSource
@@ -109,10 +116,10 @@ extension TagsVC {
         let tag = TagFactoryImp.createTag(from: tagModel)
         tagCell.setTagInfo(tag)
         if indexPath == indexOfEnlargedCell {
-            tagCell.changeSizeToLarge()
+            tagCell.setSize(.large)
             return tagCell
         }
-        tagCell.changeSizeToNormal()
+        tagCell.setSize(.normal)
         return tagCell
     }
     override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
@@ -120,13 +127,13 @@ extension TagsVC {
         return true
     }
     override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        print("Start index \(sourceIndexPath)")
+        changeIsUserDriven = true
         var tagModels = fetchResultsController.fetchedObjects!
         let tagToMove = tagModels[sourceIndexPath.row]
         tagModels.remove(at: sourceIndexPath.row)
         tagModels.insert(tagToMove, at: destinationIndexPath.row)
         alignTagModelOrderPropertyWithTagsOrderIn(tagModels)
-        changeIsUserDriven = true
+        collectionView.reloadItems(at: [destinationIndexPath])
     }
 }
 
@@ -137,12 +144,12 @@ extension TagsVC: UICollectionViewDelegateFlowLayout {
         let tag = TagFactoryImp.createTag(from: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
         tagCell.setTagInfo(tag)
+        tagCell.setSize(.normal)
         if indexPath == indexOfEnlargedCell {
-            tagCell.changeSizeToLarge()
-            return tagCell.getSizeNeededForItsView()
+            tagCell.setSize(.large)
+            return tagCell.getSizeNeededForContentView()
         }
-        tagCell.changeSizeToNormal()
-        return tagCell.getSizeNeededForItsView()
+        return tagCell.getSizeNeededForContentView()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return distanceBetweenLines

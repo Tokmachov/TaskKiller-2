@@ -31,10 +31,9 @@ class TagsVC: UICollectionViewController {
         collectionView.backgroundColor = UIColor.red
         longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
         collectionView.addGestureRecognizer(longTapGestureRecognizer)
-//        for object in fetchResultsController.fetchedObjects! {
-//            PersistanceService.context.delete(object)
-//            PersistanceService.saveContext()
-//        }
+        collectionView.dragDelegate = self
+        collectionView.dragInteractionEnabled = true
+        collectionView.dropDelegate = self
     }
     @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
         switch(gesture.state) {
@@ -73,6 +72,14 @@ extension TagsVC {
         }
         PersistanceService.saveContext()
     }
+    
+    private func reorderTags(in tags: [TagModel], movingTagFrom sourcePosition: Int, to destination: Int) -> [TagModel] {
+        var reorderedTags = tags
+        let tagToMove = reorderedTags[sourcePosition]
+        reorderedTags.remove(at: sourcePosition)
+        reorderedTags.insert(tagToMove, at: destination)
+        return reorderedTags
+    }
 }
 //MARK: NSFetchResultsControllerDelegate
 extension TagsVC: NSFetchedResultsControllerDelegate {
@@ -85,6 +92,23 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
                     self.collectionView.insertItems(at: [newIndexPath!])
                 })
             )
+        case .update:
+            collectionViewChangeContentsOperations.append(
+                BlockOperation(block: {
+                    self.collectionView.reloadItems(at: [indexPath!])
+                })
+            )
+        case .move:
+            collectionViewChangeContentsOperations.append(
+                BlockOperation(block: {
+                    self.collectionView.reloadItems(at: [indexPath!])
+                })
+            )
+            collectionViewChangeContentsOperations.append(
+                BlockOperation(block: {
+                    self.collectionView.reloadItems(at: [newIndexPath!])
+                })
+            )
         default: break
         }
     }
@@ -95,10 +119,9 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
             }
             collectionViewChangeContentsOperations.removeAll()
         }
+        
         changeIsUserDriven = false
-        for object in fetchResultsController.fetchedObjects! {
-            print(" \(object.name!) \(object.color!) \(object.positionInUserSelectedOrder)")
-        }
+        
     }
 }
 //MARK: UICollectionViewDataSource
@@ -121,19 +144,6 @@ extension TagsVC {
         }
         tagCell.setSize(.normal)
         return tagCell
-    }
-    override func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        
-        return true
-    }
-    override func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        changeIsUserDriven = true
-        var tagModels = fetchResultsController.fetchedObjects!
-        let tagToMove = tagModels[sourceIndexPath.row]
-        tagModels.remove(at: sourceIndexPath.row)
-        tagModels.insert(tagToMove, at: destinationIndexPath.row)
-        alignTagModelOrderPropertyWithTagsOrderIn(tagModels)
-        collectionView.reloadItems(at: [destinationIndexPath])
     }
 }
 
@@ -168,7 +178,7 @@ extension TagsVC {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! HeaderView
-            headerView.label.text = "This are tags"
+            headerView.label.text = "These are tags"
         return headerView
         default: assert(false, "Unexpected element kind")
         
@@ -186,6 +196,35 @@ extension TagsVC {
         collectionView.reloadItems(at: indexPathsToReload)
         return false
     }
+}
+
+extension TagsVC: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let tagModel = fetchResultsController.object(at: indexPath)
+        let tag = TagFactoryImp.createTag(from: tagModel)
+        let dragItem = UIDragItem(itemProvider: NSItemProvider())
+        dragItem.localObject = tag
+        return [dragItem]
+    }
+}
+
+extension TagsVC: UICollectionViewDropDelegate {
     
-  
+    
+    func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
+        guard collectionView.hasActiveDrag else { return false }
+        return true
+    }
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        let dropProposal = UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+        return dropProposal
+    }
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
+        let item = coordinator.items.first!
+        guard let sourceIndexPath = item.sourceIndexPath else { return }
+        guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
+        let reorderedTags = reorderTags(in: fetchResultsController.fetchedObjects!, movingTagFrom: sourceIndexPath.row, to: destinationIndexPath.row)
+        alignTagModelOrderPropertyWithTagsOrderIn(reorderedTags)
+        
+    }
 }

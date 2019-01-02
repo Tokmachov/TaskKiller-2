@@ -305,13 +305,6 @@
 			path = Interfaces;
 			sourceTree = "<group>";
 		};
-		044723B621C2156900F0214F /* TagView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TagView;
-			sourceTree = "<group>";
-		};
 		047C4B3521C690520009ED40 /* ColorPaneVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -426,7 +419,6 @@
 				049909C121D1514600DCC3CA /* HeaderView.swift */,
 				049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */,
 				0407E0A721C4BA6200704082 /* Protocols */,
-				044723B621C2156900F0214F /* TagView */,
 			);
 			path = TagsVC;
 			sourceTree = "<group>";

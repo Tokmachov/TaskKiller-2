@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 
-class TagsVC: UICollectionViewController {
+class TagsVC: UICollectionViewController, DragInitiatingVC {
+    
+    //MARK: DragInitiatingVC
+    func setDropAreaDelegate(_ delegate: DropAreaDelegate) {
+        dropAreaDelegate = delegate
+    }
+    private weak var dropAreaDelegate: DropAreaDelegate!
     
     let distanceBetweenLines: CGFloat = 10
     let interItemSpacing: CGFloat = 10
@@ -178,6 +184,7 @@ extension TagsVC {
     }
 }
 
+//MARK: UICollectionViewDragDelegate
 extension TagsVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let tagModel = fetchResultsController.object(at: indexPath)
@@ -191,11 +198,17 @@ extension TagsVC: UICollectionViewDragDelegate {
         parameters.backgroundColor = UIColor.clear
         return parameters
     }
+    func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
+        dropAreaDelegate.prepareDropArea()
+    }
+    func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
+        dropAreaDelegate.dropAreaIsNoLongerNeeded()
+    }
 }
 
+//MARK: UICollectionViewDropDelegate
 extension TagsVC: UICollectionViewDropDelegate {
-    
-    
+
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
         guard collectionView.hasActiveDrag else { return false }
         return true

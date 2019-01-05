@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameView: UILabel {
+class TagNameLabel: UILabel {
     
     func setName(_ name: String) {
         self.setText(name)

@@ -9,28 +9,33 @@ import Foundation
 import UIKit
 import CoreData
 
-class CreateTaskVC: UIViewController, InfoForTagReceiving {
-    
+class CreateTaskVC: UIViewController, InfoForTagReceiving, DropAreaDelegate {
+   
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
     
-    private var tagEditingArea: TagEditingArea!
+    private var tagEditingArea: TagEditingAreaView!
     private var yPositionConstraintOfTagEditingArea: NSLayoutConstraint!
-    private let tagEditingAreaMovementTime: CGFloat = 0.5
     
     @IBOutlet weak var tagsCollectionView: UIView!
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         addTagEditingArea()
-        //moveTagEditingAreaOffScreen()
-        //moveTagEditingAreaOnScreen()
     }
-    @IBAction func go(_ sender: UIButton) {
-       performSegue(withIdentifier: "Start New Task", sender: nil)
-    }
+    //MARK: InfoForTagReceiving
     func receiveInfoForTag(name: String, color: UIColor) {
         _ = TagFactoryImp.createTag(from: name, and: color)
+    }
+    //MARK: DropAreaDelegate
+    func prepareDropArea() {
+        moveTagEditingAreaOnScreen()
+    }
+    func dropAreaIsNoLongerNeeded() {
+        moveTagEditingAreaOffScreen()
+    }
+    
+    @IBAction func go(_ sender: UIButton) {
+       performSegue(withIdentifier: "Start New Task", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -41,9 +46,9 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving {
         case "DeadLineChildVC":
             guard let deadLineVC = segue.destination as? DeadLineReporting else { fatalError() }
             deadLineVC.setDeadLineRerceiver(taskStaticInfoSource, deadLinesToChose: deadLinesTochose)
-//        case "TagsChildVC":
-//            guard let tagsVC = segue.destination as? TagsReporting else { fatalError() }
-//            tagsVC.setTagsReceiver(taskStaticInfoSource)
+        case "TagsChildVC":
+            guard let tagVC = segue.destination as? DragInitiatingVC else { fatalError() }
+            tagVC.setDropAreaDelegate(self)
         case "EditTagControlPanelChildVC":
             guard let tagInfoReporter = segue.destination as? InfoForTagReporting else { fatalError() }
             tagInfoReporter.setInfoForTagReceiver(self)
@@ -67,6 +72,7 @@ extension CreateTaskVC {
         tagEditingArea = createTagEditingAreaWithFrame(frame)
         addTagEditingAreaToSuperview()
         constraintTagEditingArea()
+        view.layoutIfNeeded()
     }
     // addTagEditingArea.1
     private func getFrameForTagEditingArea() -> CGRect {
@@ -85,8 +91,8 @@ extension CreateTaskVC {
     }
     
     // addTagEditingArea.2
-    private func createTagEditingAreaWithFrame(_ frame: CGRect) -> TagEditingArea {
-        return TagEditingArea(frame: frame)
+    private func createTagEditingAreaWithFrame(_ frame: CGRect) -> TagEditingAreaView {
+        return TagEditingAreaView(frame: frame)
     }
     // addTagEditingArea.3
     private func addTagEditingAreaToSuperview() {
@@ -107,20 +113,22 @@ extension CreateTaskVC {
     //MARK: removeTagEditingArea
     private func removeTagEditingArea() {
         tagEditingArea.removeFromSuperview()
+        view.layoutIfNeeded()
     }
     
     //MARK: moveTagEditingArea
     private func moveTagEditingAreaOffScreen() {
         yPositionConstraintOfTagEditingArea.constant = tagEditingArea.getHeight()
-        UIView.animate(withDuration: AnimationTimes.tagEditingPanelOffScreen, animations: { [weak self] in
-            self!.view.layoutIfNeeded()
-        }, completion: nil)
+        animateChangeOfConstraintWithDuration(AnimationTimes.tagEditingPanelOffScreen)
     }
     private func moveTagEditingAreaOnScreen() {
         yPositionConstraintOfTagEditingArea.constant = 0.0
-        UIView.animate(withDuration: AnimationTimes.tagEditingPanelOnScreen , animations: { [weak self] in
-            self!.view.layoutIfNeeded()
-        }, completion: nil)
+        animateChangeOfConstraintWithDuration(AnimationTimes.tagEditingPanelOnScreen)
     }
-
+    
+    private func animateChangeOfConstraintWithDuration(_ duration: Double) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { [weak self] in
+            self!.view.layoutIfNeeded()
+            }, completion: nil)
+    }
 }

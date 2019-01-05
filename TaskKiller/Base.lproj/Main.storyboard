@@ -137,7 +137,7 @@
                                 <rect key="frame" x="8" y="117" width="304" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
-                                    <segue destination="bnH-FR-KcX" kind="embed" identifier="" id="IMJ-qW-ccP"/>
+                                    <segue destination="bnH-FR-KcX" kind="embed" identifier="TagsChildVC" id="IMJ-qW-ccP"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBJ-L1-hi0" userLabel="Tag Edtiting Controls Container View">

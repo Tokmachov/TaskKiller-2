@@ -12,7 +12,7 @@ import UIKit
 
 class TagView: UIView, TagInfoSetable {
     
-    private var nameView: NameView!
+    private var nameView: TagNameLabel!
     
     //MARK: Appearance
     private let cornerRadius: CGFloat = 10
@@ -41,7 +41,7 @@ class TagView: UIView, TagInfoSetable {
         setTagName(tag.getName())
         setTagColor(tag.getColor())
     }
-    func setSize(_ size: ViewSize) {
+    func setSize(_ size: SizeOfTagView) {
         switch size {
         case .normal: nameView.setFontSize(normalFontSize)
         case .large: nameView.setFontSize(largeFontSize)
@@ -70,7 +70,7 @@ extension TagView {
         setBackgroundColor()
     }
     private func setupNameView() {
-        self.nameView = NameView()
+        self.nameView = TagNameLabel()
         addSubview(nameView)
         constraintNameViewToTagView()
     }

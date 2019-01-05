@@ -25,6 +25,6 @@ struct AnimationTimes {
     static let colorPaneOnScreen: Double = 1
     static let colorPaneOffScreen: Double = 1
     
-    static let tagEditingPanelOnScreen: Double = 1
-    static let tagEditingPanelOffScreen: Double = 1
+    static let tagEditingPanelOnScreen: Double = 0.3
+    static let tagEditingPanelOffScreen: Double = 0.3
 }

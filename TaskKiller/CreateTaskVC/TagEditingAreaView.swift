@@ -7,11 +7,8 @@
 //
 
 import UIKit
-struct TagEditingAreaSetups {
-    static var alpha: CGFloat = 0.5
-    static var backgroundColor = UIColor.green
-}
-class TagEditingArea: UIView {
+
+class TagEditingAreaView: UIView {
     let customColorForBackGround = UIColor.white
     let customAlpha: CGFloat = 0.5
     
@@ -26,7 +23,7 @@ class TagEditingArea: UIView {
     
 }
 
-extension TagEditingArea {
+extension TagEditingAreaView {
     func setupView() {
         backgroundColor = TagEditingAreaSetups.backgroundColor.withAlphaComponent(TagEditingAreaSetups.alpha)
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ViewSize {
+enum SizeOfTagView {
     case large
     case normal
 }

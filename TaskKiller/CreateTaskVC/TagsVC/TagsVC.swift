@@ -15,8 +15,6 @@ class TagsVC: UICollectionViewController {
     let interItemSpacing: CGFloat = 10
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
-    private var longTapGestureRecognizer: UILongPressGestureRecognizer!
-    
     private var indexOfEnlargedCell: IndexPath?
     private var changeIsUserDriven = false
     private var tagCellID = "Tag Cell"
@@ -29,27 +27,9 @@ class TagsVC: UICollectionViewController {
         fetchResultsController.delegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
         collectionView.backgroundColor = UIColor.red
-        longTapGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(self.handleLongGesture(gesture:)))
-        collectionView.addGestureRecognizer(longTapGestureRecognizer)
         collectionView.dragDelegate = self
         collectionView.dragInteractionEnabled = true
         collectionView.dropDelegate = self
-    }
-    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
-        switch(gesture.state) {
-            
-        case .began:
-            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else {
-                break
-            }
-            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
-        case .changed:
-            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
-        case .ended:
-            collectionView.endInteractiveMovement()
-        default:
-            collectionView.cancelInteractiveMovement()
-        }
     }
 }
 
@@ -206,6 +186,11 @@ extension TagsVC: UICollectionViewDragDelegate {
         dragItem.localObject = tag
         return [dragItem]
     }
+    func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+        let parameters = UIDragPreviewParameters()
+        parameters.backgroundColor = UIColor.clear
+        return parameters
+    }
 }
 
 extension TagsVC: UICollectionViewDropDelegate {
@@ -225,6 +210,5 @@ extension TagsVC: UICollectionViewDropDelegate {
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
         let reorderedTags = reorderTags(in: fetchResultsController.fetchedObjects!, movingTagFrom: sourceIndexPath.row, to: destinationIndexPath.row)
         alignTagModelOrderPropertyWithTagsOrderIn(reorderedTags)
-        
     }
 }

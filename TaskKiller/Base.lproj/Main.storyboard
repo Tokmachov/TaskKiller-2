@@ -160,6 +160,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="tagsCollectionView" destination="OQW-Vl-ZCD" id="3oE-NL-Ng9"/>
                         <segue destination="vDa-62-zss" kind="presentation" identifier="Start New Task" modalTransitionStyle="crossDissolve" id="TKV-Ta-oOb"/>
                     </connections>
                 </viewController>
@@ -415,10 +416,10 @@
             </objects>
             <point key="canvasLocation" x="-686.25" y="127.8169014084507"/>
         </scene>
-        <!--Tag Editing Controls PanelVC-->
+        <!--Tag Adding Controls PanelVC-->
         <scene sceneID="zIg-ud-qx1">
             <objects>
-                <viewController id="LaJ-jH-E05" customClass="TagEditingControlsPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LaJ-jH-E05" customClass="TagAddingControlsPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb" userLabel="Tag Editing Control Panel View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="296"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

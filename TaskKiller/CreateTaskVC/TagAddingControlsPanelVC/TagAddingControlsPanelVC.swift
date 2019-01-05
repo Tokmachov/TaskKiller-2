@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class TagEditingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChosenForTagReceiving, NameForTagReceiving {
+class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChosenForTagReceiving, NameForTagReceiving {
     
     private var tagName: String!
     private var tagColor: UIColor = UIColor.gray
@@ -106,7 +106,7 @@ class TagEditingControlsPanelVC: UIViewController, InfoForTagReporting, ColorCho
     }
 }
 //MARK: AddButton, EditButton movements and animations
-extension TagEditingControlsPanelVC {
+extension TagAddingControlsPanelVC {
     private func moveAddAndEditButtonsOffScreen() {
         moveAddBttonOffScreen()
         moveEditButtonOffScreen()
@@ -147,7 +147,7 @@ extension TagEditingControlsPanelVC {
 }
 
 //MARK: CreationControls movements and animations
-extension TagEditingControlsPanelVC {
+extension TagAddingControlsPanelVC {
     private func moveCreationControlsOffScreen() {
         creationControlsLeadingConstraint.constant = 2 * view.bounds.width
         UIView.animate(withDuration: AnimationTimes.creationControlsOffScreen, animations: { [weak self] in
@@ -166,7 +166,7 @@ extension TagEditingControlsPanelVC {
     }
 }
 //MARK: DoneEditingButton movements
-extension TagEditingControlsPanelVC {
+extension TagAddingControlsPanelVC {
     private func moveDoneEditingButtonOffScreen() {
         UIView.animate(withDuration: AnimationTimes.doneEditingButtonOffScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
@@ -186,7 +186,7 @@ extension TagEditingControlsPanelVC {
 }
 
 //MARK: ColorPane movements
-extension TagEditingControlsPanelVC {
+extension TagAddingControlsPanelVC {
     private func moveColorPaneOffScreen() {
         changeXPositionOfColorPaneToOffscreen()
         animateChangeOfConstraintWithDuration(AnimationTimes.colorPaneOffScreen)
@@ -209,7 +209,7 @@ extension TagEditingControlsPanelVC {
     }
 }
 
-extension TagEditingControlsPanelVC {
+extension TagAddingControlsPanelVC {
     private func reportNewTagInfo() {
         tagInfoReceiver.receiveInfoForTag(name: tagName, color: tagColor)
     }
@@ -218,20 +218,3 @@ extension TagEditingControlsPanelVC {
     }
 }
 
-struct AnimationTimes {
-    
-    static var addButtonOnScreen: Double = 0.5
-    static var addButtonOffScreen: Double = 0.5
-    
-    static var editButtonOnScreen: Double = 0.5
-    static var editButtonOffScreen: Double = 0.5
-    
-    static var creationControlsOnScreen: Double = 1
-    static var creationControlsOffScreen: Double = 1
-    
-    static var doneEditingButtonOnScreen: Double = 1
-    static var doneEditingButtonOffScreen: Double = 1
-    
-    static var colorPaneOnScreen: Double = 1
-    static var colorPaneOffScreen: Double = 1
-}

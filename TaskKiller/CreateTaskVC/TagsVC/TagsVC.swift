@@ -52,7 +52,7 @@ extension TagsVC {
         }
         return fetchResultsController
     }
-    private func alignTagModelOrderPropertyWithTagsOrderIn(_ tagModels: [TagModel]) {
+    private func alignTagModelsOrderPropertyWithTagsOrderIn(_ tagModels: [TagModel]) {
         for (i, tagModel) in tagModels.enumerated() {
             tagModel.positionInUserSelectedOrder = Int16(i)
         }
@@ -95,6 +95,12 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
                     self.collectionView.reloadItems(at: [newIndexPath!])
                 })
             )
+        case .delete:
+            collectionViewChangeContentsOperations.append(
+                BlockOperation(block: {
+                    self.collectionView.deleteItems(at: [indexPath!])
+                })
+            )
         default: break
         }
     }
@@ -105,7 +111,7 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
             }
             collectionViewChangeContentsOperations.removeAll()
         }
-        
+        //alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
         changeIsUserDriven = false
         
     }
@@ -190,7 +196,7 @@ extension TagsVC: UICollectionViewDragDelegate {
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = TagFactoryImp.createTag(from: tagModel)
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
-        dragItem.localObject = tag
+        dragItem.localObject = tag as AnyObject
         return [dragItem]
     }
     func collectionView(_ collectionView: UICollectionView, dragPreviewParametersForItemAt indexPath: IndexPath) -> UIDragPreviewParameters? {
@@ -222,6 +228,6 @@ extension TagsVC: UICollectionViewDropDelegate {
         guard let sourceIndexPath = item.sourceIndexPath else { return }
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
         let reorderedTags = reorderTags(in: fetchResultsController.fetchedObjects!, movingTagFrom: sourceIndexPath.row, to: destinationIndexPath.row)
-        alignTagModelOrderPropertyWithTagsOrderIn(reorderedTags)
+        alignTagModelsOrderPropertyWithTagsOrderIn(reorderedTags)
     }
 }

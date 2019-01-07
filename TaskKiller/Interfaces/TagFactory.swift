@@ -11,5 +11,6 @@ import UIKit
 protocol TagFactory {
     static func createTag(from name: String, and color: UIColor) -> Tag
     static func createTag(from tagModel: TagModel) -> Tag
+    static func deleteTagFromMemory(_ tag: Tag)
 }
 

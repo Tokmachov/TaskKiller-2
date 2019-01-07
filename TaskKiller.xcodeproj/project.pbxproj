@@ -10,6 +10,8 @@
 		040319C621D5C714003A758F /* SizeOfTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040319C521D5C714003A758F /* SizeOfTagView.swift */; };
 		040319C821D5D850003A758F /* TagNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040319C721D5D850003A758F /* TagNameLabel.swift */; };
 		04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04054E6A21DE26B400A7D247 /* TagEditingAreaView.swift */; };
+		04056BA621E290A300EBCE05 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA521E290A300EBCE05 /* UIViewControllerExtensions.swift */; };
+		04056BA821E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */; };
 		0406D3CC21E0BBAA003A6E68 /* AnimationTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406D3CB21E0BBAA003A6E68 /* AnimationTimes.swift */; };
 		0406D3CF21E0CDFA003A6E68 /* DropAreaDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406D3CE21E0CDFA003A6E68 /* DropAreaDelegate.swift */; };
 		0406D3D121E0CEFB003A6E68 /* DragInitiatingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406D3D021E0CEFB003A6E68 /* DragInitiatingVC.swift */; };
@@ -127,6 +129,8 @@
 		040319C521D5C714003A758F /* SizeOfTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeOfTagView.swift; sourceTree = "<group>"; };
 		040319C721D5D850003A758F /* TagNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameLabel.swift; sourceTree = "<group>"; };
 		04054E6A21DE26B400A7D247 /* TagEditingAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditingAreaView.swift; sourceTree = "<group>"; };
+		04056BA521E290A300EBCE05 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTagDropAreaVC.swift; sourceTree = "<group>"; };
 		0406D3CB21E0BBAA003A6E68 /* AnimationTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationTimes.swift; sourceTree = "<group>"; };
 		0406D3CE21E0CDFA003A6E68 /* DropAreaDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAreaDelegate.swift; sourceTree = "<group>"; };
 		0406D3D021E0CEFB003A6E68 /* DragInitiatingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragInitiatingVC.swift; sourceTree = "<group>"; };
@@ -270,6 +274,7 @@
 		04054E6721DE247100A7D247 /* TagEditingVCs */ = {
 			isa = PBXGroup;
 			children = (
+				04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */,
 			);
 			path = TagEditingVCs;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 			children = (
 				B9A8B14B21991FB20085FCA0 /* UILableExtension.swift */,
 				049909BD21CF78E700DCC3CA /* UIViewExtensions.swift */,
+				04056BA521E290A300EBCE05 /* UIViewControllerExtensions.swift */,
 				B9A8B141219842810085FCA0 /* Tag */,
 				04091E7E21C9EBA400967F50 /* Interfaces */,
 				B9A8B13E219841FC0085FCA0 /* TaskStaticInfo */,
@@ -754,6 +760,7 @@
 				049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */,
 				B9A8B163219A84310085FCA0 /* StateRepresenting.swift in Sources */,
 				B9A8B18D21A1E0E50085FCA0 /* TaskProgressSaving.swift in Sources */,
+				04056BA821E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift in Sources */,
 				047C4B3221C685AB0009ED40 /* InfoForTagReceiving.swift in Sources */,
 				B997F63A21A500BF00750092 /* TaskStateChangesReceiving.swift in Sources */,
 				B96E0E89219347E50097AB34 /* TaskKiller.xcdatamodeld in Sources */,
@@ -761,6 +768,7 @@
 				B9A8B18F21A1E5AC0085FCA0 /* TaskProgressInfo.swift in Sources */,
 				B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */,
 				B9A8B143219843980085FCA0 /* TaskVC.swift in Sources */,
+				04056BA621E290A300EBCE05 /* UIViewControllerExtensions.swift in Sources */,
 				B9A8B11B2196C7840085FCA0 /* TaskProgressTimesGetable.swift in Sources */,
 				B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */,
 				B9A8B16F219BC9F60085FCA0 /* TaskStateable.swift in Sources */,

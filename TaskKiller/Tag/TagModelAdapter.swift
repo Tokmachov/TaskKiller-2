@@ -23,4 +23,7 @@ struct TagModelAdapter: Tag, Equatable {
         guard let color = adaptee.color else { fatalError() }
         return color as! UIColor
     }
+    func getTagModel() -> TagModel {
+        return adaptee
+    }
 }

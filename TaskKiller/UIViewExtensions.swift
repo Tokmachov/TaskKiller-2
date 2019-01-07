@@ -17,18 +17,12 @@ extension UIView {
     }
     
 }
-
-protocol HideableShowable {
-    func show()
-    func hide()
-}
-extension HideableShowable where Self: UIView {
+extension UIView {
     func show() {
-        isHidden = false
+        self.isHidden = false
     }
     func hide() {
-        isHidden = true
+        self.isHidden = true
     }
 }
-extension UIView: HideableShowable {}
 

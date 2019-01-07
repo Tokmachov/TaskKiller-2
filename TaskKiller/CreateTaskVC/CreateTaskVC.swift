@@ -14,7 +14,7 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, DropAreaDelegate {
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
     
-    private var layoutGuideForTagEditingArea: UILayoutGuide!
+    
     
     private var tagEditingArea: TagEditingAreaView!
     private var yPositionConstraintOfTagEditingArea: NSLayoutConstraint!
@@ -75,16 +75,24 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, DropAreaDelegate {
 extension CreateTaskVC {
     //MARK: addTagEditingArea
     private func addTagEditingArea() {
-        layoutGuideForTagEditingArea = createlayoutGuideForTagEditingArea()
-        tagEditingArea = createTagEditingAreaRalativelyTo(layoutGuideForTagEditingArea)
-        let stack = createStackForTagEditingAreasRelativeTo(layoutGuideForTagEditingArea)
-        deleteTagArea = createDeleteTagViewRelativelyTo(layoutGuideForTagEditingArea)
-        stack.addArrangedSubview(deleteTagArea)
-        editTagArea = createEditTagViewRelativelyTo(layoutGuideForTagEditingArea)
-        stack.addArrangedSubview(editTagArea)
-        addToTaskTagArea = createAddToTaskTagViewRelativelyTo(layoutGuideForTagEditingArea)
-        stack.addArrangedSubview(addToTaskTagArea)
+        let layoutGuideForTagEditingArea = createlayoutGuideForTagEditingArea()
+        let tagEditingArea = createTagEditingAreaRalativelyTo(layoutGuideForTagEditingArea)
+        let stack = createStackForDropAreasPositioning()
+        tagEditingArea.addSubview(stack)
+        positionStackInsideTagEditingArea(stack)
+        let deleteTagDropAreaVC = DeleteTagDropAreaVC()
+        addChildVC(deleteTagDropAreaVC)
+        deleteTagDropAreaVC.view = createDeleteTagDropAreaRelativelyTo(layoutGuideForTagEditingArea)
+        let dropInteration = UIDropInteraction(delegate: deleteTagDropAreaVC)
+        deleteTagDropAreaVC.view.addInteraction(dropInteration)
+        stack.addArrangedSubview(deleteTagDropAreaVC.view)
+        
+//        editTagArea = createEditTagViewRelativelyTo(layoutGuideForTagEditingArea)
+//        stack.addArrangedSubview(editTagArea)
+//        addToTaskTagArea = createAddToTaskTagViewRelativelyTo(layoutGuideForTagEditingArea)
+//        stack.addArrangedSubview(addToTaskTagArea)
         view.layoutIfNeeded()
+        
     }
     
     private func createlayoutGuideForTagEditingArea() -> UILayoutGuide {
@@ -109,48 +117,49 @@ extension CreateTaskVC {
         yPositionConstraintOfTagEditingArea.isActive = true
         return tagEditingArea
     }
-    private func createStackForTagEditingAreasRelativeTo(_ layoutGuide: UILayoutGuide) -> UIStackView {
+    private func createStackForDropAreasPositioning() -> UIStackView {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillEqually
         stack.spacing = 20
-        tagEditingArea.addSubview(stack)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.centerXAnchor.constraint(equalTo: tagEditingArea.centerXAnchor, constant: 0).isActive = true
-        stack.centerYAnchor.constraint(equalTo: tagEditingArea.centerYAnchor, constant: 0).isActive = true
         return stack
     }
+    private func positionStackInsideTagEditingArea(_ stack: UIStackView) {
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.centerXAnchor.constraint(equalTo: stack.superview!.centerXAnchor, constant: 0).isActive = true
+        stack.centerYAnchor.constraint(equalTo: stack.superview!.centerYAnchor, constant: 0).isActive = true
+    }
     
-    private func createDeleteTagViewRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
+    private func createDeleteTagDropAreaRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
         let view = UIView()
+        self.view.addSubview(view)
         view.backgroundColor = UIColor.blue
-        tagEditingArea.addSubview(view)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.widthAnchor.constraint(equalTo: layoutGuide.widthAnchor, multiplier: 0.25).isActive = true
         view.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor, multiplier: 0.25).isActive = true
         return view
     }
     
-    private func createEditTagViewRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.red
-        tagEditingArea.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.widthAnchor.constraint(equalTo: layoutGuide.widthAnchor, multiplier: 0.25).isActive = true
-        view.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor, multiplier: 0.25).isActive = true
-        return view
-    }
-    private func createAddToTaskTagViewRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        tagEditingArea.addSubview(view)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.widthAnchor.constraint(equalTo: layoutGuide.widthAnchor, multiplier: 0.25).isActive = true
-        view.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor, multiplier: 0.25).isActive = true
-        return view
-    }
-    
+//    private func createEditTagViewRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
+//        let view = UIView()
+//        view.backgroundColor = UIColor.red
+//        tagEditingArea.addSubview(view)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.widthAnchor.constraint(equalTo: layoutGuide.widthAnchor, multiplier: 0.25).isActive = true
+//        view.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor, multiplier: 0.25).isActive = true
+//        return view
+//    }
+//    private func createAddToTaskTagViewRelativelyTo(_ layoutGuide: UILayoutGuide) -> UIView {
+//        let view = UIView()
+//        view.backgroundColor = UIColor.white
+//        tagEditingArea.addSubview(view)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.widthAnchor.constraint(equalTo: layoutGuide.widthAnchor, multiplier: 0.25).isActive = true
+//        view.heightAnchor.constraint(equalTo: layoutGuide.heightAnchor, multiplier: 0.25).isActive = true
+//        return view
+//    }
+//
     
     
  
@@ -162,7 +171,7 @@ extension CreateTaskVC {
     
     //MARK: moveTagEditingArea
     private func moveTagEditingAreaOffScreen() {
-        yPositionConstraintOfTagEditingArea.constant = tagEditingArea.getHeight()
+        yPositionConstraintOfTagEditingArea.constant = self.view.getHeight()
         animateChangeOfConstraintWithDuration(AnimationTimes.tagEditingPanelOffScreen)
     }
     private func moveTagEditingAreaOnScreen() {

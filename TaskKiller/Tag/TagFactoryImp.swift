@@ -10,6 +10,10 @@ import UIKit
 import CoreData
 
 struct TagFactoryImp: TagFactory {
+    static func deleteTagFromMemory(_ tag: Tag) {
+        PersistanceService.context.delete(tag.getTagModel())
+        PersistanceService.saveContext()
+    }
     
     static func createTag(from name: String, and color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)

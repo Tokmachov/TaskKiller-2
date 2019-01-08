@@ -22,7 +22,6 @@ class TagsVC: UICollectionViewController, DragInitiatingVC {
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     private var indexOfEnlargedCell: IndexPath?
-    private var changeIsUserDriven = false
     private var tagCellID = "Tag Cell"
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
     private var collectionViewChangeContentsOperations = [BlockOperation]()
@@ -36,6 +35,10 @@ class TagsVC: UICollectionViewController, DragInitiatingVC {
         collectionView.dragDelegate = self
         collectionView.dragInteractionEnabled = true
         collectionView.dropDelegate = self
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+            alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
     }
 }
 
@@ -69,8 +72,8 @@ extension TagsVC {
 }
 //MARK: NSFetchResultsControllerDelegate
 extension TagsVC: NSFetchedResultsControllerDelegate {
+    
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard !changeIsUserDriven else { return }
         switch type {
         case .insert:
             collectionViewChangeContentsOperations.append(
@@ -105,15 +108,10 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
         }
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        if !changeIsUserDriven {
             for block in collectionViewChangeContentsOperations {
                 block.start()
-            }
             collectionViewChangeContentsOperations.removeAll()
         }
-        //alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
-        changeIsUserDriven = false
-        
     }
 }
 //MARK: UICollectionViewDataSource

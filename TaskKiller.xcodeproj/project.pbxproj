@@ -23,6 +23,7 @@
 		04091E8021C9EBBE00967F50 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7F21C9EBBE00967F50 /* Tag.swift */; };
 		04091E8221C9ECB300967F50 /* TagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E8121C9ECB300967F50 /* TagFactory.swift */; };
 		04091E8421C9ED4100967F50 /* TagFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E8321C9ED4100967F50 /* TagFactoryImp.swift */; };
+		040D906721E4F5840049F410 /* EditTagDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */; };
 		044723B821C219AF00F0214F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B721C219AF00F0214F /* TagView.swift */; };
 		044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */; };
 		044723C921C21DB200F0214F /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C321C21DB200F0214F /* PeriodModel+CoreDataProperties.swift */; };
@@ -144,6 +145,7 @@
 		04091E7F21C9EBBE00967F50 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		04091E8121C9ECB300967F50 /* TagFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFactory.swift; sourceTree = "<group>"; };
 		04091E8321C9ED4100967F50 /* TagFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFactoryImp.swift; sourceTree = "<group>"; };
+		040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagDropAreaVC.swift; sourceTree = "<group>"; };
 		044723B721C219AF00F0214F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		044723C121C21D4B00F0214F /* TaskKiller 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 11.xcdatamodel"; sourceTree = "<group>"; };
 		044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */,
+				040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */,
 			);
 			path = TagEditingVCs;
 			sourceTree = "<group>";
@@ -780,6 +783,7 @@
 				B9A8B18621A1C1AA0085FCA0 /* PostponeTimeReceiving.swift in Sources */,
 				B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */,
 				0407E0AB21C4EFA100704082 /* TagAddingControlsPanelVC.swift in Sources */,
+				040D906721E4F5840049F410 /* EditTagDropAreaVC.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				B997F67421AF27DC00750092 /*  TagCell.swift in Sources */,
 				B9A8B168219BBCC30085FCA0 /* TimeCounting.swift in Sources */,

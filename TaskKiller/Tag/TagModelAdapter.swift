@@ -9,7 +9,7 @@
 import UIKit
 
 struct TagModelAdapter: Tag, Equatable {
-    
+   
     private var adaptee: TagModel
     init(tagModel: TagModel) {
         self.adaptee = tagModel
@@ -25,5 +25,12 @@ struct TagModelAdapter: Tag, Equatable {
     }
     func getTagModel() -> TagModel {
         return adaptee
+    }
+    func setName(_ name: String) {
+        adaptee.name = name
+        PersistanceService.saveContext()
+    }
+    func setColor(_ color: UIColor) {
+        adaptee.color = color
     }
 }

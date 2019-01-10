@@ -25,9 +25,7 @@ class TagCell: UICollectionViewCell, TagInfoSetable {
     func setTagInfo(_ tag: Tag) {
         tagView.setTagInfo(tag)
     }
-    func setSize(_ size: SizeOfTagView) {
-        tagView.setSize(size)
-    }
+    
     func getSizeNeededForContentView() -> CGSize {
         return tagView.getEstimatedTagViewSize()
     }

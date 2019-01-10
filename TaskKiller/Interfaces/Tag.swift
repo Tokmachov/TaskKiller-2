@@ -12,4 +12,6 @@ protocol Tag {
     func getName() -> String
     func getColor() -> UIColor
     func getTagModel() -> TagModel
+    func setName(_ name: String)
+    func setColor(_ color: UIColor)
 }

@@ -12,7 +12,7 @@ import UIKit
 
 class TagView: UIView, TagInfoSetable {
     
-    private var nameView: TagNameLabel!
+    private var nameLabel: TagNameLabel! 
     
     //MARK: Appearance
     private let cornerRadius: CGFloat = 10
@@ -20,9 +20,7 @@ class TagView: UIView, TagInfoSetable {
         return cornerRadius / 2
     }
     private var tagColor = UIColor.gray
-    
-    private let normalFontSize: CGFloat = 17
-    private let largeFontSize: CGFloat = 25
+    private let tagNameFontSize: CGFloat = 17
     
     convenience init() {
         self.init(frame: CGRect.zero)
@@ -41,15 +39,12 @@ class TagView: UIView, TagInfoSetable {
         setTagName(tag.getName())
         setTagColor(tag.getColor())
     }
-    func setSize(_ size: SizeOfTagView) {
-        switch size {
-        case .normal: nameView.setFontSize(normalFontSize)
-        case .large: nameView.setFontSize(largeFontSize)
-        }
+    func setTagNameFontSize(_ size: CGFloat) {
+        nameLabel.setFontSize(size)
     }
     func getEstimatedTagViewSize() -> CGSize {
-        let width = nameView.getWidth() + 2 * paddingAroundNameView
-        let height = nameView.getHeight() + 2 * paddingAroundNameView
+        let width = nameLabel.getWidth() + 2 * paddingAroundNameView
+        let height = nameLabel.getHeight() + 2 * paddingAroundNameView
         return CGSize(width: width, height: height)
     }
 }
@@ -61,7 +56,7 @@ extension TagView {
         setNeedsDisplay()
     }
     private func setTagName(_ name: String) {
-        nameView.setName(name)
+        nameLabel.setName(name)
     }
     
     //MARK: setupTagView
@@ -70,17 +65,18 @@ extension TagView {
         setBackgroundColor()
     }
     private func setupNameView() {
-        self.nameView = TagNameLabel()
-        addSubview(nameView)
+        self.nameLabel = TagNameLabel()
+        addSubview(nameLabel)
         constraintNameViewToTagView()
+        nameLabel.setFontSize(tagNameFontSize)
     }
     private func constraintNameViewToTagView() {
         self.translatesAutoresizingMaskIntoConstraints = false
-        nameView.translatesAutoresizingMaskIntoConstraints = false
-        self.leadingAnchor.constraint(equalTo: nameView.leadingAnchor, constant: -paddingAroundNameView).isActive = true
-        self.trailingAnchor.constraint(equalTo: nameView.trailingAnchor, constant: paddingAroundNameView).isActive = true
-        self.topAnchor.constraint(equalTo: nameView.topAnchor, constant: -paddingAroundNameView).isActive = true
-        self.bottomAnchor.constraint(equalTo: nameView.bottomAnchor, constant: paddingAroundNameView).isActive = true
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -paddingAroundNameView).isActive = true
+        self.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: paddingAroundNameView).isActive = true
+        self.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -paddingAroundNameView).isActive = true
+        self.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: paddingAroundNameView).isActive = true
     }
     private func setBackgroundColor() {
         backgroundColor = UIColor.clear

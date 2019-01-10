@@ -128,11 +128,6 @@ extension TagsVC {
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = TagFactoryImp.createTag(from: tagModel)
         tagCell.setTagInfo(tag)
-        if indexPath == indexOfEnlargedCell {
-            tagCell.setSize(.large)
-            return tagCell
-        }
-        tagCell.setSize(.normal)
         return tagCell
     }
 }
@@ -144,11 +139,6 @@ extension TagsVC: UICollectionViewDelegateFlowLayout {
         let tag = TagFactoryImp.createTag(from: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
         tagCell.setTagInfo(tag)
-        tagCell.setSize(.normal)
-        if indexPath == indexOfEnlargedCell {
-            tagCell.setSize(.large)
-            return tagCell.getSizeNeededForContentView()
-        }
         return tagCell.getSizeNeededForContentView()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -176,17 +166,6 @@ extension TagsVC {
     }
 }
 
-//MARK: UICollectionViewDelegate
-extension TagsVC {
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        var indexPathsToReload = [IndexPath]()
-        if let indexPathOfCellForDeenlarging = indexOfEnlargedCell { indexPathsToReload.append(indexPathOfCellForDeenlarging) }
-        indexOfEnlargedCell = indexOfEnlargedCell != indexPath ? indexPath : nil
-        if indexOfEnlargedCell != nil { indexPathsToReload.append(indexOfEnlargedCell!) }
-        collectionView.reloadItems(at: indexPathsToReload)
-        return false
-    }
-}
 
 //MARK: UICollectionViewDragDelegate
 extension TagsVC: UICollectionViewDragDelegate {

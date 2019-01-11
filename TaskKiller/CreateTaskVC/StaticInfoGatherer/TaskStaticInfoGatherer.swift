@@ -12,7 +12,6 @@ class TaskStaticInfoGatherer: StaticInfoGathering {
 
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!
-    private var tagsInfos: TagsStore!
     
     private var staticInfo: TaskStaticInfo {
         return TaskStaticInfo(taskDescription: taskDescription, initialDeadLine: initialDeadLine)

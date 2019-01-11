@@ -566,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIt-Ks-5u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982.5" y="-641.19718309859161"/>
+            <point key="canvasLocation" x="1080" y="-539"/>
         </scene>
         <!--Create TaskVC-->
         <scene sceneID="tne-QT-ifu">
@@ -591,14 +591,14 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQW-Vl-ZCD" userLabel="Tags Display Container View">
-                                <rect key="frame" x="8" y="117" width="304" height="82"/>
+                                <rect key="frame" x="0.0" y="199" width="319" height="82"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="bnH-FR-KcX" kind="embed" identifier="TagsChildVC" id="IMJ-qW-ccP"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBJ-L1-hi0" userLabel="Tag Edtiting Controls Container View">
-                                <rect key="frame" x="0.0" y="207" width="320" height="296"/>
+                                <rect key="frame" x="0.0" y="289" width="320" height="214"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="LaJ-jH-E05" kind="embed" identifier="EditTagControlPanelChildVC" id="eNM-rV-eBJ"/>
@@ -612,6 +612,13 @@
                                     <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXu-Rc-rC2"/>
                                 </connections>
                             </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJi-cc-k6o">
+                                <rect key="frame" x="16" y="117" width="295" height="68"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="oU4-Mi-zIe" kind="embed" identifier="" id="6xY-dd-q2E"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -652,14 +659,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YaH-la-tJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156" y="-157"/>
+            <point key="canvasLocation" x="1868" y="-204"/>
         </scene>
         <!--TagsVC-->
         <scene sceneID="yfb-qt-SSW">
             <objects>
                 <collectionViewController id="bnH-FR-KcX" customClass="TagsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qCJ-ij-dlk">
-                        <rect key="frame" x="0.0" y="0.0" width="304" height="82"/>
+                        <rect key="frame" x="0.0" y="0.0" width="319" height="82"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2hd-iw-2rI">
@@ -681,7 +688,7 @@
                             </collectionViewCell>
                         </cells>
                         <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="6yH-ws-YKM" customClass="HeaderView" customModule="TaskKiller" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="304" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="319" height="50"/>
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYu-79-wdx">
@@ -707,7 +714,41 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ILD-KL-G8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2197.5" y="252.46478873239437"/>
+            <point key="canvasLocation" x="1980" y="176"/>
+        </scene>
+        <!--Tags Added To TaskVC-->
+        <scene sceneID="BcK-Md-spz">
+            <objects>
+                <collectionViewController id="oU4-Mi-zIe" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sM1-Da-G4i">
+                        <rect key="frame" x="0.0" y="0.0" width="295" height="68"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tRb-ef-ZF5">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="DAa-v8-M4V">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="oU4-Mi-zIe" id="Nmj-7H-GJh"/>
+                            <outlet property="delegate" destination="oU4-Mi-zIe" id="oeX-PT-63H"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u9v-Tc-vHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1979" y="21"/>
         </scene>
         <!--TaskVC-->
         <scene sceneID="EKI-3W-5U3">
@@ -853,7 +894,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FzF-fE-Quz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2154" y="31"/>
+            <point key="canvasLocation" x="1965" y="-107"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YRi-Eu-R4V">
@@ -878,11 +919,11 @@
             <objects>
                 <viewController id="LaJ-jH-E05" customClass="TagAddingControlsPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb" userLabel="Tag Editing Control Panel View">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="296"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-13-U3D">
-                                <rect key="frame" x="78.5" y="133" width="63" height="30"/>
+                                <rect key="frame" x="78.5" y="92" width="63" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Add tag">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -892,7 +933,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWI-wr-NE0">
-                                <rect key="frame" x="178.5" y="133" width="63" height="30"/>
+                                <rect key="frame" x="178.5" y="92" width="63" height="30"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Edit Tags">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -902,14 +943,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKC-od-DjB">
-                                <rect key="frame" x="266" y="133" width="88" height="30"/>
+                                <rect key="frame" x="266" y="92" width="88" height="30"/>
                                 <state key="normal" title="Done Editing"/>
                                 <connections>
                                     <action selector="doneEditingButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="alN-aD-5HN"/>
                                 </connections>
                             </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-rN-9Rl" userLabel="ColorPane Container View">
-                                <rect key="frame" x="50" y="64" width="220" height="168"/>
+                                <rect key="frame" x="50" y="23" width="220" height="168"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="168" id="4IS-NZ-UF2"/>
                                 </constraints>
@@ -918,7 +959,7 @@
                                 </connections>
                             </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-rs-LCV">
-                                <rect key="frame" x="-194" y="123" width="288" height="50"/>
+                                <rect key="frame" x="-194" y="82" width="288" height="50"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNp-8u-u47" userLabel="TextField Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>

@@ -85,6 +85,10 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
             guard let sourceIndexOfMovedTag = coordinator.items.first?.sourceIndexPath else { return }
             guard let destinationIndexOfMovedTag = coordinator.destinationIndexPath else { return }
             tagsAddedToTask = tagsAddedToTask.reorderedByMovement(from: sourceIndexOfMovedTag.row, to: destinationIndexOfMovedTag.row)
+            collectionView.performBatchUpdates({
+                self.collectionView.deleteItems(at: [sourceIndexOfMovedTag])
+                self.collectionView.insertItems(at: [destinationIndexOfMovedTag])
+            }, completion: nil)
             return
         }
         guard let tag = (coordinator.items.first?.dragItem.localObject as AnyObject) as? Tag else { return }

@@ -12,10 +12,10 @@ import CoreData
 class TagsVC: UICollectionViewController, DragInitiatingVC {
     
     //MARK: DragInitiatingVC
-    func setDropAreaDelegate(_ delegate: DropAreaDelegate) {
+    func setDropAreaDelegate(_ delegate: EditAndDeleteTagDropAreasDelegate) {
         dropAreaDelegate = delegate
     }
-    private weak var dropAreaDelegate: DropAreaDelegate!
+    private weak var dropAreaDelegate: EditAndDeleteTagDropAreasDelegate!
     
     let distanceBetweenLines: CGFloat = 10
     let interItemSpacing: CGFloat = 10
@@ -182,10 +182,10 @@ extension TagsVC: UICollectionViewDragDelegate {
         return parameters
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        dropAreaDelegate.prepareDropArea()
+        dropAreaDelegate.prepareEditAndDeleteTagDropAreas()
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        dropAreaDelegate.dropAreaIsNoLongerNeeded()
+        dropAreaDelegate.editAndDeleteDropAreasNoLongerNeeded()
     }
 }
 

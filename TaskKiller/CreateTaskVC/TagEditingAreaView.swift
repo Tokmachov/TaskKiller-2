@@ -25,6 +25,9 @@ class TagEditingAreaView: UIView {
     func addDropArea(_ view: UIView) {
         stackForDropAreasPositioning.addArrangedSubview(view)
     }
+    func removeDropArea(_ view: UIView) {
+        stackForDropAreasPositioning.removeArrangedSubview(view)
+    }
 }
 
 extension TagEditingAreaView {

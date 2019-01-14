@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DropAreaDelegate: AnyObject {
-    func prepareDropArea()
-    func dropAreaIsNoLongerNeeded()
+protocol EditAndDeleteTagDropAreasDelegate: AnyObject {
+    func prepareEditAndDeleteTagDropAreas()
+    func editAndDeleteDropAreasNoLongerNeeded()
 }

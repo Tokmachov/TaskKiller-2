@@ -9,13 +9,17 @@
 import Foundation
 
 struct TagStoreImp: TagStore {
-    
+
     private var tags = [Tag]()
     var count: Int {
         return tags.count
     }
     func getTag(at index: Int) -> Tag {
         return tags[index]
+    }
+    func index(Of tag: Tag) -> Int? {
+        let index = tags.firstIndex(where: { $0.getTagModel() == tag.getTagModel() })
+        return index
     }
     func canAdd(_ tag: Tag) -> Bool {
         return !tags.contains(where: { $0.getTagModel() == tag.getTagModel() })

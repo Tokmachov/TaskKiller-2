@@ -15,7 +15,9 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
         self.delegate = delegate
     }
     func removeTagFromTask(_ tag: Tag) {
-        
+        let indexPathForTagToRemove = IndexPath(item: tagsAddedToTask.index(Of: tag)!, section: 0)
+        tagsAddedToTask.remove(tag)
+        collectionView.deleteItems(at: [indexPathForTagToRemove])
     }
     private let maximumTagsAmount = 3
     
@@ -24,11 +26,7 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     private weak var delegate: PrepareDropAreaForRemovingTagFromTaskDelegate!
-    private var tagsAddedToTask: TagStore = TagStoreImp() {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    private var tagsAddedToTask: TagStore = TagStoreImp() 
     
     override func viewDidLoad() {
         super.viewDidLoad()

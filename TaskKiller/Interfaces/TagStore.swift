@@ -14,5 +14,6 @@ protocol TagStore {
     mutating func add(_ tag: Tag)
     mutating func move(from sourceIndex: Int, to destinationIndex: Int)
     func getTag(at index: Int) -> Tag
+    func index(Of tag: Tag) -> Int?
     func canAdd(_ tag: Tag) -> Bool
 }

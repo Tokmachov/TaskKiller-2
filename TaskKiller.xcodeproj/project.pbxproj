@@ -42,7 +42,7 @@
 		047C4B3B21C7548F0009ED40 /* ColorChosenForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */; };
 		047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */; };
 		047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */; };
-		0498EF3821EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */; };
+		0498EF3821EC1BA600676FAB /* DropAreaForRemovingTagFromTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* DropAreaForRemovingTagFromTaskVC.swift */; };
 		0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
 		0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
@@ -174,7 +174,7 @@
 		047C4B3A21C7548F0009ED40 /* ColorChosenForTagReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReporting.swift; sourceTree = "<group>"; };
 		047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReceiving.swift; sourceTree = "<group>"; };
 		047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneCallButton.swift; sourceTree = "<group>"; };
-		0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTagFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
+		0498EF3721EC1BA600676FAB /* DropAreaForRemovingTagFromTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAreaForRemovingTagFromTaskVC.swift; sourceTree = "<group>"; };
 		0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFromTaskRemovingDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
 		0498EF4021EC1FCD00676FAB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -463,7 +463,7 @@
 				047C4B3121C685AB0009ED40 /* InfoForTagReceiving.swift */,
 				0406D3CE21E0CDFA003A6E68 /* EditAndDeleteTagDropAreasDelegate.swift */,
 				0498EF4221EC327E00676FAB /* PrepareDropAreaForRemovingTagFromTaskDelegate.swift */,
-				0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */,
+				0498EF3721EC1BA600676FAB /* DropAreaForRemovingTagFromTaskVC.swift */,
 				0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */,
 				040D906F21E789B60049F410 /* TagsAddedToTaskVC */,
 				04054E6721DE247100A7D247 /* TagEditingVCs */,
@@ -869,7 +869,7 @@
 				B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
-				0498EF3821EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift in Sources */,
+				0498EF3821EC1BA600676FAB /* DropAreaForRemovingTagFromTaskVC.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B1272196E2EB0085FCA0 /* TaskStaticInfoUpdater.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* TaskProgressTimesSetable.swift in Sources */,

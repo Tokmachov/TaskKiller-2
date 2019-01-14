@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
+class DropAreaForRemovingTagFromTaskVC: UIViewController, UIDropInteractionDelegate {
     
     func setTagFromTaskRemovingDelegate(_ delegate: TagFromTaskRemovingDelegate) {
         tagFromTaskRemovingDelegate = delegate

@@ -9,15 +9,17 @@ import Foundation
 import UIKit
 import CoreData
 
-class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate {
+class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, PrepareDropAreaForRemovingTagFromTaskDelegate {
    
     private var layoutGuideForTagEditingArea: UILayoutGuide!
     private var tagEditingArea: TagEditingAreaView!
     private var deleteTagDropAreaVC: DeleteTagDropAreaVC!
-    private var editDropAreaVC: EditTagDropAreaVC!
+    private var editTagDropAreaVC: EditTagDropAreaVC!
+    private var removeTagFromTaskDropAreaVC: RemoveTagFromTaskDropAreaVC!
     
     private var deleteTagDropAreaView: UIView!
     private var editDropAreaView: UIView!
+    private var removeTagFromTaskDropAreaView: UIView!
     
     private var deadLinesTochose: [TimeInterval] = [10, 15, 20, 30]
     private var taskStaticInfoSource = TaskStaticInfoGatherer()
@@ -47,6 +49,18 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
         removeDeleteDropArea()
         removeEditDropArea()
     }
+    //MARK: PrepareDropAreaForRemovingTagFromTaskDelegate
+    func prepareDropAreaForRemovingTagFromTask() {
+        addDropAreaForRemovingTagFromTask()
+        moveTagEditingAreaOnScreen()
+    }
+    func dropAreaForRemovingTagFromTaskNoLongerNeeded() {
+        moveTagEditingAreaOffScreen()
+    }
+    //MARK: TagFromTaskRemovingDelegate
+    func removeTagFromTask(_ tag: Tag) {
+        print("\(tag.getName()) to remove")
+    }
     
     @IBAction func go(_ sender: UIButton) {
        performSegue(withIdentifier: "Start New Task", sender: nil)
@@ -54,12 +68,15 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier! {
-        case "TaskDescriptionChildVC":
-            guard let taskDescriptionVC = segue.destination as? TaskDescriptionReporting else { fatalError() }
-            taskDescriptionVC.setTaskDescriptionReceiver(taskStaticInfoSource)
         case "DeadLineChildVC":
             guard let deadLineVC = segue.destination as? DeadLineReporting else { fatalError() }
             deadLineVC.setDeadLineRerceiver(taskStaticInfoSource, deadLinesToChose: deadLinesTochose)
+        case "TaskDescriptionChildVC":
+            guard let taskDescriptionVC = segue.destination as? TaskDescriptionReporting else { fatalError() }
+            taskDescriptionVC.setTaskDescriptionReceiver(taskStaticInfoSource)
+        case "TagsAddedToTaskVC":
+            guard let tagsForTaskPreparingVC = segue.destination as? TagsForTaskPreparing else { fatalError() }
+            tagsForTaskPreparingVC.setDelegate(self)
         case "TagsChildVC":
             guard let tagVC = segue.destination as? DragInitiatingVC else { fatalError() }
             tagVC.setDropAreaDelegate(self)
@@ -152,11 +169,11 @@ extension CreateTaskVC {
         addEditDropAreaViewToTagEditingArea()
     }
     private func addEditDropAreaChildVC() {
-        editDropAreaVC = EditTagDropAreaVC()
-        addChildVC(editDropAreaVC)
+        editTagDropAreaVC = EditTagDropAreaVC()
+        addChildVC(editTagDropAreaVC)
     }
     private func addEditDropAreaViewToTagEditingArea() {
-        editDropAreaView = editDropAreaVC.view!
+        editDropAreaView = editTagDropAreaVC.view!
         configureEditDropArea()
         addDropInteractionToEditDropArea()
         tagEditingArea.addDropArea(editDropAreaView)
@@ -168,7 +185,7 @@ extension CreateTaskVC {
         editDropAreaView.heightAnchor.constraint(equalTo: layoutGuideForTagEditingArea.heightAnchor, multiplier: 0.25).isActive = true
     }
     private func addDropInteractionToEditDropArea() {
-        let dropInteraction = UIDropInteraction(delegate: editDropAreaVC)
+        let dropInteraction = UIDropInteraction(delegate: editTagDropAreaVC)
         editDropAreaView.addInteraction(dropInteraction)
     }
     
@@ -178,11 +195,38 @@ extension CreateTaskVC {
         removeEditDropAreaViewFromTagEditingArea()
     }
     private func removeEditDropAreaChildVC() {
-        self.removeChildVC(editDropAreaVC)
-        editDropAreaVC = nil
+        self.removeChildVC(editTagDropAreaVC)
+        editTagDropAreaVC = nil
     }
     private func removeEditDropAreaViewFromTagEditingArea() {
         tagEditingArea.removeDropArea(editDropAreaView)
+    }
+    
+    //MAR: addRemoveTagFromTaskDropArea()
+    private func addDropAreaForRemovingTagFromTask() {
+        addChildVCOfDropAreaForRemovingTagFromTask()
+        addViewOfDropAreaForRemovingTagFromTask()
+    }
+    private func addChildVCOfDropAreaForRemovingTagFromTask() {
+        removeTagFromTaskDropAreaVC = RemoveTagFromTaskDropAreaVC()
+        removeTagFromTaskDropAreaVC.setTagFromTaskRemovingDelegate(self)
+        self.addChildVC(removeTagFromTaskDropAreaVC)
+    }
+    private func addViewOfDropAreaForRemovingTagFromTask() {
+        removeTagFromTaskDropAreaView = removeTagFromTaskDropAreaVC.view!
+        configureRemoveTagFromTaskDropAreaView()
+        addDropInteractionToRemoveTagFromTaskDropArea()
+        tagEditingArea.addDropArea(removeTagFromTaskDropAreaView)
+    }
+    private func configureRemoveTagFromTaskDropAreaView() {
+        removeTagFromTaskDropAreaView.backgroundColor = UIColor.yellow
+        removeTagFromTaskDropAreaView.translatesAutoresizingMaskIntoConstraints = false
+        removeTagFromTaskDropAreaView.widthAnchor.constraint(equalTo: layoutGuideForTagEditingArea.widthAnchor, multiplier: 0.25).isActive = true
+        removeTagFromTaskDropAreaView.heightAnchor.constraint(equalTo: layoutGuideForTagEditingArea.heightAnchor, multiplier: 0.25).isActive = true
+    }
+    private func addDropInteractionToRemoveTagFromTaskDropArea() {
+        let dropInteration = UIDropInteraction(delegate: removeTagFromTaskDropAreaVC)
+        removeTagFromTaskDropAreaView.addInteraction(dropInteration)
     }
     
     //MARK: removeTagEditingArea

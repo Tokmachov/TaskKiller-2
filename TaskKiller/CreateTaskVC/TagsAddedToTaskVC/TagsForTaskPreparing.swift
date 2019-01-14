@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  TagsForTaskPreparing.swift
 //  TaskKiller
 //
 //  Created by mac on 14/01/2019.
@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol TagFromTaskRemovingDelegate: AnyObject {
+protocol TagsForTaskPreparing {
+    func setDelegate(_ delegate: PrepareDropAreaForRemovingTagFromTaskDelegate)
     func removeTagFromTask(_ tag: Tag)
 }

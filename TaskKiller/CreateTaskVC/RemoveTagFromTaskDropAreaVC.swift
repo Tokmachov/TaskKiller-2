@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeleteTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
+class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
     
     func setTagFromTaskRemovingDelegate(_ delegate: TagFromTaskRemovingDelegate) {
         tagFromTaskRemovingDelegate = delegate
@@ -18,7 +18,6 @@ class DeleteTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
     
     //MARK: UIDropInteractionDelegate
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        
         return session.hasLocalObject(ofType: Tag.self)
     }
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
@@ -26,7 +25,7 @@ class DeleteTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
     }
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag = session.provideLocalObject(ofType: Tag.self) else { return }
-        tagFromTaskRemovingDelegate.removeFromTask(tag)
+        tagFromTaskRemovingDelegate.removeTagFromTask(tag)
     }
 }
 

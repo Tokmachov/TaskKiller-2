@@ -8,15 +8,23 @@
 
 import UIKit
 
-class TagsAddedToTaskVC: UICollectionViewController {
+class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
     
+    //MARK: TagsForTaskPreparing
+    func setDelegate(_ delegate: PrepareDropAreaForRemovingTagFromTaskDelegate) {
+        self.delegate = delegate
+    }
+    func removeTagFromTask(_ tag: Tag) {
+        
+    }
     private let maximumTagsAmount = 3
     
     let distanceBetweenLines: CGFloat = 10
     let interItemSpacing: CGFloat = 10
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
-    private var tagsAddedToTask = [Tag]() {
+    private weak var delegate: PrepareDropAreaForRemovingTagFromTaskDelegate!
+    private var tagsAddedToTask: TagStore = TagStoreImp() {
         didSet {
             collectionView.reloadData()
         }
@@ -31,9 +39,6 @@ class TagsAddedToTaskVC: UICollectionViewController {
         collectionView.dragDelegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: "TagCell")
     }
-    func getTagsAddedToTask() -> [Tag] {
-        return tagsAddedToTask
-    }
     
 }
 
@@ -44,7 +49,7 @@ extension TagsAddedToTaskVC {
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
-        let tag = tagsAddedToTask[indexPath.row]
+        let tag = tagsAddedToTask.getTag(at: indexPath.row)
         tagCell.setTagInfo(tag)
         return tagCell
     }
@@ -54,7 +59,7 @@ extension TagsAddedToTaskVC {
 extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagCell = TagCell(frame: CGRect.zero)
-        let tag = tagsAddedToTask[indexPath.row]
+        let tag = tagsAddedToTask.getTag(at: indexPath.row)
         tagCell.setTagInfo(tag)
         return tagCell.getSizeNeededForContentView()
     }
@@ -68,12 +73,14 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
         return spaceAroundTagsInCollectionView
     }
 }
+
+//MARK: UICollectionViewDropDelegate
 extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
         guard !collectionView.hasActiveDrag else { return true }
-        guard let tag = (session.items.first?.localObject as AnyObject) as? Tag,
+        guard let tag = session.provideLocalObject(ofType: Tag.self),
             tagsAddedToTask.count < maximumTagsAmount,
-            !tagsAddedToTask.contains(where: { $0.getTagModel() == tag.getTagModel() } )
+            tagsAddedToTask.canAdd(tag)
         else { return false }
         return true
     }
@@ -84,7 +91,7 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
         if collectionView.hasActiveDrag {
             guard let sourceIndexOfMovedTag = coordinator.items.first?.sourceIndexPath else { return }
             guard let destinationIndexOfMovedTag = coordinator.destinationIndexPath else { return }
-            tagsAddedToTask = tagsAddedToTask.reorderedByMovement(from: sourceIndexOfMovedTag.row, to: destinationIndexOfMovedTag.row)
+            tagsAddedToTask.move(from: sourceIndexOfMovedTag.row, to: destinationIndexOfMovedTag.row)
             collectionView.performBatchUpdates({
                 self.collectionView.deleteItems(at: [sourceIndexOfMovedTag])
                 self.collectionView.insertItems(at: [destinationIndexOfMovedTag])
@@ -92,17 +99,23 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
             return
         }
         guard let tag = (coordinator.items.first?.dragItem.localObject as AnyObject) as? Tag else { return }
-        tagsAddedToTask.append(tag)
+        tagsAddedToTask.add(tag)
     }
     func collectionView(_ collectionView: UICollectionView, dropSessionDidEnd session: UIDropSession) {
         collectionView.reloadData()
+    }
+    func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
+        delegate.prepareDropAreaForRemovingTagFromTask()
+    }
+    func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
+        delegate.dropAreaForRemovingTagFromTaskNoLongerNeeded()
     }
 }
 
 extension TagsAddedToTaskVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
-        dragItem.localObject = tagsAddedToTask[indexPath.row] as AnyObject
+        dragItem.localObject = tagsAddedToTask.getTag(at: indexPath.row) as AnyObject
         return [dragItem]
     }
 }

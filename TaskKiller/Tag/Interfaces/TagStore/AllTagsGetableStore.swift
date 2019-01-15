@@ -9,5 +9,5 @@
 import Foundation
 
 protocol AllTagsGetableStore {
-    func getAllTags() 
+    func getAllTags() -> [Tag]
 }

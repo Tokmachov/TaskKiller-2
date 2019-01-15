@@ -21,4 +21,6 @@ protocol Task {
     func getTimeSpentInProgress() -> TimeInterval
     
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
+    
+    func addTags(_ tags: [Tag])
 }

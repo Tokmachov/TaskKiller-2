@@ -39,7 +39,7 @@ struct TagStoreImp: TagStore {
     }
     
     //MARK: AllTagsGetableStore protocol methods
-    func getAllTags() {
+    func getAllTags() -> [Tag] {
         return tags
     }
 }

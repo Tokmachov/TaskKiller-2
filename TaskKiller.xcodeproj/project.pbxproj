@@ -186,6 +186,7 @@
 		0498EF4821EC462300676FAB /* TagStoreImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStoreImp.swift; sourceTree = "<group>"; };
 		0498EF4A21ED705300676FAB /* AllTagsGetableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTagsGetableStore.swift; sourceTree = "<group>"; };
 		0498EF4C21ED70B700676FAB /* TagStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStore.swift; sourceTree = "<group>"; };
+		0498EF4F21ED75E500676FAB /* TaskKiller 17.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 17.xcdatamodel"; sourceTree = "<group>"; };
 		049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 14.xcdatamodel"; sourceTree = "<group>"; };
 		049909BB21CB49E500DCC3CA /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		049909BD21CF78E700DCC3CA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -440,13 +441,12 @@
 			children = (
 				0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */,
 				B9A8B141219842810085FCA0 /* Tag */,
-				04091E7E21C9EBA400967F50 /* Interfaces */,
+				B96E0EC62193E7740097AB34 /* Task */,
 				B9A8B13E219841FC0085FCA0 /* TaskStaticInfo */,
 				B9A8B13F219842160085FCA0 /* TaskProgressTime */,
 				B9A8B170219BCED90085FCA0 /* TaskProgressPeriod */,
 				B9A8B19021A1E5B50085FCA0 /* ProgressInfo */,
 				B9A8B140219842600085FCA0 /* TimeIntervalFormatter */,
-				B96E0EC62193E7740097AB34 /* TaskHandler */,
 				B9A8B11221953A5B0085FCA0 /* TaskListVC */,
 				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
 				B9A8B14621984A740085FCA0 /* TaskVC */,
@@ -530,7 +530,7 @@
 			path = StaticInfoGatherer;
 			sourceTree = "<group>";
 		};
-		B96E0EC62193E7740097AB34 /* TaskHandler */ = {
+		B96E0EC62193E7740097AB34 /* Task */ = {
 			isa = PBXGroup;
 			children = (
 				B9A8B14F21992C260085FCA0 /* TaskFactoryImp.swift */,
@@ -540,7 +540,7 @@
 				B9A8B15C219A74B90085FCA0 /* ProgressTrackingTaskHandlerImp.swift */,
 				B9A8B19921A2D6800085FCA0 /* ModelHandlerInterfaces */,
 			);
-			path = TaskHandler;
+			path = Task;
 			sourceTree = "<group>";
 		};
 		B997F63D21A6660E00750092 /* TaskStaticInfo */ = {
@@ -616,6 +616,7 @@
 				B96E0EC42193DC470097AB34 /* TagModelAdapter.swift */,
 				04091E8321C9ED4100967F50 /* TagFactoryImp.swift */,
 				0498EF4821EC462300676FAB /* TagStoreImp.swift */,
+				04091E7E21C9EBA400967F50 /* Interfaces */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -1205,6 +1206,7 @@
 		B96E0E87219347E50097AB34 /* TaskKiller.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0498EF4F21ED75E500676FAB /* TaskKiller 17.xcdatamodel */,
 				049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */,
 				049909C321D460E800DCC3CA /* TaskKiller 15.xcdatamodel */,
 				049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */,
@@ -1222,7 +1224,7 @@
 				B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */,
 				B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */,
 			);
-			currentVersion = 049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */;
+			currentVersion = 0498EF4F21ED75E500676FAB /* TaskKiller 17.xcdatamodel */;
 			path = TaskKiller.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

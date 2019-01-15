@@ -38,6 +38,10 @@ struct TaskModelAdapter: Task {
         adaptee.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
     }
+    func addTags(_ tags: [Tag]) {
+        let tagModels = NSOrderedSet(array: tags.map({ $0.getTagModel() }))
+        adaptee.addToTags(tagModels)
+    }
 }
 
 extension TaskModelAdapter {

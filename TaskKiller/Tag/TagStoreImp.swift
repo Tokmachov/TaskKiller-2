@@ -11,6 +11,8 @@ import Foundation
 struct TagStoreImp: TagStore {
 
     private var tags = [Tag]()
+    
+    //MARK: TagsPreparingStore protocol methods
     var count: Int {
         return tags.count
     }
@@ -34,5 +36,10 @@ struct TagStoreImp: TagStore {
     }
     mutating func move(from sourceIndex: Int, to destinationIndex: Int) {
         tags = tags.reorderedByMovement(from: sourceIndex, to: destinationIndex)
+    }
+    
+    //MARK: AllTagsGetableStore protocol methods
+    func getAllTags() {
+        return tags
     }
 }

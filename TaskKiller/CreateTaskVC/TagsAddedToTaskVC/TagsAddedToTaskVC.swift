@@ -11,10 +11,10 @@ import UIKit
 class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
     
     //MARK: TagsForTaskPreparing
-    func setDelegate(_ delegate: PrepareDropAreaForRemovingTagFromTaskDelegate) {
+    func setDelegate(_ delegate: DropAreaForRemovingTagFromTaskPreparingDelegate) {
         self.delegate = delegate
     }
-    func removeTagFromTask(_ tag: Tag) {
+    func remove(_ tag: Tag) {
         let indexPathForTagToRemove = IndexPath(item: tagsAddedToTask.index(Of: tag)!, section: 0)
         tagsAddedToTask.remove(tag)
         collectionView.deleteItems(at: [indexPathForTagToRemove])
@@ -25,8 +25,8 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
     let interItemSpacing: CGFloat = 10
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
-    private weak var delegate: PrepareDropAreaForRemovingTagFromTaskDelegate!
-    private var tagsAddedToTask: TagStore = TagStoreImp() 
+    private weak var delegate: DropAreaForRemovingTagFromTaskPreparingDelegate!
+    private var tagsAddedToTask: TagsPreparingStore = TagStoreImp() 
     
     override func viewDidLoad() {
         super.viewDidLoad()

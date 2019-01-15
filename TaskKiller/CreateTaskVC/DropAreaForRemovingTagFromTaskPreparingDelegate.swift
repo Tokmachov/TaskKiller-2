@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol PrepareDropAreaForRemovingTagFromTaskDelegate: AnyObject {
+protocol DropAreaForRemovingTagFromTaskPreparingDelegate: AnyObject {
     func prepareDropAreaForRemovingTagFromTask()
     func dropAreaForRemovingTagFromTaskNoLongerNeeded()
 }

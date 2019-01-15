@@ -9,6 +9,7 @@
 import Foundation
 
 protocol TagsForTaskPreparing {
-    func setDelegate(_ delegate: PrepareDropAreaForRemovingTagFromTaskDelegate)
-    func removeTagFromTask(_ tag: Tag)
+    func setDelegate(_ delegate: DropAreaForRemovingTagFromTaskPreparingDelegate)
+    func remove(_ tag: Tag)
+    
 }

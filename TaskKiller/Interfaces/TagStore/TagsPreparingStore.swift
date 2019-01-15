@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TagStore {
+protocol TagsPreparingStore {
     var count: Int { get }
     mutating func remove(_ tag: Tag)
     mutating func add(_ tag: Tag)

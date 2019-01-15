@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import CoreData
 
-class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, PrepareDropAreaForRemovingTagFromTaskDelegate {
+class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, DropAreaForRemovingTagFromTaskPreparingDelegate {
    
     private var layoutGuideForTagEditingArea: UILayoutGuide!
     private var tagEditingArea: TagEditingAreaView!
@@ -62,7 +62,7 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     }
     //MARK: TagFromTaskRemovingDelegate
     func removeTagFromTask(_ tag: Tag) {
-        tagsAddedToTaskVC.removeTagFromTask(tag)
+        tagsAddedToTaskVC.remove(tag)
     }
     
     @IBAction func go(_ sender: UIButton) {

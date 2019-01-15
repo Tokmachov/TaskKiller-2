@@ -11,6 +11,8 @@ import UIKit
 class EditTagVC: UIViewController {
     
     private var tag: Tag!
+    var editTagCompletionDelegate: EditTagCompletionDelegate!
+    
     private var tagName: String! {
         didSet {
             tagView.setTagName(tagName)
@@ -45,6 +47,7 @@ class EditTagVC: UIViewController {
     @IBAction func doneTagEditing() {
         tag.setName(tagName)
         tag.setColor(tagColor)
+        editTagCompletionDelegate.performCompletionOfEditing(for: tag)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func editingIsCancelled() {

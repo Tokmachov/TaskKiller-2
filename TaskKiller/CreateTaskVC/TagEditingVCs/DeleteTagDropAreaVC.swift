@@ -10,6 +10,8 @@ import UIKit
 
 class DeleteTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     private var tagFactory: TagFactory!
+    var deleteTagDelegate: DeleteTagDelegate!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tagFactory = TagFactoryImp()
@@ -25,9 +27,8 @@ class DeleteTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, sessionDidUpdate session: UIDropSession) -> UIDropProposal {
         return UIDropProposal(operation: .move)
     }
-    
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag: Tag = (session.items.first?.localObject as AnyObject) as? Tag else { return }
-        tagFactory.deleteTagFromMemory(tag)
+        deleteTagDelegate.needsToBeDeleted(tag)
     }
 }

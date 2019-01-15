@@ -19,6 +19,11 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
         tagsAddedToTask.remove(tag)
         collectionView.deleteItems(at: [indexPathForTagToRemove])
     }
+    func wasUpdated(_ tag: Tag) {
+        guard let indexOfTag = tagsAddedToTask.index(Of: tag) else { return }
+        let indexPath = IndexPath(item: indexOfTag, section: 0)
+        collectionView.reloadItems(at: [indexPath])
+    }
     func getTagStore() -> AllTagsGetableStore {
         return tagsAddedToTask
     }

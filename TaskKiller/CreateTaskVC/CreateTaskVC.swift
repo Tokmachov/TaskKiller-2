@@ -5,11 +5,10 @@
 //  Created by Oleg Tokmachov on 07.11.2018.
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
-import Foundation
 import UIKit
 import CoreData
 
-class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, DropAreaForRemovingTagFromTaskPreparingDelegate {
+class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, DropAreaForRemovingTagFromTaskPreparingDelegate, DeleteTagDelegate, EditTagDelegate {
     
     private var taskFactory: TaskFactory!
     private var tagFactory: TagFactory!
@@ -66,6 +65,22 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     func dropAreaForRemovingTagFromTaskNoLongerNeeded() {
         removeDropAreaForRemovingTagFromTask()
         moveTagEditingAreaOffScreen()
+    }
+    //MARK: DeleteTagDelegate
+    func needsToBeDeleted(_ tag: Tag) {
+        tagFactory.deleteTagFromMemory(tag)
+        tagsAddedToTaskVC.remove(tag)
+    }
+    //MARK: EditTagDelegate
+    func performEditing(of tag: Tag) {
+        let storeyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let editTagVC = storeyBoard.instantiateViewController(withIdentifier: "EditTagVC") as! EditTagVC
+        editTagVC.setTagForEditing(tag)
+        editTagVC.editTagCompletionDelegate = self
+        present(editTagVC, animated: true, completion: nil)
+    }
+    func performCompletionOfEditing(for tag: Tag) {
+        tagsAddedToTaskVC.wasUpdated(tag)
     }
     //MARK: TagFromTaskRemovingDelegate
     func removeTagFromTask(_ tag: Tag) {
@@ -144,6 +159,7 @@ extension CreateTaskVC {
     }
     private func addDeleteDropAreaChildVC() {
         deleteTagDropAreaVC = DeleteTagDropAreaVC()
+        deleteTagDropAreaVC.deleteTagDelegate = self
         addChildVC(deleteTagDropAreaVC)
     }
     private func addDeleteDropAreaViewToTagEditingArea() {
@@ -183,6 +199,7 @@ extension CreateTaskVC {
     }
     private func addEditDropAreaChildVC() {
         editTagDropAreaVC = EditTagDropAreaVC()
+        editTagDropAreaVC.editTagPerformingDelegate = self
         addChildVC(editTagDropAreaVC)
     }
     private func addEditDropAreaViewToTagEditingArea() {

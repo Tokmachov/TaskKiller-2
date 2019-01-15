@@ -11,6 +11,7 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    private var taskFactory: TaskFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
     private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
     private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
@@ -24,6 +25,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        taskFactory = TaskFactoryImp()
         fetchRequestController = createFetchResultsController()
     }
     //MARK: TableViewDelegate, datasource methods
@@ -38,7 +40,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskModel = fetchRequestController.object(at: indexPath)
-        let taskModelFacade = TaskFactoryImp.createTask(from: taskModel)
+        let taskModelFacade = taskFactory.createTask(from: taskModel)
         let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(task: taskModelFacade)
         taskStaticInfoUpdater.update(taskCell, from: taskInfoGetableModelHandler)
         taskProgressTimesUpdater.update(taskCell, from: taskInfoGetableModelHandler)
@@ -79,7 +81,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         case "Continue Task"?:
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
             let task = fetchRequestController.object(at: indexPathOfSelectedRow)
-            let taskModelFacade = TaskFactoryImp.createTask(from: task)
+            let taskModelFacade = taskFactory.createTask(from: task)
             let progressTrackingTaskHandler = ProgressTrackingTaskHandlerImp(task: taskModelFacade)
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
             taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)

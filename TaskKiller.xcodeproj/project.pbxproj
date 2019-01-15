@@ -410,7 +410,7 @@
 			path = TagStore;
 			sourceTree = "<group>";
 		};
-		B96E0E74219347E50097AB34 = {
+		0498EF5021ED7B7C00676FAB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
 				044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */,
@@ -420,6 +420,14 @@
 				044723C621C21DB200F0214F /* TaskModel+CoreDataClass.swift */,
 				044723C721C21DB200F0214F /* TaskModel+CoreDataProperties.swift */,
 				B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B96E0E74219347E50097AB34 = {
+			isa = PBXGroup;
+			children = (
+				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
 				B96E0E7F219347E50097AB34 /* TaskKiller */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,

@@ -11,11 +11,11 @@ import CoreData
 
 struct TaskFactoryImp: TaskFactory {
     
-    static func createTask(from taskModel: TaskModel) -> Task {
+    func createTask(from taskModel: TaskModel) -> Task {
         return TaskModelAdapter(task: taskModel)
     }
     
-    static func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
+    func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
         let taskModelFacade = TaskModelAdapter(task: taskModel)
         return taskModelFacade
@@ -23,7 +23,7 @@ struct TaskFactoryImp: TaskFactory {
 }
 
 extension TaskFactoryImp {
-    static private func createTaskModel(from taskStaticInfo: TaskStaticInfo) -> TaskModel {
+    private func createTaskModel(from taskStaticInfo: TaskStaticInfo) -> TaskModel {
         let taskDescription = taskStaticInfo.taskDescription
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)

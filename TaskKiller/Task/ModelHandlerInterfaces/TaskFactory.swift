@@ -9,6 +9,6 @@
 import Foundation
 
 protocol TaskFactory {
-    static func createTask(from taskStaticInfo: TaskStaticInfo) -> Task
-    static func createTask(from taskModel: TaskModel) -> Task
+    func createTask(from taskStaticInfo: TaskStaticInfo) -> Task
+    func createTask(from taskModel: TaskModel) -> Task
 }

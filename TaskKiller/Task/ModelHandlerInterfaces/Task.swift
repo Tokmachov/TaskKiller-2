@@ -22,5 +22,5 @@ protocol Task {
     
     func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
     
-    func addTags(_ tags: [Tag])
+    func addTags(_ tags: AllTagsGetableStore)
 }

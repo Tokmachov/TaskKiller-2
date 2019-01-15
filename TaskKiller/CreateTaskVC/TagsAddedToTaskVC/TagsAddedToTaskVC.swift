@@ -19,6 +19,10 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
         tagsAddedToTask.remove(tag)
         collectionView.deleteItems(at: [indexPathForTagToRemove])
     }
+    func getTagStore() -> AllTagsGetableStore {
+        return tagsAddedToTask
+    }
+    
     private let maximumTagsAmount = 3
     
     let distanceBetweenLines: CGFloat = 10
@@ -26,7 +30,7 @@ class TagsAddedToTaskVC: UICollectionViewController, TagsForTaskPreparing {
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
     private weak var delegate: DropAreaForRemovingTagFromTaskPreparingDelegate!
-    private var tagsAddedToTask: TagsPreparingStore = TagStoreImp() 
+    private var tagsAddedToTask: TagStore = TagStoreImp()
     
     override func viewDidLoad() {
         super.viewDidLoad()

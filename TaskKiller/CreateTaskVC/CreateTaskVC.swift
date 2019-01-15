@@ -10,7 +10,9 @@ import UIKit
 import CoreData
 
 class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, DropAreaForRemovingTagFromTaskPreparingDelegate {
-   
+    
+    private var taskFactory: TaskFactory!
+    
     private var layoutGuideForTagEditingArea: UILayoutGuide!
     private var tagEditingArea: TagEditingAreaView!
     private var deleteTagDropAreaVC: DeleteTagDropAreaVC!
@@ -29,7 +31,10 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     private var yPositionConstraintOfTagEditingArea: NSLayoutConstraint!
     
     @IBOutlet weak var tagsCollectionView: UIView!
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        taskFactory = TaskFactoryImp()
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addTagEditingArea()
@@ -91,7 +96,9 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
         case "Start New Task":
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
             let taskStaticInfo = taskStaticInfoSource.getStaticInfo()
-            let task = TaskFactoryImp.createTask(from: taskStaticInfo)
+            let task = taskFactory.createTask(from: taskStaticInfo)
+            let tags = tagsAddedToTaskVC.getTagStore()
+            task.addTags(tags)
             let progressTrackingTaskHandler = ProgressTrackingTaskHandlerImp(task: task)
             taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         

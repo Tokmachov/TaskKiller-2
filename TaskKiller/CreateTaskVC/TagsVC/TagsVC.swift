@@ -11,6 +11,8 @@ import CoreData
 
 class TagsVC: UICollectionViewController, DragInitiatingVC {
     
+    private var tagFactory: TagFactoryImp!
+    
     //MARK: DragInitiatingVC
     func setDropAreaDelegate(_ delegate: EditAndDeleteTagDropAreasDelegate) {
         dropAreaDelegate = delegate
@@ -28,6 +30,7 @@ class TagsVC: UICollectionViewController, DragInitiatingVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tagFactory = TagFactoryImp()
         fetchResultsController = createTagFetchResultsController()
         fetchResultsController.delegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
@@ -126,7 +129,7 @@ extension TagsVC {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as? TagCell else { fatalError() }
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = TagFactoryImp.createTag(from: tagModel)
+        let tag = tagFactory.createTag(from: tagModel)
         tagCell.setTagInfo(tag)
         return tagCell
     }
@@ -136,7 +139,7 @@ extension TagsVC {
 extension TagsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = TagFactoryImp.createTag(from: tagModel)
+        let tag = tagFactory.createTag(from: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
         tagCell.setTagInfo(tag)
         return tagCell.getSizeNeededForContentView()
@@ -171,7 +174,7 @@ extension TagsVC {
 extension TagsVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = TagFactoryImp.createTag(from: tagModel)
+        let tag = tagFactory.createTag(from: tagModel)
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = tag as AnyObject
         return [dragItem]

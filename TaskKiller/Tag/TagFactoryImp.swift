@@ -10,23 +10,23 @@ import UIKit
 import CoreData
 
 struct TagFactoryImp: TagFactory {
-    static func deleteTagFromMemory(_ tag: Tag) {
+    func deleteTagFromMemory(_ tag: Tag) {
         PersistanceService.context.delete(tag.getTagModel())
         PersistanceService.saveContext()
     }
     
-    static func createTag(from name: String, and color: UIColor) -> Tag {
+    func createTag(from name: String, and color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)
         let tag = TagModelAdapter(tagModel: tagModel)
         return tag
     }
-    static func createTag(from tagModel: TagModel) -> Tag {
+    func createTag(from tagModel: TagModel) -> Tag {
         return TagModelAdapter(tagModel: tagModel)
     }
 }
 
 extension TagFactoryImp {
-    static private func createTagModel(from name: String, and color: UIColor) -> TagModel {
+    private func createTagModel(from name: String, and color: UIColor) -> TagModel {
         let tagModel = TagModel(context: PersistanceService.context)
         tagModel.name = name
         tagModel.color = color
@@ -35,7 +35,7 @@ extension TagFactoryImp {
         PersistanceService.saveContext()
         return tagModel
     }
-    static private func getOrderNumberForNewTag() -> Int16 {
+    private func getOrderNumberForNewTag() -> Int16 {
         let fetchRequest: NSFetchRequest = TagModel.fetchRequest()
         var numberOfCreatedTags: Int = 0
         do {

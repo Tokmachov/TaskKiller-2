@@ -12,6 +12,7 @@ import CoreData
 class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropAreasDelegate, TagFromTaskRemovingDelegate, DropAreaForRemovingTagFromTaskPreparingDelegate {
     
     private var taskFactory: TaskFactory!
+    private var tagFactory: TagFactory!
     
     private var layoutGuideForTagEditingArea: UILayoutGuide!
     private var tagEditingArea: TagEditingAreaView!
@@ -34,6 +35,7 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     override func viewDidLoad() {
         super.viewDidLoad()
         taskFactory = TaskFactoryImp()
+        tagFactory = TagFactoryImp()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -43,7 +45,7 @@ class CreateTaskVC: UIViewController, InfoForTagReceiving, EditAndDeleteTagDropA
     
     //MARK: InfoForTagReceiving
     func receiveInfoForTag(name: String, color: UIColor) {
-        _ = TagFactoryImp.createTag(from: name, and: color)
+        _ = tagFactory.createTag(from: name, and: color)
     }
     //MARK: EditAndDeleteTagDropAreasDelegate
     func prepareEditAndDeleteTagDropAreas() {

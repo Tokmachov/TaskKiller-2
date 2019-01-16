@@ -1,5 +1,5 @@
 //
-//  DeleteTagDelegate.swift
+//  TagStore.swift
 //  TaskKiller
 //
 //  Created by mac on 15/01/2019.
@@ -8,6 +8,4 @@
 
 import Foundation
 
-protocol DeleteTagDelegate {
-    func needsToBeDeleted(_ tag: Tag)
-}
+typealias TagsStore = AllTagsGetableStore & TagsPreparingStore

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
+class TagEditingDropAreaVC: UIViewController, UIDropInteractionDelegate {
     
     var editTagPerformingDelegate: EditTagPerformingDelegate!
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {

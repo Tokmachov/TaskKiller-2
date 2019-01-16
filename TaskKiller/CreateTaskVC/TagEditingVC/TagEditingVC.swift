@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTagVC: UIViewController {
+class TagEditingVC: UIViewController {
     
     private var tag: Tag!
     var editTagCompletionDelegate: EditTagCompletionDelegate!
@@ -56,7 +56,7 @@ class EditTagVC: UIViewController {
     
 }
 
-extension EditTagVC: UITextFieldDelegate {
+extension TagEditingVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         tagNameTextField.resignFirstResponder()

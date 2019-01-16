@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TaskStaticInfoGatherer: StaticInfoGathering {
+class TaskStaticInfoController: StaticInfoGathering {
 
     private var taskDescription: String!
     private var initialDeadLine: TimeInterval!

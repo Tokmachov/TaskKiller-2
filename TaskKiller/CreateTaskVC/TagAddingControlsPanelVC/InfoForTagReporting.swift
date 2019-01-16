@@ -9,5 +9,5 @@
 import UIKit
 
 protocol InfoForTagReporting {
-    func setInfoForTagReceiver(_ receiver: InfoForTagReceiving)
+    func setInfoForTagReceiver(_ receiver: InfoForTagCreationReceiving)
 }

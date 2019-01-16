@@ -13,8 +13,8 @@ class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChos
     private var tagColor: UIColor = UIColor.gray
     
     //MARK: TagInfoReporting
-    private weak var tagInfoReceiver: InfoForTagReceiving!
-    func setInfoForTagReceiver(_ receiver: InfoForTagReceiving) {
+    private weak var tagInfoReceiver: InfoForTagCreationReceiving!
+    func setInfoForTagReceiver(_ receiver: InfoForTagCreationReceiving) {
         self.tagInfoReceiver = receiver
     }
     
@@ -211,7 +211,7 @@ extension TagAddingControlsPanelVC {
 
 extension TagAddingControlsPanelVC {
     private func reportNewTagInfo() {
-        tagInfoReceiver.receiveInfoForTag(name: tagName, color: tagColor)
+        tagInfoReceiver.receiveInfoForTagCreation(name: tagName, color: tagColor)
     }
     private func changeColorPaneCallButton(to color: UIColor) {
         colorPaneCallButton.setChosenColor(color)

@@ -8,6 +8,6 @@
 
 import Foundation
 
-typealias EditTagDelegate = EditTagPerformingDelegate & EditTagCompletionDelegate
+typealias TagEditingDelegate = EditTagPerformingDelegate & EditTagCompletionDelegate
 
 

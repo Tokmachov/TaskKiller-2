@@ -14,6 +14,7 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable
     @IBOutlet weak var initialDeadLineLabel: UILabel!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeToNextDeadLineLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
     
     let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
@@ -30,6 +31,7 @@ class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable
         timeSpentInProgressLabel.setText(timeIntervalFormatter.format(timeSpentInprogress))
         timeToNextDeadLineLabel.setText(timeIntervalFormatter.format(timeLeftToCurrentDeadLine))
     }
+    
 }
 
 

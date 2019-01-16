@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol InfoForTagReceiving: AnyObject {
-    func receiveInfoForTag(name: String, color: UIColor)
+protocol InfoForTagCreationReceiving: AnyObject {
+    func receiveInfoForTagCreation(name: String, color: UIColor)
 }

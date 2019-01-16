@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TagFromTaskRemovingDelegate: AnyObject {
-    func removeTagFromTask(_ tag: Tag)
+    func performRemovingTask(of tag: Tag)
 }

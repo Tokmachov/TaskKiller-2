@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DragInitiatingVC {
-    func setDropAreaDelegate(_ delegate: EditAndDeleteTagDropAreasDelegate)
+    func setDropAreaPreparingDelegate(_ delegate: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate)
 }

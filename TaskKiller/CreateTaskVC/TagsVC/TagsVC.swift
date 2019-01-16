@@ -14,10 +14,10 @@ class TagsVC: UICollectionViewController, DragInitiatingVC {
     private var tagFactory: TagFactoryImp!
     
     //MARK: DragInitiatingVC
-    func setDropAreaDelegate(_ delegate: EditAndDeleteTagDropAreasDelegate) {
+    func setDropAreaPreparingDelegate(_ delegate: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate) {
         dropAreaDelegate = delegate
     }
-    private weak var dropAreaDelegate: EditAndDeleteTagDropAreasDelegate!
+    private weak var dropAreaDelegate: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate!
     
     let distanceBetweenLines: CGFloat = 10
     let interItemSpacing: CGFloat = 10
@@ -185,10 +185,10 @@ extension TagsVC: UICollectionViewDragDelegate {
         return parameters
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        dropAreaDelegate.prepareEditAndDeleteTagDropAreas()
+        dropAreaDelegate.prepareTagEditingAndDeletingFromAllTagsDropAreas()
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        dropAreaDelegate.editAndDeleteDropAreasNoLongerNeeded()
+        dropAreaDelegate.removeTagEditingAndDeletingFromAllDropAreas()
     }
 }
 

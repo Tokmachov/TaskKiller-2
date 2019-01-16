@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TagStoreImp: TagStore {
+struct TagStoreImp: TagsStore {
 
     private var tags = [Tag]()
     

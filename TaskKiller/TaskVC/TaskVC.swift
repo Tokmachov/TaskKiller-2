@@ -68,6 +68,12 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TimeIncrementsReceiving,
     }
     @IBAction func playButtonPressed() {
         taskState.changeState()
+        // set Start date to model
+        // check if progress time(all periods) < Estimated time
+             //Yes - POST NOTIFICATION with (Estimated time - all periods)
+             //No  - ask For how much time user needs?
+                  //POST NOTIFICATION with user replay
+        
     }
     @IBAction func doneButtonPressed() {
         self.exitTask()

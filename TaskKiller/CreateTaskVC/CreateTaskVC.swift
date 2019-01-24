@@ -164,7 +164,7 @@ extension CreateTaskVC {
         addTagDeletingFromAllTagsDropAreaViewToTagEditingArea()
     }
     private func addTagDeletingFromAllTagsDropAreaVC() {
-        tagDeletingFromAllTagsDropAreaVC = tagDeletingFromAllTagsDropAreaVC()
+        tagDeletingFromAllTagsDropAreaVC = TagDeletingFromAllTagsDropAreaVC()
         tagDeletingFromAllTagsDropAreaVC.deleteTagDelegate = self
         addChildVC(tagDeletingFromAllTagsDropAreaVC)
     }
@@ -265,8 +265,8 @@ extension CreateTaskVC {
         tagRemovingFromTaskView.addInteraction(dropInteration)
     }
     
-    //MARK: removeTagRemovingFromTaskDropAreaView()
-    private func removeTagRemovingFromTaskDropAreaView() {
+    //MARK: removeTagRemovingFromTaskDropArea()
+    private func removeTagRemovingFromTaskDropArea() {
         removeTagRemovingFromTaskDropAreaVC()
         removeTagRemovingFromTaskDropAreaView()
     }

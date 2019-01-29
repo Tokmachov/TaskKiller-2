@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol TaskProgressTimesGetable {
-    func getProgressTimes() -> TaskProgressTimes
+protocol TaskProgressTimesCreating {
+    func createProgressTimes() -> TaskProgressTimes
 }
+

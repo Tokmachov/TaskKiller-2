@@ -8,8 +8,8 @@
 
 import UIKit
 
-class TaskVC: UIViewController, TaskProgressTrackingVC, TimeIncrementsReceiving, PostponeTimeReceiving, TaskStateChangesReceiving, AlarmReceiving {
-    
+class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, TaskStateDelegate, ProgressTimesReceiver {
+  
     //MARK: TaskProgressTrackingVC
     func setProgressTrackingTaskHandler(_ taskHandler: ProgressTrackingTaskHandler) {
         self.taskHandler = taskHandler
@@ -22,18 +22,17 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TimeIncrementsReceiving,
     @IBOutlet weak var taskTagsLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
-    @IBOutlet weak var timeToNextDeadlineLabel: UILabel!
+    @IBOutlet weak var timeLeftToDeadlineLabel: UILabel!
     
     private var taskHandler: ProgressTrackingTaskHandler!
-    private var taskState: ITaskState!
-    private var alarmClock: Alarming!
-    private var timeCounter: TimeCounting!
-    private var taskStaticInfoViews: TaskStaticInfoSetable!
-    private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
-    private var taskStateRepresentableViews: TaskStateRepresentable!
-    private var taskStateRepresentor: TaskStateRepresenting!
-    private var taskProgressTimesViews: TaskProgressTimesSetable!
-    private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
+    private var taskState: TaskState!
+    
+    private var taskStaticInfoLabelsController: TaskStaticInfoUpdatable!
+    
+    private var taksTateRepresentingViewsController: TaskStateRepresenting!
+    
+    private var progressTimesLabelsController: ProgressTimesLabelsController!
+    private var taskProgressTimesUpdater: TaskProgressTimesTracker!
     
     private var deadlinePostponingVCFactory: DeadlinePostponingVCFactory!
     private lazy var postponeDeadlineHandler: (TimeInterval) -> () = { [weak self] postponeTime in
@@ -46,74 +45,78 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TimeIncrementsReceiving,
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskState = TaskState(stateChangesReceiver: self)
-        alarmClock = AlarmClock(alarmReceiver: self)
-        timeCounter = TimeCounter(timeUpdatesReceiver: self)
-        taskStaticInfoViews =  TaskStaticInfoLabels(forDescription: taskDescriptionLabel, forInitialDeadLine: taskInitialDeadLineLabel)
-        taskStaticInfoUpdater = TaskStaticInfoUpdater()
-        taskStateRepresentableViews = TaskStateRepresentableViews(startButton: startButton)
-        taskStateRepresentor = StateRepresentor()
-        taskProgressTimesViews = TaskProgressTimesLabels(forTimeSpentInProgress: timeSpentInProgressLabel,forTimeLeft: timeToNextDeadlineLabel)
-        taskProgressTimesUpdater = TaskProgressTimesUpdater()
+        taskState = TaskStateImp(stateSavingDelegate: self)
+    
+        taskStaticInfoLabelsController = TaskStaticInfoLabelsController(
+            forDescription: taskDescriptionLabel,
+            forInitialDeadLine: taskInitialDeadLineLabel
+        )
+        
+        taksTateRepresentingViewsController = TaskStateRepresentingViewsController(startButton: startButton)
+        
         deadlinePostponingVCFactory = DeadlinePostponingVCFactory(possibleDeadlines: possibleDeadlines, postponeHandler: postponeDeadlineHandler, finishHandler: finishTaskHandler )
         deadlinePostponingVC = deadlinePostponingVCFactory.createDeadlinePostponingVC()
+        
+        progressTimesLabelsController = ProgressTimesLabelsController(
+            timeSpentInProgressLabel: timeSpentInProgressLabel,
+            timeLeftToDeadLineLabel: timeLeftToDeadlineLabel
+        )
+        setupProgressTimesUpdater()
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        taskState.prepareToStartTaskStateTracking(withInitialInfoFrom: taskHandler)
-        alarmClock.setAlarmClockCurrentAndFireTimes(from: taskState)
-        taskStaticInfoUpdater.update(taskStaticInfoViews, from: taskHandler)
-        taskStateRepresentor.makeStopped(taskStateRepresentableViews)
-        taskProgressTimesUpdater.update(taskProgressTimesViews, from: taskState)
+        taskStaticInfoLabelsController.updateStaticInfo(taskHandler)
+    }
+    private func setupProgressTimesUpdater() {
+        taskProgressTimesUpdater = TaskProgressTimesTracker(initialProgressTimesSource: taskHandler, progressTimesReceiver: self)
+    }
+    private func updateProgressTimesUpdater() {
+        taskProgressTimesUpdater.updateProgressTimes(taskHandler)
+    }
+    @objc private func didBecomeActive() {
+        
+    }
+    @objc private func willEnterForeground() {
+        taskState.saveState()
+        updateProgressTimesUpdater()
     }
     @IBAction func playButtonPressed() {
-        taskState.changeState()
-        // set Start date to model
-        // check if progress time(all periods) < Estimated time
-             //Yes - POST NOTIFICATION with (Estimated time - all periods)
-             //No  - ask For how much time user needs?
-                  //POST NOTIFICATION with user replay
-        
+        taskState.saveState()
+        taskState.goToNextState()
     }
     @IBAction func doneButtonPressed() {
         self.exitTask()
     }
     
-    //MARK: TaskStateChangesReceiving
-    func taskStateDidChangedToStarted() {
-        timeCounter.start()
-        taskStateRepresentor.makeStarted(taskStateRepresentableViews)
-    }
-    func taskStateDidChangedToStopped(_ taskState: TaskProgressInfoGetable) {
-        timeCounter.stop()
-        taskStateRepresentor.makeStopped(taskStateRepresentableViews)
-        taskHandler.saveTaskProgress(progressInfoSource: taskState)
-    }
     
-    //MARK: TimeIncrementsReceiving
-    func receiveTimeIncrement(_ timeIncrement: TimeInterval) {
-        alarmClock.incrementCurrentTime(timeIncrement)
-        taskState.incrementTimeSpentInProgress(by: timeIncrement)
-        taskProgressTimesUpdater.update(taskProgressTimesViews, from: taskState)
-    }
     
-    //MARK: AlarmReceiving
-    func alarmDidFire() {
-        timeCounter.stop()
-        self.present(deadlinePostponingVC, animated: true, completion: nil)
+    //MARK: TaskStateDelegate
+    func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
+        taskHandler.saveTaskProgressPeriod(period)
+    }
+    func stateDidChangedToNotStarted() {
+        taksTateRepresentingViewsController.makeStartedUI()
+        taskProgressTimesUpdater.stopTrackingProgressTimes()
+    }
+    func stateDidChangedToStarted() {
+        taksTateRepresentingViewsController.makeStoppedUI()
+        taskProgressTimesUpdater.startTrackingProgressTimes()
     }
     
     //MARK: PostponeTimeReceiving
-    func receivePostponeTime(_ postponeTime: TimeInterval) {
-        alarmClock.postponeFireTime(for: postponeTime)
-        taskState.postponeCurrentDeadline(for: postponeTime)
-        timeCounter.start()
+    func receivePostponeTime(_ postponeTime: TimeInterval) {}
+    
+    //MARK: ProgressTimesReceiver
+    func receiveProgressTimes(_ progressTimesSource: TaskProgressTimesCreating) {
+        progressTimesLabelsController.updateProgressTimes(progressTimesSource)
     }
 }
 
 extension TaskVC {
     private func exitTask() {
-        taskState.prapareToStopTaskStateTracking()
+        taskState.saveState()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
     }
 }

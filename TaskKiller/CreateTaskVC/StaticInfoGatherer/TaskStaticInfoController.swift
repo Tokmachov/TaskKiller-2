@@ -26,7 +26,7 @@ class TaskStaticInfoController: StaticInfoGathering {
         self.initialDeadLine = deadLine
     }
     
-    func getStaticInfo() -> TaskStaticInfo {
+    func createStaticInfo() -> TaskStaticInfo {
         return staticInfo
     }
 }

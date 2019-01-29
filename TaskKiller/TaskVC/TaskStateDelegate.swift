@@ -8,7 +8,8 @@
 
 import Foundation
 
-protocol TaskStateChangesReceiving: AnyObject {
-    func taskStateDidChangedToStarted()
-    func taskStateDidChangedToStopped(_ taskState: TaskProgressInfoGetable)
+protocol TaskStateDelegate: AnyObject {
+    func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
+    func stateDidChangedToNotStarted()
+    func stateDidChangedToStarted()
 }

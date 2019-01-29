@@ -8,30 +8,29 @@
 
 import UIKit
 
-class TaskCell: UITableViewCell, TaskStaticInfoSetable, TaskProgressTimesSetable {
-
+class TaskCell: UITableViewCell, TaskStaticInfoUpdatable, TaskProgressTimesUpdatable {
+    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var initialDeadLineLabel: UILabel!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
-    @IBOutlet weak var timeToNextDeadLineLabel: UILabel!
+    @IBOutlet weak var timeLeftToDeadLineLabel: UILabel!
     @IBOutlet weak var tagsLabel: UILabel!
-    
+    private lazy var progressTimesLabelsController = ProgressTimesLabelsController(
+        timeSpentInProgressLabel: timeSpentInProgressLabel,
+        timeLeftToDeadLineLabel: timeLeftToDeadLineLabel
+    )
     let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
-    func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
+    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoCreating) {
+        let staticInfo = staticInfoSource.createStaticInfo()
         let taskDesription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
         taskDescriptionLabel.text = taskDesription
         initialDeadLineLabel.text = timeIntervalFormatter.format(initialDeadLine)
     }
-    
-    func setProgressTime(_ progresstime: TaskProgressTimes) {
-        let timeSpentInprogress = progresstime.timeSpentInprogress
-        let timeLeftToCurrentDeadLine = progresstime.timeLeftToCurrentDeadLine
-        timeSpentInProgressLabel.setText(timeIntervalFormatter.format(timeSpentInprogress))
-        timeToNextDeadLineLabel.setText(timeIntervalFormatter.format(timeLeftToCurrentDeadLine))
+    func updateProgressTimes(_ progressTimesSource: TaskProgressTimesCreating) {
+        progressTimesLabelsController.updateProgressTimes(progressTimesSource)
     }
-    
 }
 
 

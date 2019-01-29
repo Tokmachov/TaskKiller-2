@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TaskProgressTimesSetable {
-    func setProgressTime(_ progresstime: TaskProgressTimes)
+protocol TaskProgressTimesUpdatable {
+    func updateProgressTimes( _ progressTimesSource: TaskProgressTimesCreating)
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 struct TaskModelAdapter: Task {
- 
+   
     private var adaptee: TaskModel
     init(task: TaskModel) {
         self.adaptee = task
@@ -17,27 +17,32 @@ struct TaskModelAdapter: Task {
     func getTaskDescription() -> String {
         return self.adaptee.taskDescription!
     }
-    func getInitialDeadLine() -> TimeInterval {
+    func getTimeSpentInProgress() -> TimeInterval {
+        guard let periods = adaptee.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(adaptee.deadLine) }
+        let timeSpentInProgress = getDurationOfPeriods(periods)
+        return timeSpentInProgress
+    }
+    func getDeadLine() -> TimeInterval {
         return TimeInterval(adaptee.deadLine)
     }
-    func getPostponableDeadLine() -> TimeInterval {
-        return TimeInterval(adaptee.postponableDeadLine)
-    }
-    
-    func getTimeSpentInProgress() -> TimeInterval {
-        return TimeInterval(adaptee.timeSpentInProgress)
-    }
-    
-   
-    func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod) {
-        let timeSpentInProgress = Int16(progressTimes.timeSpentInprogress)
-        let postponableDeadline = Int16(progressTimes.currentDeadLine)
-        let period = createPeriodModel(from: taskProgressPeriod)
-        adaptee.timeSpentInProgress = timeSpentInProgress
-        adaptee.postponableDeadLine = postponableDeadline
+ 
+    func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
+        let period = createPeriodModel(from: period)
         adaptee.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
     }
+    
+    private func getDurationOfPeriods(_ periods: [PeriodModel]) -> TimeInterval {
+        var durationOfPeriods: TimeInterval = 0
+        for period in periods {
+            let dateStarted = period.dateStarted! as Date
+            let dateFinished = period.dateFinished! as Date
+            let periodTime = dateFinished.timeIntervalSince(dateStarted)
+            durationOfPeriods += periodTime
+        }
+        return durationOfPeriods
+    }
+    
     func addTags(_ tags: AllTagsGetableStore) {
         let tagArray = tags.getAllTags()
         let tagModels = NSOrderedSet(array: tagArray.map({ $0.getTagModel() }))

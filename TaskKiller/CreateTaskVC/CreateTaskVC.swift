@@ -118,7 +118,7 @@ class CreateTaskVC: UIViewController, InfoForTagCreationReceiving, TagEditingAnd
         
         case "Start New Task":
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-            let taskStaticInfo = taskStaticInfoController.getStaticInfo()
+            let taskStaticInfo = taskStaticInfoController.createStaticInfo()
             let task = taskFactory.createTask(from: taskStaticInfo)
             let tags = tagsAddedToTaskVC.getTagsAddedToTaskStore()
             task.addTags(tags)

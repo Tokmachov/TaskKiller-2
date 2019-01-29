@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import CoreData
 
 protocol TaskHandling {
     init(task: Task)

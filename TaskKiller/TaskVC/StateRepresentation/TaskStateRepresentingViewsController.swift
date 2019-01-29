@@ -8,19 +8,25 @@
 
 import UIKit
 
-struct TaskStateRepresentableViews: TaskStateRepresentable {
+struct TaskStateRepresentingViewsController: TaskStateRepresenting {
     
     private let startButton: UIButton
     
     init(startButton: UIButton) {
         self.startButton = startButton
     }
+    func makeStartedUI() {
+        showStoppedButton()
+    }
+    func makeStoppedUI() {
+        showStartButton()
+    }
     
-    func showStartButton() {
+    private func showStartButton() {
         startButton.setTitle("Start", for: .normal)
     }
     
-    func showStoppedButton() {
+    private func showStoppedButton() {
         startButton.setTitle("Stopped", for: .normal)
     }
 }

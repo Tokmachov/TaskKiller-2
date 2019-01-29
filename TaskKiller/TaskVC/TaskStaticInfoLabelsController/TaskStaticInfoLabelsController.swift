@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TaskStaticInfoLabels: TaskStaticInfoSetable {
+struct TaskStaticInfoLabelsController: TaskStaticInfoUpdatable {
 
     let taskDescriptionLabel: UILabel
     let initialDeadLineLabel: UILabel
@@ -20,8 +20,8 @@ struct TaskStaticInfoLabels: TaskStaticInfoSetable {
         self.taskDescriptionLabel = forDescription
         self.initialDeadLineLabel = forInitialDeadLine
     }
-    
-    func setTaskStaticInfo(staticInfo: TaskStaticInfo) {
+    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoCreating) {
+        let staticInfo = staticInfoSource.createStaticInfo()
         let taskDescription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
         

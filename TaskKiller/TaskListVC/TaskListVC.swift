@@ -13,16 +13,8 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private var taskFactory: TaskFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
-    private var taskStaticInfoUpdater: TaskStaticInfoUpdating!
-    private var taskProgressTimesUpdater: TaskProgressTimesUpdating!
     private var taskInfoGetableHandler: InfoGetableTaskHandler!
     
-    override func viewWillAppear(_ animated: Bool) {
-       super.viewWillAppear(animated)
-        taskStaticInfoUpdater = TaskStaticInfoUpdater()
-        taskProgressTimesUpdater = TaskProgressTimesUpdater()
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         taskFactory = TaskFactoryImp()
@@ -40,10 +32,11 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskModel = fetchRequestController.object(at: indexPath)
-        let taskModelFacade = taskFactory.createTask(from: taskModel)
-        let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(task: taskModelFacade)
-        taskStaticInfoUpdater.update(taskCell, from: taskInfoGetableModelHandler)
-        taskProgressTimesUpdater.update(taskCell, from: taskInfoGetableModelHandler)
+        let task = taskFactory.createTask(from: taskModel)
+        let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(task: task)
+        
+        taskCell.updateStaticInfo(taskInfoGetableModelHandler)
+        taskCell.updateProgressTimes(taskInfoGetableModelHandler)
         return taskCell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

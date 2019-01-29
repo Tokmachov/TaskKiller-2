@@ -86,11 +86,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="initialDeadLineLabel" destination="AFC-wn-zsi" id="Sur-yh-aQr"/>
+                                    <outlet property="initialDeadLineLabel" destination="AFC-wn-zsi" id="hin-ef-07u"/>
                                     <outlet property="tagsLabel" destination="v9a-iu-82I" id="woi-wj-5tj"/>
-                                    <outlet property="taskDescriptionLabel" destination="NVy-4X-okx" id="XMD-cl-CYf"/>
-                                    <outlet property="timeSpentInProgressLabel" destination="lsp-yI-N5Q" id="Giy-n0-Hc6"/>
-                                    <outlet property="timeToNextDeadLineLabel" destination="V7J-53-8L5" id="Qhf-HN-zTS"/>
+                                    <outlet property="taskDescriptionLabel" destination="NVy-4X-okx" id="HEM-iH-lkI"/>
+                                    <outlet property="timeLeftToDeadLineLabel" destination="V7J-53-8L5" id="ePl-74-eLT"/>
+                                    <outlet property="timeSpentInProgressLabel" destination="lsp-yI-N5Q" id="oxv-Rt-vuH"/>
                                     <segue destination="vDa-62-zss" kind="presentation" identifier="Continue Task" modalTransitionStyle="crossDissolve" id="Mb3-T5-EQg"/>
                                 </connections>
                             </tableViewCell>
@@ -693,7 +693,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYu-79-wdx">
-                                    <rect key="frame" x="138.5" y="14.5" width="42" height="21"/>
+                                    <rect key="frame" x="278.5" y="14.5" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -854,8 +854,8 @@
                         <outlet property="taskDescriptionLabel" destination="P6e-tt-Sdv" id="Y7Y-Xu-7Gp"/>
                         <outlet property="taskInitialDeadLineLabel" destination="9jZ-N1-Se9" id="Lay-wA-GIa"/>
                         <outlet property="taskTagsLabel" destination="blE-da-mVC" id="wIa-4e-It1"/>
+                        <outlet property="timeLeftToDeadlineLabel" destination="l4W-WO-EpF" id="3LY-Mz-X9q"/>
                         <outlet property="timeSpentInProgressLabel" destination="gWD-Pj-uA0" id="8g2-0f-iGo"/>
-                        <outlet property="timeToNextDeadlineLabel" destination="l4W-WO-EpF" id="3LY-Mz-X9q"/>
                         <segue destination="zlV-WV-wfT" kind="unwind" identifier="Back To Task List" unwindAction="backFromTaskVCWithSegue:" id="bMI-Lu-phm"/>
                     </connections>
                 </viewController>

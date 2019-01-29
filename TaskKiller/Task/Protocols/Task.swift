@@ -13,14 +13,12 @@ protocol Task {
     init(task: TaskModel)
     
     func getTaskDescription() -> String
-   
-    func getInitialDeadLine() -> TimeInterval
-    
-    func getPostponableDeadLine() -> TimeInterval
     
     func getTimeSpentInProgress() -> TimeInterval
     
-    func saveProgress(progressTimes: TaskProgressTimes, taskProgressPeriod: TaskProgressPeriod)
+    func getDeadLine() -> TimeInterval
+    
+    func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
     
     func addTags(_ tags: AllTagsGetableStore)
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol TaskStaticInfoGetable {
-    func getStaticInfo() -> TaskStaticInfo
+protocol TaskStaticInfoCreating {
+    func createStaticInfo() -> TaskStaticInfo
 }
 

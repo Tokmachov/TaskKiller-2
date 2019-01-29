@@ -11,6 +11,22 @@ import Foundation
 struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     
     private let task: Task
+    private var timeSpentInProgress: TimeInterval {
+        return task.getTimeSpentInProgress()
+    }
+    private var deadLine: TimeInterval {
+        return task.getDeadLine()
+    }
+    private var timeLeftToDeadLine: TimeLeftToDeadLine {
+        switch (timeSpentInProgress, deadLine) {
+        case let (timeSpent, deadLine) where timeSpent < deadLine:
+            let timeLeft = deadLine - timeSpent
+            return TimeLeftToDeadLine.timeLeft(timeLeft)
+        case let (timeSpent, deadLine) where timeSpent >= deadLine:
+            return TimeLeftToDeadLine.noTimeLeft
+        default: return TimeLeftToDeadLine.noTimeLeft
+        }
+    }
     
     //MARK:TaskHandling
     init(task: Task) {
@@ -18,25 +34,21 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     }
     
     //MARK: TaskStaticInfoGetable
-    func getStaticInfo() -> TaskStaticInfo {
+    func createStaticInfo() -> TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
-        let deadLine = task.getInitialDeadLine()
+        let deadLine = task.getDeadLine()
         
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine)
     }
     
-    //MARK: TaskProgressTimesGetable
-    func getProgressTimes() -> TaskProgressTimes {
-        let timeSpentInProgress = task.getTimeSpentInProgress()
-        let postponableDeadLines = task.getPostponableDeadLine()
-        return TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, currentDeadLine: postponableDeadLines)
+    //MARK: TaskProgressSaving
+    func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
+        task.saveTaskProgressPeriod(period)
     }
     
-    //MARK: TaskProgressSaving
-    func saveTaskProgress(progressInfoSource: TaskProgressInfoGetable) {
-        let progressInfo = progressInfoSource.getProgressInfo()
-        let progressTimes = progressInfo.progressTimes
-        let progressPeriod = progressInfo.progressPeriod
-        task.saveProgress(progressTimes: progressTimes, taskProgressPeriod: progressPeriod)
+    //MARK: ProgressCreating
+    func createProgressTimes() -> TaskProgressTimes {
+        let progressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, timeLeftToDeadLine: timeLeftToDeadLine)
+        return progressTimes
     }
 }

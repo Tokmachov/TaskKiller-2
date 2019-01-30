@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgressTimesCreating {
+class ForeGroundTaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgressTimesCreating {
     
     private let oneSecond: TimeInterval = 1
     private var timeLeftToDeadLine: TimeLeftToDeadLine

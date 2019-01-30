@@ -49,6 +49,10 @@ struct TaskModelAdapter: Task {
         adaptee.addToTags(tagModels)
         PersistanceService.saveContext()
     }
+    func getTags() -> [Tag] {
+        guard let tags = (adaptee.tags)?.array as? [Tag] else { return [Tag]() }
+        return tags
+    }
 }
 
 extension TaskModelAdapter {
@@ -61,3 +65,4 @@ extension TaskModelAdapter {
         return period
     }
 }
+

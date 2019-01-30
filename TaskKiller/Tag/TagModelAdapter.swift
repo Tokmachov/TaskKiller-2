@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TagModelAdapter: Tag, Equatable {
+struct TagModelAdapter: Tag {
    
     private var adaptee: TagModel
     init(tagModel: TagModel) {
@@ -34,3 +34,5 @@ struct TagModelAdapter: Tag, Equatable {
         adaptee.color = color
     }
 }
+
+extension TagModelAdapter: Equatable {}

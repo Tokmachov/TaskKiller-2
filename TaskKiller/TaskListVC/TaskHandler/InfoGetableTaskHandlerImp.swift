@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
 
     private let task: Task
@@ -41,6 +39,7 @@ struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
     func createStaticInfo() -> TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
         let initialDeadline = task.getDeadLine()
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline)
+        let tags = task.getTags()
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline, tags: tags)
     }
 }

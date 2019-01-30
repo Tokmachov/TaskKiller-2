@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol Tag {
+protocol Tag  {
     func getName() -> String
     func getColor() -> UIColor
     func getTagModel() -> TagModel

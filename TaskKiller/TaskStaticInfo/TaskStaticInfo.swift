@@ -9,7 +9,15 @@
 
 import Foundation
 
-struct TaskStaticInfo: Equatable {
+struct TaskStaticInfo {
+
     var taskDescription: String
     var initialDeadLine: TimeInterval
+    var tags: [Tag]
+}
+
+extension TaskStaticInfo: Equatable {
+    static func == (lhs: TaskStaticInfo, rhs: TaskStaticInfo) -> Bool {
+        return lhs.taskDescription == rhs.taskDescription
+    }
 }

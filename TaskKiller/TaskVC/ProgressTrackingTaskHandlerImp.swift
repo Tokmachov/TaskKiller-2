@@ -37,8 +37,8 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     func createStaticInfo() -> TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
         let deadLine = task.getDeadLine()
-        
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine)
+        let tags = task.getTags()
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tags)
     }
     
     //MARK: TaskProgressSaving

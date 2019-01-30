@@ -21,4 +21,6 @@ protocol Task {
     func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
     
     func addTags(_ tags: AllTagsGetableStore)
+    
+    func getTags() -> [Tag]
 }

@@ -26,12 +26,12 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     
     private var taskHandler: ProgressTrackingTaskHandler!
     private var taskState: TaskState!
+    private var foreGroundTaskProgressTimesTracker: ForeGroundTaskProgressTimesTracker!
+    private var taskTimeOutAlarmController: TaskAlarmControlling!
     
     private var taskStaticInfoLabelsController: TaskStaticInfoUpdatable!
     private var taskProgressTimesLabelsController: ProgressTimesLabelsController!
     private var taksStateRepresentingViewsController: TaskStateRepresenting!
-    
-    private var foreGroundTaskProgressTimesTracker: ForeGroundTaskProgressTimesTracker!
     
     private var deadlinePostponingVCFactory: DeadlinePostponingVCFactory!
     private lazy var postponeDeadlineHandler: (TimeInterval) -> () = { [weak self] postponeTime in
@@ -45,6 +45,8 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     override func viewDidLoad() {
         super.viewDidLoad()
         taskState = TaskStateImp(stateSavingDelegate: self)
+        setupForeGroundTaskProgressTimesUpdater()
+        taskTimeOutAlarmController = taskTimeOutAlarmController()
         
         taskStaticInfoLabelsController =
             TaskStaticInfoLabelsController(
@@ -70,8 +72,6 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
                 finishHandler: finishTaskHandler
             )
         deadlinePostponingVC = deadlinePostponingVCFactory.createDeadlinePostponingVC()
-        
-        setupForeGroundTaskProgressTimesUpdater()
         
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
@@ -100,10 +100,12 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     func stateDidChangedToNotStarted() {
         taksStateRepresentingViewsController.makeStartedUI()
         foreGroundTaskProgressTimesTracker.stopTrackingProgressTimes()
+        taskTimeOutAlarmController.removeAlarm()
     }
     func stateDidChangedToStarted() {
         taksStateRepresentingViewsController.makeStoppedUI()
         foreGroundTaskProgressTimesTracker.startTrackingProgressTimes()
+        taskTimeOutAlarmController.addAlarmThatFiresIn(<#T##timeInterval: TimeInterval##TimeInterval#>, forTask: <#T##Task#>)
     }
     
     //MARK: PostponeTimeReceiving

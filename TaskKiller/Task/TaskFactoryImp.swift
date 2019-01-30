@@ -29,13 +29,11 @@ extension TaskFactoryImp {
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
         let currentDate = Date() as NSDate
         let taskModel = TaskModel(context: PersistanceService.context)
-        let noTimeSpentInProgress = Int16(0)
         
         taskModel.taskDescription = taskDescription
         taskModel.deadLine = initiaLdeadLine
         taskModel.postponableDeadLine = postponableDeadline
         taskModel.dateCreated = currentDate
-        taskModel.timeSpentInProgress = noTimeSpentInProgress
         
         PersistanceService.saveContext()
         

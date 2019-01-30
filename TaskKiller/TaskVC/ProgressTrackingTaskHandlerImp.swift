@@ -51,4 +51,8 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
         let progressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, timeLeftToDeadLine: timeLeftToDeadLine)
         return progressTimes
     }
+    //MARK: TimeLeftToDeadLineGetable
+    func getTimeLeftToDeadLine() -> TimeLeftToDeadLine {
+        return timeLeftToDeadLine
+    }
 }

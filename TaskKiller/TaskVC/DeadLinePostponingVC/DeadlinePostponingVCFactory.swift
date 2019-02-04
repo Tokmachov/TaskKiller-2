@@ -9,7 +9,6 @@
 import UIKit
 typealias DeadlinePostponingVC = UIAlertController
 
-protocol IDeadlinePostponingVCFactory {
-    init(possibleDeadlines: [TimeInterval], postponeHandler: @escaping (TimeInterval)->(), finishHandler: @escaping ()->())
-    func createDeadlinePostponingVC() -> DeadlinePostponingVC
+protocol DeadlinePostponingVCFactory {
+    func createDeadlinePostponingVC(deadlines: [TimeInterval], postponeHandler: @escaping (TimeInterval) -> (), finishHandler: @escaping  () -> ()) -> DeadlinePostponingVC
 }

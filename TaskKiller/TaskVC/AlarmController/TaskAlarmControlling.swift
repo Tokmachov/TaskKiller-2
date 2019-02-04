@@ -9,7 +9,8 @@
 import Foundation
 
 protocol TaskAlarmControlling {
-    func addAlarmThatFiresIn(_ timeInterval: TimeInterval, forTask task: Task)
+    init(alarmReceivingDelegate: TaskTimeOutAlarmReceivingDelegate)
+    func addAlarmThatFiresIn(_ timeInterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoCreating)
     func removeAlarm()
 }
 

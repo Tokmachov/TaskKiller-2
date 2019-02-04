@@ -18,14 +18,17 @@ struct TaskModelAdapter: Task {
         return self.adaptee.taskDescription!
     }
     func getTimeSpentInProgress() -> TimeInterval {
-        guard let periods = adaptee.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(adaptee.deadLine) }
+        guard let periods = adaptee.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(0) }
         let timeSpentInProgress = getDurationOfPeriods(periods)
         return timeSpentInProgress
     }
-    func getDeadLine() -> TimeInterval {
-        return TimeInterval(adaptee.deadLine)
+    func getInitialDeadline() -> TimeInterval {
+        return TimeInterval(adaptee.initialDeadLine)
     }
- 
+    func getPostponableDeadline() -> TimeInterval {
+        return TimeInterval(adaptee.postponableDeadLine)
+    }
+    
     func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
         let period = createPeriodModel(from: period)
         adaptee.addToPeriodsOfProcess(period)
@@ -52,6 +55,14 @@ struct TaskModelAdapter: Task {
     func getTags() -> [Tag] {
         guard let tags = (adaptee.tags)?.array as? [Tag] else { return [Tag]() }
         return tags
+    }
+    func postponeDeadlineFor(_ timeInterval: TimeInterval) {
+        let timeSpentInprogress = getTimeSpentInProgress()
+        let newDeadLine = timeInterval + timeSpentInprogress
+        setPostponableDeadline(newDeadLine)
+    }
+    private func setPostponableDeadline(_ newDeadline: TimeInterval) {
+        adaptee.postponableDeadLine = Int16(newDeadline)
     }
 }
 

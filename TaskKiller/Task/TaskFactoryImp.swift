@@ -31,7 +31,7 @@ extension TaskFactoryImp {
         let taskModel = TaskModel(context: PersistanceService.context)
         
         taskModel.taskDescription = taskDescription
-        taskModel.deadLine = initiaLdeadLine
+        taskModel.initialDeadLine = initiaLdeadLine
         taskModel.postponableDeadLine = postponableDeadline
         taskModel.dateCreated = currentDate
         

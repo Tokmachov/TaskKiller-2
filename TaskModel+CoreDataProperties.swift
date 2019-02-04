@@ -2,7 +2,7 @@
 //  TaskModel+CoreDataProperties.swift
 //  TaskKiller
 //
-//  Created by mac on 30/01/2019.
+//  Created by mac on 31/01/2019.
 //  Copyright © 2019 Oleg Tokmachov. All rights reserved.
 //
 //
@@ -18,7 +18,7 @@ extension TaskModel {
     }
 
     @NSManaged public var dateCreated: NSDate?
-    @NSManaged public var deadLine: Int16
+    @NSManaged public var initialDeadLine: Int16
     @NSManaged public var postponableDeadLine: Int16
     @NSManaged public var taskDescription: String?
     @NSManaged public var periodsOfProcess: NSSet?

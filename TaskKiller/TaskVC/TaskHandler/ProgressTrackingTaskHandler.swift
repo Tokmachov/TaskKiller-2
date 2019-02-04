@@ -7,4 +7,4 @@
 //
 
 import Foundation
-typealias  ProgressTrackingTaskHandler = TaskHandling & TaskProgressTimesCreating & TaskStaticInfoCreating & TaskProgressSaving & TimeLeftToDeadLineGetable
+typealias  ProgressTrackingTaskHandler = TaskHandling & TaskProgressTimesCreating & TaskStaticInfoCreating & TaskProgressSaving & TimeLeftToDeadLineGetable & DeadlinePostponable

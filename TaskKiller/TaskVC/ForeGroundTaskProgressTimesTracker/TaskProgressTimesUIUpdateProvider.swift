@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ForeGroundTaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgressTimesCreating {
+class TaskProgressTimesUIUpdateProvider: TaskProgressTimesUpdatable, TaskProgressTimesCreating {
     
     private let oneSecond: TimeInterval = 1
     private var timeLeftToDeadLine: TimeLeftToDeadLine
@@ -24,11 +24,11 @@ class ForeGroundTaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgre
         sentToPogressTimesReceiverInitialProgressTimes()
     }
     
-    func startTrackingProgressTimes() {
+    func startProvidingProgressTimesForUIUpdate() {
         timer = Timer.scheduledTimer(timeInterval: oneSecond, target: self, selector: #selector(reportOneSecondPassed), userInfo: nil, repeats: true)
     }
     
-    func stopTrackingProgressTimes() {
+    func stopProvidingProgressTimesForUIUpdate() {
         timer.invalidate()
     }
     //MARK: ProgressTimesUpdatable
@@ -49,7 +49,7 @@ class ForeGroundTaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgre
     @objc private func reportOneSecondPassed() {
         incrementTimeSpentInProgress()
         decrementTimeLeftToDeadLine()
-        reportTrackedProgressTimes()
+        reportProgressTimesForUIUdate()
     }
     
     private func incrementTimeSpentInProgress() {
@@ -65,7 +65,7 @@ class ForeGroundTaskProgressTimesTracker: TaskProgressTimesUpdatable, TaskProgre
         }
     }
     
-    private func reportTrackedProgressTimes() {
+    private func reportProgressTimesForUIUdate() {
         progressTimesReceiver.receiveProgressTimes(self)
     }
     

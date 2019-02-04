@@ -11,9 +11,14 @@ import Foundation
 struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
 
     private let task: Task
-    
+    private var deadline: TimeInterval {
+        return task.getPostponableDeadline()
+    }
+    private var timeSpentInprogress: TimeInterval {
+        return task.getTimeSpentInProgress()
+    }
     private var timeLeftToDeadLine: TimeLeftToDeadLine {
-        switch (task.getDeadLine(), task.getTimeSpentInProgress()) {
+        switch (deadline, timeSpentInprogress) {
         case let (deadLine, spentInProgress) where deadLine > spentInProgress: return .timeLeft(deadLine - spentInProgress)
         case let (deadLine, spentInProgress) where deadLine <= spentInProgress: return .noTimeLeft
         default: return .noTimeLeft
@@ -38,7 +43,7 @@ struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
     //MARK: TaskStaticInfoCreating
     func createStaticInfo() -> TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
-        let initialDeadline = task.getDeadLine()
+        let initialDeadline = task.getInitialDeadline()
         let tags = task.getTags()
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline, tags: tags)
     }

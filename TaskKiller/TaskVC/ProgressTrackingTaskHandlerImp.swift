@@ -15,7 +15,7 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
         return task.getTimeSpentInProgress()
     }
     private var deadLine: TimeInterval {
-        return task.getDeadLine()
+        return task.getPostponableDeadline()
     }
     private var timeLeftToDeadLine: TimeLeftToDeadLine {
         switch (timeSpentInProgress, deadLine) {
@@ -36,7 +36,7 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     //MARK: TaskStaticInfoGetable
     func createStaticInfo() -> TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
-        let deadLine = task.getDeadLine()
+        let deadLine = task.getInitialDeadline()
         let tags = task.getTags()
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tags)
     }
@@ -54,5 +54,9 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     //MARK: TimeLeftToDeadLineGetable
     func getTimeLeftToDeadLine() -> TimeLeftToDeadLine {
         return timeLeftToDeadLine
+    }
+    //MARK: DeadlinePostponable
+    func postponeDeadlineFor(_ timeInterval: TimeInterval) {
+        task.postponeDeadlineFor(timeInterval)
     }
 }

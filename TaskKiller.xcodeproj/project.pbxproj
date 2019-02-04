@@ -68,6 +68,9 @@
 		049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */; };
 		049909C221D1514600DCC3CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909C121D1514600DCC3CA /* HeaderView.swift */; };
 		04C23FB522016635006761ED /* TimeLeftToDeadLineGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FB422016635006761ED /* TimeLeftToDeadLineGetable.swift */; };
+		04C23FBD2202AB4E006761ED /* TaskTimeOutAlarmReceivingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBC2202AB4E006761ED /* TaskTimeOutAlarmReceivingDelegate.swift */; };
+		04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */; };
+		04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FC12202B944006761ED /* DeadlinePostponable.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -96,7 +99,7 @@
 		B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11E2196C7D10085FCA0 /* TaskProgressTimes.swift */; };
 		B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */; };
 		B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */; };
-		B9A8B1312196FF530085FCA0 /* ForeGroundTaskProgressTimesTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1302196FF530085FCA0 /* ForeGroundTaskProgressTimesTracker.swift */; };
+		B9A8B1312196FF530085FCA0 /* TaskProgressTimesUIUpdateProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1302196FF530085FCA0 /* TaskProgressTimesUIUpdateProvider.swift */; };
 		B9A8B143219843980085FCA0 /* TaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B142219843980085FCA0 /* TaskVC.swift */; };
 		B9A8B14821984C6F0085FCA0 /* TaskProgressTrackingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14721984C6F0085FCA0 /* TaskProgressTrackingVC.swift */; };
 		B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14921991D410085FCA0 /* TaskStaticInfoLabelsController.swift */; };
@@ -113,8 +116,8 @@
 		B9A8B174219BD3220085FCA0 /* TaskStateImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B173219BD3220085FCA0 /* TaskStateImp.swift */; };
 		B9A8B176219BD77A0085FCA0 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B175219BD77A0085FCA0 /* States.swift */; };
 		B9A8B18621A1C1AA0085FCA0 /* PostponeTimeReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18521A1C1AA0085FCA0 /* PostponeTimeReceiving.swift */; };
-		B9A8B18821A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18721A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift */; };
-		B9A8B18B21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift */; };
+		B9A8B18821A1C5C00085FCA0 /* DeadlinePostponingVCFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18721A1C5C00085FCA0 /* DeadlinePostponingVCFactory.swift */; };
+		B9A8B18B21A1C7FC0085FCA0 /* DeadlinePostponingVCFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVCFactoryImp.swift */; };
 		B9A8B18D21A1E0E50085FCA0 /* TaskProgressSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B18C21A1E0E50085FCA0 /* TaskProgressSaving.swift */; };
 		B9A8B19821A2D2F50085FCA0 /* InfoGetableTaskHandlerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19721A2D2F50085FCA0 /* InfoGetableTaskHandlerImp.swift */; };
 		B9A8B19D21A2D70D0085FCA0 /* InfoGetableTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B19C21A2D70D0085FCA0 /* InfoGetableTaskHandler.swift */; };
@@ -200,6 +203,10 @@
 		049909C321D460E800DCC3CA /* TaskKiller 15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 15.xcdatamodel"; sourceTree = "<group>"; };
 		049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 16.xcdatamodel"; sourceTree = "<group>"; };
 		04C23FB422016635006761ED /* TimeLeftToDeadLineGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLeftToDeadLineGetable.swift; sourceTree = "<group>"; };
+		04C23FBC2202AB4E006761ED /* TaskTimeOutAlarmReceivingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimeOutAlarmReceivingDelegate.swift; sourceTree = "<group>"; };
+		04C23FBE2202B7BB006761ED /* TaskKiller 19.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 19.xcdatamodel"; sourceTree = "<group>"; };
+		04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04C23FC12202B944006761ED /* DeadlinePostponable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinePostponable.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -235,7 +242,7 @@
 		B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatting.swift; sourceTree = "<group>"; };
 		B9A8B12C2196FDCB0085FCA0 /* TaskKiller 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 3.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B12D2196FEA60085FCA0 /* TaskKiller 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 4.xcdatamodel"; sourceTree = "<group>"; };
-		B9A8B1302196FF530085FCA0 /* ForeGroundTaskProgressTimesTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeGroundTaskProgressTimesTracker.swift; sourceTree = "<group>"; };
+		B9A8B1302196FF530085FCA0 /* TaskProgressTimesUIUpdateProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTimesUIUpdateProvider.swift; sourceTree = "<group>"; };
 		B9A8B13221970A4E0085FCA0 /* TaskKiller 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 5.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B13321970AB80085FCA0 /* TaskKiller 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 6.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B13D21983DFF0085FCA0 /* TaskKiller 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 7.xcdatamodel"; sourceTree = "<group>"; };
@@ -258,8 +265,8 @@
 		B9A8B173219BD3220085FCA0 /* TaskStateImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStateImp.swift; sourceTree = "<group>"; };
 		B9A8B175219BD77A0085FCA0 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		B9A8B18521A1C1AA0085FCA0 /* PostponeTimeReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostponeTimeReceiving.swift; sourceTree = "<group>"; };
-		B9A8B18721A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDeadlinePostponingVCFactory.swift; sourceTree = "<group>"; };
-		B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinePostponingVC.swift; sourceTree = "<group>"; };
+		B9A8B18721A1C5C00085FCA0 /* DeadlinePostponingVCFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinePostponingVCFactory.swift; sourceTree = "<group>"; };
+		B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVCFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinePostponingVCFactoryImp.swift; sourceTree = "<group>"; };
 		B9A8B18C21A1E0E50085FCA0 /* TaskProgressSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressSaving.swift; sourceTree = "<group>"; };
 		B9A8B19721A2D2F50085FCA0 /* InfoGetableTaskHandlerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGetableTaskHandlerImp.swift; sourceTree = "<group>"; };
 		B9A8B19C21A2D70D0085FCA0 /* InfoGetableTaskHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoGetableTaskHandler.swift; sourceTree = "<group>"; };
@@ -480,6 +487,7 @@
 			children = (
 				B9A8B15C219A74B90085FCA0 /* ProgressTrackingTaskHandlerImp.swift */,
 				04736A1D21FC44D800464C72 /* ProgressTrackingTaskHandler.swift */,
+				04C23FC12202B944006761ED /* DeadlinePostponable.swift */,
 				B9A8B18C21A1E0E50085FCA0 /* TaskProgressSaving.swift */,
 				04C23FB422016635006761ED /* TimeLeftToDeadLineGetable.swift */,
 			);
@@ -489,6 +497,7 @@
 		B96E0E74219347E50097AB34 = {
 			isa = PBXGroup;
 			children = (
+				04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */,
 				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
 				B96E0E7F219347E50097AB34 /* TaskKiller */,
@@ -618,7 +627,7 @@
 		B997F63E21A6662D00750092 /* ForeGroundTaskProgressTimesTracker */ = {
 			isa = PBXGroup;
 			children = (
-				B9A8B1302196FF530085FCA0 /* ForeGroundTaskProgressTimesTracker.swift */,
+				B9A8B1302196FF530085FCA0 /* TaskProgressTimesUIUpdateProvider.swift */,
 			);
 			path = ForeGroundTaskProgressTimesTracker;
 			sourceTree = "<group>";
@@ -681,9 +690,10 @@
 				B9A8B14721984C6F0085FCA0 /* TaskProgressTrackingVC.swift */,
 				B997F63921A500BF00750092 /* TaskStateDelegate.swift */,
 				042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */,
-				042F43992201553300AF2682 /* AlarmController */,
-				B9A8B17C219D20230085FCA0 /* State */,
+				04C23FBC2202AB4E006761ED /* TaskTimeOutAlarmReceivingDelegate.swift */,
 				0498EFD721FA369D00676FAB /* TaskHandler */,
+				B9A8B17C219D20230085FCA0 /* State */,
+				042F43992201553300AF2682 /* AlarmController */,
 				042768D421FEAA8300FA2442 /* ProgressTimesLabelsController */,
 				B997F63D21A6660E00750092 /* TaskStaticInfoLabelsController */,
 				B997F63E21A6662D00750092 /* ForeGroundTaskProgressTimesTracker */,
@@ -724,8 +734,8 @@
 			isa = PBXGroup;
 			children = (
 				B9A8B18521A1C1AA0085FCA0 /* PostponeTimeReceiving.swift */,
-				B9A8B18721A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift */,
-				B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift */,
+				B9A8B18721A1C5C00085FCA0 /* DeadlinePostponingVCFactory.swift */,
+				B9A8B18A21A1C7FC0085FCA0 /* DeadlinePostponingVCFactoryImp.swift */,
 			);
 			path = DeadLinePostponingVC;
 			sourceTree = "<group>";
@@ -862,7 +872,7 @@
 				B9A8B16F219BC9F60085FCA0 /* TaskState.swift in Sources */,
 				047C4B3721C690DB0009ED40 /* ColorSelectionButton.swift in Sources */,
 				0406D3CF21E0CDFA003A6E68 /* TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate.swift in Sources */,
-				B9A8B1312196FF530085FCA0 /* ForeGroundTaskProgressTimesTracker.swift in Sources */,
+				B9A8B1312196FF530085FCA0 /* TaskProgressTimesUIUpdateProvider.swift in Sources */,
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				0498EF4721EC45E700676FAB /* TagsPreparingStore.swift in Sources */,
 				04C23FB522016635006761ED /* TimeLeftToDeadLineGetable.swift in Sources */,
@@ -873,6 +883,7 @@
 				040D906E21E760DE0049F410 /* TagDummyView.swift in Sources */,
 				040D907121E789F70049F410 /* TagsAddedToTaskVC.swift in Sources */,
 				0407E0AB21C4EFA100704082 /* TagAddingControlsPanelVC.swift in Sources */,
+				04C23FBD2202AB4E006761ED /* TaskTimeOutAlarmReceivingDelegate.swift in Sources */,
 				040D906721E4F5840049F410 /* TagEditingDropAreaVC.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				044723CB21C21DB200F0214F /* TagModel+CoreDataProperties.swift in Sources */,
@@ -889,6 +900,7 @@
 				047C4B3021C67AC30009ED40 /* InfoForTagReporting.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
 				047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */,
+				04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */,
@@ -896,9 +908,9 @@
 				B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
-				B9A8B18B21A1C7FC0085FCA0 /* DeadlinePostponingVC.swift in Sources */,
+				B9A8B18B21A1C7FC0085FCA0 /* DeadlinePostponingVCFactoryImp.swift in Sources */,
 				04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */,
-				B9A8B18821A1C5C00085FCA0 /* IDeadlinePostponingVCFactory.swift in Sources */,
+				B9A8B18821A1C5C00085FCA0 /* DeadlinePostponingVCFactory.swift in Sources */,
 				B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
@@ -906,6 +918,7 @@
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */,
+				04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */,
 				0498EF4521EC371D00676FAB /* TagsForTaskPreparing.swift in Sources */,
 				B9A8B1562199326C0085FCA0 /* TaskHandling.swift in Sources */,
 				04091E7921C88E4A00967F50 /* NameForTagReceiving.swift in Sources */,
@@ -1219,6 +1232,7 @@
 		B96E0E87219347E50097AB34 /* TaskKiller.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				04C23FBE2202B7BB006761ED /* TaskKiller 19.xcdatamodel */,
 				042F4394220152DD00AF2682 /* TaskKiller 18.xcdatamodel */,
 				0498EF4F21ED75E500676FAB /* TaskKiller 17.xcdatamodel */,
 				049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */,
@@ -1238,7 +1252,7 @@
 				B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */,
 				B96E0E88219347E50097AB34 /* TaskKiller.xcdatamodel */,
 			);
-			currentVersion = 042F4394220152DD00AF2682 /* TaskKiller 18.xcdatamodel */;
+			currentVersion = 04C23FBE2202B7BB006761ED /* TaskKiller 19.xcdatamodel */;
 			path = TaskKiller.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -11,7 +11,8 @@ import Foundation
 protocol TaskState {
     init(stateSavingDelegate: TaskStateDelegate)
     mutating func goToNextState()
-    mutating func saveState()
+    mutating func goToStartedState()
+    mutating func goToStoppedState()
 }
 
 

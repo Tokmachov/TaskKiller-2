@@ -10,6 +10,7 @@ import Foundation
 
 protocol TaskStateDelegate: AnyObject {
     func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
-    func stateDidChangedToNotStarted()
-    func stateDidChangedToStarted()
+    func statedDidChangeToStarted()
+    func stateDidChangeToStopped()
+    func canChangeToStarted() -> Bool
 }

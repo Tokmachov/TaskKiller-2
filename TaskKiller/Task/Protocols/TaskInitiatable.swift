@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TaskHandling {
+protocol TaskInitiatable {
     init(task: Task)
 }

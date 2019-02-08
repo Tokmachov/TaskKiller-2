@@ -122,7 +122,7 @@ class CreateTaskVC: UIViewController, InfoForTagCreationReceiving, TagEditingAnd
             let task = taskFactory.createTask(from: taskStaticInfo)
             let tags = tagsAddedToTaskVC.getTagsAddedToTaskStore()
             task.addTags(tags)
-            let progressTrackingTaskHandler = ProgressTrackingTaskHandlerImp(task: task)
+            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
             taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         
         default: break

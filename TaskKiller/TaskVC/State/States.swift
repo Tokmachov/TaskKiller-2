@@ -10,5 +10,6 @@ import Foundation
 
 enum States {
     case notStarted
-    case started(datesStarted: Date)
+    case started(date: Date)
+    case stopped(started: Date, ended: Date)
 }

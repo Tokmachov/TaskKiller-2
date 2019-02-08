@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TimeLeftToDeadLineGetable {
-    func getTimeLeftToDeadLine() -> TimeLeftToDeadLine
+    var timeLeftToDeadLine: TimeLeftToDeadLine { get }
 }

@@ -63,6 +63,7 @@ struct TaskModelAdapter: Task {
     }
     private func setPostponableDeadline(_ newDeadline: TimeInterval) {
         adaptee.postponableDeadLine = Int16(newDeadline)
+        PersistanceService.saveContext()
     }
 }
 

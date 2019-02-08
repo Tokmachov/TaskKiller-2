@@ -9,42 +9,51 @@
 import Foundation
 
 struct TaskStateImp: TaskState {
-    
-    private var state: States = .notStarted
+   
+    private var state: States = .notStarted {
+        didSet {
+            switch state {
+            case .notStarted: break
+            case .started:
+                stateDelegate.statedDidChangeToStarted()
+            case .stopped:
+                stateDelegate.stateDidChangeToStopped()
+                stateDelegate.saveTaskProgressPeriod(taskProgressPeriod!)
+            }
+        }
+    }
     private var stateDelegate: TaskStateDelegate
+    private var taskProgressPeriod: TaskProgressPeriod? {
+        guard case let .stopped(started: dateStarted, ended: dateStopped) = state else { return nil }
+        return TaskProgressPeriod.init(dateStarted: dateStarted, dateEnded: dateStopped)
+    }
     
     init(stateSavingDelegate: TaskStateDelegate) {
         self.stateDelegate = stateSavingDelegate
     }
-    
-    mutating func saveState() {
-        guard let period = getProgressPeriod() else { return }
-        refreshState()
-        stateDelegate.saveTaskProgressPeriod(period)
+    mutating func goToStartedState() {
+        if case .started = state { return }
+        state = .started(date: Date())
     }
-
+    mutating func goToStoppedState() {
+        guard case let .started(date: date) = state else { return }
+        state = .stopped(started: date, ended: Date())
+    }
     mutating func goToNextState() {
         switch state {
         case .notStarted:
-            state = .started(datesStarted: Date())
-            stateDelegate.stateDidChangedToStarted()
-        case .started:
-            state = .notStarted
-            stateDelegate.stateDidChangedToNotStarted()
-        }
-    }
-    private func getProgressPeriod() -> TaskProgressPeriod? {
-        switch state {
-        case .notStarted: return nil
-        case .started(datesStarted: let dateStarted):
-            let period = TaskProgressPeriod.init(dateStarted: dateStarted, dateEnded: Date())
-            return period
-        }
-    }
-    private mutating func refreshState() {
-        switch state {
-        case .notStarted: break
-        case .started: self.state = .started(datesStarted: Date())
+            if stateDelegate.canChangeToStarted() {
+                state = .started(date: Date())
+            } else {
+                break
+            }
+        case .started(date: let dateStarted): state = .stopped(started: dateStarted, ended: Date())
+        case .stopped:
+            if stateDelegate.canChangeToStarted() {
+                state = .started(date: Date())
+            } else {
+                break
+            }
         }
     }
 }

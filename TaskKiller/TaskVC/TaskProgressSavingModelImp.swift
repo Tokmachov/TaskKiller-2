@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
+struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     
     private let task: Task
     private var timeSpentInProgress: TimeInterval {
@@ -17,15 +17,9 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
     private var deadLine: TimeInterval {
         return task.getPostponableDeadline()
     }
-    private var timeLeftToDeadLine: TimeLeftToDeadLine {
-        switch (timeSpentInProgress, deadLine) {
-        case let (timeSpent, deadLine) where timeSpent < deadLine:
-            let timeLeft = deadLine - timeSpent
-            return TimeLeftToDeadLine.timeLeft(timeLeft)
-        case let (timeSpent, deadLine) where timeSpent >= deadLine:
-            return TimeLeftToDeadLine.noTimeLeft
-        default: return TimeLeftToDeadLine.noTimeLeft
-        }
+    //MARK: TimeLeftToDeadlineGetable
+    var timeLeftToDeadLine: TimeLeftToDeadLine {
+        return TimeLeftToDeadLine.init(timeLeftToDeadLine: deadLine - timeSpentInProgress)
     }
     
     //MARK:TaskHandling
@@ -51,10 +45,7 @@ struct ProgressTrackingTaskHandlerImp: ProgressTrackingTaskHandler {
         let progressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, timeLeftToDeadLine: timeLeftToDeadLine)
         return progressTimes
     }
-    //MARK: TimeLeftToDeadLineGetable
-    func getTimeLeftToDeadLine() -> TimeLeftToDeadLine {
-        return timeLeftToDeadLine
-    }
+    
     //MARK: DeadlinePostponable
     func postponeDeadlineFor(_ timeInterval: TimeInterval) {
         task.postponeDeadlineFor(timeInterval)

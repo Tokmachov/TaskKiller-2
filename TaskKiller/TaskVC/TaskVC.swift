@@ -100,7 +100,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
         taskState.goToStoppedState()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
     }
-    
+     
     //MARK: ProgressTimesReceiver
     func receiveProgressTimes(_ progressTimesSource: TaskProgressTimesCreating) {
         taskProgressTimesLabelsController.updateProgressTimes(progressTimesSource)

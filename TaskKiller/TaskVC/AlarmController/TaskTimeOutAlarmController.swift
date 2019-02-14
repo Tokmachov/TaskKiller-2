@@ -10,7 +10,27 @@ import Foundation
 import UserNotifications
 
 class TaskTimeOutAlarmController: NSObject, TaskAlarmControlling, UNUserNotificationCenterDelegate {
-
+    private lazy var userDeafaults = {
+        return UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+    }()
+    
+    private lazy var possiblePostponeTimes: [String : TimeInterval] = {
+        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
+    }()
+    
+    private lazy var possibleBreakTimes: [String : TimeInterval] = {
+        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
+    }()
+    
+    
+    
+    private lazy var dateComponentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = .second
+        formatter.unitsStyle = .full
+        return formatter
+    }()
+    
     private var alarmReceivingDelegate: TaskTimeOutAlarmReceivingDelegate!
     private let notificationCenter = UNUserNotificationCenter.current()
     private let notificationRequestIdentifier = UUID().uuidString
@@ -21,6 +41,7 @@ class TaskTimeOutAlarmController: NSObject, TaskAlarmControlling, UNUserNotifica
         notificationCenter.delegate = self
     }
     
+    //MARK: TaskAlarmControlling
     func addAlarmThatFiresIn(_ timeInterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoCreating) {
         let content = createNotificationContentFromTaskStaticInfo(taskStaticInfoSource)
         content.categoryIdentifier = categoryIdentifier
@@ -58,7 +79,7 @@ class TaskTimeOutAlarmController: NSObject, TaskAlarmControlling, UNUserNotifica
         let needBreak = UNNotificationAction(identifier: TaskAlarmActionsIdentifiers.needBreak, title: "I need a break", options: [])
         let needMoreTime = UNNotificationAction(identifier: TaskAlarmActionsIdentifiers.needMoreTime, title: "I need more time", options: [])
         let taskIsFinished = UNNotificationAction(identifier: TaskAlarmActionsIdentifiers.taskIsFinished, title: "I finished task", options: [.destructive])
-        let actions = [openApp, needBreak, needMoreTime, taskIsFinished]
+        let actions = [openApp, needMoreTime, needBreak, taskIsFinished]
         return actions
     }
     private func createCategoryFromActions(_ actions: [UNNotificationAction]) -> UNNotificationCategory {
@@ -68,12 +89,25 @@ class TaskTimeOutAlarmController: NSObject, TaskAlarmControlling, UNUserNotifica
     func removeAlarm() {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationRequestIdentifier])
     }
+    
     //MARK: UNUserNotificationCenterDelegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        alarmReceivingDelegate.didReceiveTaskTimeOutAlarm()
-        
+        switch response.actionIdentifier {
+        case let actionID where possiblePostponeTimes[actionID] != nil:
+            let postponeTime = possiblePostponeTimes[actionID]
+            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.needMoreTime(postponeTime!))
+            completionHandler()
+        case let actionID where possibleBreakTimes[actionID] != nil :
+            let breakTime = possibleBreakTimes[actionID]
+            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.needABreak(breakTime!))
+            completionHandler()
+        case TaskAlarmActionsIdentifiers.taskIsFinished:
+            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.finishTask)
+            completionHandler()
+        default: completionHandler()
+        }
     }
 }

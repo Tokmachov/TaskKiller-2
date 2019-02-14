@@ -9,14 +9,14 @@
 import UIKit
 
 class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, TaskStateDelegate, ProgressTimesReceiver, TaskTimeOutAlarmReceivingDelegate {
- 
+  
     //MARK: TaskProgressTrackingVC
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
         self.model = taskHandler
     }
     
     private let deadlines: [TimeInterval] = [10, 20, 30]
-   
+    
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskInitialDeadLineLabel: UILabel!
     @IBOutlet weak var taskTagsLabel: UILabel!
@@ -107,9 +107,13 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     }
     
     //MARK: TaskTimeOutAlarmReceivingDelegate
-    func didReceiveTaskTimeOutAlarm() {
+    func didReceiveTaskTimeOutAlarmWithResponseType(_ response: AlarmResponseType) {
+        print("ID is \(response)")
         taskState.goToStoppedState()
         showDeadlinePostponingVC()
+    }
+    func didReceiveTaskTimeOutAlarmWithUserResponseActionId(_ id: String) {
+        
     }
     
     //MARK: PostponeTimeReceiving

@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {(granted, error) in
                 // handle result
         })
+        let possiblePostponeTimes: [String : TimeInterval] = [UUID().uuidString : 11, UUID().uuidString : 21, UUID().uuidString : 31]
+        let possibleBreakTimes: [String : TimeInterval] = [UUID().uuidString : 12, UUID().uuidString : 22, UUID().uuidString : 32]
+        let userDeafults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+        userDeafults?.setValue(possiblePostponeTimes, forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues)
+        userDeafults?.setValue(possibleBreakTimes, forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues)
         return true
     }
 

@@ -17,6 +17,13 @@
 		0406D3D421E0D2B6003A6E68 /* TagEditingAreaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406D3D321E0D2B6003A6E68 /* TagEditingAreaConstants.swift */; };
 		0407E0AB21C4EFA100704082 /* TagAddingControlsPanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407E0AA21C4EFA100704082 /* TagAddingControlsPanelVC.swift */; };
 		0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */; };
+		0408C6412211B947005B1B83 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FD4220D3BB7006761ED /* NotificationViewController.swift */; };
+		0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */; };
+		0408C6462213C919005B1B83 /* AppGroupsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* AppGroupsID.swift */; };
+		0408C6482213CB44005B1B83 /* UserDaefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */; };
+		0408C6492213D8C4005B1B83 /* AppGroupsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* AppGroupsID.swift */; };
+		0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */; };
+		0408C64E221507EF005B1B83 /* AlralrmResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */; };
 		04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7421C88DA000967F50 /* TagNameVC.swift */; };
 		04091E7721C88E3A00967F50 /* NameForTagReporting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7621C88E3A00967F50 /* NameForTagReporting.swift */; };
 		04091E7921C88E4A00967F50 /* NameForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7821C88E4A00967F50 /* NameForTagReceiving.swift */; };
@@ -32,7 +39,6 @@
 		042768D621FEAABC00FA2442 /* ProgressTimesLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D521FEAABC00FA2442 /* ProgressTimesLabelsController.swift */; };
 		042768F821FFEEC000FA2442 /* TaskStaticInfoUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768F721FFEEC000FA2442 /* TaskStaticInfoUpdatable.swift */; };
 		042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F4395220152FD00AF2682 /* TaskModel+CoreDataClass.swift */; };
-		042F4398220152FD00AF2682 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F4396220152FD00AF2682 /* TaskModel+CoreDataProperties.swift */; };
 		042F439B2201555500AF2682 /* TaskAlarmControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439A2201555500AF2682 /* TaskAlarmControlling.swift */; };
 		042F439D22015A0200AF2682 /* TaskTimeOutAlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439C22015A0200AF2682 /* TaskTimeOutAlarmController.swift */; };
 		044723B821C219AF00F0214F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B721C219AF00F0214F /* TagView.swift */; };
@@ -174,6 +180,11 @@
 		0407E0A821C4C01700704082 /* TaskKiller 13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 13.xcdatamodel"; sourceTree = "<group>"; };
 		0407E0AA21C4EFA100704082 /* TagAddingControlsPanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagAddingControlsPanelVC.swift; sourceTree = "<group>"; };
 		0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmActionsIdentifiers.swift; sourceTree = "<group>"; };
+		0408C6432213BCA3005B1B83 /* TaskExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskExtension.entitlements; sourceTree = "<group>"; };
+		0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskKiller.entitlements; sourceTree = "<group>"; };
+		0408C6452213C919005B1B83 /* AppGroupsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsID.swift; sourceTree = "<group>"; };
+		0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDaefaultsKeys.swift; sourceTree = "<group>"; };
+		0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlralrmResponseType.swift; sourceTree = "<group>"; };
 		04091E7421C88DA000967F50 /* TagNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameVC.swift; sourceTree = "<group>"; };
 		04091E7621C88E3A00967F50 /* NameForTagReporting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameForTagReporting.swift; sourceTree = "<group>"; };
 		04091E7821C88E4A00967F50 /* NameForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameForTagReceiving.swift; sourceTree = "<group>"; };
@@ -190,7 +201,6 @@
 		042768F721FFEEC000FA2442 /* TaskStaticInfoUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfoUpdatable.swift; sourceTree = "<group>"; };
 		042F4394220152DD00AF2682 /* TaskKiller 18.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 18.xcdatamodel"; sourceTree = "<group>"; };
 		042F4395220152FD00AF2682 /* TaskModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataClass.swift"; path = "../TaskModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		042F4396220152FD00AF2682 /* TaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataProperties.swift"; path = "../TaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		042F439A2201555500AF2682 /* TaskAlarmControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmControlling.swift; sourceTree = "<group>"; };
 		042F439C22015A0200AF2682 /* TaskTimeOutAlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTimeOutAlarmController.swift; sourceTree = "<group>"; };
 		044723B721C219AF00F0214F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
@@ -435,9 +445,10 @@
 		042F43992201553300AF2682 /* AlarmController */ = {
 			isa = PBXGroup;
 			children = (
-				042F439A2201555500AF2682 /* TaskAlarmControlling.swift */,
 				042F439C22015A0200AF2682 /* TaskTimeOutAlarmController.swift */,
+				042F439A2201555500AF2682 /* TaskAlarmControlling.swift */,
 				0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */,
+				0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */,
 			);
 			path = AlarmController;
 			sourceTree = "<group>";
@@ -479,8 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */,
-				042F4396220152FD00AF2682 /* TaskModel+CoreDataProperties.swift */,
 				042F4395220152FD00AF2682 /* TaskModel+CoreDataClass.swift */,
+				04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */,
 				044723C321C21DB200F0214F /* PeriodModel+CoreDataProperties.swift */,
 				044723C421C21DB200F0214F /* TagModel+CoreDataClass.swift */,
 				044723C521C21DB200F0214F /* TagModel+CoreDataProperties.swift */,
@@ -552,6 +563,7 @@
 		04C23FD3220D3BB7006761ED /* TaskExtension */ = {
 			isa = PBXGroup;
 			children = (
+				0408C6432213BCA3005B1B83 /* TaskExtension.entitlements */,
 				04C23FD4220D3BB7006761ED /* NotificationViewController.swift */,
 				04C23FD6220D3BB7006761ED /* MainInterface.storyboard */,
 				04C23FD9220D3BB7006761ED /* Info.plist */,
@@ -562,9 +574,10 @@
 		B96E0E74219347E50097AB34 = {
 			isa = PBXGroup;
 			children = (
-				04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */,
-				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
+				0408C6452213C919005B1B83 /* AppGroupsID.swift */,
+				0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */,
+				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E7F219347E50097AB34 /* TaskKiller */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,
 				04C23FD3220D3BB7006761ED /* TaskExtension */,
@@ -586,6 +599,7 @@
 		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
 			isa = PBXGroup;
 			children = (
+				0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */,
 				0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */,
 				B9A8B141219842810085FCA0 /* Tag */,
 				B96E0EC62193E7740097AB34 /* Task */,
@@ -888,9 +902,19 @@
 				TargetAttributes = {
 					04C23FCC220D3BB7006761ED = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B96E0E7C219347E50097AB34 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					B96E0E93219347E60097AB34 = {
 						CreatedOnToolsVersion = 10.1;
@@ -952,6 +976,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C23FD5220D3BB7006761ED /* NotificationViewController.swift in Sources */,
+				0408C6492213D8C4005B1B83 /* AppGroupsID.swift in Sources */,
+				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
+				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,10 +1012,10 @@
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				0498EF4721EC45E700676FAB /* TagsPreparingStore.swift in Sources */,
 				04C23FB522016635006761ED /* TimeLeftToDeadLineGetable.swift in Sources */,
-				042F4398220152FD00AF2682 /* TaskModel+CoreDataProperties.swift in Sources */,
 				0498EF4921EC462300676FAB /* TagStoreImp.swift in Sources */,
 				B9A8B18621A1C1AA0085FCA0 /* PostponeTimeReceiving.swift in Sources */,
 				B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */,
+				0408C64E221507EF005B1B83 /* AlralrmResponseType.swift in Sources */,
 				040D906E21E760DE0049F410 /* TagDummyView.swift in Sources */,
 				040D907121E789F70049F410 /* TagsAddedToTaskVC.swift in Sources */,
 				0407E0AB21C4EFA100704082 /* TagAddingControlsPanelVC.swift in Sources */,
@@ -1028,6 +1055,7 @@
 				0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift in Sources */,
+				0408C6462213C919005B1B83 /* AppGroupsID.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */,
 				04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */,
 				0498EF4521EC371D00676FAB /* TagsForTaskPreparing.swift in Sources */,
@@ -1041,6 +1069,7 @@
 				B9A8B15D219A74B90085FCA0 /* TaskProgressSavingModelImp.swift in Sources */,
 				04091E8221C9ECB300967F50 /* TagFactory.swift in Sources */,
 				040319C821D5D850003A758F /* TagNameLabel.swift in Sources */,
+				0408C6412211B947005B1B83 /* NotificationViewController.swift in Sources */,
 				B9A8B15021992C260085FCA0 /* TaskFactoryImp.swift in Sources */,
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
@@ -1064,6 +1093,7 @@
 				B96E0EBC2193D7FB0097AB34 /* StaticInfoGathering.swift in Sources */,
 				B9A8B14821984C6F0085FCA0 /* TaskProgressTrackingVC.swift in Sources */,
 				0498EF4D21ED70B700676FAB /* TagsStore.swift in Sources */,
+				0408C6482213CB44005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* TagsVC.swift in Sources */,
 				B9A8B19D21A2D70D0085FCA0 /* InfoGetableTaskHandler.swift in Sources */,
@@ -1128,6 +1158,7 @@
 		04C23FDE220D3BB8006761ED /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TaskExtension/TaskExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
 				INFOPLIST_FILE = TaskExtension/Info.plist;
@@ -1147,6 +1178,7 @@
 		04C23FDF220D3BB8006761ED /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = TaskExtension/TaskExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
 				INFOPLIST_FILE = TaskExtension/Info.plist;
@@ -1284,6 +1316,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TaskKiller/TaskKiller.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
 				INFOPLIST_FILE = TaskKiller/Info.plist;
@@ -1303,6 +1336,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TaskKiller/TaskKiller.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
 				INFOPLIST_FILE = TaskKiller/Info.plist;

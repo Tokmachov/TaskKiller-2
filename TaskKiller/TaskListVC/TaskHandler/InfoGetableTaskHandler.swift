@@ -7,4 +7,4 @@
 //
 
 import Foundation
-typealias InfoGetableTaskHandler = TaskInitiatable & TaskStaticInfoCreating & TaskProgressTimesCreating
+typealias InfoGetableTaskHandler = TaskInitiatable & TaskStaticInfoCreating & ProgressTimesCreating

@@ -27,6 +27,12 @@ extension TimeLeftToDeadLine {
         default: return .noTimeLeft
         }
     }
+    func increaseBy(_ timeInterval: TimeInterval) -> TimeLeftToDeadLine {
+        switch self {
+        case .noTimeLeft: return .timeLeft(timeInterval)
+        case .timeLeft(let time): return .timeLeft(timeInterval + time)
+        }
+    }
     var timeLeft: TimeInterval? {
         guard case let .timeLeft(time) = self else { return nil }
         return time

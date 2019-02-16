@@ -9,36 +9,37 @@
 import Foundation
 
 struct TaskStateImp: TaskState {
-   
+ 
+    private var stateDelegate: TaskStateDelegate
     private var state: States = .notStarted {
         didSet {
             switch state {
             case .notStarted: break
-            case .started:
-                stateDelegate.statedDidChangeToStarted()
+            case .started(date: let dateStarted):
+                stateDelegate.statedDidChangeToStarted(dateStarted: dateStarted)
             case .stopped:
-                stateDelegate.stateDidChangeToStopped()
-                stateDelegate.saveTaskProgressPeriod(taskProgressPeriod!)
+                stateDelegate.stateDidChangeToStopped(progressPeriodToSave: taskProgressPeriod!)
             }
         }
     }
-    private var stateDelegate: TaskStateDelegate
+    
     private var taskProgressPeriod: TaskProgressPeriod? {
         guard case let .stopped(started: dateStarted, ended: dateStopped) = state else { return nil }
         return TaskProgressPeriod.init(dateStarted: dateStarted, dateEnded: dateStopped)
     }
-    
     init(stateSavingDelegate: TaskStateDelegate) {
         self.stateDelegate = stateSavingDelegate
     }
+    
     mutating func goToStartedState() {
         if case .started = state { return }
         state = .started(date: Date())
     }
-    mutating func goToStoppedState() {
-        guard case let .started(date: date) = state else { return }
+    mutating func goToSavableState() {
+        guard case let .started(date: date) = state else { fatalError() }
         state = .stopped(started: date, ended: Date())
     }
+ 
     mutating func goToNextState() {
         switch state {
         case .notStarted:
@@ -57,3 +58,4 @@ struct TaskStateImp: TaskState {
         }
     }
 }
+

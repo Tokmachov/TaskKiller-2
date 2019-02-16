@@ -107,8 +107,8 @@
 		B997F63A21A500BF00750092 /* TaskStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B997F63921A500BF00750092 /* TaskStateDelegate.swift */; };
 		B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11321953C540085FCA0 /* TaskListVC.swift */; };
 		B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1162196C3BF0085FCA0 /* TaskCell.swift */; };
-		B9A8B11B2196C7840085FCA0 /* TaskProgressTimesCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11A2196C7840085FCA0 /* TaskProgressTimesCreating.swift */; };
-		B9A8B11D2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11C2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift */; };
+		B9A8B11B2196C7840085FCA0 /* ProgressTimesCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11A2196C7840085FCA0 /* ProgressTimesCreating.swift */; };
+		B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11C2196C7A40085FCA0 /* ProgressTimesUpdatable.swift */; };
 		B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B11E2196C7D10085FCA0 /* TaskProgressTimes.swift */; };
 		B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */; };
 		B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */; };
@@ -281,8 +281,8 @@
 		B9A8B11321953C540085FCA0 /* TaskListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
 		B9A8B11521953E300085FCA0 /* TaskKiller 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 2.xcdatamodel"; sourceTree = "<group>"; };
 		B9A8B1162196C3BF0085FCA0 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
-		B9A8B11A2196C7840085FCA0 /* TaskProgressTimesCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTimesCreating.swift; sourceTree = "<group>"; };
-		B9A8B11C2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTimesUpdatable.swift; sourceTree = "<group>"; };
+		B9A8B11A2196C7840085FCA0 /* ProgressTimesCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimesCreating.swift; sourceTree = "<group>"; };
+		B9A8B11C2196C7A40085FCA0 /* ProgressTimesUpdatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimesUpdatable.swift; sourceTree = "<group>"; };
 		B9A8B11E2196C7D10085FCA0 /* TaskProgressTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTimes.swift; sourceTree = "<group>"; };
 		B9A8B1202196CFBF0085FCA0 /* TimeIntervalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatter.swift; sourceTree = "<group>"; };
 		B9A8B1222196D0230085FCA0 /* TimeIntervalFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalFormatting.swift; sourceTree = "<group>"; };
@@ -738,8 +738,8 @@
 			isa = PBXGroup;
 			children = (
 				B9A8B11E2196C7D10085FCA0 /* TaskProgressTimes.swift */,
-				B9A8B11A2196C7840085FCA0 /* TaskProgressTimesCreating.swift */,
-				B9A8B11C2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift */,
+				B9A8B11A2196C7840085FCA0 /* ProgressTimesCreating.swift */,
+				B9A8B11C2196C7A40085FCA0 /* ProgressTimesUpdatable.swift */,
 				04736A1B21FAB13900464C72 /* TimeLeftToDeadLine.swift */,
 			);
 			path = TaskProgressTimes;
@@ -1002,7 +1002,7 @@
 				B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */,
 				B9A8B143219843980085FCA0 /* TaskVC.swift in Sources */,
 				04056BA621E290A300EBCE05 /* UIViewController.swift in Sources */,
-				B9A8B11B2196C7840085FCA0 /* TaskProgressTimesCreating.swift in Sources */,
+				B9A8B11B2196C7840085FCA0 /* ProgressTimesCreating.swift in Sources */,
 				B96E0EAB2193D6650097AB34 /* DeadLineReporting.swift in Sources */,
 				B9A8B16F219BC9F60085FCA0 /* TaskState.swift in Sources */,
 				04C23FC42207EB7D006761ED /* TaskProgressSavingModel.swift in Sources */,
@@ -1054,7 +1054,7 @@
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
-				B9A8B11D2196C7A40085FCA0 /* TaskProgressTimesUpdatable.swift in Sources */,
+				B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */,
 				0408C6462213C919005B1B83 /* AppGroupsID.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */,
 				04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */,

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
-import Foundation
-
 protocol TaskStaticInfoCreating {
     func createStaticInfo() -> TaskStaticInfo
 }

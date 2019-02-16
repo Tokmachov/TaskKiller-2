@@ -8,19 +8,19 @@
 
 import UIKit
 
-class UIProgressTimesUpdater: TaskProgressTimesCreating {
+class UIProgressTimesUpdater: ProgressTimesCreating, ProgressTimesUpdatable {
     
     private let oneSecond: TimeInterval = 1
     
-    private var initialTaskProgressTimes: TaskProgressTimes
+    private var initialProgressTimes: TaskProgressTimes!
     private weak var progressTimesReceiver: ProgressTimesReceiver!
     private var timer: Timer!
     
     private var initialTimeSpentInProgress: TimeInterval {
-        return initialTaskProgressTimes.timeSpentInprogress
+        return initialProgressTimes.timeSpentInprogress
     }
     private var initialTimeLeftToDeadLine: TimeLeftToDeadLine {
-        return initialTaskProgressTimes.timeLeftToDeadLine
+        return initialProgressTimes.timeLeftToDeadLine
     }
     
     private var dateProgressTimesUpdateStarted: Date?
@@ -40,30 +40,29 @@ class UIProgressTimesUpdater: TaskProgressTimesCreating {
         return TaskProgressTimes.init(timeSpentInprogress: currentTimeSpentInProgress, timeLeftToDeadLine: currentTimeLeftToDeadLine)
     }
     
-    init(initialProgressTimesSource: TaskProgressTimesCreating, progressTimesReceiver: ProgressTimesReceiver) {
-        self.initialTaskProgressTimes = initialProgressTimesSource.createProgressTimes()
+    init(progressTimesReceiver: ProgressTimesReceiver) {
         self.progressTimesReceiver = progressTimesReceiver
-        progressTimesReceiver.receiveProgressTimes(self)
     }
     
-    func startUpdatingUIProgressTimes(initialProgressTimesSource: TaskProgressTimesCreating) {
-        dateProgressTimesUpdateStarted = Date()
-        initialTaskProgressTimes = initialProgressTimesSource.createProgressTimes()
+    //MARK: ProgressTimesUpdatable
+    func updateProgressTimes(_ progressTimesSource: ProgressTimesCreating) {
+        initialProgressTimes = progressTimesSource.createProgressTimes()
+        progressTimesReceiver.receiveProgressTimes(progressTimesSource)
+    }
+    func startUpdatingUIProgressTimes(dateStarted: Date) {
+        guard initialProgressTimes != nil else { fatalError() }
+        dateProgressTimesUpdateStarted = dateStarted
         timer = Timer.scheduledTimer(timeInterval: oneSecond, target: self, selector: #selector(reportOneSecondPassed), userInfo: nil, repeats: true)
     }
-
     func stopUpdatingUIProgressTimes() {
         timer.invalidate()
-    }
-    func updateTimeLeftToDeadline(_ timeLeftToDeadlineSource: TimeLeftToDeadLineGetable) {
-        initialTaskProgressTimes.timeLeftToDeadLine = timeLeftToDeadlineSource.timeLeftToDeadLine
     }
     
     //MARK: TaskProgressTimesCreating
     func createProgressTimes() -> TaskProgressTimes {
         return currentPogressTimes
     }
-    
+   
     @objc private func reportOneSecondPassed() {
         progressTimesReceiver.receiveProgressTimes(self)
     }

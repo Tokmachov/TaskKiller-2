@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol TaskTimeOutAlarmReceivingDelegate {
+protocol TaskAlarmsReceivingDelegate {
     func didReceiveTaskTimeOutAlarmWithResponseType(_ response: AlarmResponseType)
+    func didReceiveAlarmInForeGround()
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, TaskStateDelegate, ProgressTimesReceiver, TaskTimeOutAlarmReceivingDelegate {
+class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, TaskStateDelegate, ProgressTimesReceiver, TaskAlarmsReceivingDelegate {
   
     //MARK: TaskProgressTrackingVC
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
@@ -37,7 +37,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     override func viewDidLoad() {
         super.viewDidLoad()
         taskState = TaskStateImp(stateSavingDelegate: self)
-        taskTimeOutAlarmController = TaskTimeOutAlarmController(alarmReceivingDelegate: self)
+        taskTimeOutAlarmController = TaskAlarmsController(alarmReceivingDelegate: self)
         
         taskStaticInfoLabelsController =
             TaskStaticInfoLabelsController(
@@ -87,7 +87,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
 
         guard case .timeLeft = model.timeLeftToDeadLine else { fatalError() }
         
-        taskTimeOutAlarmController.addAlarmThatFiresIn(model.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
+        taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
         uIProgressTimesUpdater.updateProgressTimes(model)
         uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: dateStarted)
         taksStateRepresentingViewsController.makeStartedUI()
@@ -114,18 +114,21 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
         case .finishTask:
             finishTask()
         case .needMoreTime(let time):
-            taskState.goToSavableState()
+            taskState.goToStoppedState()
             model.postponeDeadlineFor(time)
             taskState.goToStartedState()
-        default:
-            break
+        case .needABreak(let time):
+            taskState.goToStoppedState()
+            taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(time, alarmInfo: model)
         }
-        
     }
-    
+    func didReceiveAlarmInForeGround() {
+        taskState.goToStoppedState()
+        showDeadlinePostponingVC()
+    }
     //MARK: PostponeTimeReceiving
     func receivePostponeTime(_ postponeTime: TimeInterval) {
-        taskState.goToSavableState()
+        taskState.goToStoppedState()
         model.postponeDeadlineFor(postponeTime)
         taskState.goToStartedState()
     }
@@ -148,7 +151,7 @@ extension TaskVC {
         return deadLinePostponingVC
     }
     private func finishTask() {
-        taskState.goToSavableState()
+        taskState.goToStoppedState()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
     }
 }

@@ -31,31 +31,56 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         return formatter
     }()
     
-    func didReceive(_ notification: UNNotification) {
-    
-    }
-    
     func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+        switch response.notificationCategoryIdentifier {
+        case CategoriesInfo.taskTimeOut.id: handleTaskTimeOutNotificationCategoryResponse(response, completion: completion)
+        case CategoriesInfo.breakTimeOut.id: handleBreakTimeOutNotificationCategoryResponse(response, completion: completion)
+        default: dismissNotification()
+        }
+    }
+}
+
+extension NotificationViewController {
+    private func handleTaskTimeOutNotificationCategoryResponse(_ response: UNNotificationResponse, completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void ) {
         switch response.actionIdentifier {
-        case TaskAlarmActionsIdentifiers.openApp:
-        openApp()
-        completion(.dismiss)
-        case TaskAlarmActionsIdentifiers.needMoreTime:
+        case CategoriesInfo.taskTimeOut.actionIDs.openApp:
+            openApp()
+            completion(.dismiss)
+        case CategoriesInfo.taskTimeOut.actionIDs.needMoreTime:
             let actions = createNeedMoreTimeActionsFromPossiblePostponeTimes(possiblePostponeTimes)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
-        case TaskAlarmActionsIdentifiers.needBreak:
+        case CategoriesInfo.taskTimeOut.actionIDs.needBreak:
             let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimes)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
-        case TaskAlarmActionsIdentifiers.taskIsFinished:
+        case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
             completion(.dismissAndForwardAction)
         case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
             completion(.dismissAndForwardAction)
         default: dismissNotification()
         }
     }
-    
+    private func handleBreakTimeOutNotificationCategoryResponse(_ response: UNNotificationResponse, completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void ) {
+        switch response.actionIdentifier {
+        case CategoriesInfo.breakTimeOut.actionIDs.openApp:
+            openApp()
+            completion(.dismiss)
+        case CategoriesInfo.breakTimeOut.actionIDs.getBackToTask:
+            let actions = createNeedMoreTimeActionsFromPossiblePostponeTimes(possiblePostponeTimes)
+            extensionContext?.notificationActions = actions
+            completion(.doNotDismiss)
+        case CategoriesInfo.breakTimeOut.actionIDs.needBreak:
+            let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimes)
+            extensionContext?.notificationActions = actions
+            completion(.doNotDismiss)
+        case CategoriesInfo.breakTimeOut.actionIDs.taskIsFinished:
+            completion(.dismissAndForwardAction)
+        case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
+            completion(.dismissAndForwardAction)
+        default: dismissNotification()
+        }
+    }
     private func createNeedMoreTimeActionsFromPossiblePostponeTimes(_ times: [String : TimeInterval]) -> [UNNotificationAction] {
         var actions = [UNNotificationAction]()
         let orderedByTimesValueTimes = times.sorted { $1.value > $0.value }
@@ -94,5 +119,4 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     func dismissNotification() {
         extensionContext?.dismissNotificationContentExtension()
     }
-    
 }

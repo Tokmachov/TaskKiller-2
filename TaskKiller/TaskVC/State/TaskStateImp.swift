@@ -35,8 +35,8 @@ struct TaskStateImp: TaskState {
         if case .started = state { return }
         state = .started(date: Date())
     }
-    mutating func goToSavableState() {
-        guard case let .started(date: date) = state else { fatalError() }
+    mutating func goToStoppedState() {
+        guard case let .started(date: date) = state else { return }
         state = .stopped(started: date, ended: Date())
     }
  

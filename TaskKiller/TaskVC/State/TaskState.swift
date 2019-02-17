@@ -12,7 +12,7 @@ protocol TaskState {
     init(stateSavingDelegate: TaskStateDelegate)
     mutating func goToNextState()
     mutating func goToStartedState()
-    mutating func goToSavableState()
+    mutating func goToStoppedState()
 }
 
 

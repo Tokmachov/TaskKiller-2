@@ -25,7 +25,10 @@
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>UNNotificationExtensionCategory</key>
-			<string>category</string>
+			<array>
+				<string>TaskTimeOutCategory</string>
+				<string>BreakIsOverCategory</string>
+			</array>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<real>1</real>
 			<key>UNNotificationExtensionUserInteractionEnabled</key>

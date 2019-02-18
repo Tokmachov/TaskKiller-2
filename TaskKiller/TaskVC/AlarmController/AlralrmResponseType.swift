@@ -12,4 +12,5 @@ enum AlarmResponseType {
     case needMoreTime(TimeInterval)
     case needABreak(TimeInterval)
     case finishTask
+    case defaultAlarmResponse
 }

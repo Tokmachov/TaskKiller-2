@@ -74,15 +74,9 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
         completionHandler([.sound])
     }
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        switch response.actionIdentifier {
-        case let actionID where possiblePostponeTimes[actionID] != nil:
-            let postponeTime = possiblePostponeTimes[actionID]
-            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.needMoreTime(postponeTime!))
-        case let actionID where possibleBreakTimes[actionID] != nil :
-            let breakTime = possibleBreakTimes[actionID]
-            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.needABreak(breakTime!))
-        case TaskAlarmActionsIdentifiers.taskIsFinished:
-            alarmReceivingDelegate.didReceiveTaskTimeOutAlarmWithResponseType(.finishTask)
+        switch response.notificationCategoryIdentifier {
+        case CategoriesInfo.taskTimeOut.id: handleTaskTimeOutAlarmResponse(response)
+        case CategoriesInfo.breakTimeOut.id: handleBreakTimeOutAlarmResponse(response)
         default: break
         }
         completionHandler()
@@ -90,6 +84,41 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
 }
 
 extension TaskAlarmsController {
+    private func handleTaskTimeOutAlarmResponse(_ response: UNNotificationResponse) {
+        print("identifier is \(response.actionIdentifier)")
+        switch response.actionIdentifier {
+        case let actionID where possibleBreakTimes[actionID] != nil:
+            let breakTime = possibleBreakTimes[actionID]
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.needABreak(breakTime!))
+        case let actionID where possiblePostponeTimes[actionID] != nil:
+            let postponeTime = possiblePostponeTimes[actionID]
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.needMoreTime(postponeTime!))
+        case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.finishTask)
+        case UNNotificationDefaultActionIdentifier:
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.defaultAlarmResponse)
+        case UNNotificationDismissActionIdentifier:
+            alarmReceivingDelegate.didDismissAlarm()
+        default: break
+        }
+    }
+    private func handleBreakTimeOutAlarmResponse(_ response: UNNotificationResponse) {
+        switch response.actionIdentifier {
+        case let actionID where possibleBreakTimes[actionID] != nil:
+            let breakTime = possibleBreakTimes[actionID]
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.needABreak(breakTime!))
+        case let actionID where possiblePostponeTimes[actionID] != nil:
+            let postponeTime = possiblePostponeTimes[actionID]
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.needMoreTime(postponeTime!))
+        case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
+            alarmReceivingDelegate.didReceiveAlarmWithResponseType(.finishTask)
+        default: break
+        }
+    }
+    private func createNotificationRequest(withContent content: UNMutableNotificationContent, trigger: UNTimeIntervalNotificationTrigger, andId id: String) -> UNNotificationRequest {
+        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+        return request
+    }
     private func createNotificationContentForTaskTimeOutAlarm(from taskStaticInfoSource: TaskStaticInfoCreating) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = "This is task time alarm"
@@ -98,18 +127,8 @@ extension TaskAlarmsController {
         content.sound = UNNotificationSound.default
         return content
     }
-    private func getTaskDescriptionFrom(_ taskStaticInoSource: TaskStaticInfoCreating) -> String {
-        let taskStaticInfo = taskStaticInoSource.createStaticInfo()
-        let taskDescription = taskStaticInfo.taskDescription
-        return taskDescription
-    }
-    
-    private func createNotificationRequest(withContent content: UNMutableNotificationContent, trigger: UNTimeIntervalNotificationTrigger, andId id: String) -> UNNotificationRequest {
-        let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-        return request
-    }
+
     private func createTaskTimeOutAlarmActions() -> [UNNotificationAction] {
-        
         let openApp = UNNotificationAction(identifier: CategoriesInfo.taskTimeOut.actionIDs.openApp, title: "Open App", options: [.foreground])
         let needBreak = UNNotificationAction(identifier: CategoriesInfo.taskTimeOut.actionIDs.needBreak, title: "I need a break", options: [])
         let needMoreTime = UNNotificationAction(identifier: CategoriesInfo.taskTimeOut.actionIDs.needMoreTime, title: "I need more time", options: [])
@@ -126,6 +145,11 @@ extension TaskAlarmsController {
         content.body = body
         content.sound = UNNotificationSound.default
         return content
+    }
+    private func getTaskDescriptionFrom(_ taskStaticInoSource: TaskStaticInfoCreating) -> String {
+        let taskStaticInfo = taskStaticInoSource.createStaticInfo()
+        let taskDescription = taskStaticInfo.taskDescription
+        return taskDescription
     }
     private func createBreakTimeOutAlarmActions() -> [UNNotificationAction] {
         let openAppAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOut.actionIDs.openApp, title: "Open App", options: [.foreground])

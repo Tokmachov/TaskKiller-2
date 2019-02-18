@@ -12,6 +12,8 @@ import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
     
+    
+    
     private lazy var userDeafaults = {
         return UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
     }()
@@ -31,6 +33,10 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         return formatter
     }()
     
+    //MARK: UNNotificationContentExtension
+    func didReceive(_ notification: UNNotification) {
+        //Customise extension
+    }
     func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
         switch response.notificationCategoryIdentifier {
         case CategoriesInfo.taskTimeOut.id: handleTaskTimeOutNotificationCategoryResponse(response, completion: completion)
@@ -58,6 +64,8 @@ extension NotificationViewController {
             completion(.dismissAndForwardAction)
         case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
             completion(.dismissAndForwardAction)
+        case UNNotificationDefaultActionIdentifier: completion(.dismissAndForwardAction)
+        case UNNotificationDismissActionIdentifier: completion(.dismissAndForwardAction)
         default: dismissNotification()
         }
     }
@@ -78,6 +86,8 @@ extension NotificationViewController {
             completion(.dismissAndForwardAction)
         case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
             completion(.dismissAndForwardAction)
+        case UNNotificationDefaultActionIdentifier: completion(.dismissAndForwardAction)
+        case UNNotificationDismissActionIdentifier: completion(.dismissAndForwardAction)
         default: dismissNotification()
         }
     }

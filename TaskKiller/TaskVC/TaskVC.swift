@@ -109,7 +109,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     }
     
     //MARK: TaskTimeOutAlarmReceivingDelegate
-    func didReceiveTaskTimeOutAlarmWithResponseType(_ response: AlarmResponseType) {
+    func didReceiveAlarmWithResponseType(_ response: AlarmResponseType) {
         switch response {
         case .finishTask:
             finishTask()
@@ -120,12 +120,19 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
         case .needABreak(let time):
             taskState.goToStoppedState()
             taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(time, alarmInfo: model)
+        case .defaultAlarmResponse:
+            taskState.goToStoppedState()
+            showDeadlinePostponingVC()
         }
     }
     func didReceiveAlarmInForeGround() {
         taskState.goToStoppedState()
         showDeadlinePostponingVC()
     }
+    func didDismissAlarm() {
+        taskState.goToStoppedState()
+    }
+    
     //MARK: PostponeTimeReceiving
     func receivePostponeTime(_ postponeTime: TimeInterval) {
         taskState.goToStoppedState()

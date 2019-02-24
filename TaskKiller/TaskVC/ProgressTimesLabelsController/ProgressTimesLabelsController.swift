@@ -21,7 +21,7 @@ struct ProgressTimesLabelsController {
 
 extension ProgressTimesLabelsController: ProgressTimesUpdatable {
  
-    func updateProgressTimes(_ progressTimesSource: ProgressTimesCreating) {
+    func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
         let progressTimes = progressTimesSource.createProgressTimes()
         let timeSpentInProgress = progressTimes.timeSpentInprogress
         let timeLeftToDeadLine = extractTimeLeftToDeadLineTimeIntervalValueFrom(progressTimes)

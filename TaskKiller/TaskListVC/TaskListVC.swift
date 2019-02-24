@@ -13,7 +13,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private var taskFactory: TaskFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
-    private var taskInfoGetableHandler: InfoGetableTaskHandler!
+    private var taskInfoGetableHandler: TaskInfoProvidingModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
         let taskModel = fetchRequestController.object(at: indexPath)
         let task = taskFactory.createTask(from: taskModel)
-        let taskInfoGetableModelHandler = InfoGetableTaskHandlerImp(task: task)
+        let taskInfoGetableModelHandler = TaskInfoProvidingModelImp(task: task)
         
         taskCell.updateStaticInfo(taskInfoGetableModelHandler)
         taskCell.updateProgressTimes(taskInfoGetableModelHandler)

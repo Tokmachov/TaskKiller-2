@@ -14,17 +14,11 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     
     
-    private lazy var userDeafaults = {
-        return UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
-    }()
+    private lazy var userDeafaults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
     
-    private lazy var possiblePostponeTimes: [String : TimeInterval] = {
-        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
-    }()
+    private lazy var possiblePostponeTimes = userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
     
-    private lazy var possibleBreakTimes: [String : TimeInterval] = {
-        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
-    }()
+    private lazy var possibleBreakTimes: [String : TimeInterval] = userDeafaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
     
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()

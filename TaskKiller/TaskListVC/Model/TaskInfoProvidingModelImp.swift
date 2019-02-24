@@ -8,11 +8,11 @@
 
 import Foundation
 
-struct InfoGetableTaskHandlerImp: InfoGetableTaskHandler {
+struct TaskInfoProvidingModelImp: TaskInfoProvidingModel {
 
     private let task: Task
     private var deadline: TimeInterval {
-        return task.getPostponableDeadline()
+        return task.getCurrentDeadline()
     }
     private var timeSpentInprogress: TimeInterval {
         return task.getTimeSpentInProgress()

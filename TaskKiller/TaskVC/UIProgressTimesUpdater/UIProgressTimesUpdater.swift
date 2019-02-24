@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UIProgressTimesUpdater: ProgressTimesCreating, ProgressTimesUpdatable {
+class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
     
     private let oneSecond: TimeInterval = 1
     
@@ -45,7 +45,7 @@ class UIProgressTimesUpdater: ProgressTimesCreating, ProgressTimesUpdatable {
     }
     
     //MARK: ProgressTimesUpdatable
-    func updateProgressTimes(_ progressTimesSource: ProgressTimesCreating) {
+    func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
         initialProgressTimes = progressTimesSource.createProgressTimes()
         progressTimesReceiver.receiveProgressTimes(progressTimesSource)
     }

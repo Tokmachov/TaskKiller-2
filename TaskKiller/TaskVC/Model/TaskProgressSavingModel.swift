@@ -7,4 +7,4 @@
 //
 
 import Foundation
-typealias  TaskProgressSavingModel = TaskInitiatable & ProgressTimesCreating & TaskStaticInfoCreating & TaskProgressSaving & TimeLeftToDeadLineGetable & DeadlinePostponable
+typealias  TaskProgressSavingModel = TaskInitiatable & ProgressTimesSource & TaskStaticInfoSource & TaskProgressSaving & TimeLeftToDeadLineGetable & DeadlinePostponable

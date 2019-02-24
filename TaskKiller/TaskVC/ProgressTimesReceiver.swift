@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ProgressTimesReceiver: AnyObject {
-    func receiveProgressTimes(_ progressTimesSource: ProgressTimesCreating)
+    func receiveProgressTimes(_ progressTimesSource: ProgressTimesSource)
 }

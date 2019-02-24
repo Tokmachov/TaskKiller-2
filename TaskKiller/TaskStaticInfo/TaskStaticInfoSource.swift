@@ -6,7 +6,7 @@
 //  Copyright © 2018 Oleg Tokmachov. All rights reserved.
 //
 
-protocol TaskStaticInfoCreating {
+protocol TaskStaticInfoSource {
     func createStaticInfo() -> TaskStaticInfo
 }
 

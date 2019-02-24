@@ -21,14 +21,14 @@ class TaskCell: UITableViewCell, TaskStaticInfoUpdatable, ProgressTimesUpdatable
     )
     let timeIntervalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
     
-    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoCreating) {
+    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoSource) {
         let staticInfo = staticInfoSource.createStaticInfo()
         let taskDesription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine
         taskDescriptionLabel.text = taskDesription
         initialDeadLineLabel.text = timeIntervalFormatter.format(initialDeadLine)
     }
-    func updateProgressTimes(_ progressTimesSource: ProgressTimesCreating) {
+    func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
         progressTimesLabelsController.updateProgressTimes(progressTimesSource)
     }
 }

@@ -9,6 +9,6 @@
 import Foundation
 
 protocol TaskStaticInfoUpdatable {
-    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoCreating)
+    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoSource)
 }
 

@@ -39,6 +39,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDeafults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
         userDeafults?.setValue(possiblePostponeTimes, forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues)
         userDeafults?.setValue(possibleBreakTimes, forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues)
+        
+        let additionalTime = AdditionalTime(time: 5, type: .additionalWorkTime, toggleState: .on)
+        let addTimes = AdditionalTimes(additionalTimesIdsAndValues: [UUID().uuidString : additionalTime])
+        let addTimesData = try! NSKeyedArchiver.archivedData(withRootObject: addTimes, requiringSecureCoding: false)
+        userDeafults?.set(addTimesData, forKey: "testAddTimes")
         return true
     }
 
@@ -57,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+            application.applicationIconBadgeNumber = 0
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

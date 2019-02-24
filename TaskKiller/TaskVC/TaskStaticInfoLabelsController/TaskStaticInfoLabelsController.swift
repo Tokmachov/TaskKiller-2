@@ -20,7 +20,7 @@ struct TaskStaticInfoLabelsController: TaskStaticInfoUpdatable {
         self.taskDescriptionLabel = forDescription
         self.initialDeadLineLabel = forInitialDeadLine
     }
-    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoCreating) {
+    func updateStaticInfo(_ staticInfoSource: TaskStaticInfoSource) {
         let staticInfo = staticInfoSource.createStaticInfo()
         let taskDescription = staticInfo.taskDescription
         let initialDeadLine = staticInfo.initialDeadLine

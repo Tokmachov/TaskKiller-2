@@ -9,5 +9,5 @@
 import Foundation
 
 protocol ProgressTimesUpdatable {
-    func updateProgressTimes( _ progressTimesSource: ProgressTimesCreating)
+    func updateProgressTimes( _ progressTimesSource: ProgressTimesSource)
 }

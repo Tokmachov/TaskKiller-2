@@ -8,6 +8,7 @@
 
 import Foundation
 
-protocol PostponeTimeReceiving {
-    func receivePostponeTime(_ postponeTime: TimeInterval)
+protocol AdditionalTimeReceiving {
+    func didReceiveAdditionalWorkTime(_ postponeTime: TimeInterval)
+    func didReceiveBreakTime(_ breakTime: TimeInterval)
 }

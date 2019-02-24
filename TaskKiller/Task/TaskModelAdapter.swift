@@ -25,11 +25,11 @@ struct TaskModelAdapter: Task {
     func getInitialDeadline() -> TimeInterval {
         return TimeInterval(adaptee.initialDeadLine)
     }
-    func getPostponableDeadline() -> TimeInterval {
+    func getCurrentDeadline() -> TimeInterval {
         return TimeInterval(adaptee.postponableDeadLine)
     }
     
-    func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
+    func saveProgressPeriod(_ period: TaskProgressPeriod) {
         let period = createPeriodModel(from: period)
         adaptee.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()

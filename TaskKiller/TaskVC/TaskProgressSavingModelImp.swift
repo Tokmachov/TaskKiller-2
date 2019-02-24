@@ -15,7 +15,7 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
         return task.getTimeSpentInProgress()
     }
     private var deadLine: TimeInterval {
-        return task.getPostponableDeadline()
+        return task.getCurrentDeadline()
     }
     //MARK: TimeLeftToDeadlineGetable
     var timeLeftToDeadLine: TimeLeftToDeadLine {
@@ -37,7 +37,7 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     
     //MARK: TaskProgressSaving
     func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
-        task.saveTaskProgressPeriod(period)
+        task.saveProgressPeriod(period)
     }
     
     //MARK: ProgressCreating

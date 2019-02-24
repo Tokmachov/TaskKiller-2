@@ -18,9 +18,9 @@ protocol Task: DeadlinePostponable {
     
     func getInitialDeadline() -> TimeInterval
     
-    func getPostponableDeadline() -> TimeInterval
+    func getCurrentDeadline() -> TimeInterval
     
-    func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
+    func saveProgressPeriod(_ period: TaskProgressPeriod)
     
     func addTags(_ tags: AllTagsGetableStore)
     

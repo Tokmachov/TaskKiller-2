@@ -8,14 +8,20 @@
 
 import UIKit
 
-class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, TaskStateDelegate, ProgressTimesReceiver, TaskAlarmsReceivingDelegate {
+class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, ProgressTimesReceiver, TaskAlarmsReceivingDelegate {
   
     //MARK: TaskProgressTrackingVC
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
         self.model = taskHandler
     }
-    
-    private let deadlines: [TimeInterval] = [10, 20, 30]
+    lazy private var userDefaults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+    lazy private var possibePostponeTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
+    lazy private var possibleBreakTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
+    lazy private var dateComponentsFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = .second
+        return formatter
+    }()
     
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var taskInitialDeadLineLabel: UILabel!
@@ -78,7 +84,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     func canChangeToStarted() -> Bool {
         switch model.timeLeftToDeadLine {
         case .noTimeLeft:
-            showDeadlinePostponingVC()
+            showAddTimeVC()
             return false
         case .timeLeft: return true
         }
@@ -103,62 +109,127 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, PostponeTimeReceiving, T
     }
      
     //MARK: ProgressTimesReceiver
-    func receiveProgressTimes(_ progressTimesSource: ProgressTimesCreating) {
+    func receiveProgressTimes(_ progressTimesSource: ProgressTimesSource) {
         taskProgressTimesLabelsController.updateProgressTimes(progressTimesSource)
-        
     }
     
     //MARK: TaskTimeOutAlarmReceivingDelegate
-    func didReceiveAlarmWithResponseType(_ response: AlarmResponseType) {
-        switch response {
+    func didReceiveAlarmWithResponseOfType(_ responseType: AlarmResponseType) {
+        switch responseType {
         case .finishTask:
             finishTask()
+            removeBadgeFromIcon()
         case .needMoreTime(let time):
-            taskState.goToStoppedState()
-            model.postponeDeadlineFor(time)
-            taskState.goToStartedState()
+            didReceiveAdditionalWorkTime(time)
         case .needABreak(let time):
-            taskState.goToStoppedState()
-            taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(time, alarmInfo: model)
+            didReceiveBreakTime(time)
         case .defaultAlarmResponse:
             taskState.goToStoppedState()
-            showDeadlinePostponingVC()
+            showAddTimeVC()
+            removeBadgeFromIcon()
         }
     }
     func didReceiveAlarmInForeGround() {
         taskState.goToStoppedState()
-        showDeadlinePostponingVC()
+        showAddTimeVC()
+        removeBadgeFromIcon()
     }
     func didDismissAlarm() {
         taskState.goToStoppedState()
+        removeBadgeFromIcon()
     }
     
-    //MARK: PostponeTimeReceiving
-    func receivePostponeTime(_ postponeTime: TimeInterval) {
+    //MARK: AdditionalTimeReceiving
+    private func didReceiveAdditionalWorkTime(_ workTime: TimeInterval) {
         taskState.goToStoppedState()
-        model.postponeDeadlineFor(postponeTime)
+        model.postponeDeadlineFor(workTime)
         taskState.goToStartedState()
+        removeBadgeFromIcon()
+    }
+    private func didReceiveBreakTime(_ breakTime: TimeInterval) {
+        self.taskState.goToStoppedState()
+        self.taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(breakTime, alarmInfo: self.model)
+        removeBadgeFromIcon()
     }
 }
 
 extension TaskVC {
- 
-    private func showDeadlinePostponingVC() {
-        let deadlinePostponingVC = createDeadLinePostponingVC()
-        present(deadlinePostponingVC, animated: true, completion: nil)
-    }
-    private func createDeadLinePostponingVC() -> DeadlinePostponingVC {
-        let factory = DeadlinePostponingVCFactoryImp()
-        let deadlinPostponingHandler: (TimeInterval) -> () = { [weak self] postponeTime in
-            guard let self = self else { fatalError() }
-            self.receivePostponeTime(postponeTime)
-        }
-        let finishTaskHandler: ()->() = { self.doneButtonPressed() }
-        let deadLinePostponingVC = factory.createDeadlinePostponingVC(deadlines: deadlines, postponeHandler: deadlinPostponingHandler, finishHandler: finishTaskHandler)
-        return deadLinePostponingVC
-    }
     private func finishTask() {
         taskState.goToStoppedState()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
+    }
+    private func removeBadgeFromIcon() {
+        UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+    
+    //MARK: showAddTimeVC()
+    private func showAddTimeVC() {
+        let vc = createAddTimeVC()
+        present(vc, animated: true, completion: nil)
+    }
+    private func createAddTimeVC() -> UIAlertController {
+        let vc = UIAlertController(title: "Task time is up", message: "Do you need more time?", preferredStyle: .actionSheet)
+        let addTaskTimeAction = createAddTaskTimeAction()
+        let addBreakTimeAction = createAddBreakTimeAction()
+        let finishAction = createFinishTaskAction()
+        vc.addActions([addTaskTimeAction, addBreakTimeAction, finishAction])
+        return vc
+    }
+    private func createAddTaskTimeAction() -> UIAlertAction {
+        let action = UIAlertAction(title: "Add more time", style: .default, handler: { _ in self.showAddWorkTimeVC() })
+        return action
+    }
+    private func createAddBreakTimeAction() -> UIAlertAction {
+        let action = UIAlertAction(title: "Add break time", style: .default, handler: {_ in self.showAddBreakTimeVC() })
+        return action
+    }
+    private func createFinishTaskAction() -> UIAlertAction {
+        let action = UIAlertAction(title: "Finish task", style: .default, handler: { _ in self.finishTask() })
+        return action
+    }
+    //MARK: showAddTaskTimeVC()
+    private func showAddWorkTimeVC() {
+        let vc = createAddWorkTimeVC()
+        present(vc, animated: true, completion: nil)
+    }
+    private func createAddWorkTimeVC() -> UIAlertController {
+        let vc = UIAlertController(title: "Add more time", message: nil, preferredStyle: .actionSheet)
+        let addMoreTimeActions = createAddWorkTimeActions()
+        vc.addActions(addMoreTimeActions)
+        return vc
+    }
+    private func createAddWorkTimeActions() -> [UIAlertAction] {
+        var actions = [UIAlertAction]()
+        let postponeTimes = self.possibePostponeTimes.sorted { $0.value < $1.value }.map { $0.value }
+        for time in postponeTimes {
+            let formattedTime = dateComponentsFormatter.string(from: time)!
+            let action = UIAlertAction(title: "Add \(formattedTime) more", style: .default, handler: { (action) in
+                self.didReceiveAdditionalWorkTime(time)
+            })
+            actions.append(action)
+        }
+        return actions
+    }
+    
+    //MARK: showAddBreakTime()
+    private func showAddBreakTimeVC() {
+        let vc = createAddBreakTimeVC()
+        present(vc, animated: true, completion: nil)
+    }
+    private func createAddBreakTimeVC() -> UIAlertController {
+        let vc = UIAlertController(title: "Need a break time", message: nil, preferredStyle: .actionSheet)
+        let actions = createAddBreakTimeActions()
+        vc.addActions(actions)
+        return vc
+    }
+    private func createAddBreakTimeActions() -> [UIAlertAction] {
+        var actions = [UIAlertAction]()
+        let breakTimes = possibleBreakTimes.sorted { $0.value < $1.value }.map { $0.value }
+        for time in breakTimes {
+            let formattedTime = dateComponentsFormatter.string(from: time)!
+            let action = UIAlertAction(title: "Add \(formattedTime) break", style: .default, handler: { _ in self.didReceiveBreakTime(time)})
+            actions.append(action)
+        }
+        return actions
     }
 }

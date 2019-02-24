@@ -14,7 +14,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
     
     
     
-    private lazy var userDeafaults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+    private lazy var userDeafaults = UserDefaults(suiteName: TaskKillerGroupID.id)
     
     private lazy var possiblePostponeTimes = userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
     

@@ -36,19 +36,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         let possiblePostponeTimes: [String : TimeInterval] = [UUID().uuidString : 11, UUID().uuidString : 21, UUID().uuidString : 31]
         let possibleBreakTimes: [String : TimeInterval] = [UUID().uuidString : 12, UUID().uuidString : 22, UUID().uuidString : 32]
-        let userDeafults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+        let userDeafults = UserDefaults(suiteName: TaskKillerGroupID.id)
         userDeafults?.setValue(possiblePostponeTimes, forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues)
         userDeafults?.setValue(possibleBreakTimes, forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues)
         
-        let additionalTime = AdditionalTime(time: 5, type: .additionalWorkTime, toggleState: .on)
-        let addTimes = AdditionalTimes(additionalTimesIdsAndValues: [UUID().uuidString : additionalTime])
-        let addTimesData = try! NSKeyedArchiver.archivedData(withRootObject: addTimes, requiringSecureCoding: false)
-        userDeafults?.set(addTimesData, forKey: "testAddTimes")
         return true
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
+        // Sent when the application is acodercan occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
     }
 

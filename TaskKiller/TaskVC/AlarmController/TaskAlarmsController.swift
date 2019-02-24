@@ -11,7 +11,7 @@ import UserNotifications
 
 class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCenterDelegate {
     private lazy var userDeafaults = {
-        return UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+        return UserDefaults(suiteName: TaskKillerGroupID.id)
     }()
     
     private lazy var possiblePostponeTimes: [String : TimeInterval] = {

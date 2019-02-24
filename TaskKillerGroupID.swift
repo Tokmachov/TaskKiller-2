@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct AppGroupsID {
-    static var taskKillerGroup = "group.taskKiller"
+struct TaskKillerGroupID {
+    static var id = "group.taskKiller"
 }

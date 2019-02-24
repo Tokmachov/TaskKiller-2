@@ -10,16 +10,16 @@ import UIKit
 
 class AddTimesListVC: UITableViewController {
     
-    private lazy var userDefaults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
-    
+    private lazy var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+    private lazy var additionalTimes: AdditionalTimes = {
+        guard let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesId) else { return AdditionalTimes() }
+        guard let addtionalTimes = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(additionalTimesData) as? AdditionalTimes else { fatalError() }
+        return addtionalTimes!
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Add times"
         navigationController?.navigationBar.prefersLargeTitles = true
-        let data = userDefaults?.data(forKey: "testAddTimes")
-        let addTimes = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data!) as! AdditionalTimes
-        for value in addTimes.additionalWorkTimes {
-            print("Value \(value.time)")
-        }
     }
+    
 }

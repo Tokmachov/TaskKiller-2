@@ -1465,6 +1465,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="N6Q-aj-Cpr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Sve-H5-3fg">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -1515,12 +1516,89 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="imj-bV-JdR">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KA0-3p-Rl2"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FG1-CW-1vB"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="FG1-CW-1vB">
+                            <connections>
+                                <segue destination="VP6-ER-fHU" kind="presentation" identifier="CreateAdditionalTimeSegue" modalTransitionStyle="crossDissolve" id="eMj-aM-QHj"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ZG-X3-DtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="928.125" y="1903.5211267605634"/>
+        </scene>
+        <!--Create Additional TimeVC-->
+        <scene sceneID="mCm-Ee-KlN">
+            <objects>
+                <viewController id="VP6-ER-fHU" customClass="CreateAdditionalTimeVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ocq-1a-KhN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hx8-kb-Y2B">
+                                <rect key="frame" x="0.0" y="20" width="320" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="fY8-0S-i86"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="572628855.58392894">
+                                    <!--2019-02-23 15:34:15 +0000-->
+                                </date>
+                            </datePicker>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bLR-N3-eVc">
+                                <rect key="frame" x="106" y="256" width="108" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="Xok-MQ-VdI"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="VP6-ER-fHU" eventType="valueChanged" id="jGE-bu-swM"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjN-an-6sj">
+                                <rect key="frame" x="139" y="306" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raR-bn-wL6">
+                                <rect key="frame" x="83" y="383" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="canceledAdditionalTimeCreation" destination="VP6-ER-fHU" eventType="touchUpInside" id="07B-AE-8XZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJO-4z-N8X">
+                                <rect key="frame" x="197" y="383" width="46" height="30"/>
+                                <state key="normal" title="Create"/>
+                                <connections>
+                                    <action selector="createAdditionalTime" destination="VP6-ER-fHU" eventType="touchUpInside" id="GBt-gK-pwi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bLR-N3-eVc" firstAttribute="top" secondItem="Hx8-kb-Y2B" secondAttribute="bottom" constant="20" id="9PN-pe-Upo"/>
+                            <constraint firstItem="Hx8-kb-Y2B" firstAttribute="leading" secondItem="rtT-TX-syB" secondAttribute="leading" id="ELG-XX-meL"/>
+                            <constraint firstItem="Hx8-kb-Y2B" firstAttribute="top" secondItem="rtT-TX-syB" secondAttribute="top" id="FXh-Fj-75Q"/>
+                            <constraint firstItem="raR-bn-wL6" firstAttribute="centerY" secondItem="Ocq-1a-KhN" secondAttribute="centerY" constant="114" id="MPa-at-LlL"/>
+                            <constraint firstItem="NJO-4z-N8X" firstAttribute="centerX" secondItem="Ocq-1a-KhN" secondAttribute="centerX" constant="60" id="bD3-uM-jVW"/>
+                            <constraint firstItem="raR-bn-wL6" firstAttribute="centerX" secondItem="Ocq-1a-KhN" secondAttribute="centerX" constant="-53" id="bh5-Jb-8wD"/>
+                            <constraint firstItem="kjN-an-6sj" firstAttribute="top" secondItem="bLR-N3-eVc" secondAttribute="bottom" constant="20" id="dGb-te-loa"/>
+                            <constraint firstItem="bLR-N3-eVc" firstAttribute="centerX" secondItem="Ocq-1a-KhN" secondAttribute="centerX" id="doj-Bp-qW4"/>
+                            <constraint firstItem="NJO-4z-N8X" firstAttribute="centerY" secondItem="Ocq-1a-KhN" secondAttribute="centerY" constant="114" id="fwO-2E-aMx"/>
+                            <constraint firstItem="Hx8-kb-Y2B" firstAttribute="trailing" secondItem="rtT-TX-syB" secondAttribute="trailing" id="hwM-Ib-uv4"/>
+                            <constraint firstItem="kjN-an-6sj" firstAttribute="centerX" secondItem="Ocq-1a-KhN" secondAttribute="centerX" id="hyb-4Q-qfx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rtT-TX-syB"/>
+                    </view>
+                    <connections>
+                        <outlet property="chosenAdditionalTimeTypeLabel" destination="kjN-an-6sj" id="pNo-aM-Xlf"/>
+                        <outlet property="slider" destination="bLR-N3-eVc" id="9xl-pN-eTW"/>
+                        <outlet property="timePicker" destination="Hx8-kb-Y2B" id="YQY-5m-ddf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KRV-xX-NSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1831.875" y="1903.5211267605634"/>
         </scene>
         <!--Times-->
         <scene sceneID="sKU-Pk-lca">

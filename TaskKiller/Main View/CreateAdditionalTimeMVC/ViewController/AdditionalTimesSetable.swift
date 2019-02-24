@@ -1,5 +1,5 @@
 //
-//  BreakTimeWritable.swift
+//  AdditionalTimesSetable.swift
 //  TaskKiller
 //
 //  Created by mac on 24/02/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BreakTimeWritable {
-    func addBreakTime(atIndex index: Int)
+protocol AdditionalTimesSetable {
+    func setAdditionalTimes(_ additionalTimes: AdditionalTimeWritable)
 }

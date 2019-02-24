@@ -14,7 +14,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
         self.model = taskHandler
     }
-    lazy private var userDefaults = UserDefaults(suiteName: AppGroupsID.taskKillerGroup)
+    lazy private var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
     lazy private var possibePostponeTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
     lazy private var possibleBreakTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
     lazy private var dateComponentsFormatter: DateComponentsFormatter = {

@@ -8,13 +8,11 @@
 
 import Foundation
 
-class AdditionalTimes: NSObject, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, NSCoding {
-    
-    private var additionalTimesIdsAndValues: [String : AdditionalTime]
-    
+class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeWritable {
    
-    init(additionalTimesIdsAndValues: [String : AdditionalTime]) {
-        self.additionalTimesIdsAndValues = additionalTimesIdsAndValues
+    private var additionalTimesIdsAndValues = [String : AdditionalTime]()
+    override init() {
+        super.init()
     }
     required init?(coder aDecoder: NSCoder) {
         guard let additionalTimesIdsAndValues = aDecoder.decodeObject(forKey: "additionalTimesIdsAndValues") as? [String : AdditionalTime] else { return nil }
@@ -31,6 +29,12 @@ class AdditionalTimes: NSObject, PossibleBreakTimesReadable, PossibleAdditionalW
     var possibleBreakTimesWithIds: [String : TimeInterval] {
         return additionalTimesIdsAndValues.filter { $0.value.toggleState == .on && $0.value.type == .breakTime }.mapValues { $0.time }
     }
+    //AdditionalTimeWritable
+    func addAdditionalTime(_ time: AdditionalTime) {
+        additionalTimesIdsAndValues[UUID().uuidString] = time
+    }
+    
+    
     //RepresentableInSectionedTable
     var numberOfAdditionalTimesTypes: Int {
         return 2

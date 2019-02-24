@@ -19,9 +19,9 @@
 		0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */; };
 		0408C6412211B947005B1B83 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FD4220D3BB7006761ED /* NotificationViewController.swift */; };
 		0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */; };
-		0408C6462213C919005B1B83 /* AppGroupsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* AppGroupsID.swift */; };
+		0408C6462213C919005B1B83 /* TaskKillerGroupID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */; };
 		0408C6482213CB44005B1B83 /* UserDaefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */; };
-		0408C6492213D8C4005B1B83 /* AppGroupsID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* AppGroupsID.swift */; };
+		0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */; };
 		0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */; };
 		0408C64E221507EF005B1B83 /* AlralrmResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */; };
 		04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7421C88DA000967F50 /* TagNameVC.swift */; };
@@ -67,8 +67,9 @@
 		049821382222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */; };
 		0498213A2222C91C00CEA932 /* PossibleBreakTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */; };
 		0498213C2222C93100CEA932 /* RepresentableInSectionedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */; };
-		0498213E2222C94400CEA932 /* AdditionalWorkTimeWritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213D2222C94400CEA932 /* AdditionalWorkTimeWritable.swift */; };
-		049821402222C95A00CEA932 /* BreakTimeWritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213F2222C95A00CEA932 /* BreakTimeWritable.swift */; };
+		049821482222D23E00CEA932 /* CreateAdditionalTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */; };
+		0498214B2222D2E700CEA932 /* AdditionalTimesSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */; };
+		0498214D2222D35700CEA932 /* AdditionalTimesWritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */; };
 		0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */; };
 		0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
@@ -194,7 +195,7 @@
 		0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmActionsIdentifiers.swift; sourceTree = "<group>"; };
 		0408C6432213BCA3005B1B83 /* TaskExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskExtension.entitlements; sourceTree = "<group>"; };
 		0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskKiller.entitlements; sourceTree = "<group>"; };
-		0408C6452213C919005B1B83 /* AppGroupsID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupsID.swift; sourceTree = "<group>"; };
+		0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskKillerGroupID.swift; sourceTree = "<group>"; };
 		0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDaefaultsKeys.swift; sourceTree = "<group>"; };
 		0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlralrmResponseType.swift; sourceTree = "<group>"; };
 		04091E7421C88DA000967F50 /* TagNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameVC.swift; sourceTree = "<group>"; };
@@ -241,8 +242,9 @@
 		049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAdditionalWorkTimesReadable.swift; sourceTree = "<group>"; };
 		049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleBreakTimesReadable.swift; sourceTree = "<group>"; };
 		0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableInSectionedTable.swift; sourceTree = "<group>"; };
-		0498213D2222C94400CEA932 /* AdditionalWorkTimeWritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalWorkTimeWritable.swift; sourceTree = "<group>"; };
-		0498213F2222C95A00CEA932 /* BreakTimeWritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakTimeWritable.swift; sourceTree = "<group>"; };
+		049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdditionalTimeVC.swift; sourceTree = "<group>"; };
+		0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesSetable.swift; sourceTree = "<group>"; };
+		0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesWritable.swift; sourceTree = "<group>"; };
 		0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRemovingFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
 		0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFromTaskRemovingDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			children = (
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				049821442222CA8400CEA932 /* AdditionalTimesMVC */,
+				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
 			);
 			path = "Main View";
 			sourceTree = "<group>";
@@ -510,8 +513,7 @@
 				049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */,
 				049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */,
 				0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */,
-				0498213D2222C94400CEA932 /* AdditionalWorkTimeWritable.swift */,
-				0498213F2222C95A00CEA932 /* BreakTimeWritable.swift */,
+				0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */,
 			);
 			path = "AdditionalTimes protocols";
 			sourceTree = "<group>";
@@ -544,6 +546,23 @@
 				0498212C221CF5B300CEA932 /* AddTimeCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		049821462222D21500CEA932 /* CreateAdditionalTimeMVC */ = {
+			isa = PBXGroup;
+			children = (
+				049821492222D25E00CEA932 /* ViewController */,
+			);
+			path = CreateAdditionalTimeMVC;
+			sourceTree = "<group>";
+		};
+		049821492222D25E00CEA932 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */,
+				0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */ = {
@@ -659,7 +678,7 @@
 			isa = PBXGroup;
 			children = (
 				B96E0E80219347E50097AB34 /* AppDelegate.swift */,
-				0408C6452213C919005B1B83 /* AppGroupsID.swift */,
+				0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */,
 				0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */,
 				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E7F219347E50097AB34 /* TaskKiller */,
@@ -1050,7 +1069,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C23FD5220D3BB7006761ED /* NotificationViewController.swift in Sources */,
-				0408C6492213D8C4005B1B83 /* AppGroupsID.swift in Sources */,
+				0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				040C211822198CE200CCFA39 /* UNNotificationResponse.swift in Sources */,
@@ -1111,6 +1130,8 @@
 				042F439B2201555500AF2682 /* TaskAlarmControlling.swift in Sources */,
 				0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */,
 				0498212A221CF43900CEA932 /* AddTimesListVC.swift in Sources */,
+				0498214D2222D35700CEA932 /* AdditionalTimesWritable.swift in Sources */,
+				0498214B2222D2E700CEA932 /* AdditionalTimesSetable.swift in Sources */,
 				049821382222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift in Sources */,
 				0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */,
 				047C4B3021C67AC30009ED40 /* InfoForTagReporting.swift in Sources */,
@@ -1121,7 +1142,6 @@
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */,
-				0498213E2222C94400CEA932 /* AdditionalWorkTimeWritable.swift in Sources */,
 				0498EF5621ED8FA800676FAB /* EditTagPerformingDelegate.swift in Sources */,
 				B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
@@ -1137,7 +1157,7 @@
 				0498213A2222C91C00CEA932 /* PossibleBreakTimesReadable.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */,
-				0408C6462213C919005B1B83 /* AppGroupsID.swift in Sources */,
+				0408C6462213C919005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */,
 				04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */,
 				0498EF4521EC371D00676FAB /* TagsForTaskPreparing.swift in Sources */,
@@ -1148,6 +1168,7 @@
 				0498EF5221ED84A100676FAB /* TagFromAllTagsDeletingDelegate.swift in Sources */,
 				04736A1C21FAB13900464C72 /* TimeLeftToDeadLine.swift in Sources */,
 				B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */,
+				049821482222D23E00CEA932 /* CreateAdditionalTimeVC.swift in Sources */,
 				B9A8B15D219A74B90085FCA0 /* TaskProgressSavingModelImp.swift in Sources */,
 				04091E8221C9ECB300967F50 /* TagFactory.swift in Sources */,
 				040319C821D5D850003A758F /* TagNameLabel.swift in Sources */,
@@ -1157,7 +1178,6 @@
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
 				049909C221D1514600DCC3CA /* HeaderView.swift in Sources */,
 				04091E7521C88DA000967F50 /* TagNameVC.swift in Sources */,
-				049821402222C95A00CEA932 /* BreakTimeWritable.swift in Sources */,
 				049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */,
 				0498212F221CF87F00CEA932 /* AdditionalTimes.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* TaskProgressPeriod.swift in Sources */,

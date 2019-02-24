@@ -1,5 +1,5 @@
 //
-//  AdditionalWorkTimeWritable.swift
+//  AdditionalTimesWritable.swift
 //  TaskKiller
 //
 //  Created by mac on 24/02/2019.
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-protocol AdditionalWorkTimeWritable {
-    func addAdditionalWorkTime(atIndex index: Int)
-    
+
+protocol AdditionalTimeWritable {
+    func addAdditionalTime(_ time: AdditionalTime)
 }

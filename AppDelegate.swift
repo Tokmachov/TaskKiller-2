@@ -21,19 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {(granted, error) in
                 // handle result
         })
-        notificationCenter.getNotificationSettings(completionHandler: { (settings) in
-            switch settings.authorizationStatus {
-            case .denied: print("Notifications are disallowed")
-            case .authorized: print("Notificaions are allowed")
-            case .notDetermined: print("Not determined")
-            case .provisional: print("Provisional")
-            }
-        })
-        notificationCenter.getDeliveredNotifications(completionHandler: { (notifications) in
-            for notification in notifications {
-                print("Notification \(notification.request.content.body)")
-            }
-        })
+       
         let possiblePostponeTimes: [String : TimeInterval] = [UUID().uuidString : 11, UUID().uuidString : 21, UUID().uuidString : 31]
         let possibleBreakTimes: [String : TimeInterval] = [UUID().uuidString : 12, UUID().uuidString : 22, UUID().uuidString : 32]
         let userDeafults = UserDefaults(suiteName: TaskKillerGroupID.id)

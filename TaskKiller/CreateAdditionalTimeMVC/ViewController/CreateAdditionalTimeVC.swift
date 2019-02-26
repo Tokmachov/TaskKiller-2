@@ -11,6 +11,7 @@ import UIKit
 class CreateAdditionalTimeVC: UIViewController, AdditionalTimesSetable {
     
     private var model: AdditionalTimeWritable!
+    private var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
     private var sliderCurrentValue: Float = 0.0 {
         didSet {
             chosenAdditionalTimeType = choseAdditionalTimeType(forValue: sliderCurrentValue)
@@ -28,11 +29,11 @@ class CreateAdditionalTimeVC: UIViewController, AdditionalTimesSetable {
     func setAdditionalTimes(_ additionalTimes: AdditionalTimeWritable) {
         self.model = additionalTimes
     }
-    private var aditionalTimesTypesKeysAndTypes: [Int : AdditionalTimeType ] = [
+    private var aditionalTimesTypesForSliderValues: [Int : AdditionalTimeType ] = [
         0 : .additionalWorkTime,
         1 : .breakTime
     ]
-    private var additionalTimesTypesAndTheirStringNames: [AdditionalTimeType : String] = [
+    private var additionalTimesTypeStringNamesForTypes: [AdditionalTimeType : String] = [
         .additionalWorkTime : "Additional work time",
         .breakTime : "Additional break time"
     ]
@@ -47,6 +48,7 @@ class CreateAdditionalTimeVC: UIViewController, AdditionalTimesSetable {
     @IBAction func createAdditionalTime() {
         let additionalTime = AdditionalTime(time: chosenAdditionalTimeValue, type: chosenAdditionalTimeType, toggleState: .on)
         model.addAdditionalTime(additionalTime)
+        _ = try! userDefaults?.saveObject(model, forKey: UserDefaultsKeys.additionalTimesId)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func canceledAdditionalTimeCreation() {
@@ -76,11 +78,11 @@ extension CreateAdditionalTimeVC {
     }
     private func choseAdditionalTimeType(forValue sliderVaue: Float) -> AdditionalTimeType {
         let sliderValue = Int(sliderVaue)
-        let chosenAdditionalTimeType = aditionalTimesTypesKeysAndTypes[sliderValue]!
+        let chosenAdditionalTimeType = aditionalTimesTypesForSliderValues[sliderValue]!
         return chosenAdditionalTimeType
     }
     private func updateChosenAdditionalTimeTypeLabel(withType type: AdditionalTimeType) {
-        let typeName = additionalTimesTypesAndTheirStringNames[type]!
+        let typeName = additionalTimesTypeStringNamesForTypes[type]!
         chosenAdditionalTimeTypeLabel.setText(typeName)
     }
 }

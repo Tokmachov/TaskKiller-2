@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeWritable {
+class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeWritable, AdditionalTimesChangable {
    
     private var additionalTimesIdsAndValues = [String : AdditionalTime]()
     override init() {
@@ -54,5 +54,15 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
     
     var additionalBreakTimes: [AdditionalTime] {
         return additionalTimesIdsAndValues.map { $0.value }.filter { $0.type == .breakTime }.sorted { $0.time < $1.time }
+    }
+    
+    //MARK: AdditionalTimesChangable
+    func changeAdditionalWorkTime(atIndex index: Int, toNewTogglesState togglesState: ToggleState) {
+        let additionalTime = additionalWorkTimes[index]
+        additionalTime.toggleState = togglesState
+    }
+    func changeBreakkTime(atIndex index: Int, toNewTogglesState togglesState: ToggleState) {
+        let additionalTime = additionalBreakTimes[index]
+        additionalTime.toggleState = togglesState
     }
 }

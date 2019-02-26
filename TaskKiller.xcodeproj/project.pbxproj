@@ -99,6 +99,8 @@
 		04C23FD5220D3BB7006761ED /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FD4220D3BB7006761ED /* NotificationViewController.swift */; };
 		04C23FD8220D3BB7006761ED /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C23FD6220D3BB7006761ED /* MainInterface.storyboard */; };
 		04C23FDC220D3BB8006761ED /* TaskExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04C23FCD220D3BB7006761ED /* TaskExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		04CEA2192224DE2E00CEE425 /* AdditionalTimesChangeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */; };
+		04CEA21B2224E9D900CEE425 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA21A2224E9D900CEE425 /* UserDefaults.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -280,6 +282,8 @@
 		04C23FD4220D3BB7006761ED /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		04C23FD7220D3BB7006761ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		04C23FD9220D3BB7006761ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesChangeble.swift; sourceTree = "<group>"; };
+		04CEA21A2224E9D900CEE425 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -489,16 +493,6 @@
 			path = ColorPaneVC;
 			sourceTree = "<group>";
 		};
-		04982128221CF3FD00CEA932 /* Main View */ = {
-			isa = PBXGroup;
-			children = (
-				B96E0E84219347E50097AB34 /* Main.storyboard */,
-				049821442222CA8400CEA932 /* AdditionalTimesMVC */,
-				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
-			);
-			path = "Main View";
-			sourceTree = "<group>";
-		};
 		0498212B221CF59200CEA932 /* AddTimesListVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +508,7 @@
 				049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */,
 				0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */,
 				0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */,
+				04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */,
 			);
 			path = "AdditionalTimes protocols";
 			sourceTree = "<group>";
@@ -530,22 +525,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		049821442222CA8400CEA932 /* AdditionalTimesMVC */ = {
+		049821442222CA8400CEA932 /* AdditionalTimesListMVC */ = {
 			isa = PBXGroup;
 			children = (
-				049821452222CADA00CEA932 /* View */,
+				049821452222CADA00CEA932 /* View - cell */,
 				049821432222CA3200CEA932 /* Model */,
 				0498212B221CF59200CEA932 /* AddTimesListVC */,
 			);
-			path = AdditionalTimesMVC;
+			path = AdditionalTimesListMVC;
 			sourceTree = "<group>";
 		};
-		049821452222CADA00CEA932 /* View */ = {
+		049821452222CADA00CEA932 /* View - cell */ = {
 			isa = PBXGroup;
 			children = (
 				0498212C221CF5B300CEA932 /* AddTimeCell.swift */,
 			);
-			path = View;
+			path = "View - cell";
 			sourceTree = "<group>";
 		};
 		049821462222D21500CEA932 /* CreateAdditionalTimeMVC */ = {
@@ -575,6 +570,7 @@
 				0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */,
 				040C211622198BAD00CCFA39 /* UNNotificationResponse.swift */,
 				040C2119221BB17300CCFA39 /* UIAlertController.swift */,
+				04CEA21A2224E9D900CEE425 /* UserDefaults.swift */,
 			);
 			path = ExtensionsToStandardTypes;
 			sourceTree = "<group>";
@@ -710,8 +706,10 @@
 				B9A8B13F219842160085FCA0 /* TaskProgressTimes */,
 				B9A8B170219BCED90085FCA0 /* TaskProgressPeriod */,
 				B9A8B140219842600085FCA0 /* TimeIntervalFormatter */,
-				04982128221CF3FD00CEA932 /* Main View */,
+				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				B9A8B11221953A5B0085FCA0 /* TaskListVC */,
+				049821442222CA8400CEA932 /* AdditionalTimesListMVC */,
+				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
 				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
 				B9A8B14621984A740085FCA0 /* TaskVC */,
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
@@ -1124,6 +1122,7 @@
 				044723B821C219AF00F0214F /* TagView.swift in Sources */,
 				042768D321FE11DE00FA2442 /* ProgressTimesReceiver.swift in Sources */,
 				0406D3CC21E0BBAA003A6E68 /* AnimationTimes.swift in Sources */,
+				04CEA21B2224E9D900CEE425 /* UserDefaults.swift in Sources */,
 				040D906921E512940049F410 /* TagEditingVC.swift in Sources */,
 				047C4B3421C68FD80009ED40 /* ColorPaneVC.swift in Sources */,
 				B96E0EA72193D6020097AB34 /* TaskDescriptionVC.swift in Sources */,
@@ -1189,6 +1188,7 @@
 				047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */,
 				0498EF4B21ED705300676FAB /* AllTagsGetableStore.swift in Sources */,
 				B9A8B15221992D270085FCA0 /* TaskFactory.swift in Sources */,
+				04CEA2192224DE2E00CEE425 /* AdditionalTimesChangeble.swift in Sources */,
 				0406D3D121E0CEFB003A6E68 /* DragInitiatingVC.swift in Sources */,
 				0498EF5821ED8FBE00676FAB /* EditTagCompletionDelegate.swift in Sources */,
 				B9A8B174219BD3220085FCA0 /* TaskStateImp.swift in Sources */,

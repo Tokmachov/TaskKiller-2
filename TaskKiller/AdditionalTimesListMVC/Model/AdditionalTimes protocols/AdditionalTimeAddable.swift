@@ -1,5 +1,5 @@
 //
-//  AdditionalTimesSetable.swift
+//  AdditionalTimesWritable.swift
 //  TaskKiller
 //
 //  Created by mac on 24/02/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AdditionalTimesSetable {
-    func setAdditionalTimes(_ additionalTimes: AdditionalTimeWritable)
+protocol AdditionalTimeAddable {
+    func addAdditionalTime(_ time: AdditionalTime)
 }

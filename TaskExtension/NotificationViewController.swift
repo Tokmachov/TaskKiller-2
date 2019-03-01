@@ -12,13 +12,11 @@ import UserNotificationsUI
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
     
+    private lazy var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
     
+    private lazy var possibleAdditionalWorkTimesForIds = loadPossibleAddtionalWorkTimes()
     
-    private lazy var userDeafaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-    
-    private lazy var possiblePostponeTimes = userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
-    
-    private lazy var possibleBreakTimes: [String : TimeInterval] = userDeafaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
+    private lazy var possibleBreakTimesForIds = loadPossibleBreakTimes()
     
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -39,24 +37,28 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         }
     }
 }
+extension NotificationViewController: PossibleAdditionalTimesLoading {}
 
 extension NotificationViewController {
+    
     private func handleTaskTimeOutNotificationCategoryResponse(_ response: UNNotificationResponse, completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void ) {
         switch response.actionIdentifier {
         case CategoriesInfo.taskTimeOut.actionIDs.openApp:
             openApp()
             completion(.dismiss)
         case CategoriesInfo.taskTimeOut.actionIDs.needMoreTime:
-            let actions = createNeedMoreTimeActionsFromPossiblePostponeTimes(possiblePostponeTimes)
+            let actions = createNeedMoreTimeActionsFromPossibleAdditionalWorkTimes(possibleAdditionalWorkTimesForIds)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
         case CategoriesInfo.taskTimeOut.actionIDs.needBreak:
-            let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimes)
+            let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimesForIds)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
         case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
             completion(.dismissAndForwardAction)
-        case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
+        case let actionID where possibleAdditionalWorkTimesForIds[actionID] != nil || possibleBreakTimesForIds[actionID] != nil:
+            completion(.dismissAndForwardAction)
+        case CategoriesInfo.taskTimeOut.actionIDs.setWorkTimes:
             completion(.dismissAndForwardAction)
         case UNNotificationDefaultActionIdentifier: completion(.dismissAndForwardAction)
         case UNNotificationDismissActionIdentifier: completion(.dismissAndForwardAction)
@@ -69,41 +71,58 @@ extension NotificationViewController {
             openApp()
             completion(.dismiss)
         case CategoriesInfo.breakTimeOut.actionIDs.getBackToTask:
-            let actions = createNeedMoreTimeActionsFromPossiblePostponeTimes(possiblePostponeTimes)
+            let actions = createNeedMoreTimeActionsFromPossibleAdditionalWorkTimes(possibleAdditionalWorkTimesForIds)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
         case CategoriesInfo.breakTimeOut.actionIDs.needBreak:
-            let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimes)
+            let actions = createNeedABreakActionsFromPossibleBreakTimes(possibleBreakTimesForIds)
             extensionContext?.notificationActions = actions
             completion(.doNotDismiss)
         case CategoriesInfo.breakTimeOut.actionIDs.taskIsFinished:
             completion(.dismissAndForwardAction)
-        case let actionID where possiblePostponeTimes[actionID] != nil || possibleBreakTimes[actionID] != nil:
+        case let actionID where possibleBreakTimesForIds[actionID] != nil || possibleBreakTimesForIds[actionID] != nil:
+            completion(.dismissAndForwardAction)
+        case CategoriesInfo.breakTimeOut.actionIDs.setBreakTimes:
             completion(.dismissAndForwardAction)
         case UNNotificationDefaultActionIdentifier: completion(.dismissAndForwardAction)
         case UNNotificationDismissActionIdentifier: completion(.dismissAndForwardAction)
         default: dismissNotification()
         }
     }
-    private func createNeedMoreTimeActionsFromPossiblePostponeTimes(_ times: [String : TimeInterval]) -> [UNNotificationAction] {
+    private func createNeedMoreTimeActionsFromPossibleAdditionalWorkTimes(_ times: [NotificationActionIdentifier : AdditionalTimeValue]) -> [UNNotificationAction] {
         var actions = [UNNotificationAction]()
-        let orderedByTimesValueTimes = times.sorted { $1.value > $0.value }
-        for (id, possiblePostponeTime) in orderedByTimesValueTimes {
+        guard !times.isEmpty else {
+            let action = createPleaseSetAdditionalWorkTimesAction()
+            actions.append(action)
+            return actions
+        }
+        let descendiniglySortedTimes = times.sorted { $0.value < $1.value }
+        for (id, possibleAdditionalWorkTime) in descendiniglySortedTimes {
             let actionIdentifier = id
-            let actionTitle = createNeedMoreTimeActionTitleFromPostponeTime(possiblePostponeTime)
+            let actionTitle = createNeedMoreTimeActionTitleFromAdditionalWorkTime(possibleAdditionalWorkTime)
             let action = UNNotificationAction(identifier: actionIdentifier, title: actionTitle, options: [])
             actions.append(action)
         }
         return actions
     }
-    private func createNeedMoreTimeActionTitleFromPostponeTime(_ time: TimeInterval) -> String {
+    private func createPleaseSetAdditionalWorkTimesAction() -> UNNotificationAction {
+        let actionTitle = "Please set Additional work times"
+        let actionAdintifier = CategoriesInfo.taskTimeOut.actionIDs.setWorkTimes
+        return UNNotificationAction(identifier: actionAdintifier, title: actionTitle, options: [.foreground])
+    }
+    private func createNeedMoreTimeActionTitleFromAdditionalWorkTime(_ time: AdditionalTimeValue) -> String {
         let restInMinutes = dateComponentsFormatter.string(from: time)
         return "Need \(restInMinutes ?? "Error") more"
     }
-    private func createNeedABreakActionsFromPossibleBreakTimes(_ times: [String : TimeInterval]) -> [UNNotificationAction] {
+    private func createNeedABreakActionsFromPossibleBreakTimes(_ times: [NotificationActionIdentifier : AdditionalTimeValue]) -> [UNNotificationAction] {
         var actions = [UNNotificationAction]()
-        let orderedByTimesValueTimes = times.sorted { $1.value > $0.value }
-        for (id, possibleBreakTime) in orderedByTimesValueTimes {
+        guard !times.isEmpty else {
+            let action = createPleaseSetBreakTimesAction()
+            actions.append(action)
+            return actions
+        }
+        let descendinglSortedTimes = times.sorted { $0.value < $1.value }
+        for (id, possibleBreakTime) in descendinglSortedTimes {
             let actionIdentifier = id
             let actionTitle = createNeedABreakActionTitleFrom(possibleBreakTime)
             let action = UNNotificationAction(identifier: actionIdentifier, title: actionTitle, options: [])
@@ -111,7 +130,12 @@ extension NotificationViewController {
         }
         return actions
     }
-    private func createNeedABreakActionTitleFrom(_ time: TimeInterval) -> String {
+    private func createPleaseSetBreakTimesAction() -> UNNotificationAction {
+        let actionTitle = "Please set additional break times"
+        let actionAdintifier = CategoriesInfo.breakTimeOut.actionIDs.setBreakTimes
+        return UNNotificationAction(identifier: actionAdintifier, title: actionTitle, options: [.foreground])
+    }
+    private func createNeedABreakActionTitleFrom(_ time: AdditionalTimeValue) -> String {
         let timeStringRepresentation = dateComponentsFormatter.string(from: time)
         return "Need a break for \(timeStringRepresentation ?? "Error")"
     }
@@ -124,3 +148,5 @@ extension NotificationViewController {
         extensionContext?.dismissNotificationContentExtension()
     }
 }
+
+

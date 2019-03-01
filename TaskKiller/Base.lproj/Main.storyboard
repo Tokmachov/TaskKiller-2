@@ -693,7 +693,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYu-79-wdx">
-                                    <rect key="frame" x="138.5" y="14.5" width="42" height="21"/>
+                                    <rect key="frame" x="278.5" y="14.5" width="42" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -1494,30 +1494,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad1-mM-Bre">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad1-mM-Bre">
                                             <rect key="frame" x="26" y="11" width="42" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o25-LI-4Ah">
-                                            <rect key="frame" x="263" y="6" width="49" height="31.5"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="47" id="zPC-9k-tIG"/>
-                                            </constraints>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o25-LI-4Ah">
+                                            <rect key="frame" x="261" y="6" width="51" height="31.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <connections>
-                                                <action selector="toggleAdditionalTimeState:" destination="jb3-7V-fNn" eventType="valueChanged" id="a4Q-Xe-ndf"/>
+                                                <action selector="additionalTimeStateWasSwitched:" destination="jb3-7V-fNn" eventType="valueChanged" id="a4Q-Xe-ndf"/>
                                             </connections>
                                         </switch>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="o25-LI-4Ah" secondAttribute="bottom" constant="6" id="1MU-Bc-jI4"/>
-                                        <constraint firstItem="Ad1-mM-Bre" firstAttribute="leading" secondItem="wca-Vh-Cfe" secondAttribute="leadingMargin" constant="10" id="cd8-UL-YLt"/>
-                                        <constraint firstItem="o25-LI-4Ah" firstAttribute="top" secondItem="wca-Vh-Cfe" secondAttribute="top" constant="6" id="iLz-a7-1dX"/>
-                                        <constraint firstAttribute="trailing" secondItem="o25-LI-4Ah" secondAttribute="trailing" constant="10" id="j62-dO-eXo"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ad1-mM-Bre" secondAttribute="bottom" id="q0d-nR-cat"/>
-                                        <constraint firstItem="Ad1-mM-Bre" firstAttribute="top" secondItem="wca-Vh-Cfe" secondAttribute="topMargin" id="wDP-RA-tGv"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="timeLabel" destination="Ad1-mM-Bre" id="PvU-Kf-dUq"/>
@@ -1555,8 +1546,8 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="zW2-jP-p6i"/>
                                 </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="572759921.47969997">
-                                    <!--2019-02-25 03:58:41 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="572673521.47969997">
+                                    <!--2019-02-24 03:58:41 +0000-->
                                 </date>
                             </datePicker>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-d3-HqD">
@@ -1587,6 +1578,14 @@
                                 <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="createAdditionalTime" destination="4bt-6h-XVl" eventType="touchUpInside" id="w5l-Ns-2br"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edp-XA-Snr">
+                                <rect key="frame" x="112" y="442" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="AddTestAlarm"/>
+                                <connections>
+                                    <action selector="addTestAlarm:" destination="4bt-6h-XVl" eventType="touchUpInside" id="aK6-ZL-kVJ"/>
                                 </connections>
                             </button>
                         </subviews>

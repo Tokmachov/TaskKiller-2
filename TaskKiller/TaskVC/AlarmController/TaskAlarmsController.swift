@@ -14,13 +14,9 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
         return UserDefaults(suiteName: TaskKillerGroupID.id)
     }()
     
-    private lazy var possiblePostponeTimes: [String : TimeInterval] = {
-        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
-    }()
+    private lazy var possibleAdditionalWorkTimesForIds = loadPossibleAddtionalWorkTimes()
     
-    private lazy var possibleBreakTimes: [String : TimeInterval] = {
-        return userDeafaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
-    }()
+    private lazy var possibleBreakTimesForIds = loadPossibleBreakTimes()
     
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
@@ -31,7 +27,8 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
     
     private var alarmReceivingDelegate: TaskAlarmsReceivingDelegate!
     private let notificationCenter = UNUserNotificationCenter.current()
-    private let notificationRequestIdentifier = UUID().uuidString
+    private let taskTimeOutNotificationRequestIdentifier = UUID().uuidString
+    private let breakTimeOutNotificationRequestIdentifier = UUID().uuidString
     required init(alarmReceivingDelegate: TaskAlarmsReceivingDelegate) {
         self.alarmReceivingDelegate = alarmReceivingDelegate
         super.init()
@@ -46,7 +43,7 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
         content.categoryIdentifier = CategoriesInfo.taskTimeOut.id
         let trigger = createNotificationTrigger(from: timeInterval)
         notificationCenter.setNotificationCategories([category])
-        let request = createNotificationRequest(withContent: content, trigger: trigger, andId: notificationRequestIdentifier)
+        let request = createNotificationRequest(withContent: content, trigger: trigger, andId: taskTimeOutNotificationRequestIdentifier)
         notificationCenter.add(request, withCompletionHandler: nil)
     }
     func addBreakTimeOutAlarmThatFiresIn(_ timeInterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoSource) {
@@ -58,14 +55,16 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
         let category = createCategory(from: actions, andIdentifier: CategoriesInfo.breakTimeOut.id)
         notificationCenter.setNotificationCategories([category])
         
-        let request = createNotificationRequest(withContent: content, trigger: trigger, andId: notificationRequestIdentifier)
+        let request = createNotificationRequest(withContent: content, trigger: trigger, andId: breakTimeOutNotificationRequestIdentifier)
         notificationCenter.add(request, withCompletionHandler: nil)
     }
     
-    func removeAlarm() {
-        notificationCenter.removePendingNotificationRequests(withIdentifiers: [notificationRequestIdentifier])
+    func removeTaskTimeOutAlarm() {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [taskTimeOutNotificationRequestIdentifier])
     }
-    
+    func removeBreakTimeOutAlarm() {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [breakTimeOutNotificationRequestIdentifier])
+    }
     //MARK: UNUserNotificationCenterDelegate
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         alarmReceivingDelegate.didReceiveAlarmInForeGround()
@@ -83,13 +82,12 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
 
 extension TaskAlarmsController {
     private func handleTaskTimeOutAlarmResponse(_ response: UNNotificationResponse) {
-        print("identifier is \(response.actionIdentifier)")
         switch response.actionIdentifier {
-        case let actionID where possibleBreakTimes[actionID] != nil:
-            let breakTime = possibleBreakTimes[actionID]
+        case let actionID where possibleBreakTimesForIds[actionID] != nil:
+            let breakTime = possibleBreakTimesForIds[actionID]
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.needABreak(breakTime!))
-        case let actionID where possiblePostponeTimes[actionID] != nil:
-            let postponeTime = possiblePostponeTimes[actionID]
+        case let actionID where possibleAdditionalWorkTimesForIds[actionID] != nil:
+            let postponeTime = possibleAdditionalWorkTimesForIds[actionID]
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.needMoreTime(postponeTime!))
         case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.finishTask)
@@ -97,16 +95,18 @@ extension TaskAlarmsController {
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.defaultAlarmResponse)
         case UNNotificationDismissActionIdentifier:
             alarmReceivingDelegate.didDismissAlarm()
+        case CategoriesInfo.taskTimeOut.actionIDs.setWorkTimes:
+            alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.noAdditionalTimesSet)
         default: break
         }
     }
     private func handleBreakTimeOutAlarmResponse(_ response: UNNotificationResponse) {
         switch response.actionIdentifier {
-        case let actionID where possibleBreakTimes[actionID] != nil:
-            let breakTime = possibleBreakTimes[actionID]
+        case let actionID where possibleBreakTimesForIds[actionID] != nil:
+            let breakTime = possibleBreakTimesForIds[actionID]
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.needABreak(breakTime!))
-        case let actionID where possiblePostponeTimes[actionID] != nil:
-            let postponeTime = possiblePostponeTimes[actionID]
+        case let actionID where possibleAdditionalWorkTimesForIds[actionID] != nil:
+            let postponeTime = possibleAdditionalWorkTimesForIds[actionID]
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.needMoreTime(postponeTime!))
         case CategoriesInfo.taskTimeOut.actionIDs.taskIsFinished:
             alarmReceivingDelegate.didReceiveAlarmWithResponseOfType(.finishTask)
@@ -173,3 +173,5 @@ extension TaskAlarmsController {
         return category
     }
 }
+
+extension TaskAlarmsController: PossibleAdditionalTimesLoading {}

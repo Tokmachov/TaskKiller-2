@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserDefaultsKeys {
-    static var breakTimesActionKeysAndTimeValues = "possibleBreakTimes"
-    static var postponeTimesActionKeysAndValues = "possiblePostponeTimes"
-    static var additionalTimesId = "additionalTimes"
+    static var additionalTimesKey = "additionalTimes"
+    static var additionalWorkTimesForIds = "additionalWorkTimesForKeys"
+    static var breakTimesForIds = "breakTimesForKeys"
 }

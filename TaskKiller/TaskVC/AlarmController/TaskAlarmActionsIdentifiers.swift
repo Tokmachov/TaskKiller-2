@@ -7,6 +7,7 @@ struct TaskTimeOutActionsIDs {
     let needBreak = "needBreak"
     let needMoreTime = "needMoreTime"
     let taskIsFinished = "taskIsFinished"
+    let setWorkTimes = "setWorkTimes"
 }
 
 struct BreakTimeOutActionsIDs {
@@ -14,7 +15,7 @@ struct BreakTimeOutActionsIDs {
     let needBreak = "needBreak"
     let openApp = "OpenApp"
     let taskIsFinished = "taskIsFinished"
-    
+    let setBreakTimes = "setBreakTimes"
 }
 
 struct CategoriesInfo {

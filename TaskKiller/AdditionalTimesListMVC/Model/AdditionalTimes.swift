@@ -8,8 +8,8 @@
 
 import Foundation
 
-class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeWritable, AdditionalTimesChangable {
-   
+class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeAddable, AdditionalTimesEditing, AdditionalTimeRemovable {
+    
     private var additionalTimesIdsAndValues = [String : AdditionalTime]()
     override init() {
         super.init()
@@ -22,18 +22,17 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
         aCoder.encode(additionalTimesIdsAndValues, forKey: "additionalTimesIdsAndValues")
     }
     //PossibleAdditionalWorkTimesReadable
-    var possibleAdditionalWorkTimesWithIds: [String : TimeInterval] {
+    var possibleAdditionalWorkTimesForIds: [String : TimeInterval] {
         return additionalTimesIdsAndValues.filter { $0.value.toggleState == .on && $0.value.type == .additionalWorkTime }.mapValues { $0.time }
     }
     //PossibleBreakTimesReadable
-    var possibleBreakTimesWithIds: [String : TimeInterval] {
+    var possibleBreakTimesForIds: [String : TimeInterval] {
         return additionalTimesIdsAndValues.filter { $0.value.toggleState == .on && $0.value.type == .breakTime }.mapValues { $0.time }
     }
-    //AdditionalTimeWritable
+    //AdditionalTimeAddable
     func addAdditionalTime(_ time: AdditionalTime) {
         additionalTimesIdsAndValues[UUID().uuidString] = time
     }
-    
     
     //RepresentableInSectionedTable
     var numberOfAdditionalTimesTypes: Int {
@@ -57,12 +56,23 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
     }
     
     //MARK: AdditionalTimesChangable
-    func changeAdditionalWorkTime(atIndex index: Int, toNewTogglesState togglesState: ToggleState) {
+    func changeToggleStateOfAdditionalWorkTime(atIndex index: Int, to togglesState: ToggleState) {
         let additionalTime = additionalWorkTimes[index]
         additionalTime.toggleState = togglesState
     }
-    func changeBreakkTime(atIndex index: Int, toNewTogglesState togglesState: ToggleState) {
+    func changeToggleStateOfBreakTime(atIndex index: Int, to togglesState: ToggleState) {
         let additionalTime = additionalBreakTimes[index]
         additionalTime.toggleState = togglesState
+    }
+    //MARK: AdditionalTimeRemvable
+    func removeAdditionalWorkTime(atIndex index: Int) {
+        let additionalWorkTime = additionalWorkTimes[index]
+        let additionalWorkTimeKey = additionalTimesIdsAndValues.first { $0.value === additionalWorkTime }!.key
+        _ = additionalTimesIdsAndValues.removeValue(forKey: additionalWorkTimeKey)
+    }
+    func removeBreakTime(atIndex index: Int) {
+        let additionalBreakTime = additionalBreakTimes[index]
+        let additionalBreakTimeKey = additionalTimesIdsAndValues.first { $0.value === additionalBreakTime }!.key
+        _ = additionalTimesIdsAndValues.removeValue(forKey: additionalBreakTimeKey)
     }
 }

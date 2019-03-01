@@ -12,6 +12,7 @@ protocol TaskAlarmControlling {
     init(alarmReceivingDelegate: TaskAlarmsReceivingDelegate)
     func addTaskTimeOutAlarmThatFiresIn(_ timeInterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoSource)
     func addBreakTimeOutAlarmThatFiresIn(_ timeinterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoSource)
-    func removeAlarm()
+    func removeTaskTimeOutAlarm()
+    func removeBreakTimeOutAlarm()
 }
 

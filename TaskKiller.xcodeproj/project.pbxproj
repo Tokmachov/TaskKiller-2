@@ -64,12 +64,9 @@
 		049821322222C83600CEA932 /* AdditionalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821312222C83600CEA932 /* AdditionalTime.swift */; };
 		049821342222C8AA00CEA932 /* ToggleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821332222C8AA00CEA932 /* ToggleState.swift */; };
 		049821362222C8DB00CEA932 /* AdditionalTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821352222C8DB00CEA932 /* AdditionalTimeType.swift */; };
-		049821382222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */; };
-		0498213A2222C91C00CEA932 /* PossibleBreakTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */; };
 		0498213C2222C93100CEA932 /* RepresentableInSectionedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */; };
 		049821482222D23E00CEA932 /* CreateAdditionalTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */; };
-		0498214B2222D2E700CEA932 /* AdditionalTimesSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */; };
-		0498214D2222D35700CEA932 /* AdditionalTimesWritable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */; };
+		0498214D2222D35700CEA932 /* AdditionalTimeAddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */; };
 		0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */; };
 		0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
@@ -101,6 +98,23 @@
 		04C23FDC220D3BB8006761ED /* TaskExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04C23FCD220D3BB7006761ED /* TaskExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04CEA2192224DE2E00CEE425 /* AdditionalTimesChangeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */; };
 		04CEA21B2224E9D900CEE425 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA21A2224E9D900CEE425 /* UserDefaults.swift */; };
+		04CEA21F2224FCB100CEE425 /* AdditionalTimeCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */; };
+		04CEA222222636EA00CEE425 /* AdditionalTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498212E221CF87F00CEA932 /* AdditionalTimes.swift */; };
+		04CEA2232226372800CEE425 /* RepresentableInSectionedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */; };
+		04CEA2242226372B00CEE425 /* AdditionalTimeAddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */; };
+		04CEA2252226372D00CEE425 /* AdditionalTimesChangeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */; };
+		04CEA2262226374700CEE425 /* AdditionalTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821312222C83600CEA932 /* AdditionalTime.swift */; };
+		04CEA2272226374A00CEE425 /* ToggleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821332222C8AA00CEA932 /* ToggleState.swift */; };
+		04CEA2282226374C00CEE425 /* AdditionalTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821352222C8DB00CEA932 /* AdditionalTimeType.swift */; };
+		04CEA22A222645E600CEE425 /* AditionalTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA229222645E600CEE425 /* AditionalTimesReadable.swift */; };
+		04CEA22E2226F6C900CEE425 /* AditionalTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA229222645E600CEE425 /* AditionalTimesReadable.swift */; };
+		04CEA2322226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2312226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift */; };
+		04CEA2342227027300CEE425 /* PossibleAdditionalTimesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2312226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift */; };
+		04CEA2382227078000CEE425 /* AdditionalTimeSavingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */; };
+		04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */; };
+		04CEA23D2227943500CEE425 /* AdditionalTimeRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */; };
+		04CEA23F2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */; };
+		04CEA2402228E9A200CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -241,12 +255,9 @@
 		049821312222C83600CEA932 /* AdditionalTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTime.swift; sourceTree = "<group>"; };
 		049821332222C8AA00CEA932 /* ToggleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleState.swift; sourceTree = "<group>"; };
 		049821352222C8DB00CEA932 /* AdditionalTimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeType.swift; sourceTree = "<group>"; };
-		049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAdditionalWorkTimesReadable.swift; sourceTree = "<group>"; };
-		049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleBreakTimesReadable.swift; sourceTree = "<group>"; };
 		0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableInSectionedTable.swift; sourceTree = "<group>"; };
 		049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdditionalTimeVC.swift; sourceTree = "<group>"; };
-		0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesSetable.swift; sourceTree = "<group>"; };
-		0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesWritable.swift; sourceTree = "<group>"; };
+		0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeAddable.swift; sourceTree = "<group>"; };
 		0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRemovingFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
 		0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFromTaskRemovingDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
@@ -284,6 +295,12 @@
 		04C23FD9220D3BB7006761ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesChangeble.swift; sourceTree = "<group>"; };
 		04CEA21A2224E9D900CEE425 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeCreating.swift; sourceTree = "<group>"; };
+		04CEA229222645E600CEE425 /* AditionalTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AditionalTimesReadable.swift; sourceTree = "<group>"; };
+		04CEA2312226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAdditionalTimesLoading.swift; sourceTree = "<group>"; };
+		04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeSavingDelegate.swift; sourceTree = "<group>"; };
+		04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeRemovable.swift; sourceTree = "<group>"; };
+		04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAdditionalTimesSaving.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -497,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				04982129221CF43900CEA932 /* AddTimesListVC.swift */,
+				04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */,
 			);
 			path = AddTimesListVC;
 			sourceTree = "<group>";
@@ -504,11 +522,11 @@
 		049821302222C7A200CEA932 /* AdditionalTimes protocols */ = {
 			isa = PBXGroup;
 			children = (
-				049821372222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift */,
-				049821392222C91C00CEA932 /* PossibleBreakTimesReadable.swift */,
 				0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */,
-				0498214C2222D35600CEA932 /* AdditionalTimesWritable.swift */,
+				0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */,
 				04CEA2182224DE2E00CEE425 /* AdditionalTimesChangeble.swift */,
+				04CEA229222645E600CEE425 /* AditionalTimesReadable.swift */,
+				04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */,
 			);
 			path = "AdditionalTimes protocols";
 			sourceTree = "<group>";
@@ -555,7 +573,7 @@
 			isa = PBXGroup;
 			children = (
 				049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */,
-				0498214A2222D2E700CEA932 /* AdditionalTimesSetable.swift */,
+				04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -708,9 +726,11 @@
 				B9A8B140219842600085FCA0 /* TimeIntervalFormatter */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				B9A8B11221953A5B0085FCA0 /* TaskListVC */,
+				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
+				04CEA2312226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift */,
+				04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */,
 				049821442222CA8400CEA932 /* AdditionalTimesListMVC */,
 				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
-				B96E0EA32193D5900097AB34 /* CreateTaskVC */,
 				B9A8B14621984A740085FCA0 /* TaskVC */,
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
@@ -1066,11 +1086,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CEA2242226372B00CEE425 /* AdditionalTimeAddable.swift in Sources */,
 				04C23FD5220D3BB7006761ED /* NotificationViewController.swift in Sources */,
+				04CEA2402228E9A200CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */,
 				0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */,
+				04CEA22E2226F6C900CEE425 /* AditionalTimesReadable.swift in Sources */,
+				04CEA222222636EA00CEE425 /* AdditionalTimes.swift in Sources */,
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
+				04CEA2282226374C00CEE425 /* AdditionalTimeType.swift in Sources */,
+				04CEA23D2227943500CEE425 /* AdditionalTimeRemovable.swift in Sources */,
+				04CEA2342227027300CEE425 /* PossibleAdditionalTimesLoading.swift in Sources */,
+				04CEA2232226372800CEE425 /* RepresentableInSectionedTable.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
+				04CEA2252226372D00CEE425 /* AdditionalTimesChangeble.swift in Sources */,
 				040C211822198CE200CCFA39 /* UNNotificationResponse.swift in Sources */,
+				04CEA2272226374A00CEE425 /* ToggleState.swift in Sources */,
+				04CEA2262226374700CEE425 /* AdditionalTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1116,6 +1147,7 @@
 				040D906721E4F5840049F410 /* TagEditingDropAreaVC.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				044723CB21C21DB200F0214F /* TagModel+CoreDataProperties.swift in Sources */,
+				04CEA21F2224FCB100CEE425 /* AdditionalTimeCreating.swift in Sources */,
 				04091E7721C88E3A00967F50 /* NameForTagReporting.swift in Sources */,
 				0498213C2222C93100CEA932 /* RepresentableInSectionedTable.swift in Sources */,
 				049821342222C8AA00CEA932 /* ToggleState.swift in Sources */,
@@ -1129,15 +1161,14 @@
 				042F439B2201555500AF2682 /* TaskAlarmControlling.swift in Sources */,
 				0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */,
 				0498212A221CF43900CEA932 /* AddTimesListVC.swift in Sources */,
-				0498214D2222D35700CEA932 /* AdditionalTimesWritable.swift in Sources */,
-				0498214B2222D2E700CEA932 /* AdditionalTimesSetable.swift in Sources */,
-				049821382222C90500CEA932 /* PossibleAdditionalWorkTimesReadable.swift in Sources */,
+				0498214D2222D35700CEA932 /* AdditionalTimeAddable.swift in Sources */,
 				0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */,
 				047C4B3021C67AC30009ED40 /* InfoForTagReporting.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
 				047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */,
 				04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */,
 				0498212D221CF5B300CEA932 /* AddTimeCell.swift in Sources */,
+				04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */,
@@ -1146,6 +1177,7 @@
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
+				04CEA22A222645E600CEE425 /* AditionalTimesReadable.swift in Sources */,
 				04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
@@ -1153,12 +1185,12 @@
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */,
-				0498213A2222C91C00CEA932 /* PossibleBreakTimesReadable.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */,
 				0408C6462213C919005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoLabelsController.swift in Sources */,
 				04C23FC22202B944006761ED /* DeadlinePostponable.swift in Sources */,
+				04CEA23F2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */,
 				0498EF4521EC371D00676FAB /* TagsForTaskPreparing.swift in Sources */,
 				B9A8B1562199326C0085FCA0 /* TaskInitiatable.swift in Sources */,
 				04091E7921C88E4A00967F50 /* NameForTagReceiving.swift in Sources */,
@@ -1193,6 +1225,8 @@
 				0498EF5821ED8FBE00676FAB /* EditTagCompletionDelegate.swift in Sources */,
 				B9A8B174219BD3220085FCA0 /* TaskStateImp.swift in Sources */,
 				B9A8B15421992ECD0085FCA0 /* TaskModelAdapter.swift in Sources */,
+				04CEA2322226FE7100CEE425 /* PossibleAdditionalTimesLoading.swift in Sources */,
+				04CEA2382227078000CEE425 /* AdditionalTimeSavingDelegate.swift in Sources */,
 				0498EF5421ED84DA00676FAB /* TagEditingDelegate.swift in Sources */,
 				B96E0EC32193D8820097AB34 /* TaskStaticInfoSource.swift in Sources */,
 				B96E0EBC2193D7FB0097AB34 /* StaticInfoGathering.swift in Sources */,

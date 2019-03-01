@@ -1,5 +1,5 @@
 //
-//  UserDefaults.swift
+//  AdditionalTimesSetable.swift
 //  TaskKiller
 //
 //  Created by mac on 26/02/2019.
@@ -7,11 +7,6 @@
 //
 
 import Foundation
-
-enum AdditionalTimesSavingError: Error {
-    case unableToArchiveObject
-}
-
-extension UserDefaults {
-    
+protocol AdditionalTimeCreating {
+    var delegate: AdditionalTimeSavingDelegate! { get set }
 }

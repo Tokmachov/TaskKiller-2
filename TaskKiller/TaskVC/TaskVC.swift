@@ -14,10 +14,10 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
         self.model = taskHandler
     }
-    lazy private var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-    lazy private var possibePostponeTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.postponeTimesActionKeysAndValues) as! [String : TimeInterval]
-    lazy private var possibleBreakTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.breakTimesActionKeysAndTimeValues) as! [String : TimeInterval]
-    lazy private var dateComponentsFormatter: DateComponentsFormatter = {
+    private lazy var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+    private lazy var possibleAdditionalWorkTimes = loadPossibleAddtionalWorkTimes()
+    private lazy var possibleBreakTimes = loadPossibleBreakTimes()
+    private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = .second
         return formatter
@@ -92,7 +92,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     func statedDidChangeToStarted(dateStarted: Date) {
 
         guard case .timeLeft = model.timeLeftToDeadLine else { fatalError() }
-        
+        taskTimeOutAlarmController.removeBreakTimeOutAlarm()
         taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
         uIProgressTimesUpdater.updateProgressTimes(model)
         uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: dateStarted)
@@ -100,7 +100,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     }
     func stateDidChangeToStopped(progressPeriodToSave: TaskProgressPeriod) {
         model.saveTaskProgressPeriod(progressPeriodToSave)
-        taskTimeOutAlarmController.removeAlarm()
+        taskTimeOutAlarmController.removeTaskTimeOutAlarm()
         uIProgressTimesUpdater.stopUpdatingUIProgressTimes()
         taksStateRepresentingViewsController.makeStoppedUI()
     }
@@ -127,6 +127,9 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
             taskState.goToStoppedState()
             showAddTimeVC()
             removeBadgeFromIcon()
+        case .noAdditionalTimesSet:
+            taskState.goToStoppedState()
+            removeBadgeFromIcon()
         }
     }
     func didReceiveAlarmInForeGround() {
@@ -139,7 +142,6 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         removeBadgeFromIcon()
     }
     
-    //MARK: AdditionalTimeReceiving
     private func didReceiveAdditionalWorkTime(_ workTime: TimeInterval) {
         taskState.goToStoppedState()
         model.postponeDeadlineFor(workTime)
@@ -200,7 +202,12 @@ extension TaskVC {
     }
     private func createAddWorkTimeActions() -> [UIAlertAction] {
         var actions = [UIAlertAction]()
-        let postponeTimes = self.possibePostponeTimes.sorted { $0.value < $1.value }.map { $0.value }
+        guard !possibleAdditionalWorkTimes.isEmpty else {
+            let action = createSetAdditionalTimesAction()
+            actions.append(action)
+            return actions
+        }
+        let postponeTimes = self.possibleAdditionalWorkTimes.sorted { $0.value < $1.value }.map { $0.value }
         for time in postponeTimes {
             let formattedTime = dateComponentsFormatter.string(from: time)!
             let action = UIAlertAction(title: "Add \(formattedTime) more", style: .default, handler: { (action) in
@@ -224,6 +231,11 @@ extension TaskVC {
     }
     private func createAddBreakTimeActions() -> [UIAlertAction] {
         var actions = [UIAlertAction]()
+        guard !possibleAdditionalWorkTimes.isEmpty else {
+            let action = createSetAdditionalTimesAction()
+            actions.append(action)
+            return actions
+        }
         let breakTimes = possibleBreakTimes.sorted { $0.value < $1.value }.map { $0.value }
         for time in breakTimes {
             let formattedTime = dateComponentsFormatter.string(from: time)!
@@ -232,4 +244,11 @@ extension TaskVC {
         }
         return actions
     }
+    private func createSetAdditionalTimesAction() -> UIAlertAction {
+        let title = "Please add times in setups"
+        let action = UIAlertAction(title: title, style: .destructive, handler: nil)
+        return action
+    }
 }
+
+extension TaskVC: PossibleAdditionalTimesLoading {}

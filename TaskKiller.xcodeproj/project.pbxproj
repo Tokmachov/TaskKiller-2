@@ -115,6 +115,8 @@
 		04CEA23D2227943500CEE425 /* AdditionalTimeRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */; };
 		04CEA23F2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */; };
 		04CEA2402228E9A200CEE425 /* PossibleAdditionalTimesSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */; };
+		04CEA2422228F79A00CEE425 /* AdditionalTimesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */; };
+		04CEA2432228F7A600CEE425 /* AdditionalTimesLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -301,6 +303,7 @@
 		04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeSavingDelegate.swift; sourceTree = "<group>"; };
 		04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeRemovable.swift; sourceTree = "<group>"; };
 		04CEA23E2228E5B500CEE425 /* PossibleAdditionalTimesSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PossibleAdditionalTimesSaving.swift; sourceTree = "<group>"; };
+		04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesLoading.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -515,6 +518,7 @@
 			children = (
 				04982129221CF43900CEA932 /* AddTimesListVC.swift */,
 				04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */,
+				04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */,
 			);
 			path = AddTimesListVC;
 			sourceTree = "<group>";
@@ -1095,6 +1099,7 @@
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				04CEA2282226374C00CEE425 /* AdditionalTimeType.swift in Sources */,
 				04CEA23D2227943500CEE425 /* AdditionalTimeRemovable.swift in Sources */,
+				04CEA2432228F7A600CEE425 /* AdditionalTimesLoading.swift in Sources */,
 				04CEA2342227027300CEE425 /* PossibleAdditionalTimesLoading.swift in Sources */,
 				04CEA2232226372800CEE425 /* RepresentableInSectionedTable.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
@@ -1135,6 +1140,7 @@
 				B9A8B1312196FF530085FCA0 /* UIProgressTimesUpdater.swift in Sources */,
 				B96E0EB92193D7920097AB34 /* TaskDescriptionReporting.swift in Sources */,
 				0498EF4721EC45E700676FAB /* TagsPreparingStore.swift in Sources */,
+				04CEA2422228F79A00CEE425 /* AdditionalTimesLoading.swift in Sources */,
 				04C23FB522016635006761ED /* TimeLeftToDeadLineGetable.swift in Sources */,
 				0498EF4921EC462300676FAB /* TagStoreImp.swift in Sources */,
 				B9A8B18621A1C1AA0085FCA0 /* AdditionalTimeReceiving.swift in Sources */,

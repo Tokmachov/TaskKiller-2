@@ -79,6 +79,7 @@ class TaskAlarmsController: NSObject, TaskAlarmControlling, UNUserNotificationCe
         completionHandler()
     }
 }
+extension TaskAlarmsController: PossibleAdditionalTimesLoading {}
 
 extension TaskAlarmsController {
     private func handleTaskTimeOutAlarmResponse(_ response: UNNotificationResponse) {
@@ -174,4 +175,4 @@ extension TaskAlarmsController {
     }
 }
 
-extension TaskAlarmsController: PossibleAdditionalTimesLoading {}
+

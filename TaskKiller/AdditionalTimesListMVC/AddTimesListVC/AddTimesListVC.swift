@@ -13,7 +13,7 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
     let additionalWorkTimeSectionNumber = 0
     let breakTimeSectionNumber = 1
     
-    private lazy var model: AdditionalTimes = loadAdditionaTimes()
+    private lazy var model: AdditionalTimes = loadAdditionalTimes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +95,7 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
     }
 }
 extension AddTimesListVC: PossibleAdditionalTimesSaving {}
+extension AddTimesListVC: AdditionalTimesLoading {}
 extension AddTimesListVC {
     //MARK: configureCell(cell:, atIndexPath:, from:)
     private func configureCell(cell: AdditionalTimeCell, atIndexPath indexPath: IndexPath, from additionalTimes: AdditionalTimes) {
@@ -119,21 +120,21 @@ extension AddTimesListVC {
         return additionalTime
     }
     
-    //MARK: loadAdditionaTimes()
-    private func loadAdditionaTimes() -> AdditionalTimes {
-        guard let data = loadAdditionalTimesDataFromUserDefaults() else { return AdditionalTimes() }
-        guard let additionalTimes = unarchiveAdditionalTimesData(data) else { fatalError() }
-        return additionalTimes
-    }
-    private func loadAdditionalTimesDataFromUserDefaults() -> Data? {
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-        let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesKey)
-        return additionalTimesData
-    }
-    private func unarchiveAdditionalTimesData(_ data: Data) -> AdditionalTimes? {
-        let additionalTimes = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AdditionalTimes
-        return additionalTimes!
-    }
+//    //MARK: loadAdditionaTimes()
+//    private func loadAdditionaTimes() -> AdditionalTimes {
+//        guard let data = loadAdditionalTimesDataFromUserDefaults() else { return AdditionalTimes() }
+//        guard let additionalTimes = unarchiveAdditionalTimesData(data) else { fatalError() }
+//        return additionalTimes
+//    }
+//    private func loadAdditionalTimesDataFromUserDefaults() -> Data? {
+//        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+//        let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesKey)
+//        return additionalTimesData
+//    }
+//    private func unarchiveAdditionalTimesData(_ data: Data) -> AdditionalTimes? {
+//        let additionalTimes = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AdditionalTimes
+//        return additionalTimes!
+//    }
     //MARK: saveAdditionalTimes()
     private func saveAdditionalTimes() {
         let data = try! NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false)
@@ -163,4 +164,6 @@ extension AddTimesListVC {
         let indexPath = tableView.indexPath(for: cell)!
         return indexPath
     }
+
 }
+

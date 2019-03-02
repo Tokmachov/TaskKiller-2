@@ -89,7 +89,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date)
         taksStateRepresentingViewsController.makeStartedUI()
     }
-    func taskSate(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {
+    func taskState(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {
         model.saveTaskProgressPeriod(period)
         taskTimeOutAlarmController.removeTaskTimeOutAlarm()
         uIProgressTimesUpdater.stopUpdatingUIProgressTimes()

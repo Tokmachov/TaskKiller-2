@@ -18,7 +18,7 @@ struct TaskStateImp: TaskState {
             case .started(date: let dateStarted):
                 stateDelegate.taskState(self, didDidChangeToStartedWith: dateStarted)
             case .stopped:
-                stateDelegate.taskSate(self, didChangeToStoppedWithPeriodPassed: taskProgressPeriod!)
+                stateDelegate.taskState(self, didChangeToStoppedWithPeriodPassed: taskProgressPeriod!)
             }
         }
     }

@@ -10,6 +10,6 @@ import Foundation
 
 protocol TaskStateDelegate: AnyObject {
     func taskState(_ taskState: TaskState, didDidChangeToStartedWith date: Date)
-    func taskSate(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod)
+    func taskState(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod)
     func canChangeToStarted(_ taskState: TaskState) -> Bool
 }

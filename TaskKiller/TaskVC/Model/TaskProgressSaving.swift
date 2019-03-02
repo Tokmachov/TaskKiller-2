@@ -9,5 +9,5 @@
 import Foundation
 
 protocol  TaskProgressSaving {
-    func saveTaskProgressPeriod(_ period: TaskProgressPeriod)
+    func saveTaskProgressPeriod(_ period: ProgressPeriod)
 }

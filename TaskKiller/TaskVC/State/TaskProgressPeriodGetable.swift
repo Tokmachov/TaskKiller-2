@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TaskProgressPeriodGetable {
-    func getProgressPeriod() -> TaskProgressPeriod
+    func getProgressPeriod() -> ProgressPeriod
 }

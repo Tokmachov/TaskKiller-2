@@ -16,16 +16,16 @@ struct TaskStateImp: TaskState {
             switch state {
             case .notStarted: break
             case .started(date: let dateStarted):
-                stateDelegate.statedDidChangeToStarted(dateStarted: dateStarted)
+                stateDelegate.taskState(self, didDidChangeToStartedWith: dateStarted)
             case .stopped:
-                stateDelegate.stateDidChangeToStopped(progressPeriodToSave: taskProgressPeriod!)
+                stateDelegate.taskSate(self, didChangeToStoppedWithPeriodPassed: taskProgressPeriod!)
             }
         }
     }
     
-    private var taskProgressPeriod: TaskProgressPeriod? {
+    private var taskProgressPeriod: ProgressPeriod? {
         guard case let .stopped(started: dateStarted, ended: dateStopped) = state else { return nil }
-        return TaskProgressPeriod.init(dateStarted: dateStarted, dateEnded: dateStopped)
+        return ProgressPeriod.init(dateStarted: dateStarted, dateEnded: dateStopped)
     }
     init(stateSavingDelegate: TaskStateDelegate) {
         self.stateDelegate = stateSavingDelegate
@@ -43,14 +43,14 @@ struct TaskStateImp: TaskState {
     mutating func goToNextState() {
         switch state {
         case .notStarted:
-            if stateDelegate.canChangeToStarted() {
+            if stateDelegate.canChangeToStarted(self) {
                 state = .started(date: Date())
             } else {
                 break
             }
         case .started(date: let dateStarted): state = .stopped(started: dateStarted, ended: Date())
         case .stopped:
-            if stateDelegate.canChangeToStarted() {
+            if stateDelegate.canChangeToStarted(self) {
                 state = .started(date: Date())
             } else {
                 break

@@ -8,15 +8,14 @@
 
 import UIKit
 
-class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, ProgressTimesReceiver, TaskAlarmsReceivingDelegate {
+class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, ProgressTimesReceiver, AlarmsControllerDelegate {
   
     //MARK: TaskProgressTrackingVC
     func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
         self.model = taskHandler
     }
-    private lazy var userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-    private lazy var possibleAdditionalWorkTimes = loadPossibleAddtionalWorkTimes()
-    private lazy var possibleBreakTimes = loadPossibleBreakTimes()
+    private lazy var workTimesWithIds = loadSwitchedOnWorkTimesWithIds()
+    private lazy var breakTimesWithIds = loadSwitchedOnBreakTimesWithIds()
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = .second
@@ -33,7 +32,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     private var model: TaskProgressSavingModel! 
     private var taskState: TaskState!
     private var uIProgressTimesUpdater: UIProgressTimesUpdater!
-    private var taskTimeOutAlarmController: TaskAlarmControlling!
+    private var taskTimeOutAlarmController: AlarmsControlling!
     
     private var taskStaticInfoLabelsController: TaskStaticInfoUpdatable!
     private var taskProgressTimesLabelsController: ProgressTimesLabelsController!
@@ -43,8 +42,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     override func viewDidLoad() {
         super.viewDidLoad()
         taskState = TaskStateImp(stateSavingDelegate: self)
-        taskTimeOutAlarmController = TaskAlarmsController(alarmReceivingDelegate: self)
-        
+        taskTimeOutAlarmController = TaskAlarmsController(alarmsControllerDelegate: self)
         taskStaticInfoLabelsController =
             TaskStaticInfoLabelsController(
                 forDescription: taskDescriptionLabel,
@@ -63,8 +61,6 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
             )
         
         uIProgressTimesUpdater = UIProgressTimesUpdater(progressTimesReceiver: self)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,16 +68,12 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         taskStaticInfoLabelsController.updateStaticInfo(model)
         uIProgressTimesUpdater.updateProgressTimes(model)
     }
-    @objc private func willEnterForeground() {
-        
-    }
    
     @IBAction func playButtonPressed() {
         taskState.goToNextState()
     }
     
-    //MARK: TaskStateDelegate
-    func canChangeToStarted() -> Bool {
+    func canChangeToStarted(_ taskState: TaskState) -> Bool {
         switch model.timeLeftToDeadLine {
         case .noTimeLeft:
             showAddTimeVC()
@@ -89,75 +81,70 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         case .timeLeft: return true
         }
     }
-    func statedDidChangeToStarted(dateStarted: Date) {
-
+    func taskState(_ taskState: TaskState, didDidChangeToStartedWith date: Date) {
         guard case .timeLeft = model.timeLeftToDeadLine else { fatalError() }
         taskTimeOutAlarmController.removeBreakTimeOutAlarm()
         taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
         uIProgressTimesUpdater.updateProgressTimes(model)
-        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: dateStarted)
+        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date)
         taksStateRepresentingViewsController.makeStartedUI()
     }
-    func stateDidChangeToStopped(progressPeriodToSave: TaskProgressPeriod) {
-        model.saveTaskProgressPeriod(progressPeriodToSave)
+    func taskSate(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {
+        model.saveTaskProgressPeriod(period)
         taskTimeOutAlarmController.removeTaskTimeOutAlarm()
         uIProgressTimesUpdater.stopUpdatingUIProgressTimes()
         taksStateRepresentingViewsController.makeStoppedUI()
     }
+    
     @IBAction func doneButtonPressed() {
         finishTask()
     }
-     
-    //MARK: ProgressTimesReceiver
+    
     func receiveProgressTimes(_ progressTimesSource: ProgressTimesSource) {
         taskProgressTimesLabelsController.updateProgressTimes(progressTimesSource)
     }
-    
-    //MARK: TaskTimeOutAlarmReceivingDelegate
-    func didReceiveAlarmWithResponseOfType(_ responseType: AlarmResponseType) {
+
+    func alarmsController(_ alarmsController: AlarmsControlling, didReceiveAlarmWithResponseType responseType: AlarmResponseType) {
+        removeBadgeFromIcon()
         switch responseType {
         case .finishTask:
             finishTask()
-            removeBadgeFromIcon()
-        case .needMoreTime(let time):
-            didReceiveAdditionalWorkTime(time)
-        case .needABreak(let time):
-            didReceiveBreakTime(time)
+        case .addWorkTime(let time):
+            addWorkTimeToTask(time)
+        case .addBreak(let time):
+            takeABreak(time)
         case .defaultAlarmResponse:
             taskState.goToStoppedState()
             showAddTimeVC()
-            removeBadgeFromIcon()
         case .noAdditionalTimesSet:
             taskState.goToStoppedState()
-            removeBadgeFromIcon()
         }
     }
-    func didReceiveAlarmInForeGround() {
+    func didReceiveAlarmInForeGround(from alarmsController: AlarmsControlling) {
         taskState.goToStoppedState()
         showAddTimeVC()
         removeBadgeFromIcon()
     }
-    func didDismissAlarm() {
+    func didDismissAlarm(_ alarmsController: AlarmsControlling) {
         taskState.goToStoppedState()
-        removeBadgeFromIcon()
-    }
-    
-    private func didReceiveAdditionalWorkTime(_ workTime: TimeInterval) {
-        taskState.goToStoppedState()
-        model.postponeDeadlineFor(workTime)
-        taskState.goToStartedState()
-        removeBadgeFromIcon()
-    }
-    private func didReceiveBreakTime(_ breakTime: TimeInterval) {
-        self.taskState.goToStoppedState()
-        self.taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(breakTime, alarmInfo: self.model)
         removeBadgeFromIcon()
     }
 }
+extension TaskVC: SwitchedOnAdditionalTimesWithIdsLoading {}
 
 extension TaskVC {
+    private func addWorkTimeToTask(_ workTime: TimeInterval) {
+        taskState.goToStoppedState()
+        model.postponeDeadlineFor(workTime)
+        taskState.goToStartedState()
+    }
+    private func takeABreak(_ breakTime: TimeInterval) {
+        self.taskState.goToStoppedState()
+        self.taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(breakTime, alarmInfo: self.model)
+    }
     private func finishTask() {
         taskState.goToStoppedState()
+        taskTimeOutAlarmController.removeBreakTimeOutAlarm()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
     }
     private func removeBadgeFromIcon() {
@@ -202,16 +189,16 @@ extension TaskVC {
     }
     private func createAddWorkTimeActions() -> [UIAlertAction] {
         var actions = [UIAlertAction]()
-        guard !possibleAdditionalWorkTimes.isEmpty else {
+        guard !workTimesWithIds.isEmpty else {
             let action = createSetAdditionalTimesAction()
             actions.append(action)
             return actions
         }
-        let postponeTimes = self.possibleAdditionalWorkTimes.sorted { $0.value < $1.value }.map { $0.value }
+        let postponeTimes = self.workTimesWithIds.sorted { $0.value < $1.value }.map { $0.value }
         for time in postponeTimes {
             let formattedTime = dateComponentsFormatter.string(from: time)!
             let action = UIAlertAction(title: "Add \(formattedTime) more", style: .default, handler: { (action) in
-                self.didReceiveAdditionalWorkTime(time)
+                self.addWorkTimeToTask(time)
             })
             actions.append(action)
         }
@@ -231,15 +218,15 @@ extension TaskVC {
     }
     private func createAddBreakTimeActions() -> [UIAlertAction] {
         var actions = [UIAlertAction]()
-        guard !possibleAdditionalWorkTimes.isEmpty else {
+        guard !workTimesWithIds.isEmpty else {
             let action = createSetAdditionalTimesAction()
             actions.append(action)
             return actions
         }
-        let breakTimes = possibleBreakTimes.sorted { $0.value < $1.value }.map { $0.value }
+        let breakTimes = breakTimesWithIds.sorted { $0.value < $1.value }.map { $0.value }
         for time in breakTimes {
             let formattedTime = dateComponentsFormatter.string(from: time)!
-            let action = UIAlertAction(title: "Add \(formattedTime) break", style: .default, handler: { _ in self.didReceiveBreakTime(time)})
+            let action = UIAlertAction(title: "Add \(formattedTime) break", style: .default, handler: { _ in self.takeABreak(time)})
             actions.append(action)
         }
         return actions
@@ -251,4 +238,4 @@ extension TaskVC {
     }
 }
 
-extension TaskVC: PossibleAdditionalTimesLoading {}
+

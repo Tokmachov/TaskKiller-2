@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAdditionalWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeAddable, AdditionalTimesEditing, AdditionalTimeRemovable {
+class AdditionalTimes: NSObject,NSCoding, SwitchedOnBreakTimesReadable, SwitchedOnWorkTimesReadable, RepresentableInSectionedTable, AdditionalTimeAddable, AdditionalTimesEditable, AdditionalTimeRemovable {
     
     private var additionalTimesIdsAndValues = [String : AdditionalTime]()
     override init() {
@@ -22,11 +22,11 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
         aCoder.encode(additionalTimesIdsAndValues, forKey: "additionalTimesIdsAndValues")
     }
     //PossibleAdditionalWorkTimesReadable
-    var possibleAdditionalWorkTimesForIds: [String : TimeInterval] {
+    var workTimesWithIds: [String : TimeInterval] {
         return additionalTimesIdsAndValues.filter { $0.value.toggleState == .on && $0.value.type == .additionalWorkTime }.mapValues { $0.time }
     }
     //PossibleBreakTimesReadable
-    var possibleBreakTimesForIds: [String : TimeInterval] {
+    var breakTimesWithIds: [String : TimeInterval] {
         return additionalTimesIdsAndValues.filter { $0.value.toggleState == .on && $0.value.type == .breakTime }.mapValues { $0.time }
     }
     //AdditionalTimeAddable
@@ -56,7 +56,7 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
     }
     
     //MARK: AdditionalTimesChangable
-    func changeToggleStateOfAdditionalWorkTime(atIndex index: Int, to togglesState: ToggleState) {
+    func changeToggleStateOfWorkTime(atIndex index: Int, to togglesState: ToggleState) {
         let additionalTime = additionalWorkTimes[index]
         additionalTime.toggleState = togglesState
     }
@@ -65,7 +65,7 @@ class AdditionalTimes: NSObject,NSCoding, PossibleBreakTimesReadable, PossibleAd
         additionalTime.toggleState = togglesState
     }
     //MARK: AdditionalTimeRemvable
-    func removeAdditionalWorkTime(atIndex index: Int) {
+    func removeWorkTime(atIndex index: Int) {
         let additionalWorkTime = additionalWorkTimes[index]
         let additionalWorkTimeKey = additionalTimesIdsAndValues.first { $0.value === additionalWorkTime }!.key
         _ = additionalTimesIdsAndValues.removeValue(forKey: additionalWorkTimeKey)

@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct TaskProgressPeriod {
+struct ProgressPeriod {
     var dateStarted: Date
     var dateEnded: Date
 }

@@ -36,7 +36,7 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     }
     
     //MARK: TaskProgressSaving
-    func saveTaskProgressPeriod(_ period: TaskProgressPeriod) {
+    func saveTaskProgressPeriod(_ period: ProgressPeriod) {
         task.saveProgressPeriod(period)
     }
     

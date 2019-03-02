@@ -9,8 +9,8 @@
 import Foundation
 
 enum AlarmResponseType {
-    case needMoreTime(TimeInterval)
-    case needABreak(TimeInterval)
+    case addWorkTime(TimeInterval)
+    case addBreak(TimeInterval)
     case finishTask
     case defaultAlarmResponse
     case noAdditionalTimesSet

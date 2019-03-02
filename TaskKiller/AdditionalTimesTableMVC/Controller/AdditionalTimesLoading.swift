@@ -9,10 +9,10 @@
 import Foundation
 
 protocol AdditionalTimesLoading {
-    func loadAdditionalTimes() -> AdditionalTimes
+    func loadAdditionalTimes() -> TimesModelForTable
 }
 extension AdditionalTimesLoading {
-    func loadAdditionalTimes() -> AdditionalTimes {
+    func loadAdditionalTimes() -> TimesModelForTable {
         guard let data = loadAdditionalTimesDataFromUserDefaults() else { return AdditionalTimes() }
         guard let additionalTimes = unarchiveAdditionalTimesData(data) else { fatalError() }
         return additionalTimes

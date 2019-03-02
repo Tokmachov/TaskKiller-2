@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AdditionalTimesEditing {
-    func changeToggleStateOfAdditionalWorkTime(atIndex index: Int, to togglesState: ToggleState)
+protocol AdditionalTimesEditable {
+    func changeToggleStateOfWorkTime(atIndex index: Int, to togglesState: ToggleState)
     func changeToggleStateOfBreakTime(atIndex index: Int, to togglesState: ToggleState)
 }

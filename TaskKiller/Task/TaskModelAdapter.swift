@@ -29,7 +29,7 @@ struct TaskModelAdapter: Task {
         return TimeInterval(adaptee.postponableDeadLine)
     }
     
-    func saveProgressPeriod(_ period: TaskProgressPeriod) {
+    func saveProgressPeriod(_ period: ProgressPeriod) {
         let period = createPeriodModel(from: period)
         adaptee.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
@@ -68,7 +68,7 @@ struct TaskModelAdapter: Task {
 }
 
 extension TaskModelAdapter {
-    private func createPeriodModel(from taskProgressPeriod: TaskProgressPeriod) -> PeriodModel {
+    private func createPeriodModel(from taskProgressPeriod: ProgressPeriod) -> PeriodModel {
         let period = PeriodModel(context: PersistanceService.context)
         let dateStarted = taskProgressPeriod.dateStarted as NSDate
         let dateFinished = taskProgressPeriod.dateEnded as NSDate

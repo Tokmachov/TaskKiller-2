@@ -9,6 +9,6 @@
 import Foundation
 
 protocol AdditionalTimeRemovable {
-    func removeAdditionalWorkTime(atIndex index: Int)
+    func removeWorkTime(atIndex index: Int)
     func removeBreakTime(atIndex index: Int)
 }

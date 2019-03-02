@@ -4,8 +4,8 @@ protocol Category {
 
 struct TaskTimeOutActionsIDs {
     let openApp = "OpenApp"
-    let needBreak = "needBreak"
-    let needMoreTime = "needMoreTime"
+    let addBreak = "needBreak"
+    let addWorkTime = "needMoreTime"
     let taskIsFinished = "taskIsFinished"
     let setWorkTimes = "setWorkTimes"
 }
@@ -19,8 +19,8 @@ struct BreakTimeOutActionsIDs {
 }
 
 struct CategoriesInfo {
-    static let taskTimeOut  = TaskTimeIsUpCategory()
-    static let breakTimeOut = BreakTimeIsUpCategory()
+    static let taskTimeOutCategory  = TaskTimeIsUpCategory()
+    static let breakTimeOutCategory = BreakTimeIsUpCategory()
 }
 
 struct TaskTimeIsUpCategory: Category {

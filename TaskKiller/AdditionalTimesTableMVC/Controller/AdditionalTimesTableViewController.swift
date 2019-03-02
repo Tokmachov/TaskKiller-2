@@ -8,12 +8,12 @@
 
 import UIKit
 
-class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
+class AdditionalTimesTableViewController: UITableViewController, AdditionalTimeSavingDelegate {
     let cellId = "AdditionalTimeCell"
-    let additionalWorkTimeSectionNumber = 0
-    let breakTimeSectionNumber = 1
+    let workTimesSectionNumber = 0
+    let breakTimesSectionNumber = 1
     
-    private lazy var model: AdditionalTimes = loadAdditionalTimes()
+    private lazy var model: TimesModelForTable = loadAdditionalTimes()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,21 +28,21 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
     }
     @IBAction func additionalTimeStateWasSwitched(_ sender: UISwitch) {
         let indexPath = getCellIndexPath(of: sender)
-        let state = getAdditionalTimeToggleState(sender)
+        let state = getTimeToggleState(sender)
         switch indexPath.section {
-        case additionalWorkTimeSectionNumber: model.changeToggleStateOfAdditionalWorkTime(atIndex: indexPath.row, to: state)
-        case breakTimeSectionNumber: model.changeToggleStateOfBreakTime(atIndex: indexPath.row, to: state)
+        case workTimesSectionNumber: model.changeToggleStateOfWorkTime(atIndex: indexPath.row, to: state)
+        case breakTimesSectionNumber: model.changeToggleStateOfBreakTime(atIndex: indexPath.row, to: state)
         default: fatalError()
         }
-        saveAdditionalTimes()
-        savePossibleAdditionalTimes(model)
+        saveAdditionalTimes(model)
+        saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
     
     //MARK: CreateAdditionalTimesVCDelegate methods
     func additionalTimeWasCreated(_ additionalTime: AdditionalTime) {
         model.addAdditionalTime(additionalTime)
-        saveAdditionalTimes()
-        savePossibleAdditionalTimes(model)
+        saveAdditionalTimes(model)
+        saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
     
     //TableView Delegate methods
@@ -51,19 +51,19 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case additionalWorkTimeSectionNumber: return model.additionalWorkTimes.count
-        case breakTimeSectionNumber: return model.additionalBreakTimes.count
-        default: return additionalWorkTimeSectionNumber
+        case workTimesSectionNumber: return model.additionalWorkTimes.count
+        case breakTimesSectionNumber: return model.additionalBreakTimes.count
+        default: return workTimesSectionNumber
         }
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = UILabel()
         sectionHeader.backgroundColor = UIColor.gray
         switch section {
-        case additionalWorkTimeSectionNumber:
+        case workTimesSectionNumber:
             sectionHeader.setText(model.titleForAdditionalWorkTimesSection)
             return sectionHeader
-        case breakTimeSectionNumber:
+        case breakTimesSectionNumber:
             sectionHeader.setText(model.titleForAdditionalBreakTimesSection)
             return sectionHeader
         default: fatalError()
@@ -76,13 +76,13 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
-        case .delete where indexPath.section == additionalWorkTimeSectionNumber: model.removeAdditionalWorkTime(atIndex: indexPath.row)
-        case .delete where indexPath.section == breakTimeSectionNumber: model.removeBreakTime(atIndex: indexPath.row)
+        case .delete where indexPath.section == workTimesSectionNumber: model.removeWorkTime(atIndex: indexPath.row)
+        case .delete where indexPath.section == breakTimesSectionNumber: model.removeBreakTime(atIndex: indexPath.row)
         default: break
         }
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        saveAdditionalTimes()
-        savePossibleAdditionalTimes(model)
+        saveAdditionalTimes(model)
+        saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
     //Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,9 +94,11 @@ class AddTimesListVC: UITableViewController, AdditionalTimeSavingDelegate {
         }
     }
 }
-extension AddTimesListVC: PossibleAdditionalTimesSaving {}
-extension AddTimesListVC: AdditionalTimesLoading {}
-extension AddTimesListVC {
+extension AdditionalTimesTableViewController: SwitchedOnAdditionalTimesWithIdsSaving {}
+extension AdditionalTimesTableViewController: AdditionalTimesLoading {}
+extension AdditionalTimesTableViewController: AdditionalTimesSaving {}
+
+extension AdditionalTimesTableViewController {
     //MARK: configureCell(cell:, atIndexPath:, from:)
     private func configureCell(cell: AdditionalTimeCell, atIndexPath indexPath: IndexPath, from additionalTimes: AdditionalTimes) {
         let additionalTime = getAdditionalTime(from: additionalTimes, forIndexPath: indexPath)
@@ -113,42 +115,20 @@ extension AddTimesListVC {
         
         let additionalTime: AdditionalTime
         switch indexPath.section {
-        case additionalWorkTimeSectionNumber: additionalTime = additionalTimes.additionalWorkTimes[indexPath.row]
-        case breakTimeSectionNumber: additionalTime = additionalTimes.additionalBreakTimes[indexPath.row]
+        case workTimesSectionNumber: additionalTime = additionalTimes.additionalWorkTimes[indexPath.row]
+        case breakTimesSectionNumber: additionalTime = additionalTimes.additionalBreakTimes[indexPath.row]
         default: fatalError()
         }
         return additionalTime
     }
     
-//    //MARK: loadAdditionaTimes()
-//    private func loadAdditionaTimes() -> AdditionalTimes {
-//        guard let data = loadAdditionalTimesDataFromUserDefaults() else { return AdditionalTimes() }
-//        guard let additionalTimes = unarchiveAdditionalTimesData(data) else { fatalError() }
-//        return additionalTimes
-//    }
-//    private func loadAdditionalTimesDataFromUserDefaults() -> Data? {
-//        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-//        let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesKey)
-//        return additionalTimesData
-//    }
-//    private func unarchiveAdditionalTimesData(_ data: Data) -> AdditionalTimes? {
-//        let additionalTimes = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AdditionalTimes
-//        return additionalTimes!
-//    }
-    //MARK: saveAdditionalTimes()
-    private func saveAdditionalTimes() {
-        let data = try! NSKeyedArchiver.archivedData(withRootObject: model, requiringSecureCoding: false)
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
-        userDefaults?.set(data, forKey: UserDefaultsKeys.additionalTimesKey)
-    }
-   
     //MARK: customizeNavigationBar()
     private func customizeNavigationBar() {
         navigationItem.title = "Add times"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func getAdditionalTimeToggleState(_ sender: UISwitch) -> ToggleState {
+    private func getTimeToggleState(_ sender: UISwitch) -> ToggleState {
         switch sender.isOn {
         case true: return ToggleState.on
         case false: return ToggleState.off

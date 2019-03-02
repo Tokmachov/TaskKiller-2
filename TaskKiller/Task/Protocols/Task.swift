@@ -20,7 +20,7 @@ protocol Task: DeadlinePostponable {
     
     func getCurrentDeadline() -> TimeInterval
     
-    func saveProgressPeriod(_ period: TaskProgressPeriod)
+    func saveProgressPeriod(_ period: ProgressPeriod)
     
     func addTags(_ tags: AllTagsGetableStore)
     

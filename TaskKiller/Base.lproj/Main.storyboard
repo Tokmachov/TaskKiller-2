@@ -1478,10 +1478,10 @@
             </objects>
             <point key="canvasLocation" x="-1493" y="1458"/>
         </scene>
-        <!--Add Times ListVC-->
+        <!--Additional Times Table View Controller-->
         <scene sceneID="MBc-xp-yAD">
             <objects>
-                <tableViewController id="jb3-7V-fNn" customClass="AddTimesListVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jb3-7V-fNn" customClass="AdditionalTimesTableViewController" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RKk-0g-5LJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

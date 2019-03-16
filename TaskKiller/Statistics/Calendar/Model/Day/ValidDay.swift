@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ValidDay: Day {
+struct ValidDay: DayModel {
     var dayNumberDescription: String {
         if String(dayNumber).count == 2 {
             return "\(dayNumber) "

@@ -59,7 +59,7 @@
 		047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */; };
 		047C4B3F21C75AFE0009ED40 /* ColorPaneCallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */; };
 		048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
-		048A4C1422322A2E00D71D6E /* MonthsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsFactory.swift */; };
+		048A4C1422322A2E00D71D6E /* MonthsModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsModelsFactory.swift */; };
 		0498212A221CF43900CEA932 /* AdditionalTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */; };
 		0498212D221CF5B300CEA932 /* AddTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498212C221CF5B300CEA932 /* AddTimeCell.swift */; };
 		0498212F221CF87F00CEA932 /* AdditionalTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498212E221CF87F00CEA932 /* AdditionalTimes.swift */; };
@@ -131,14 +131,27 @@
 		04CEA24F222AA31B00CEE425 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E7F21C9EBBE00967F50 /* Tag.swift */; };
 		04CEA250222AA36C00CEE425 /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C421C21DB200F0214F /* TagModel+CoreDataClass.swift */; };
 		04CEA253222E262C00CEE425 /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA252222E262C00CEE425 /* StatisticsVC.swift */; };
-		04F1700722336114006F062D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700622336114006F062D /* Day.swift */; };
+		04F1700722336114006F062D /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700622336114006F062D /* DayModel.swift */; };
 		04F1700922336137006F062D /* PlaceHolderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700822336137006F062D /* PlaceHolderDay.swift */; };
 		04F1700B22336159006F062D /* ValidDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700A22336159006F062D /* ValidDay.swift */; };
-		04F1700F22336195006F062D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700E22336195006F062D /* Month.swift */; };
-		04F17011223361B2006F062D /* MonthImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17010223361B2006F062D /* MonthImp.swift */; };
-		04F17014223361E8006F062D /* MonthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17013223361E8006F062D /* MonthStore.swift */; };
-		04F17016223361FE006F062D /* MonthsStoreImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17015223361FE006F062D /* MonthsStoreImp.swift */; };
+		04F1700F22336195006F062D /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700E22336195006F062D /* MonthModel.swift */; };
+		04F17011223361B2006F062D /* MonthModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17010223361B2006F062D /* MonthModelImp.swift */; };
+		04F17014223361E8006F062D /* MonthsModelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17013223361E8006F062D /* MonthsModelsStore.swift */; };
+		04F17016223361FE006F062D /* MonthsModelsStoreImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17015223361FE006F062D /* MonthsModelsStoreImp.swift */; };
 		04F1701B223362B2006F062D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701A223362B2006F062D /* Calendar.swift */; };
+		04F1701E2234ED56006F062D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701D2234ED56006F062D /* DayCell.swift */; };
+		04F1701F2234ED95006F062D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701D2234ED56006F062D /* DayCell.swift */; };
+		04F170202234F159006F062D /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
+		04F170212234F1DA006F062D /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
+		04F170222234F44B006F062D /* MonthsModelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17013223361E8006F062D /* MonthsModelsStore.swift */; };
+		04F170232234F45B006F062D /* MonthsModelsStoreImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17015223361FE006F062D /* MonthsModelsStoreImp.swift */; };
+		04F170242234F463006F062D /* MonthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700E22336195006F062D /* MonthModel.swift */; };
+		04F170252234F465006F062D /* MonthModelImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17010223361B2006F062D /* MonthModelImp.swift */; };
+		04F170262234F46D006F062D /* DayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700622336114006F062D /* DayModel.swift */; };
+		04F170272234F471006F062D /* PlaceHolderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700822336137006F062D /* PlaceHolderDay.swift */; };
+		04F170282234F474006F062D /* ValidDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700A22336159006F062D /* ValidDay.swift */; };
+		04F170292234F489006F062D /* MonthsModelsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsModelsFactory.swift */; };
+		04F1702A2234F497006F062D /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701A223362B2006F062D /* Calendar.swift */; };
 		B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E80219347E50097AB34 /* AppDelegate.swift */; };
 		B96E0E83219347E50097AB34 /* CreateTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0E82219347E50097AB34 /* CreateTaskVC.swift */; };
 		B96E0E86219347E50097AB34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B96E0E84219347E50097AB34 /* Main.storyboard */; };
@@ -273,7 +286,7 @@
 		047C4B3C21C754FD0009ED40 /* ColorChosenForTagReceiving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorChosenForTagReceiving.swift; sourceTree = "<group>"; };
 		047C4B3E21C75AFE0009ED40 /* ColorPaneCallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneCallButton.swift; sourceTree = "<group>"; };
 		048A4C00222E27A500D71D6E /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
-		048A4C1322322A2E00D71D6E /* MonthsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsFactory.swift; sourceTree = "<group>"; };
+		048A4C1322322A2E00D71D6E /* MonthsModelsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsFactory.swift; sourceTree = "<group>"; };
 		04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesTableViewController.swift; sourceTree = "<group>"; };
 		0498212C221CF5B300CEA932 /* AddTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimeCell.swift; sourceTree = "<group>"; };
 		0498212E221CF87F00CEA932 /* AdditionalTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimes.swift; sourceTree = "<group>"; };
@@ -330,14 +343,15 @@
 		04CEA244222A643400CEE425 /* TimesModelForTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimesModelForTable.swift; sourceTree = "<group>"; };
 		04CEA247222A698B00CEE425 /* AdditionalTimesSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesSaving.swift; sourceTree = "<group>"; };
 		04CEA252222E262C00CEE425 /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
-		04F1700622336114006F062D /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		04F1700622336114006F062D /* DayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayModel.swift; sourceTree = "<group>"; };
 		04F1700822336137006F062D /* PlaceHolderDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderDay.swift; sourceTree = "<group>"; };
 		04F1700A22336159006F062D /* ValidDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidDay.swift; sourceTree = "<group>"; };
-		04F1700E22336195006F062D /* Month.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Month.swift; sourceTree = "<group>"; };
-		04F17010223361B2006F062D /* MonthImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthImp.swift; sourceTree = "<group>"; };
-		04F17013223361E8006F062D /* MonthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthStore.swift; sourceTree = "<group>"; };
-		04F17015223361FE006F062D /* MonthsStoreImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsStoreImp.swift; sourceTree = "<group>"; };
+		04F1700E22336195006F062D /* MonthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModel.swift; sourceTree = "<group>"; };
+		04F17010223361B2006F062D /* MonthModelImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthModelImp.swift; sourceTree = "<group>"; };
+		04F17013223361E8006F062D /* MonthsModelsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsStore.swift; sourceTree = "<group>"; };
+		04F17015223361FE006F062D /* MonthsModelsStoreImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsStoreImp.swift; sourceTree = "<group>"; };
 		04F1701A223362B2006F062D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
+		04F1701D2234ED56006F062D /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
 		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E82219347E50097AB34 /* CreateTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC.swift; sourceTree = "<group>"; };
@@ -550,8 +564,8 @@
 			isa = PBXGroup;
 			children = (
 				04F17005223360F6006F062D /* Model */,
-				048A4C04222E284900D71D6E /* Controller */,
 				048A4C03222E283300D71D6E /* Views */,
+				048A4C04222E284900D71D6E /* Controller */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -559,6 +573,7 @@
 		048A4C03222E283300D71D6E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				04F1701D2234ED56006F062D /* DayCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -765,7 +780,7 @@
 		04F17005223360F6006F062D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				048A4C1322322A2E00D71D6E /* MonthsFactory.swift */,
+				04F1701C2234E7C6006F062D /* MonthsModelsFactory */,
 				04F17012223361D3006F062D /* MonthStore */,
 				04F1700D22336182006F062D /* Month */,
 				04F1700C2233616F006F062D /* Day */,
@@ -777,7 +792,7 @@
 		04F1700C2233616F006F062D /* Day */ = {
 			isa = PBXGroup;
 			children = (
-				04F1700622336114006F062D /* Day.swift */,
+				04F1700622336114006F062D /* DayModel.swift */,
 				04F1700822336137006F062D /* PlaceHolderDay.swift */,
 				04F1700A22336159006F062D /* ValidDay.swift */,
 			);
@@ -787,8 +802,8 @@
 		04F1700D22336182006F062D /* Month */ = {
 			isa = PBXGroup;
 			children = (
-				04F17010223361B2006F062D /* MonthImp.swift */,
-				04F1700E22336195006F062D /* Month.swift */,
+				04F1700E22336195006F062D /* MonthModel.swift */,
+				04F17010223361B2006F062D /* MonthModelImp.swift */,
 			);
 			path = Month;
 			sourceTree = "<group>";
@@ -796,8 +811,8 @@
 		04F17012223361D3006F062D /* MonthStore */ = {
 			isa = PBXGroup;
 			children = (
-				04F17013223361E8006F062D /* MonthStore.swift */,
-				04F17015223361FE006F062D /* MonthsStoreImp.swift */,
+				04F17013223361E8006F062D /* MonthsModelsStore.swift */,
+				04F17015223361FE006F062D /* MonthsModelsStoreImp.swift */,
 			);
 			path = MonthStore;
 			sourceTree = "<group>";
@@ -808,6 +823,14 @@
 				04F1701A223362B2006F062D /* Calendar.swift */,
 			);
 			path = "Calednar Extensions";
+			sourceTree = "<group>";
+		};
+		04F1701C2234E7C6006F062D /* MonthsModelsFactory */ = {
+			isa = PBXGroup;
+			children = (
+				048A4C1322322A2E00D71D6E /* MonthsModelsFactory.swift */,
+			);
+			path = MonthsModelsFactory;
 			sourceTree = "<group>";
 		};
 		B96E0E74219347E50097AB34 = {
@@ -1209,7 +1232,10 @@
 			files = (
 				04CEA2242226372B00CEE425 /* AdditionalTimeAddable.swift in Sources */,
 				04CEA249222A6C5000CEE425 /* AdditionalTimesSaving.swift in Sources */,
+				04F170242234F463006F062D /* MonthModel.swift in Sources */,
 				04C23FD5220D3BB7006761ED /* NotificationExtensionViewController.swift in Sources */,
+				04F170262234F46D006F062D /* DayModel.swift in Sources */,
+				04F170232234F45B006F062D /* MonthsModelsStoreImp.swift in Sources */,
 				04CEA2402228E9A200CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift in Sources */,
 				04CEA24C222A9FC300CEE425 /* AlarmsControllerDelegate.swift in Sources */,
 				0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */,
@@ -1218,6 +1244,8 @@
 				04CEA24B222A9F8E00CEE425 /* TaskStaticInfoSource.swift in Sources */,
 				04CEA22E2226F6C900CEE425 /* SwitchedOnAdditionalTimesReadable.swift in Sources */,
 				04CEA222222636EA00CEE425 /* AdditionalTimes.swift in Sources */,
+				04F170212234F1DA006F062D /* UILabel.swift in Sources */,
+				04F170282234F474006F062D /* ValidDay.swift in Sources */,
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				04CEA24A222A9CC800CEE425 /* AlarmsControlling.swift in Sources */,
 				04CEA2282226374C00CEE425 /* AdditionalTimeType.swift in Sources */,
@@ -1225,13 +1253,20 @@
 				04CEA2432228F7A600CEE425 /* AdditionalTimesLoading.swift in Sources */,
 				04CEA2342227027300CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */,
 				04CEA2232226372800CEE425 /* RepresentableInSectionedTable.swift in Sources */,
+				04F170202234F159006F062D /* CalendarVC.swift in Sources */,
+				04F170252234F465006F062D /* MonthModelImp.swift in Sources */,
+				04F170272234F471006F062D /* PlaceHolderDay.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
+				04F1701F2234ED95006F062D /* DayCell.swift in Sources */,
+				04F170222234F44B006F062D /* MonthsModelsStore.swift in Sources */,
 				04CEA2252226372D00CEE425 /* AdditionalTimesEditable.swift in Sources */,
 				04CEA246222A650C00CEE425 /* TimesModelForTable.swift in Sources */,
 				040C211822198CE200CCFA39 /* UNNotificationResponse.swift in Sources */,
 				04CEA250222AA36C00CEE425 /* TagModel+CoreDataClass.swift in Sources */,
 				04CEA2272226374A00CEE425 /* ToggleState.swift in Sources */,
 				04CEA24E222AA30000CEE425 /* TaskStaticInfo.swift in Sources */,
+				04F1702A2234F497006F062D /* Calendar.swift in Sources */,
+				04F170292234F489006F062D /* MonthsModelsFactory.swift in Sources */,
 				04CEA2262226374700CEE425 /* AdditionalTime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1246,6 +1281,7 @@
 				0406D3D421E0D2B6003A6E68 /* TagEditingAreaConstants.swift in Sources */,
 				040C211722198BAD00CCFA39 /* UNNotificationResponse.swift in Sources */,
 				042F439D22015A0200AF2682 /* TaskAlarmsController.swift in Sources */,
+				04F1701E2234ED56006F062D /* DayCell.swift in Sources */,
 				044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */,
 				B96E0EC52193DC470097AB34 /* TagModelAdapter.swift in Sources */,
 				049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */,
@@ -1272,7 +1308,7 @@
 				B9A8B1212196CFBF0085FCA0 /* TimeIntervalFormatter.swift in Sources */,
 				0408C64E221507EF005B1B83 /* AlralrmResponseType.swift in Sources */,
 				040D906E21E760DE0049F410 /* TagDummyView.swift in Sources */,
-				04F1700722336114006F062D /* Day.swift in Sources */,
+				04F1700722336114006F062D /* DayModel.swift in Sources */,
 				040D907121E789F70049F410 /* TagsAddedToTaskVC.swift in Sources */,
 				0407E0AB21C4EFA100704082 /* TagAddingControlsPanelVC.swift in Sources */,
 				04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */,
@@ -1302,7 +1338,7 @@
 				04CEA248222A698B00CEE425 /* AdditionalTimesSaving.swift in Sources */,
 				047C4B3D21C754FD0009ED40 /* ColorChosenForTagReceiving.swift in Sources */,
 				04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */,
-				04F17014223361E8006F062D /* MonthStore.swift in Sources */,
+				04F17014223361E8006F062D /* MonthsModelsStore.swift in Sources */,
 				0498212D221CF5B300CEA932 /* AddTimeCell.swift in Sources */,
 				04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
@@ -1310,19 +1346,19 @@
 				042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */,
 				0498EF5621ED8FA800676FAB /* EditTagPerformingDelegate.swift in Sources */,
 				B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */,
-				04F17016223361FE006F062D /* MonthsStoreImp.swift in Sources */,
+				04F17016223361FE006F062D /* MonthsModelsStoreImp.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
 				048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */,
 				04CEA22A222645E600CEE425 /* SwitchedOnAdditionalTimesReadable.swift in Sources */,
-				048A4C1422322A2E00D71D6E /* MonthsFactory.swift in Sources */,
+				048A4C1422322A2E00D71D6E /* MonthsModelsFactory.swift in Sources */,
 				04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
 				B9A8B1232196D0230085FCA0 /* TimeIntervalFormatting.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
-				04F1700F22336195006F062D /* Month.swift in Sources */,
+				04F1700F22336195006F062D /* MonthModel.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
@@ -1337,7 +1373,7 @@
 				044723C921C21DB200F0214F /* PeriodModel+CoreDataProperties.swift in Sources */,
 				B9A8B14E219929E50085FCA0 /* Task.swift in Sources */,
 				04CEA245222A643400CEE425 /* TimesModelForTable.swift in Sources */,
-				04F17011223361B2006F062D /* MonthImp.swift in Sources */,
+				04F17011223361B2006F062D /* MonthModelImp.swift in Sources */,
 				0498EF5221ED84A100676FAB /* TagFromAllTagsDeletingDelegate.swift in Sources */,
 				04736A1C21FAB13900464C72 /* TimeLeftToDeadLine.swift in Sources */,
 				B96E0EA52193D5E20097AB34 /* DeadLineVC.swift in Sources */,

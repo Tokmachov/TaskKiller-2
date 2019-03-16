@@ -1,5 +1,5 @@
 //
-//  MonthStore.swift
+//  Day.swift
 //  TaskKiller
 //
 //  Created by mac on 09/03/2019.
@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-protocol MonthsStore {
-    var months: [Month] { get }
-    init(months: [Month])
+protocol DayModel {
+    var dayNumberDescription: String { get }
+    var workHoursDescriotion: String { get }
 }

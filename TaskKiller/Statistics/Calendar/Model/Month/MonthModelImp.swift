@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct MonthImp: Month {
+struct MonthModelImp: MonthModel {
+
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -17,12 +18,19 @@ struct MonthImp: Month {
         return formatter
     }()
     private var monthsFirstDayDate: Date
+    private var days: [DayModel]
     
-    var monthNameAndYear: String {
+    //MARK: MonthModel
+    var monthAndYearDescription: String {
         return dateFormatter.string(from: monthsFirstDayDate)
     }
-    var days: [Day]
-    init(days: [Day], monthFirstDayDate: Date) {
+    var numberOfDayModels: Int {
+        return days.count
+    }
+    var weeksCount: Int {
+        return numberOfDayModels / 7
+    }
+    init(days: [DayModel], monthFirstDayDate: Date) {
         self.days = days
         self.monthsFirstDayDate = monthFirstDayDate
     }

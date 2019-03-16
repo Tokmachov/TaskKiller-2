@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PlaceHolderDay: Day {
+struct PlaceHolderDay: DayModel {
     var dayNumberDescription: String {
         return "*  "
     }

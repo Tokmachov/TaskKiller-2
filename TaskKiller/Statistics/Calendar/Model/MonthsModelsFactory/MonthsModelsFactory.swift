@@ -8,41 +8,42 @@
 
 import Foundation
 
-struct MonthsFactory {
-    static func makeMonths(startYear: Int, endYear: Int) -> [Month] {
+struct MonthsModelsFactory {
+    static func makeMonthModelsStore(startYear: Int, endYear: Int) -> MonthsModelsStore {
         guard endYear > startYear else { fatalError() }
-        var months = [Month]()
+        var months = [MonthModel]()
         for year in startYear...endYear {
-            months += makeMonths(year: year)
+            months += makeMonthsModels(year: year)
         }
-        return months
+        let store = MonthsModelsStoreImp(months: months)
+        return store
     }
     
-    static private func makeMonths(year: Int) -> [Month] {
+    static private func makeMonthsModels(year: Int) -> [MonthModel] {
         let monthsRange = 1...12
-        var months = [Month]()
+        var monthsModels = [MonthModel]()
         for month in monthsRange {
-            let month = makeMonth(year: year, month: month)
-            months.append(month)
+            let monthModel = makeMonthModel(year: year, month: month)
+            monthsModels.append(monthModel)
         }
-        return months
+        return monthsModels
     }
     
-    static private func makeMonth(year: Int, month: Int) -> Month {
+    static private func makeMonthModel(year: Int, month: Int) -> MonthModel {
         let days = makeDays(year: year, month: month)
         let monthFirstDayDate = Calendar.current.monthFirstDayDate(year: year, monthNumber: month)!
-        let month = MonthImp(days: days, monthFirstDayDate: monthFirstDayDate)
+        let month = MonthModelImp(days: days, monthFirstDayDate: monthFirstDayDate)
         return month
     }
     
-    static private func makeDays(year: Int, month: Int) -> [Day] {
-        let monthDate = monthDateFor(year: year, AndMonthOfYear: month)
+    static private func makeDays(year: Int, month: Int) -> [DayModel] {
+        let monthDate = monthDateFor(year: year, AndMonth: month)
         let weeksOfMonthRange = weaksOfMonthRangeFor(monthDate: monthDate)
         let datesOfDays = datesForDaysFrom(weeksRange: weeksOfMonthRange, ofMonth: month, AndYear: year)
         let days = datesToDays(datesOfDays, monthOfYear: month)
         return days
     }
-    static private func monthDateFor(year: Int, AndMonthOfYear month: Int) -> Date {
+    static private func monthDateFor(year: Int, AndMonth month: Int) -> Date {
         let validMonthOfYearRange = 1...12
         guard validMonthOfYearRange.contains(month) else { fatalError() }
         let monthDate = Calendar.current.monthFirstDayDate(year: year, monthNumber: month)!
@@ -63,8 +64,8 @@ struct MonthsFactory {
         }
         return dates
     }
-    static func datesToDays(_ dates: [Date], monthOfYear: Int) -> [Day] {
-        let days: [Day] = dates.map { (date) -> Day in
+    static func datesToDays(_ dates: [Date], monthOfYear: Int) -> [DayModel] {
+        let days: [DayModel] = dates.map { (date) -> DayModel in
             let monthDateBelongsTo = Calendar.current.component(.month, from: date)
             if monthDateBelongsTo == monthOfYear {
                 let dayOfMonth = Calendar.current.component(.day, from: date)

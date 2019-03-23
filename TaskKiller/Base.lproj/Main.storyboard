@@ -862,7 +862,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVB-wm-ePC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zlV-WV-wfT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="733" y="948"/>
+            <point key="canvasLocation" x="1358" y="991"/>
         </scene>
         <!--Task DescriptionVC-->
         <scene sceneID="hhh-1m-3MN">
@@ -914,7 +914,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXY-7F-Ui1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4" y="128"/>
+            <point key="canvasLocation" x="-79" y="128"/>
         </scene>
         <!--Tag Adding Controls PanelVC-->
         <scene sceneID="zIg-ud-qx1">
@@ -1030,7 +1030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ify-dC-aCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2143" y="771"/>
+            <point key="canvasLocation" x="2130" y="804"/>
         </scene>
         <!--Color PaneVC-->
         <scene sceneID="v5W-T3-ALy">
@@ -1457,7 +1457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJp-3Y-eNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3061" y="820"/>
+            <point key="canvasLocation" x="3048" y="859"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WMQ-Ja-iMg">
@@ -1532,7 +1532,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dol-Mp-4FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001.25" y="1950"/>
+            <point key="canvasLocation" x="816" y="1799"/>
         </scene>
         <!--Create Additional TimeVC-->
         <scene sceneID="1rB-9W-Vb8">
@@ -1614,7 +1614,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmE-YP-iXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="1950"/>
+            <point key="canvasLocation" x="1791" y="1799"/>
         </scene>
         <!--Times-->
         <scene sceneID="ZFM-zi-uuS">
@@ -1633,7 +1633,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hb-sw-Kmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="1636"/>
+            <point key="canvasLocation" x="-77" y="1799"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="GPI-VM-DDX">
@@ -1658,7 +1658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sRp-bM-Wt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3.75" y="2976.7605633802818"/>
+            <point key="canvasLocation" x="-79" y="2579"/>
         </scene>
         <!--CalendarVC-->
         <scene sceneID="XMz-EZ-zO3">
@@ -1722,13 +1722,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnK-RR-LET">
+                                <rect key="frame" x="116.5" y="0.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-Rl-MMq">
                                 <rect key="frame" x="41.5" y="40" width="192.5" height="197"/>
                                 <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="197" id="ihh-eD-0om"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zpr-m4-G0E">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b6A-y0-THK">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1741,17 +1747,28 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnk-dk-Bll">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Xnk-dk-Bll" secondAttribute="bottom" id="IYv-bJ-Ft3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Xnk-dk-Bll" secondAttribute="trailing" id="VzH-Dz-a79"/>
+                                            <constraint firstItem="Xnk-dk-Bll" firstAttribute="leading" secondItem="91Y-Qa-FlD" secondAttribute="leading" id="hJb-sA-81V"/>
+                                            <constraint firstItem="Xnk-dk-Bll" firstAttribute="top" secondItem="91Y-Qa-FlD" secondAttribute="top" id="tI4-hQ-iAg"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dayNumberLabel" destination="Xnk-dk-Bll" id="Rdc-Ib-Vbu"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnK-RR-LET">
-                                <rect key="frame" x="116.5" y="0.5" width="42" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1777,7 +1794,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="djF-C9-VdC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="919" y="2766"/>
+            <point key="canvasLocation" x="773" y="2425"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

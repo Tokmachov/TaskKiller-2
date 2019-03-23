@@ -8,11 +8,16 @@
 
 import Foundation
 
-struct PlaceHolderDay: DayModel {
+struct PlaceHolderDay: Day {
+    var dayType: DayType
+    
     var dayNumberDescription: String {
-        return "*  "
+        return ""
     }
     var workHoursDescriotion: String {
         return ""
+    }
+    init() {
+        self.dayType = .placeHolder
     }
 }

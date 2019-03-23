@@ -15,7 +15,6 @@ extension UIView {
     func getHeight() -> CGFloat {
         return self.bounds.size.height
     }
-    
 }
 extension UIView {
     func show() {

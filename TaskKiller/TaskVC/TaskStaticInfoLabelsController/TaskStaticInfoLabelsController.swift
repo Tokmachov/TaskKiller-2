@@ -14,21 +14,20 @@ struct TaskStaticInfoLabelsController: TaskStaticInfoUpdatable {
     let initialDeadLineLabel: UILabel
     
     
-    let timeIntrvalFormatter: TimeIntervalFormatting = TimeIntervalFormatter()
+    let formatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.minute, .hour, .second]
+        formatter.unitsStyle = .abbreviated
+        return formatter
+    }()
     
     init(forDescription: UILabel, forInitialDeadLine: UILabel) {
         self.taskDescriptionLabel = forDescription
         self.initialDeadLineLabel = forInitialDeadLine
     }
     func updateStaticInfo(_ staticInfoSource: TaskStaticInfoSource) {
-        let staticInfo = staticInfoSource.createStaticInfo()
-        let taskDescription = staticInfo.taskDescription
-        let initialDeadLine = staticInfo.initialDeadLine
-        
-        let stringInitialDeadline = timeIntrvalFormatter.format(initialDeadLine)
-        
-        taskDescriptionLabel.setText(taskDescription)
-        initialDeadLineLabel.setText(stringInitialDeadline)
+        taskDescriptionLabel.text = staticInfoSource.staticInfo.taskDescription
+        initialDeadLineLabel.text = formatter.string(from: staticInfoSource.staticInfo.initialDeadLine)
     }
 }
  

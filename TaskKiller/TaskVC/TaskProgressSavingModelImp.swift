@@ -9,6 +9,8 @@
 import Foundation
 
 struct TaskProgressSavingModelImp: TaskProgressSavingModel {
+
+    
     
     private let task: Task
     private var timeSpentInProgress: TimeInterval {
@@ -27,8 +29,8 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
         self.task = task
     }
     
-    //MARK: TaskStaticInfoGetable
-    func createStaticInfo() -> TaskStaticInfo {
+    //MARK: TaskStaticInfoSource
+    var staticInfo: TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
         let deadLine = task.getInitialDeadline()
         let tags = task.getTags()
@@ -39,14 +41,12 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     func saveTaskProgressPeriod(_ period: ProgressPeriod) {
         task.saveProgressPeriod(period)
     }
-    
-    //MARK: ProgressCreating
-    func createProgressTimes() -> TaskProgressTimes {
+    //MARK: ProgressTimesSource
+    var progressTimes: TaskProgressTimes {
         let progressTimes = TaskProgressTimes.init(timeSpentInprogress: timeSpentInProgress, timeLeftToDeadLine: timeLeftToDeadLine)
         return progressTimes
     }
     
-    //MARK: DeadlinePostponable
     func postponeDeadlineFor(_ timeInterval: TimeInterval) {
         task.postponeDeadlineFor(timeInterval)
     }

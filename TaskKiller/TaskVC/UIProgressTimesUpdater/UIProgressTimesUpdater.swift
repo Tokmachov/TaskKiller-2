@@ -46,7 +46,7 @@ class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
     
     //MARK: ProgressTimesUpdatable
     func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
-        initialProgressTimes = progressTimesSource.createProgressTimes()
+        initialProgressTimes = progressTimesSource.progressTimes
         progressTimesReceiver.receiveProgressTimes(progressTimesSource)
     }
     func startUpdatingUIProgressTimes(dateStarted: Date) {
@@ -58,8 +58,8 @@ class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
         timer.invalidate()
     }
     
-    //MARK: TaskProgressTimesCreating
-    func createProgressTimes() -> TaskProgressTimes {
+    //MARK: TaskProgressTimesSource
+    var progressTimes: TaskProgressTimes {
         return currentPogressTimes
     }
    

@@ -11,7 +11,12 @@ import UIKit
 struct ProgressTimesLabelsController {
     private var timeSpentInProgressLabel: UILabel
     private var timeLeftToDeadlineLabel: UILabel
-    private var timeIntervalForatter: TimeIntervalFormatting = TimeIntervalFormatter()
+    private let formatter: DateComponentsFormatter = {
+            let formatter = DateComponentsFormatter()
+            formatter.allowedUnits = [.minute, .hour, .second]
+            formatter.unitsStyle = .abbreviated
+            return formatter
+    }()
     
     init(timeSpentInProgressLabel: UILabel, timeLeftToDeadLineLabel: UILabel) {
         self.timeSpentInProgressLabel = timeSpentInProgressLabel
@@ -22,18 +27,12 @@ struct ProgressTimesLabelsController {
 extension ProgressTimesLabelsController: ProgressTimesUpdatable {
  
     func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
-        let progressTimes = progressTimesSource.createProgressTimes()
-        let timeSpentInProgress = progressTimes.timeSpentInprogress
-        let timeLeftToDeadLine = extractTimeLeftToDeadLineTimeIntervalValueFrom(progressTimes)
-        timeSpentInProgressLabel.setText(timeIntervalForatter.format(timeSpentInProgress))
-        timeLeftToDeadlineLabel.setText(timeIntervalForatter.format(timeLeftToDeadLine))
-    }
-    private func extractTimeLeftToDeadLineTimeIntervalValueFrom(_ progressTimes: TaskProgressTimes) -> TimeInterval {
-        var timeLeftToDeadLine: TimeInterval
-        switch progressTimes.timeLeftToDeadLine {
-        case .noTimeLeft: timeLeftToDeadLine = 0
-        case .timeLeft(let time): timeLeftToDeadLine = time
-        }
-        return timeLeftToDeadLine
+        timeSpentInProgressLabel.text = formatter.string(from: progressTimesSource.progressTimes.timeSpentInprogress)
+        timeLeftToDeadlineLabel.text = {
+            switch progressTimesSource.progressTimes.timeLeftToDeadLine {
+            case .noTimeLeft: return formatter.string(from: 0)
+            case .timeLeft(let time): return formatter.string(from: time)
+            }
+        }()
     }
 }

@@ -145,7 +145,7 @@ extension TaskAlarmsController {
         return content
     }
     private func getTaskDescriptionFrom(_ taskStaticInoSource: TaskStaticInfoSource) -> String {
-        let taskStaticInfo = taskStaticInoSource.createStaticInfo()
+        let taskStaticInfo = taskStaticInoSource.staticInfo
         let taskDescription = taskStaticInfo.taskDescription
         return taskDescription
     }

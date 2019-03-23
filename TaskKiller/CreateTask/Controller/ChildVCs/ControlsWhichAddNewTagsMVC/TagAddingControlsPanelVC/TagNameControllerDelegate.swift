@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol NameForTagReceiving: AnyObject {
-    func receiveNameForTag(_ name: String)
+protocol TagNameControllerDelegate: AnyObject {
+    func tagNameController(_ controller: TagNameVC, didChoseTagName name: String)
 }

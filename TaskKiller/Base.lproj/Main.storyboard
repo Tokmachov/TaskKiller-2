@@ -916,10 +916,10 @@
             </objects>
             <point key="canvasLocation" x="-79" y="128"/>
         </scene>
-        <!--Tag Adding Controls PanelVC-->
+        <!--Tag Adding ControlsVC-->
         <scene sceneID="zIg-ud-qx1">
             <objects>
-                <viewController id="LaJ-jH-E05" customClass="TagAddingControlsPanelVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LaJ-jH-E05" customClass="TagAddingControlsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb" userLabel="Tag Editing Control Panel View">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1030,7 +1030,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ify-dC-aCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="804"/>
+            <point key="canvasLocation" x="2124" y="815"/>
         </scene>
         <!--Color PaneVC-->
         <scene sceneID="v5W-T3-ALy">
@@ -1422,7 +1422,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHf-Ke-4zo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3026" y="584"/>
+            <point key="canvasLocation" x="2865" y="631"/>
         </scene>
         <!--Tag NameVC-->
         <scene sceneID="lRa-BH-Of7">
@@ -1457,7 +1457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VJp-3Y-eNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3048" y="859"/>
+            <point key="canvasLocation" x="2892" y="861"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WMQ-Ja-iMg">

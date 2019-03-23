@@ -7,16 +7,11 @@
 //
 
 import UIKit
-class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChosenForTagReceiving, NameForTagReceiving {
+class TagAddingControlsVC: UIViewController, ColorPaneControllerDelegate, TagNameControllerDelegate {
     
     private var tagName: String!
     private var tagColor: UIColor = UIColor.gray
-    
-    //MARK: TagInfoReporting
-    private weak var tagInfoReceiver: InfoForTagCreationReceiving!
-    func setInfoForTagReceiver(_ receiver: InfoForTagCreationReceiving) {
-        self.tagInfoReceiver = receiver
-    }
+    weak var tagInfoReceiver: InfoForTagCreationReceiving!
     
     let opaqeAlpfa: CGFloat = 1
     let transparentAlpha: CGFloat = 0
@@ -62,7 +57,7 @@ class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChos
     @IBAction func doneTagCreationButtonPressed() {
         moveCreationControlsOffScreen()
         moveAddAndEditButtonsOnScreen()
-        reportNewTagInfo()
+        tagInfoReceiver.receiveInfoForTagCreation(name: tagName, color: tagColor)
     }
     
     @IBAction func doneEditingButtonPressed() {
@@ -79,16 +74,16 @@ class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChos
         moveAddAndEditButtonsOnScreen()
     }
     
-    //MARK: ChosenColorReceiving
-    func colorForTagWasChosen(_ color: UIColor) {
+    //MARK: ColorPaneControllerDelegate
+    func colorPaneController(_ colorPaneController: ColorPaneVC, didChoseColor color: UIColor) {
         self.tagColor = color
         changeColorPaneCallButton(to: color)
         moveColorPaneOffScreen()
         moveCreationControlsOnScreen()
     }
     
-    //MARK: TagNameReceiving
-    func receiveNameForTag(_ name: String) {
+    //MARK: TagNameControllerDelegate
+    func tagNameController(_ controller: TagNameVC, didChoseTagName name: String) {
         self.tagName = name
     }
     
@@ -106,7 +101,7 @@ class TagAddingControlsPanelVC: UIViewController, InfoForTagReporting, ColorChos
     }
 }
 //MARK: AddButton, EditButton movements and animations
-extension TagAddingControlsPanelVC {
+extension TagAddingControlsVC {
     private func moveAddAndEditButtonsOffScreen() {
         moveAddBttonOffScreen()
         moveEditButtonOffScreen()
@@ -147,7 +142,7 @@ extension TagAddingControlsPanelVC {
 }
 
 //MARK: CreationControls movements and animations
-extension TagAddingControlsPanelVC {
+extension TagAddingControlsVC {
     private func moveCreationControlsOffScreen() {
         creationControlsLeadingConstraint.constant = 2 * view.bounds.width
         UIView.animate(withDuration: AnimationTimes.creationControlsOffScreen, animations: { [weak self] in
@@ -166,7 +161,7 @@ extension TagAddingControlsPanelVC {
     }
 }
 //MARK: DoneEditingButton movements
-extension TagAddingControlsPanelVC {
+extension TagAddingControlsVC {
     private func moveDoneEditingButtonOffScreen() {
         UIView.animate(withDuration: AnimationTimes.doneEditingButtonOffScreen, animations: { [weak self] in
             guard let self = self else { fatalError() }
@@ -186,7 +181,7 @@ extension TagAddingControlsPanelVC {
 }
 
 //MARK: ColorPane movements
-extension TagAddingControlsPanelVC {
+extension TagAddingControlsVC {
     private func moveColorPaneOffScreen() {
         changeXPositionOfColorPaneToOffscreen()
         animateChangeOfConstraintWithDuration(AnimationTimes.colorPaneOffScreen)
@@ -209,10 +204,8 @@ extension TagAddingControlsPanelVC {
     }
 }
 
-extension TagAddingControlsPanelVC {
-    private func reportNewTagInfo() {
-        tagInfoReceiver.receiveInfoForTagCreation(name: tagName, color: tagColor)
-    }
+extension TagAddingControlsVC {
+ 
     private func changeColorPaneCallButton(to color: UIColor) {
         colorPaneCallButton.setChosenColor(color)
     }

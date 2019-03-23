@@ -10,9 +10,9 @@ import UIKit
 
 class TagNameVC: UIViewController, UITextFieldDelegate, NameForTagReporting {
     
-    private weak var tagNameReceiver: NameForTagReceiving!
-    func setNameForTagReceiver(_ receiver: NameForTagReceiving) {
-        self.tagNameReceiver = receiver
+    private weak var tagNameControllerDelegate: TagNameControllerDelegate!
+    func setNameForTagReceiver(_ receiver: TagNameControllerDelegate) {
+        self.tagNameControllerDelegate = receiver
     }
     
     @IBOutlet weak var tagName: UITextField!
@@ -29,6 +29,6 @@ class TagNameVC: UIViewController, UITextFieldDelegate, NameForTagReporting {
     }
     @IBAction func editingDidChanged(_ sender: UITextField) {
         let text = sender.text ?? ""
-        tagNameReceiver.receiveNameForTag(text)
+        tagNameControllerDelegate.tagNameController(self, didChoseTagName: text)
     }
 }

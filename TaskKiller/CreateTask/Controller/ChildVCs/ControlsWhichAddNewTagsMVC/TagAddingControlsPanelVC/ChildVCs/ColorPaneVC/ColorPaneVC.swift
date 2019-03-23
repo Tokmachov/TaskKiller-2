@@ -11,14 +11,13 @@ import UIKit
 class ColorPaneVC: UIViewController, ColorChosenForTagReporting {
     
     //MARK: ChosenColorReporting
-    private var chosenColorReceiver: ColorChosenForTagReceiving!
-    func setColorChosenForTagReceiver(_ receiver: ColorChosenForTagReceiving) {
+    private var chosenColorReceiver: ColorPaneControllerDelegate!
+    func setColorChosenForTagReceiver(_ receiver: ColorPaneControllerDelegate) {
         self.chosenColorReceiver = receiver
     }
     
     @IBAction func colorSelectionButtonPressed(_ sender: ColorSelectionButton) {
-        chosenColorReceiver.colorForTagWasChosen(sender.getColor())
-        
+        chosenColorReceiver.colorPaneController(self, didChoseColor: sender.getColor())
     }
 
 }

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol NameForTagReporting {
-    func setNameForTagReceiver(_ receiver: NameForTagReceiving)
+    func setNameForTagReceiver(_ receiver: TagNameControllerDelegate)
 }

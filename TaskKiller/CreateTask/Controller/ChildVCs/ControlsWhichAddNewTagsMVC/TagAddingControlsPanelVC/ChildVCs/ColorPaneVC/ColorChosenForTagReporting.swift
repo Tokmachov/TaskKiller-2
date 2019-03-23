@@ -9,5 +9,5 @@
 import UIKit
 
 protocol ColorChosenForTagReporting {
-    func setColorChosenForTagReceiver(_ receiver: ColorChosenForTagReceiving)
+    func setColorChosenForTagReceiver(_ receiver: ColorPaneControllerDelegate)
 }

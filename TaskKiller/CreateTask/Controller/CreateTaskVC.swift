@@ -48,11 +48,11 @@ class CreateTaskVC: UIViewController, InfoForTagCreationReceiving, TagEditingAnd
         
     }
     
-    //MARK: InfoForTagReceiving
+    //MARK: InfoForTagCreationReceiving
     func receiveInfoForTagCreation(name: String, color: UIColor) {
         _ = tagFactory.createTag(from: name, and: color)
     }
-    //MARK: EditAndDeleteTagDropAreasDelegate
+    //MARK: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate
     func prepareTagEditingAndDeletingFromAllTagsDropAreas() {
         addTagDeletingFromAllTagsDropArea()
         addTagEditingDropArea()
@@ -113,9 +113,8 @@ class CreateTaskVC: UIViewController, InfoForTagCreationReceiving, TagEditingAnd
             guard let tagVC = segue.destination as? DragInitiatingVC else { fatalError() }
             tagVC.setDropAreaPreparingDelegate(self)
         case "EditTagControlPanelChildVC":
-            guard let tagInfoReporter = segue.destination as? InfoForTagReporting else { fatalError() }
-            tagInfoReporter.setInfoForTagReceiver(self)
-        
+            guard let tagsAddingControlsVC = segue.destination as? TagAddingControlsVC else { fatalError() }
+            tagsAddingControlsVC.tagInfoReceiver = self
         case "Start New Task":
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
             let taskStaticInfo = taskStaticInfoController.staticInfo

@@ -8,6 +8,6 @@
 
 import UIKit
 
-protocol ColorChosenForTagReceiving {
-    func colorForTagWasChosen(_ color: UIColor)
+protocol ColorPaneControllerDelegate {
+    func colorPaneController(_ colorPaneController: ColorPaneVC, didChoseColor color: UIColor)
 }

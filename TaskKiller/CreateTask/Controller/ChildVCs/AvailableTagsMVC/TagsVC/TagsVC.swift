@@ -34,6 +34,7 @@ class TagsVC: UICollectionViewController {
         collectionView.alwaysBounceVertical = true
         let tagCollectionLayout = TagCollectionLayout()
         collectionView.setCollectionViewLayout(tagCollectionLayout, animated: true)
+        collectionView.reorderingCadence = .slow
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -75,42 +76,35 @@ extension TagsVC: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .insert:
-            collectionViewChangeContentsOperations.append(
-                BlockOperation(block: {
-                    self.collectionView.insertItems(at: [newIndexPath!])
-                })
-            )
-        case .update:
-            collectionViewChangeContentsOperations.append(
-                BlockOperation(block: {
-                    self.collectionView.reloadItems(at: [indexPath!])
-                })
-            )
-        case .move:
-            collectionViewChangeContentsOperations.append(
-                BlockOperation(block: {
-                    self.collectionView.reloadItems(at: [indexPath!])
-                })
-            )
-            collectionViewChangeContentsOperations.append(
-                BlockOperation(block: {
-                    self.collectionView.reloadItems(at: [newIndexPath!])
-                })
-            )
-        case .delete:
-            collectionViewChangeContentsOperations.append(
-                BlockOperation(block: {
-                    self.collectionView.deleteItems(at: [indexPath!])
-                })
-            )
+            collectionView.insertItems(at: [newIndexPath!])
+//        case .update:
+//            collectionViewChangeContentsOperations.append(
+//                BlockOperation(block: {
+//                    self.collectionView.reloadItems(at: [indexPath!])
+//                })
+//            )
+//        case .move:
+//            collectionViewChangeContentsOperations.append(
+//                BlockOperation(block: {
+//                    self.collectionView.reloadItems(at: [indexPath!])
+//                })
+//            )
+//            collectionViewChangeContentsOperations.append(
+//                BlockOperation(block: {
+//                    self.collectionView.reloadItems(at: [newIndexPath!])
+//                })
+//            )
+//        case .delete:
+//            collectionViewChangeContentsOperations.append(
+//                BlockOperation(block: {
+//                    self.collectionView.deleteItems(at: [indexPath!])
+//                })
+//            )
         default: break
         }
-    }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-            for block in collectionViewChangeContentsOperations {
-                block.start()
-            collectionViewChangeContentsOperations.removeAll()
+    
         }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     }
 }
 //MARK: UICollectionViewDataSource
@@ -179,7 +173,13 @@ extension TagsVC: UICollectionViewDropDelegate {
         let item = coordinator.items.first!
         guard let sourceIndexPath = item.sourceIndexPath else { return }
         guard let destinationIndexPath = coordinator.destinationIndexPath else { return }
-        let reorderedTags = reorderTags(in: fetchResultsController.fetchedObjects!, movingTagFrom: sourceIndexPath.row, to: destinationIndexPath.row)
-        alignTagModelsOrderPropertyWithTagsOrderIn(reorderedTags)
+        
+        collectionView.performBatchUpdates({
+            let reorderedTags = reorderTags(in: fetchResultsController.fetchedObjects!, movingTagFrom: sourceIndexPath.row, to: destinationIndexPath.row)
+            alignTagModelsOrderPropertyWithTagsOrderIn(reorderedTags)
+            collectionView.deleteItems(at: [sourceIndexPath])
+            collectionView.insertItems(at: [destinationIndexPath])
+            coordinator.drop(item.dragItem, toItemAt: destinationIndexPath)
+        }, completion: nil)
     }
 }

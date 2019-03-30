@@ -84,12 +84,13 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
 //MARK: UICollectionViewDropDelegate
 extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
-        guard !collectionView.hasActiveDrag else { return true }
+        if collectionView.hasActiveDrag { return true }
         guard let tag = session.provideLocalObject(ofType: Tag.self),
             tagsAddedToTask.count < maximumTagsAmount,
             tagsAddedToTask.canAdd(tag)
-        else { return false }
+            else { return false }
         return true
+        
     }
     func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
         return UICollectionViewDropProposal(operation: .copy, intent: .insertAtDestinationIndexPath)

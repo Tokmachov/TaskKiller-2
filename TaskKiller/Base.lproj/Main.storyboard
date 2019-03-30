@@ -103,7 +103,7 @@
                     <navigationItem key="navigationItem" id="r96-CB-k9J">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jhK-Zb-Cmi">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="wrz-ZI-lb7"/>
+                                <segue destination="DrB-Rl-csE" kind="presentation" modalTransitionStyle="crossDissolve" id="H7T-am-g80"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -111,6 +111,141 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hg9-1c-PNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1308.75" y="127.8169014084507"/>
+        </scene>
+        <!--Create TaskVC2-->
+        <scene sceneID="6lh-wR-R3F">
+            <objects>
+                <tableViewController id="DrB-Rl-csE" customClass="CreateTaskVC2" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="qUH-yH-W4n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <sections>
+                            <tableViewSection headerTitle="Describe your task here" id="5g1-Qg-VvS" userLabel="Task Description Section">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eqP-Lb-N1M">
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eqP-Lb-N1M" id="efL-3w-lmP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5h-pO-1ZK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="VJF-I8-8ZI"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <segue destination="QH6-yn-GcR" kind="embed" identifier="TaskDescriptionVC" id="Qt7-Ez-N4V"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Q5h-pO-1ZK" firstAttribute="leading" secondItem="efL-3w-lmP" secondAttribute="leading" id="XLV-8P-kxI"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q5h-pO-1ZK" secondAttribute="trailing" id="hOw-NM-hcc"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q5h-pO-1ZK" secondAttribute="bottom" id="ila-xh-GcE"/>
+                                                <constraint firstItem="Q5h-pO-1ZK" firstAttribute="top" secondItem="efL-3w-lmP" secondAttribute="top" id="vyD-oS-ZZK"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="uiW-oZ-r6u" userLabel="Deadline Section">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YLP-AT-n5n">
+                                        <rect key="frame" x="0.0" y="135.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YLP-AT-n5n" id="PMj-B0-gXP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-rC-kZ0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="43" id="pM5-fF-5yf"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <segue destination="YxY-Hw-HrP" kind="embed" identifier="DeadlineVC" id="d80-9X-X3B"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r8n-rC-kZ0" firstAttribute="top" secondItem="PMj-B0-gXP" secondAttribute="top" id="5ip-ge-eOO"/>
+                                                <constraint firstItem="r8n-rC-kZ0" firstAttribute="leading" secondItem="PMj-B0-gXP" secondAttribute="leading" id="EFw-tR-odn"/>
+                                                <constraint firstAttribute="trailing" secondItem="r8n-rC-kZ0" secondAttribute="trailing" id="hR1-NI-Ddb"/>
+                                                <constraint firstAttribute="bottom" secondItem="r8n-rC-kZ0" secondAttribute="bottom" id="zBF-tU-R8G"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="100" id="dH8-wu-Chv">
+                                        <rect key="frame" x="0.0" y="215.5" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dH8-wu-Chv" id="KdD-xo-6tP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-AJ-Gml">
+                                                    <rect key="frame" x="16" y="11" width="288" height="78"/>
+                                                    <connections>
+                                                        <segue destination="5YP-Nt-EiJ" kind="embed" identifier="AvailableTagsVC" id="HrU-kM-Kkc"/>
+                                                    </connections>
+                                                </containerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="top" secondItem="KdD-xo-6tP" secondAttribute="topMargin" id="bhp-rC-dJ7"/>
+                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="bottom" secondItem="KdD-xo-6tP" secondAttribute="bottomMargin" id="rge-ft-ToQ"/>
+                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="leading" secondItem="KdD-xo-6tP" secondAttribute="leadingMargin" id="x1t-X7-KS3"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="U5U-AJ-Gml" secondAttribute="trailing" id="xQb-rL-QKc"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="CXF-QR-iaq" userLabel="Create tag Section">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="0Hb-DL-TuD">
+                                        <rect key="frame" x="0.0" y="351.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Hb-DL-TuD" id="9Qb-FE-b7Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZF-5E-2We">
+                                                    <rect key="frame" x="89.5" y="0.0" width="141" height="43.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                    <state key="normal" title="Add new tag"/>
+                                                    <connections>
+                                                        <segue destination="A9z-gl-o7Z" kind="presentation" identifier="CreateTagVC" modalTransitionStyle="crossDissolve" id="6D9-Pf-HCd"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mZF-5E-2We" firstAttribute="centerX" secondItem="9Qb-FE-b7Z" secondAttribute="centerX" id="JW7-s1-ZOM"/>
+                                                <constraint firstItem="mZF-5E-2We" firstAttribute="top" secondItem="9Qb-FE-b7Z" secondAttribute="top" id="git-7R-uds"/>
+                                                <constraint firstAttribute="bottom" secondItem="mZF-5E-2We" secondAttribute="bottom" id="wV9-cS-Ucf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="DrB-Rl-csE" id="h9V-1p-QXp"/>
+                            <outlet property="delegate" destination="DrB-Rl-csE" id="AQ6-G6-FmT"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="deadlineViewHeightConstraint" destination="pM5-fF-5yf" id="3ap-R8-ug3"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wb2-0c-Bmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2186.25" y="127.8169014084507"/>
         </scene>
         <!--Tag EditingVC-->
         <scene sceneID="RtX-kh-vty">
@@ -178,7 +313,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="7HX-r3-r8I"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="bgm-zd-tp3"/>
                                                 </connections>
                                             </button>
@@ -195,7 +329,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="J2J-GI-hAZ"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="fhc-sk-COb"/>
                                                 </connections>
                                             </button>
@@ -212,7 +345,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="K5t-5r-s4l"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="a4b-97-isV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBb-Us-mUp" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -228,7 +360,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="Sab-IM-rYN"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="a4m-vH-Pyr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dD5-1A-vyj" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -243,7 +374,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="VYa-2W-om4"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="f9x-tZ-OTi"/>
                                                 </connections>
                                             </button>
@@ -258,7 +388,7 @@
                                             <constraint firstItem="dD5-1A-vyj" firstAttribute="width" secondItem="dD5-1A-vyj" secondAttribute="height" multiplier="1:1" id="tmv-Rw-4Ft"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="STK-Dh-W7b">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="STK-Dh-W7b">
                                         <rect key="frame" x="0.0" y="35" width="182" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g74-11-5cb" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -274,7 +404,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="mIg-wW-4t7"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="pwb-4k-lXV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eD-l9-aGq" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -290,7 +419,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="440-T8-DkL"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="NXe-xc-dVc"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y70-8y-c3H" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -305,7 +433,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="fZH-oe-Bj6"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="mCX-UJ-SGW"/>
                                                 </connections>
                                             </button>
@@ -321,7 +448,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="BeP-kB-qPk"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="Ij1-m5-rsi"/>
                                                 </connections>
                                             </button>
@@ -337,7 +463,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="cam-cv-Z3V"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="diB-64-VaU"/>
                                                 </connections>
                                             </button>
@@ -367,7 +492,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="4LL-dn-C2i"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="xSU-bX-yhx"/>
                                                 </connections>
                                             </button>
@@ -383,7 +507,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="NLB-aW-JeR"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="fOI-nO-t8o"/>
                                                 </connections>
                                             </button>
@@ -400,7 +523,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="505-f6-8tt"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="UYJ-Ee-y5D"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tgm-Aw-acn" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -416,7 +538,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="7Nx-Fv-vZF"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="d23-9I-zgn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="euz-4l-eHA" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -432,7 +553,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="Vq6-9a-Jf6"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="gUc-lQ-L8F"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -462,7 +582,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="g4k-iU-vve"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="mCz-Ef-fbN"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eka-gF-XiL" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -478,7 +597,6 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="OZr-1U-6PZ"/>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="qpw-lT-iV8"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8q-gR-qCy" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
@@ -493,7 +611,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="BtC-Z9-C2Y"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="Ofb-gR-pir"/>
                                                 </connections>
                                             </button>
@@ -509,7 +626,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="NwK-BB-eUv"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="XsB-hm-VjO"/>
                                                 </connections>
                                             </button>
@@ -525,7 +641,6 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="5Fz-w7-8XR"/>
                                                     <action selector="colorSelectionButtonPressed:" destination="gMI-Qg-1gB" eventType="touchUpInside" id="Dlu-bB-Bod"/>
                                                 </connections>
                                             </button>
@@ -568,188 +683,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dIt-Ks-5u8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1309" y="-556"/>
-        </scene>
-        <!--Create TaskVC-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="CreateTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="Create VC Super View">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bN-nz-BOU" userLabel="Dead line Container View">
-                                <rect key="frame" x="68" y="20" width="184" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="Zw1-go-OFU" kind="embed" identifier="DeadLineChildVC" id="gw4-dN-knh"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srg-Ug-BYH" userLabel="Task Description Container View">
-                                <rect key="frame" x="23" y="65" width="288" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <segue destination="e6W-Lf-Op4" kind="embed" identifier="TaskDescriptionChildVC" id="KEm-VP-lhR"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQW-Vl-ZCD" userLabel="Tags Display Container View">
-                                <rect key="frame" x="0.0" y="199" width="319" height="82"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="bnH-FR-KcX" kind="embed" identifier="TagsChildVC" id="IMJ-qW-ccP"/>
-                                </connections>
-                            </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vBJ-L1-hi0" userLabel="Tag Edtiting Controls Container View">
-                                <rect key="frame" x="0.0" y="289" width="320" height="214"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="LaJ-jH-E05" kind="embed" identifier="EditTagControlPanelChildVC" id="eNM-rV-eBJ"/>
-                                </connections>
-                            </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8F8-Xz-V7k">
-                                <rect key="frame" x="129" y="518" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go"/>
-                                <connections>
-                                    <action selector="go:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FXu-Rc-rC2"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJi-cc-k6o">
-                                <rect key="frame" x="16" y="117" width="295" height="68"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="oU4-Mi-zIe" kind="embed" identifier="TagsAddedToTaskVC" id="6xY-dd-q2E"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <connections>
-                        <outlet property="allTagsCollectionView" destination="OQW-Vl-ZCD" id="3oE-NL-Ng9"/>
-                        <segue destination="vDa-62-zss" kind="presentation" identifier="Start New Task" modalTransitionStyle="crossDissolve" id="TKV-Ta-oOb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2077.5" y="139.43661971830986"/>
-        </scene>
-        <!--Dead LineVC-->
-        <scene sceneID="3NZ-Au-zVQ">
-            <objects>
-                <viewController id="Zw1-go-OFU" customClass="DeadLineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="DuD-ru-KNL">
-                        <rect key="frame" x="0.0" y="0.0" width="184" height="43"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NmK-VX-geb">
-                                <rect key="frame" x="0.0" y="0.0" width="184" height="43"/>
-                            </pickerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="NmK-VX-geb" firstAttribute="leading" secondItem="DuD-ru-KNL" secondAttribute="leading" id="MKC-0J-0WY"/>
-                            <constraint firstAttribute="trailing" secondItem="NmK-VX-geb" secondAttribute="trailing" id="Rad-xP-SPB"/>
-                            <constraint firstAttribute="bottom" secondItem="NmK-VX-geb" secondAttribute="bottom" id="y0R-xk-WDz"/>
-                            <constraint firstItem="NmK-VX-geb" firstAttribute="top" secondItem="DuD-ru-KNL" secondAttribute="top" id="yQp-eG-8wi"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="jMt-OR-mLv"/>
-                    </view>
-                    <connections>
-                        <outlet property="deadLinePickerView" destination="NmK-VX-geb" id="kqQ-aQ-H5U"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YaH-la-tJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2865" y="-204.40140845070422"/>
-        </scene>
-        <!--TagsVC-->
-        <scene sceneID="yfb-qt-SSW">
-            <objects>
-                <collectionViewController id="bnH-FR-KcX" customClass="TagsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qCJ-ij-dlk">
-                        <rect key="frame" x="0.0" y="0.0" width="319" height="82"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="2hd-iw-2rI">
-                            <size key="itemSize" width="127" height="61"/>
-                            <size key="headerReferenceSize" width="50" height="50"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="" id="F9E-cc-tKi">
-                                <rect key="frame" x="0.0" y="50" width="127" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="127" height="61"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                                <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <size key="customSize" width="127" height="61"/>
-                            </collectionViewCell>
-                        </cells>
-                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="Header" id="6yH-ws-YKM" customClass="HeaderView" customModule="TaskKiller" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="319" height="50"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYu-79-wdx">
-                                    <rect key="frame" x="138.5" y="14.5" width="42" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <constraints>
-                                <constraint firstItem="IYu-79-wdx" firstAttribute="centerY" secondItem="6yH-ws-YKM" secondAttribute="centerY" id="qfa-vL-NG6"/>
-                                <constraint firstItem="IYu-79-wdx" firstAttribute="centerX" secondItem="6yH-ws-YKM" secondAttribute="centerX" id="vMM-ry-g7y"/>
-                            </constraints>
-                            <connections>
-                                <outlet property="label" destination="IYu-79-wdx" id="1Ma-EQ-kVB"/>
-                            </connections>
-                        </collectionReusableView>
-                        <connections>
-                            <outlet property="dataSource" destination="bnH-FR-KcX" id="elc-pJ-H9z"/>
-                            <outlet property="delegate" destination="bnH-FR-KcX" id="nDC-aw-rM5"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ILD-KL-G8h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2976.5625" y="175.35211267605635"/>
-        </scene>
-        <!--Tags Added To TaskVC-->
-        <scene sceneID="BcK-Md-spz">
-            <objects>
-                <collectionViewController id="oU4-Mi-zIe" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="sM1-Da-G4i">
-                        <rect key="frame" x="0.0" y="0.0" width="295" height="68"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tRb-ef-ZF5">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="DAa-v8-M4V">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="oU4-Mi-zIe" id="Nmj-7H-GJh"/>
-                            <outlet property="delegate" destination="oU4-Mi-zIe" id="oeX-PT-63H"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="u9v-Tc-vHY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2974.6875" y="20.070422535211268"/>
         </scene>
         <!--TaskVC-->
         <scene sceneID="EKI-3W-5U3">
@@ -862,40 +795,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVB-wm-ePC" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zlV-WV-wfT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="991"/>
-        </scene>
-        <!--Task DescriptionVC-->
-        <scene sceneID="hhh-1m-3MN">
-            <objects>
-                <viewController id="e6W-Lf-Op4" customClass="TaskDescriptionVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eJR-f1-zGl">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your task here" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="1Q4-WJ-6R1">
-                                <rect key="frame" x="43.5" y="7" width="201.5" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="didEditedText:" destination="e6W-Lf-Op4" eventType="editingChanged" id="EaK-wx-CxZ"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="centerY" secondItem="eJR-f1-zGl" secondAttribute="centerY" id="1my-5K-p9b"/>
-                            <constraint firstItem="1Q4-WJ-6R1" firstAttribute="centerX" secondItem="eJR-f1-zGl" secondAttribute="centerX" id="hle-CC-O5k"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="T3g-j8-xpR"/>
-                    </view>
-                    <connections>
-                        <outlet property="taskDescriptionTextField" destination="1Q4-WJ-6R1" id="1wz-YO-FP5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FzF-fE-Quz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2962.5" y="-107.74647887323944"/>
+            <point key="canvasLocation" x="814" y="964"/>
         </scene>
         <!--Task list-->
         <scene sceneID="YRi-Eu-R4V">
@@ -915,549 +815,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sXY-7F-Ui1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-79" y="128"/>
-        </scene>
-        <!--Tag Adding ControlsVC-->
-        <scene sceneID="zIg-ud-qx1">
-            <objects>
-                <viewController id="LaJ-jH-E05" customClass="TagAddingControlsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yBj-6L-dNb" userLabel="Tag Editing Control Panel View">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4t-13-U3D">
-                                <rect key="frame" x="78.5" y="92" width="63" height="30"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Add tag">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="addTagPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="T72-cU-7OQ"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWI-wr-NE0">
-                                <rect key="frame" x="178.5" y="92" width="63" height="30"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Edit Tags">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="editTagButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="V0m-3j-67o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xKC-od-DjB">
-                                <rect key="frame" x="266" y="92" width="88" height="30"/>
-                                <state key="normal" title="Done Editing"/>
-                                <connections>
-                                    <action selector="doneEditingButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="alN-aD-5HN"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFf-rN-9Rl" userLabel="ColorPane Container View">
-                                <rect key="frame" x="50" y="23" width="220" height="168"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="168" id="4IS-NZ-UF2"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="3A7-sV-jgU" kind="embed" identifier="Color Pane ChildVC" id="NiE-zn-pDE"/>
-                                </connections>
-                            </containerView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aVw-rs-LCV">
-                                <rect key="frame" x="-194" y="82" width="288" height="50"/>
-                                <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNp-8u-u47" userLabel="TextField Container View">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>
-                                        <connections>
-                                            <segue destination="8Pk-5h-ElZ" kind="embed" identifier="Child TagNameVC" id="2V8-y9-5Dh"/>
-                                        </connections>
-                                    </containerView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GS-y0-vFi" userLabel="ColorPaneCallButton" customClass="ColorPaneCallButton" customModule="TaskKiller" customModuleProvider="target">
-                                        <rect key="frame" x="133" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="5GS-y0-vFi" secondAttribute="height" multiplier="1:1" id="1NY-m8-kaN"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="colorPaneCallButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="UKv-qd-bJ3"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jj6-iZ-Mcg">
-                                        <rect key="frame" x="193" y="0.0" width="37" height="50"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="doneTagCreationButtonPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="045-Gv-OmG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yo-iH-0oV">
-                                        <rect key="frame" x="240" y="0.0" width="48" height="50"/>
-                                        <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="cancelCreationWasPressed" destination="LaJ-jH-E05" eventType="touchUpInside" id="WZn-GR-FBF"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="xKC-od-DjB" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="150" id="56F-Vs-T1R"/>
-                            <constraint firstItem="JWI-wr-NE0" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="50" id="Erf-sY-WIS"/>
-                            <constraint firstItem="P4t-13-U3D" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" constant="-50" id="KTw-s5-FlN"/>
-                            <constraint firstItem="xKC-od-DjB" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="KY1-7B-h5Q"/>
-                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="centerX" secondItem="yBj-6L-dNb" secondAttribute="centerX" id="Lh8-ro-sDK"/>
-                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="leading" secondItem="p4A-l0-FsU" secondAttribute="leading" constant="50" id="MaQ-vA-DeZ"/>
-                            <constraint firstItem="p4A-l0-FsU" firstAttribute="trailing" secondItem="QFf-rN-9Rl" secondAttribute="trailing" constant="50" id="PYp-i1-kID"/>
-                            <constraint firstItem="P4t-13-U3D" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="SBz-lK-xMV"/>
-                            <constraint firstItem="P4t-13-U3D" firstAttribute="width" secondItem="JWI-wr-NE0" secondAttribute="width" id="ZZc-O9-zNK"/>
-                            <constraint firstItem="QNp-8u-u47" firstAttribute="width" secondItem="yBj-6L-dNb" secondAttribute="width" multiplier="5:13" id="a7u-Dm-a8S"/>
-                            <constraint firstItem="QFf-rN-9Rl" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="hiT-kv-ZVC"/>
-                            <constraint firstItem="JWI-wr-NE0" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="nZF-by-AcK"/>
-                            <constraint firstItem="aVw-rs-LCV" firstAttribute="leading" secondItem="yBj-6L-dNb" secondAttribute="leadingMargin" constant="-210" id="oGI-7z-Mgk"/>
-                            <constraint firstItem="aVw-rs-LCV" firstAttribute="centerY" secondItem="yBj-6L-dNb" secondAttribute="centerY" id="za9-P4-FqY"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="p4A-l0-FsU"/>
-                    </view>
-                    <connections>
-                        <outlet property="addTag" destination="P4t-13-U3D" id="scC-Qj-LhO"/>
-                        <outlet property="colorPaineXPosition" destination="hiT-kv-ZVC" id="M7G-lR-O7M"/>
-                        <outlet property="colorPaneCallButton" destination="5GS-y0-vFi" id="Q3e-F9-jrX"/>
-                        <outlet property="creationControls" destination="aVw-rs-LCV" id="9Si-hN-4Yd"/>
-                        <outlet property="creationControlsLeadingConstraint" destination="oGI-7z-Mgk" id="JUk-lV-sQl"/>
-                        <outlet property="doneEditing" destination="xKC-od-DjB" id="A1U-ZQ-TWW"/>
-                        <outlet property="doneEditingXConstraint" destination="56F-Vs-T1R" id="8K0-yn-Z2d"/>
-                        <outlet property="editTag" destination="JWI-wr-NE0" id="C7o-GI-DM4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ify-dC-aCT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2124" y="815"/>
-        </scene>
-        <!--Color PaneVC-->
-        <scene sceneID="v5W-T3-ALy">
-            <objects>
-                <viewController storyboardIdentifier="ColorPaneVC" id="3A7-sV-jgU" customClass="ColorPaneVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="Nca-HT-NKH" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="220" height="168"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="YaT-gf-VWu">
-                                <rect key="frame" x="19" y="16.5" width="182" height="135"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Bp3-Hm-DyD">
-                                        <rect key="frame" x="0.0" y="0.0" width="182" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lda-xM-ULv" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Lda-xM-ULv" secondAttribute="height" multiplier="1:1" id="s8Y-vR-BHD"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="WBr-8v-P9q"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-Df-e4O" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="nRU-Df-e4O" secondAttribute="height" multiplier="1:1" id="YaM-1r-x0t"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="4t2-sh-Shp"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTo-9x-0k7" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="f0q-fU-WOu"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="csu-o4-CEf"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cjV-OB-hIa" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="5fD-MT-4kD"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="TJJ-au-3Kq"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iZO-bQ-dIM" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="VNi-ZZ-DsK"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="Bqb-dS-3hb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="KTo-9x-0k7" firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="Psp-hz-7UF"/>
-                                            <constraint firstItem="KTo-9x-0k7" firstAttribute="width" secondItem="KTo-9x-0k7" secondAttribute="height" multiplier="1:1" id="Q6J-or-ntC"/>
-                                            <constraint firstItem="iZO-bQ-dIM" firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="Qy8-e4-jai"/>
-                                            <constraint firstItem="cjV-OB-hIa" firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="RH8-iJ-srd"/>
-                                            <constraint firstItem="cjV-OB-hIa" firstAttribute="width" secondItem="cjV-OB-hIa" secondAttribute="height" multiplier="1:1" id="ZA9-Hc-UaF"/>
-                                            <constraint firstItem="iZO-bQ-dIM" firstAttribute="width" secondItem="iZO-bQ-dIM" secondAttribute="height" multiplier="1:1" id="d09-Za-Kdh"/>
-                                            <constraint firstItem="nRU-Df-e4O" firstAttribute="width" secondItem="nRU-Df-e4O" secondAttribute="height" multiplier="1:1" id="oBO-Sl-62f"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cu7-TI-jTN">
-                                        <rect key="frame" x="0.0" y="35" width="182" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YyC-dD-h1I" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="YyC-dD-h1I" secondAttribute="height" multiplier="1:1" id="63A-bL-7sg"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="9CV-XD-whH"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ik-Kv-zuN" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="6Ik-Kv-zuN" secondAttribute="height" multiplier="1:1" id="Pi1-Eb-nrl"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.2527923882" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="oky-jl-am9"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bW3-iQ-O6N" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="hbq-hw-uao"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="hox-fB-PbA"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgF-ey-f4I" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="Ly8-pg-D0B"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="P5a-1e-cjp"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdP-td-yNU" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="OHi-Rl-QIz"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="0PV-dU-d43"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="jdP-td-yNU" firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="0OW-kp-Yj4"/>
-                                            <constraint firstItem="bW3-iQ-O6N" firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="NoN-MY-SY8"/>
-                                            <constraint firstItem="bW3-iQ-O6N" firstAttribute="width" secondItem="bW3-iQ-O6N" secondAttribute="height" multiplier="1:1" id="SRw-9Z-LCQ"/>
-                                            <constraint firstItem="zgF-ey-f4I" firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="UWy-aP-gV8"/>
-                                            <constraint firstItem="zgF-ey-f4I" firstAttribute="width" secondItem="zgF-ey-f4I" secondAttribute="height" multiplier="1:1" id="c03-1V-5I0"/>
-                                            <constraint firstItem="6Ik-Kv-zuN" firstAttribute="width" secondItem="6Ik-Kv-zuN" secondAttribute="height" multiplier="1:1" id="eMz-rP-nrY"/>
-                                            <constraint firstItem="jdP-td-yNU" firstAttribute="width" secondItem="jdP-td-yNU" secondAttribute="height" multiplier="1:1" id="swJ-e8-ABd"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="BpG-Pf-cPs">
-                                        <rect key="frame" x="0.0" y="70" width="182" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thn-xP-nsB" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="thn-xP-nsB" secondAttribute="height" multiplier="1:1" id="cI0-od-ShV"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="dJF-4a-oAW"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odm-1S-2uy" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="odm-1S-2uy" secondAttribute="height" multiplier="1:1" id="bTk-gm-GNF"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="Vl4-Dt-9DR"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-FN-cul" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="qtQ-PE-pCD"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="UiX-TQ-GJc"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vq8-Ib-Mgn" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="uzw-lo-NMn"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="2IA-HW-Hb3"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mvh-3N-fI2" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="Djw-8G-arI"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="vIl-Fv-uw9"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="0l4-FN-cul" firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="0tp-cx-4hD"/>
-                                            <constraint firstItem="vq8-Ib-Mgn" firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="2JO-xb-OqV"/>
-                                            <constraint firstItem="Mvh-3N-fI2" firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="4WN-7w-dDH"/>
-                                            <constraint firstItem="odm-1S-2uy" firstAttribute="width" secondItem="odm-1S-2uy" secondAttribute="height" multiplier="1:1" id="BmN-if-A4J"/>
-                                            <constraint firstItem="0l4-FN-cul" firstAttribute="width" secondItem="0l4-FN-cul" secondAttribute="height" multiplier="1:1" id="Cft-gS-6fP"/>
-                                            <constraint firstItem="vq8-Ib-Mgn" firstAttribute="width" secondItem="vq8-Ib-Mgn" secondAttribute="height" multiplier="1:1" id="Coh-65-NsH"/>
-                                            <constraint firstItem="Mvh-3N-fI2" firstAttribute="width" secondItem="Mvh-3N-fI2" secondAttribute="height" multiplier="1:1" id="tCj-0k-BPI"/>
-                                        </constraints>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3uM-73-epr">
-                                        <rect key="frame" x="0.0" y="105" width="182" height="30"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dF9-d2-ibO" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="dF9-d2-ibO" secondAttribute="height" multiplier="1:1" id="bTa-Dw-FwM"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="gt8-bQ-9mV"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YxO-9k-Z9U" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="38" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="YxO-9k-Z9U" secondAttribute="height" multiplier="1:1" id="EpH-tL-rzV"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="ogZ-oa-Z3K"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lud-Ww-BAn" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="76" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="Hnf-qK-jNe"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="2U7-MH-jdN"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr3-CC-B5g" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="114" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="3P9-jX-vD0"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="a5x-E5-Ymm"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rRD-54-VcH" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
-                                                <rect key="frame" x="152" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="nR2-lD-clQ"/>
-                                                </constraints>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="colorSelectionButtonPressed:" destination="3A7-sV-jgU" eventType="touchUpInside" id="ict-Nd-deP"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstItem="rRD-54-VcH" firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="9R0-vS-ATw"/>
-                                            <constraint firstItem="Wr3-CC-B5g" firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="Flz-rq-EZz"/>
-                                            <constraint firstItem="Wr3-CC-B5g" firstAttribute="width" secondItem="Wr3-CC-B5g" secondAttribute="height" multiplier="1:1" id="Of5-s6-9NE"/>
-                                            <constraint firstItem="Lud-Ww-BAn" firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="UIw-Zc-V09"/>
-                                            <constraint firstItem="Lud-Ww-BAn" firstAttribute="width" secondItem="Lud-Ww-BAn" secondAttribute="height" multiplier="1:1" id="egY-Kl-yWd"/>
-                                            <constraint firstItem="rRD-54-VcH" firstAttribute="width" secondItem="rRD-54-VcH" secondAttribute="height" multiplier="1:1" id="jAt-ZR-z1k"/>
-                                            <constraint firstItem="YxO-9k-Z9U" firstAttribute="width" secondItem="YxO-9k-Z9U" secondAttribute="height" multiplier="1:1" id="sdS-5V-9Wj"/>
-                                        </constraints>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="YaT-gf-VWu" firstAttribute="centerX" secondItem="Nca-HT-NKH" secondAttribute="centerX" id="cAr-Ym-KLy"/>
-                            <constraint firstItem="YaT-gf-VWu" firstAttribute="centerY" secondItem="Nca-HT-NKH" secondAttribute="centerY" id="hQq-Of-foU"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZaN-oN-DjI"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="35"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
-                                <color key="value" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.35106734154929575" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dHf-Ke-4zo" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2865" y="631"/>
-        </scene>
-        <!--Tag NameVC-->
-        <scene sceneID="lRa-BH-Of7">
-            <objects>
-                <viewController storyboardIdentifier="TagNameVC" id="8Pk-5h-ElZ" customClass="TagNameVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="JXX-8M-EBm">
-                        <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter tag name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CyI-3W-AyR">
-                                <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="editingDidChanged:" destination="8Pk-5h-ElZ" eventType="editingChanged" id="nzs-tk-IaV"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="CyI-3W-AyR" firstAttribute="leading" secondItem="JXX-8M-EBm" secondAttribute="leading" id="FKf-qj-oKL"/>
-                            <constraint firstAttribute="bottom" secondItem="CyI-3W-AyR" secondAttribute="bottom" id="IGJ-Tn-JhP"/>
-                            <constraint firstItem="CyI-3W-AyR" firstAttribute="top" secondItem="JXX-8M-EBm" secondAttribute="top" id="KQh-MM-fGG"/>
-                            <constraint firstAttribute="trailing" secondItem="CyI-3W-AyR" secondAttribute="trailing" id="Tfo-4o-voL"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hOg-Qs-2f0"/>
-                    </view>
-                    <connections>
-                        <outlet property="tagName" destination="CyI-3W-AyR" id="UyW-ea-8Xf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VJp-3Y-eNb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2892" y="861"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="WMQ-Ja-iMg">
@@ -1532,7 +889,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dol-Mp-4FI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="816" y="1799"/>
+            <point key="canvasLocation" x="814" y="1778"/>
         </scene>
         <!--Create Additional TimeVC-->
         <scene sceneID="1rB-9W-Vb8">
@@ -1614,7 +971,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jmE-YP-iXk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791" y="1799"/>
+            <point key="canvasLocation" x="1783" y="1778"/>
         </scene>
         <!--Times-->
         <scene sceneID="ZFM-zi-uuS">
@@ -1633,7 +990,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hb-sw-Kmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="1799"/>
+            <point key="canvasLocation" x="-60" y="1778"/>
         </scene>
         <!--Statistics-->
         <scene sceneID="GPI-VM-DDX">
@@ -1796,8 +1153,559 @@
             </objects>
             <point key="canvasLocation" x="773" y="2425"/>
         </scene>
+        <!--Task DescriptionVC-->
+        <scene sceneID="1MA-P4-JgW">
+            <objects>
+                <viewController id="QH6-yn-GcR" customClass="TaskDescriptionVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ach-eh-KBd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tt5-lY-D6R">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="QH6-yn-GcR" id="d19-aH-358"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="tt5-lY-D6R" firstAttribute="top" secondItem="ach-eh-KBd" secondAttribute="top" id="Piy-w3-oeo"/>
+                            <constraint firstAttribute="trailing" secondItem="tt5-lY-D6R" secondAttribute="trailing" id="Ru1-rl-6ns"/>
+                            <constraint firstItem="tt5-lY-D6R" firstAttribute="leading" secondItem="ach-eh-KBd" secondAttribute="leading" id="Xwl-f4-TNF"/>
+                            <constraint firstAttribute="bottom" secondItem="tt5-lY-D6R" secondAttribute="bottom" id="bgX-sd-3bs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FT8-VW-uF7"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="tt5-lY-D6R" id="fYb-bx-5WT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l39-Ul-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3171" y="-155"/>
+        </scene>
+        <!--DeadlineVC-->
+        <scene sceneID="gFz-BH-y3h">
+            <objects>
+                <viewController id="YxY-Hw-HrP" customClass="DeadlineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iCa-Pt-9R2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IsA-GD-sxU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-xs-9FX">
+                                        <rect key="frame" x="115.5" y="0.0" width="89" height="43.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="deadlineButtonWasTapped:" destination="YxY-Hw-HrP" eventType="touchUpInside" id="kGj-ZT-rWi"/>
+                                        </connections>
+                                    </button>
+                                    <datePicker hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOx-Cu-Dtf">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="575350601.18026805">
+                                            <!--2019-03-27 03:36:41 +0000-->
+                                        </date>
+                                        <connections>
+                                            <action selector="deadlineWasChanged:" destination="YxY-Hw-HrP" eventType="valueChanged" id="hI7-vO-x92"/>
+                                        </connections>
+                                    </datePicker>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Teq-Ze-tbu" firstAttribute="bottom" secondItem="IsA-GD-sxU" secondAttribute="bottom" id="RhZ-PY-n0c"/>
+                            <constraint firstItem="IsA-GD-sxU" firstAttribute="leading" secondItem="Teq-Ze-tbu" secondAttribute="leading" id="Tk0-5D-5IQ"/>
+                            <constraint firstItem="IsA-GD-sxU" firstAttribute="top" secondItem="Teq-Ze-tbu" secondAttribute="top" id="iLw-M9-Npf"/>
+                            <constraint firstItem="Teq-Ze-tbu" firstAttribute="trailing" secondItem="IsA-GD-sxU" secondAttribute="trailing" id="lKk-Zh-T5O"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Teq-Ze-tbu"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePickerView" destination="WOx-Cu-Dtf" id="11n-JI-Ys7"/>
+                        <outlet property="deadlineButton" destination="eaN-xs-9FX" id="mOy-XV-vka"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihJ-Qc-fvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3171" y="-41"/>
+        </scene>
+        <!--Collection View Controller-->
+        <scene sceneID="Z8W-zA-q9m">
+            <objects>
+                <collectionViewController id="5YP-Nt-EiJ" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="FeD-te-xhg">
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="78"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n6f-7w-1E0">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="TagCell" id="Rfe-fE-Zar" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="5YP-Nt-EiJ" id="aA9-eD-5Zx"/>
+                            <outlet property="delegate" destination="5YP-Nt-EiJ" id="W0X-mw-MWW"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSd-h3-hYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3171" y="115"/>
+        </scene>
+        <!--Create TagVC-->
+        <scene sceneID="NwL-BU-7eb">
+            <objects>
+                <tableViewController id="A9z-gl-o7Z" customClass="CreateTagVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ptc-mM-C23">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xt4-rj-ltT">
+                            <rect key="frame" x="0.0" y="529" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="E1W-R6-ioS"/>
+                                <barButtonItem title="Cancel" id="7OG-rB-jDQ">
+                                    <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <action selector="tagCreationWasCancelled:" destination="A9z-gl-o7Z" id="9Zo-7R-dPT"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem style="plain" systemItem="flexibleSpace" id="pTu-Ev-txF"/>
+                                <barButtonItem title="Save" id="DBr-NB-2cE">
+                                    <connections>
+                                        <action selector="saveCreatedTag:" destination="A9z-gl-o7Z" id="3PQ-GM-IQf"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="KRm-OO-Uqc"/>
+                            </items>
+                        </toolbar>
+                        <sections>
+                            <tableViewSection headerTitle="Tag name" id="NhI-DM-LVM">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wln-ON-mg9">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wln-ON-mg9" id="hEE-NN-ZtH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnW-hs-6B5">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="tagNameWasChanged:" destination="A9z-gl-o7Z" eventType="editingChanged" id="3D0-Ie-dUX"/>
+                                                        <outlet property="delegate" destination="A9z-gl-o7Z" id="q1b-vc-cEJ"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fnW-hs-6B5" secondAttribute="trailing" id="2Mv-qD-nDU"/>
+                                                <constraint firstItem="fnW-hs-6B5" firstAttribute="leading" secondItem="hEE-NN-ZtH" secondAttribute="leading" id="I79-0V-Ihv"/>
+                                                <constraint firstItem="fnW-hs-6B5" firstAttribute="top" secondItem="hEE-NN-ZtH" secondAttribute="top" id="Kh3-jj-SO4"/>
+                                                <constraint firstAttribute="bottom" secondItem="fnW-hs-6B5" secondAttribute="bottom" id="lyX-0i-WEu"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Chosen color" id="6mr-cx-UJk">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="1Ji-iY-ClH">
+                                        <rect key="frame" x="0.0" y="100" width="320" height="77"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ji-iY-ClH" id="LGa-cc-uX7">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrL-yx-UCg" customClass="ColorSampleView" customModule="TaskKiller" customModuleProvider="target">
+                                                    <rect key="frame" x="132.5" y="11" width="55" height="55"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jrL-yx-UCg" secondAttribute="height" multiplier="1:1" id="ttK-2j-dJ1"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="jrL-yx-UCg" firstAttribute="centerX" secondItem="LGa-cc-uX7" secondAttribute="centerX" id="306-di-8ax"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jrL-yx-UCg" secondAttribute="bottom" id="PBf-0W-r8a"/>
+                                                <constraint firstItem="jrL-yx-UCg" firstAttribute="top" secondItem="LGa-cc-uX7" secondAttribute="topMargin" id="THa-xP-a4O"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Tag color" id="eLy-H8-1Id">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="324" id="3uq-va-a1a">
+                                        <rect key="frame" x="0.0" y="205" width="320" height="324"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3uq-va-a1a" id="W3W-Z2-5be">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="323.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufD-em-Nej" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                                    <rect key="frame" x="29" y="31" width="262" height="262"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="24"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
+                                                            <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IJF-hx-zoi">
+                                                    <rect key="frame" x="39" y="41" width="242" height="242"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q7y-4K-wsI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="242" height="53"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-3w-9f2" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="3aA-3w-9f2" secondAttribute="height" multiplier="1:1" id="ITk-qz-KOk"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="419-jl-Du0"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-oc-eDZ" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="63" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="G3E-oc-eDZ" secondAttribute="height" multiplier="1:1" id="oNY-xv-pvm"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.47684186699999997" green="0.50480759139999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="hw3-Yw-UcK"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2H-Js-SsH" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="126" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="r2H-Js-SsH" secondAttribute="height" multiplier="1:1" id="ude-bc-RfD"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="IVV-VQ-64T"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-Qt-ySZ" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="189" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="7WB-Qt-ySZ" secondAttribute="height" multiplier="1:1" id="P78-W9-Jgi"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="r2H-Js-SsH" firstAttribute="width" secondItem="r2H-Js-SsH" secondAttribute="height" multiplier="1:1" id="1Cl-Ww-8e7"/>
+                                                                <constraint firstItem="7WB-Qt-ySZ" firstAttribute="width" secondItem="7WB-Qt-ySZ" secondAttribute="height" multiplier="1:1" id="fzF-Al-geE"/>
+                                                                <constraint firstItem="G3E-oc-eDZ" firstAttribute="width" secondItem="G3E-oc-eDZ" secondAttribute="height" multiplier="1:1" id="xw4-0t-cHh"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="efU-uZ-kge">
+                                                            <rect key="frame" x="0.0" y="63" width="242" height="53"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zML-EB-PdE" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="zML-EB-PdE" secondAttribute="height" multiplier="1:1" id="uW5-7J-2QP"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="ucH-vy-27M"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-K5-up6" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="63" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="hRU-K5-up6" secondAttribute="height" multiplier="1:1" id="w08-r3-kLj"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="oL1-rc-eae"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-Vp-LRL" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="126" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="7K6-Vp-LRL" secondAttribute="height" multiplier="1:1" id="vzd-al-xt6"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="8ZR-dw-HyZ"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-KZ-rsG" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="189" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="lUJ-KZ-rsG" secondAttribute="height" multiplier="1:1" id="odf-wt-kV5"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="Ksi-Ie-ybR"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="lUJ-KZ-rsG" firstAttribute="width" secondItem="lUJ-KZ-rsG" secondAttribute="height" multiplier="1:1" id="a0C-Ni-gHl"/>
+                                                                <constraint firstItem="hRU-K5-up6" firstAttribute="width" secondItem="hRU-K5-up6" secondAttribute="height" multiplier="1:1" id="f3a-L0-XtJ"/>
+                                                                <constraint firstItem="7K6-Vp-LRL" firstAttribute="width" secondItem="7K6-Vp-LRL" secondAttribute="height" multiplier="1:1" id="uWk-QO-ygC"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-9m-Oy8">
+                                                            <rect key="frame" x="0.0" y="126" width="242" height="53"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQF-iB-34A" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="KQF-iB-34A" secondAttribute="height" multiplier="1:1" id="Jlp-ls-xKc"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="lft-wX-3Lj"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-nO-Nqk" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="63" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="LBM-nO-Nqk" secondAttribute="height" multiplier="1:1" id="sRy-eM-1Fr"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="arY-q1-Qun"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8u-Eo-667" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="126" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="a8u-Eo-667" secondAttribute="height" multiplier="1:1" id="KIy-Dh-caZ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="6As-lM-VcK"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-W7-h0n" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="189" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Plz-W7-h0n" secondAttribute="height" multiplier="1:1" id="6EQ-YP-SnA"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="J2s-4v-OKm"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="LBM-nO-Nqk" firstAttribute="width" secondItem="LBM-nO-Nqk" secondAttribute="height" multiplier="1:1" id="jv1-j3-PGc"/>
+                                                                <constraint firstItem="Plz-W7-h0n" firstAttribute="width" secondItem="Plz-W7-h0n" secondAttribute="height" multiplier="1:1" id="kVe-En-ZnT"/>
+                                                                <constraint firstItem="a8u-Eo-667" firstAttribute="width" secondItem="a8u-Eo-667" secondAttribute="height" multiplier="1:1" id="vZa-Ou-rEl"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="94V-Qz-eYB">
+                                                            <rect key="frame" x="0.0" y="189" width="242" height="53"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-bx-IBx" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="fTO-bx-IBx" secondAttribute="height" multiplier="1:1" id="iYB-xL-wF1"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="J1J-dK-uqJ"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osg-TV-zfA" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="63" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Osg-TV-zfA" secondAttribute="height" multiplier="1:1" id="nrO-f6-GNe"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="v09-wh-mfl"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQq-tp-KKc" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="126" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="rQq-tp-KKc" secondAttribute="height" multiplier="1:1" id="ovB-KH-bN2"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.58105844259999995" green="0.12855249639999999" blue="0.57453137639999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="s4E-rV-ijp"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEQ-Uo-i99" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                    <rect key="frame" x="189" y="0.0" width="53" height="53"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="gEQ-Uo-i99" secondAttribute="height" multiplier="1:1" id="ajm-6G-b4S"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                                            <color key="value" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="azl-Ky-dck"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Osg-TV-zfA" firstAttribute="width" secondItem="Osg-TV-zfA" secondAttribute="height" multiplier="1:1" id="5h6-dM-Fqa"/>
+                                                                <constraint firstItem="rQq-tp-KKc" firstAttribute="width" secondItem="rQq-tp-KKc" secondAttribute="height" multiplier="1:1" id="Plh-nI-2tF"/>
+                                                                <constraint firstItem="gEQ-Uo-i99" firstAttribute="width" secondItem="gEQ-Uo-i99" secondAttribute="height" multiplier="1:1" id="nVM-Id-a8E"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="top" secondItem="IJF-hx-zoi" secondAttribute="top" constant="-10" id="9Y6-NH-0T5" userLabel="topBackgroundAndStack"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ufD-em-Nej" secondAttribute="bottom" constant="10" id="Nrw-R5-2zQ" userLabel="bottomBackgroundContentView"/>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="W3W-Z2-5be" secondAttribute="leading" priority="999" constant="10" id="PFq-cH-and" userLabel="leadingBackgoundAndContent"/>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="top" relation="greaterThanOrEqual" secondItem="W3W-Z2-5be" secondAttribute="top" constant="10" id="Twf-fw-scA" userLabel="topBackgoundAndContent"/>
+                                                <constraint firstItem="IJF-hx-zoi" firstAttribute="centerX" secondItem="W3W-Z2-5be" secondAttribute="centerX" id="UwT-31-PAY" userLabel="centeXStackAndContent"/>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="leading" secondItem="IJF-hx-zoi" secondAttribute="leading" constant="-10" id="X2w-95-Bgu" userLabel="leadingBackgoroundAndStack"/>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="trailing" secondItem="IJF-hx-zoi" secondAttribute="trailing" priority="999" constant="10" id="g56-MO-ty0" userLabel="trailingBackgroundAndStack"/>
+                                                <constraint firstItem="ufD-em-Nej" firstAttribute="bottom" secondItem="IJF-hx-zoi" secondAttribute="bottom" constant="10" id="jNU-jk-Hzf" userLabel="bottomBackgroundAndStack"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ufD-em-Nej" secondAttribute="trailing" constant="10" id="qa2-ty-HCS" userLabel="trailingBackgroundAndContentView"/>
+                                                <constraint firstItem="IJF-hx-zoi" firstAttribute="centerY" secondItem="W3W-Z2-5be" secondAttribute="centerY" id="syf-IE-Rqg" userLabel="centerYStackAndContent"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="A9z-gl-o7Z" id="T7b-k4-Ulw"/>
+                            <outlet property="delegate" destination="A9z-gl-o7Z" id="xPT-15-MsL"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="chosenColorView" destination="jrL-yx-UCg" id="8WH-px-rdv"/>
+                        <outlet property="tagNameTextField" destination="fnW-hs-6B5" id="JRG-ao-2SV"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3171" y="547"/>
+        </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Mb3-T5-EQg"/>
-    </inferredMetricsTieBreakers>
 </document>

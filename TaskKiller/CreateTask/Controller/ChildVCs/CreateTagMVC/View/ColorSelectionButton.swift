@@ -18,7 +18,4 @@ class ColorSelectionButton: UIButton {
         color.setFill()
         path.fill()
     }
-    func getColor() -> UIColor {
-        return color
-    }
 }

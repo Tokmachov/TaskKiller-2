@@ -11,8 +11,16 @@ import UIKit
 @IBDesignable
 class ColorPaneBackgroundView: UIView {
     
-    @IBInspectable var cornerRadius: CGFloat = 0
-    @IBInspectable var paneColor: UIColor = UIColor.green
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    @IBInspectable var paneColor: UIColor = UIColor.green {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         paneColor.withAlphaComponent(0.5)

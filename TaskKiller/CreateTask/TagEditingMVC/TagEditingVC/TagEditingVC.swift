@@ -35,7 +35,7 @@ class TagEditingVC: UIViewController {
         tagColor = tag.color
     }
     @IBAction func colorSelectionButtonPressed(_ sender: ColorSelectionButton) {
-        tagColor = sender.getColor()
+        tagColor = sender.color
     }
     @IBAction func editingDidChanged(_ sender: UITextField) {
         tagName = sender.text

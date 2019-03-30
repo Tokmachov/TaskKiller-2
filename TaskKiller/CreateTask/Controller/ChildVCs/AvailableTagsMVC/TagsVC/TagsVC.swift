@@ -9,32 +9,24 @@
 import UIKit
 import CoreData
 
-class TagsVC: UICollectionViewController, DragInitiatingVC {
+class TagsVC: UICollectionViewController {
     
-    private var tagFactory: TagFactoryImp!
-    
-    //MARK: DragInitiatingVC
-    func setDropAreaPreparingDelegate(_ delegate: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate) {
-        dropAreaDelegate = delegate
-    }
-    private weak var dropAreaDelegate: TagEditingAndDeletingFromAllTagsDropAreasPreparingDelegate!
+    private var tagFactory = TagFactoryImp()
+    weak var dropAreaDelegate: TagVCDelegate!
     
     let distanceBetweenLines: CGFloat = 10
     let interItemSpacing: CGFloat = 10
     let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     
-    private var indexOfEnlargedCell: IndexPath?
+  
     private var tagCellID = "Tag Cell"
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
     private var collectionViewChangeContentsOperations = [BlockOperation]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tagFactory = TagFactoryImp()
         fetchResultsController = createTagFetchResultsController()
         fetchResultsController.delegate = self
-        collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
-        collectionView.backgroundColor = UIColor.red
         collectionView.dragDelegate = self
         collectionView.dragInteractionEnabled = true
         collectionView.dropDelegate = self
@@ -127,7 +119,7 @@ extension TagsVC {
         return tagsLoadedFromMemory.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as? TagCell else { fatalError() }
+        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.createTag(from: tagModel)
         tagCell.setTagInfo(tag)
@@ -185,10 +177,10 @@ extension TagsVC: UICollectionViewDragDelegate {
         return parameters
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        dropAreaDelegate.prepareTagEditingAndDeletingFromAllTagsDropAreas()
+        //dropAreaDelegate.prepareTagEditingAndDeletingFromAllTagsDropAreas()
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        dropAreaDelegate.removeTagEditingAndDeletingFromAllDropAreas()
+        //dropAreaDelegate.removeTagEditingAndDeletingFromAllDropAreas()
     }
 }
 

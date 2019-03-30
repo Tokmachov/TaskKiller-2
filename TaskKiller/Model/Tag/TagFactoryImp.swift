@@ -15,12 +15,12 @@ struct TagFactoryImp: TagFactory {
         PersistanceService.saveContext()
     }
     
-    func createTag(from name: String, and color: UIColor) -> Tag {
+    func createTag(name: String, color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)
         let tag = TagModelAdapter(tagModel: tagModel)
         return tag
     }
-    func createTag(from tagModel: TagModel) -> Tag {
+    func createTag(tagModel: TagModel) -> Tag {
         return TagModelAdapter(tagModel: tagModel)
     }
 }

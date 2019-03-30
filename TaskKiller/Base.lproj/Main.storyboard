@@ -189,18 +189,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-AJ-Gml">
-                                                    <rect key="frame" x="16" y="11" width="288" height="78"/>
-                                                    <connections>
-                                                        <segue destination="5YP-Nt-EiJ" kind="embed" identifier="AvailableTagsVC" id="HrU-kM-Kkc"/>
-                                                    </connections>
-                                                </containerView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIp-6i-fwp" customClass="TagCollectionBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                                    <rect key="frame" x="3" y="3" width="314" height="93.5"/>
+                                                    <subviews>
+                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-AJ-Gml">
+                                                            <rect key="frame" x="20" y="2" width="274" height="89.5"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="-8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
+                                                                    <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <segue destination="5YP-Nt-EiJ" kind="embed" identifier="AvailableTagsVC" id="HrU-kM-Kkc"/>
+                                                            </connections>
+                                                        </containerView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="U5U-AJ-Gml" secondAttribute="bottom" constant="2" id="1fs-tf-GV5"/>
+                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="leading" secondItem="CIp-6i-fwp" secondAttribute="leading" constant="20" id="eRZ-OI-VS4"/>
+                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="top" secondItem="CIp-6i-fwp" secondAttribute="top" constant="2" id="hKf-PK-oRj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U5U-AJ-Gml" secondAttribute="trailing" constant="20" id="mPe-Kf-4bi"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="top" secondItem="KdD-xo-6tP" secondAttribute="topMargin" id="bhp-rC-dJ7"/>
-                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="bottom" secondItem="KdD-xo-6tP" secondAttribute="bottomMargin" id="rge-ft-ToQ"/>
-                                                <constraint firstItem="U5U-AJ-Gml" firstAttribute="leading" secondItem="KdD-xo-6tP" secondAttribute="leadingMargin" id="x1t-X7-KS3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="U5U-AJ-Gml" secondAttribute="trailing" id="xQb-rL-QKc"/>
+                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="leading" secondItem="KdD-xo-6tP" secondAttribute="leading" constant="3" id="9Xk-TB-Rky"/>
+                                                <constraint firstAttribute="trailing" secondItem="CIp-6i-fwp" secondAttribute="trailing" constant="3" id="UKV-6h-vAB"/>
+                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="top" secondItem="KdD-xo-6tP" secondAttribute="top" constant="3" id="oi1-xL-Gkl"/>
+                                                <constraint firstAttribute="bottom" secondItem="CIp-6i-fwp" secondAttribute="bottom" constant="3" id="vZE-Po-8sj"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -245,7 +265,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb2-0c-Bmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186.25" y="127.8169014084507"/>
+            <point key="canvasLocation" x="2182.5" y="127.8169014084507"/>
         </scene>
         <!--Tag EditingVC-->
         <scene sceneID="RtX-kh-vty">
@@ -1237,14 +1257,14 @@
             </objects>
             <point key="canvasLocation" x="3171" y="-41"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--TagsVC-->
         <scene sceneID="Z8W-zA-q9m">
             <objects>
-                <collectionViewController id="5YP-Nt-EiJ" sceneMemberID="viewController">
+                <collectionViewController id="5YP-Nt-EiJ" customClass="TagsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="FeD-te-xhg">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="78"/>
+                        <rect key="frame" x="0.0" y="0.0" width="274" height="89.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n6f-7w-1E0">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1252,7 +1272,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="TagCell" id="Rfe-fE-Zar" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" reuseIdentifier="" id="Rfe-fE-Zar">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -1443,6 +1463,9 @@
                                                                             <color key="value" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
+                                                                    <connections>
+                                                                        <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="VFO-YF-ubv"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>

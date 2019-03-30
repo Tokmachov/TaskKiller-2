@@ -10,17 +10,28 @@ import Foundation
 import UIKit
 
 
-class TagView: UIView, TagInfoSetable {
+class TagView: UIView {
     
-    private var nameLabel: TagNameLabel! 
+    var name: String = "" {
+        didSet {
+            nameLabel.text = name
+            nameLabel.sizeToFit()
+        }
+    }
+    var color: UIColor = UIColor.gray {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    private var nameLabel: UILabel!
     
     //MARK: Appearance
     private let cornerRadius: CGFloat = 10
     private var paddingAroundNameView: CGFloat {
         return cornerRadius / 2
     }
-    private var tagColor = UIColor.gray
-    private let tagNameFontSize: CGFloat = 17
+    private var font = UIFont.systemFont(ofSize: 17)
     
     convenience init() {
         self.init(frame: CGRect.zero)
@@ -30,18 +41,10 @@ class TagView: UIView, TagInfoSetable {
     override func draw(_ rect: CGRect) {
         let path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius)
         path.addClip()
-        tagColor.setFill()
+        color.setFill()
         path.fill()
     }
     
-    //MARK: TagInfoSetable
-    func setTagInfo(_ tag: Tag) {
-        setTagName(tag.name)
-        setTagColor(tag.color)
-    }
-    func setTagNameFontSize(_ size: CGFloat) {
-        nameLabel.setFontSize(size)
-    }
     func getEstimatedTagViewSize() -> CGSize {
         let width = nameLabel.getWidth() + 2 * paddingAroundNameView
         let height = nameLabel.getHeight() + 2 * paddingAroundNameView
@@ -51,36 +54,22 @@ class TagView: UIView, TagInfoSetable {
 
 extension TagView {
     
-    private func setTagColor(_ color: UIColor) {
-        tagColor = color
-        setNeedsDisplay()
-    }
-    private func setTagName(_ name: String) {
-        nameLabel.setName(name)
-    }
-    
     //MARK: setupTagView
     private func setupView() {
-        setupNameView()
-        setBackgroundColor()
+        setupNameLabel()
+        backgroundColor = UIColor.clear
+        isOpaque = false
     }
-    private func setupNameView() {
-        self.nameLabel = TagNameLabel()
-        addSubview(nameLabel)
-        constraintNameViewToTagView()
-        nameLabel.setFontSize(tagNameFontSize)
-    }
-    private func constraintNameViewToTagView() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+    
+    private func setupNameLabel() {
+        self.nameLabel = UILabel()
+        nameLabel.font = font
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(nameLabel)
         self.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor, constant: -paddingAroundNameView).isActive = true
         self.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: paddingAroundNameView).isActive = true
         self.topAnchor.constraint(equalTo: nameLabel.topAnchor, constant: -paddingAroundNameView).isActive = true
         self.bottomAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: paddingAroundNameView).isActive = true
-    }
-    private func setBackgroundColor() {
-        backgroundColor = UIColor.clear
-        isOpaque = false
     }
 }
 

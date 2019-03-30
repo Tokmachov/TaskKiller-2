@@ -9,7 +9,7 @@
 import UIKit
 class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate {
   
-  
+    private var tagFactory = TagFactoryImp()
     //MARK: Model
     private var taskDescription: String?
     private var deadline: TimeInterval?
@@ -43,7 +43,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     }
     //MARK: CreateTagVCDelegate
     func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChoseName name: String, AndColor color: UIColor) {
-        print("Create tag chose tag name \(name), tag colo \(color)")
+        _ = tagFactory.createTag(name: name, color: color)
     }
     //MARK: UIContentContainer
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {

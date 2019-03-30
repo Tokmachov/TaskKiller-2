@@ -9,8 +9,8 @@
 import UIKit
 
 protocol TagFactory {
-    func createTag(from name: String, and color: UIColor) -> Tag
-    func createTag(from tagModel: TagModel) -> Tag
+    func createTag(name: String, color: UIColor) -> Tag
+    func createTag(tagModel: TagModel) -> Tag
     func deleteTagFromMemory(_ tag: Tag)
 }
 

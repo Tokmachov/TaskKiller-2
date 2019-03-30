@@ -8,10 +8,14 @@
 
 import UIKit
 
-class TagCell: UICollectionViewCell, TagInfoSetable {
-    
+class TagCell: UICollectionViewCell {
+    var taskTag: Tag! {
+        didSet {
+            tagView.name = taskTag.name
+            tagView.color = taskTag.color
+        }
+    }
     private var tagView = TagView()
-    private var cellBackgroundColor = UIColor.clear
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,10 +25,6 @@ class TagCell: UICollectionViewCell, TagInfoSetable {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //MARK: TagInfoSetable
-    func setTagInfo(_ tag: Tag) {
-        tagView.setTagInfo(tag)
-    }
     
     func getSizeNeededForContentView() -> CGSize {
         return tagView.getEstimatedTagViewSize()
@@ -33,9 +33,10 @@ class TagCell: UICollectionViewCell, TagInfoSetable {
 
 extension TagCell {
     private func setupView() {
+        tagView = TagView()
         addSubview(tagView)
         constraintTagViewToContentView()
-        setCellBackgroundColor()
+        tagView.backgroundColor = UIColor.clear
     }
     private func constraintTagViewToContentView() {
         tagView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,9 +45,5 @@ extension TagCell {
         tagView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         tagView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
     }
-    private func setCellBackgroundColor() {
-        backgroundColor = cellBackgroundColor
-    }
-    
 }
 

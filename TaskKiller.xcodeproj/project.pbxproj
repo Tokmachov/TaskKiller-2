@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040319C821D5D850003A758F /* TagNameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040319C721D5D850003A758F /* TagNameLabel.swift */; };
 		04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04054E6A21DE26B400A7D247 /* TagEditingAreaView.swift */; };
 		04056BA621E290A300EBCE05 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA521E290A300EBCE05 /* UIViewController.swift */; };
 		04056BA821E29A2F00EBCE05 /* TagDeletingFromAllTagsDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA721E29A2F00EBCE05 /* TagDeletingFromAllTagsDropAreaVC.swift */; };
@@ -51,6 +50,8 @@
 		047C4B3721C690DB0009ED40 /* ColorSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */; };
 		047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */; };
 		047FACD9224DC9D200DB59D9 /* CreateTagVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */; };
+		047FACE0224F6FD600DB59D9 /* TagCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACDF224F6FD600DB59D9 /* TagCollectionLayout.swift */; };
+		047FACE2224F79EB00DB59D9 /* TagCollectionBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */; };
 		048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
 		048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */; };
 		0498212A221CF43900CEA932 /* AdditionalTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */; };
@@ -78,8 +79,6 @@
 		0498EF5821ED8FBE00676FAB /* EditTagCompletionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5721ED8FBE00676FAB /* EditTagCompletionDelegate.swift */; };
 		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
 		049909BE21CF78E700DCC3CA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BD21CF78E700DCC3CA /* UIView.swift */; };
-		049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */; };
-		049909C221D1514600DCC3CA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909C121D1514600DCC3CA /* HeaderView.swift */; };
 		04C23FB522016635006761ED /* TimeLeftToDeadLineGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FB422016635006761ED /* TimeLeftToDeadLineGetable.swift */; };
 		04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */; };
 		04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBF2202B7F2006761ED /* TaskModel+CoreDataProperties.swift */; };
@@ -226,7 +225,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		040319C721D5D850003A758F /* TagNameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagNameLabel.swift; sourceTree = "<group>"; };
 		04054E6A21DE26B400A7D247 /* TagEditingAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagEditingAreaView.swift; sourceTree = "<group>"; };
 		04056BA521E290A300EBCE05 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		04056BA721E29A2F00EBCE05 /* TagDeletingFromAllTagsDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDeletingFromAllTagsDropAreaVC.swift; sourceTree = "<group>"; };
@@ -270,6 +268,8 @@
 		047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionButton.swift; sourceTree = "<group>"; };
 		047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneBackgroundView.swift; sourceTree = "<group>"; };
 		047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagVCDelegate.swift; sourceTree = "<group>"; };
+		047FACDF224F6FD600DB59D9 /* TagCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionLayout.swift; sourceTree = "<group>"; };
+		047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionBackGroundView.swift; sourceTree = "<group>"; };
 		048A4C00222E27A500D71D6E /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsStoreFactory.swift; sourceTree = "<group>"; };
 		04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesTableViewController.swift; sourceTree = "<group>"; };
@@ -299,8 +299,6 @@
 		049909BA21CB27B800DCC3CA /* TaskKiller 14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 14.xcdatamodel"; sourceTree = "<group>"; };
 		049909BB21CB49E500DCC3CA /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		049909BD21CF78E700DCC3CA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagInfoSetable.swift; sourceTree = "<group>"; };
-		049909C121D1514600DCC3CA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		049909C321D460E800DCC3CA /* TaskKiller 15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 15.xcdatamodel"; sourceTree = "<group>"; };
 		049909C421D463EC00DCC3CA /* TaskKiller 16.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 16.xcdatamodel"; sourceTree = "<group>"; };
 		04C23FB422016635006761ED /* TimeLeftToDeadLineGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLeftToDeadLineGetable.swift; sourceTree = "<group>"; };
@@ -438,11 +436,10 @@
 		0406D3CD21E0CC8C003A6E68 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				049909C121D1514600DCC3CA /* HeaderView.swift */,
-				049909BF21CF91B700DCC3CA /* TagInfoSetable.swift */,
 				049909BB21CB49E500DCC3CA /* TagCell.swift */,
 				044723B721C219AF00F0214F /* TagView.swift */,
-				040319C721D5D850003A758F /* TagNameLabel.swift */,
+				047FACDF224F6FD600DB59D9 /* TagCollectionLayout.swift */,
+				047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1375,7 +1372,6 @@
 				04F1701E2234ED56006F062D /* DayCell.swift in Sources */,
 				044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */,
 				B96E0EC52193DC470097AB34 /* TagModelAdapter.swift in Sources */,
-				049909C021CF91B700DCC3CA /* TagInfoSetable.swift in Sources */,
 				B9A8B18D21A1E0E50085FCA0 /* TaskProgressSaving.swift in Sources */,
 				04056BA821E29A2F00EBCE05 /* TagDeletingFromAllTagsDropAreaVC.swift in Sources */,
 				047C4B3221C685AB0009ED40 /* InfoForTagCreationReceiving.swift in Sources */,
@@ -1425,6 +1421,7 @@
 				04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
 				04EDD9942249CB4200DF766C /* CreateTaskViewSizes.swift in Sources */,
+				047FACE0224F6FD600DB59D9 /* TagCollectionLayout.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				04EDD98E22468E4C00DF766C /* CreateTaskVC2.swift in Sources */,
 				042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */,
@@ -1440,6 +1437,7 @@
 				048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */,
 				04054E6B21DE26B400A7D247 /* TagEditingAreaView.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
+				047FACE2224F79EB00DB59D9 /* TagCollectionBackGroundView.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				04F1700F22336195006F062D /* Month.swift in Sources */,
@@ -1463,12 +1461,10 @@
 				049821482222D23E00CEA932 /* CreateAdditionalTimeVC.swift in Sources */,
 				B9A8B15D219A74B90085FCA0 /* TaskProgressSavingModelImp.swift in Sources */,
 				04091E8221C9ECB300967F50 /* TagFactory.swift in Sources */,
-				040319C821D5D850003A758F /* TagNameLabel.swift in Sources */,
 				0408C6412211B947005B1B83 /* NotificationExtensionViewController.swift in Sources */,
 				B9A8B15021992C260085FCA0 /* TaskFactoryImp.swift in Sources */,
 				B96E0EB12193D6D00097AB34 /* DeadLineReceiving.swift in Sources */,
 				B96E0E81219347E50097AB34 /* AppDelegate.swift in Sources */,
-				049909C221D1514600DCC3CA /* HeaderView.swift in Sources */,
 				049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */,
 				0498212F221CF87F00CEA932 /* AdditionalTimes.swift in Sources */,
 				047FACD9224DC9D200DB59D9 /* CreateTagVCDelegate.swift in Sources */,

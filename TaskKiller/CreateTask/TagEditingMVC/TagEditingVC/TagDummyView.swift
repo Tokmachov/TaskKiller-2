@@ -8,21 +8,21 @@
 
 import UIKit
 
-class TagDummyView: UIView, TagInfoSetable {
+class TagDummyView: UIView {
     private let cornerRadius: CGFloat = 40
     private var tagColor = UIColor.green {
         didSet {
             setNeedsDisplay()
         }
     }
-    @IBOutlet var nameLabel: TagNameLabel!
+    @IBOutlet var nameLabel: UILabel!
     
     func setTagInfo(_ tag: Tag) {
-        nameLabel.setName(tag.name)
+        nameLabel.text = tag.name
         tagColor = tag.color
     }
     func setTagName(_ name: String) {
-        nameLabel.setName(name)
+        nameLabel.text = name
     }
     func setTagColor(_ color: UIColor) {
         tagColor = color

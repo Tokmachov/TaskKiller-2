@@ -27,9 +27,13 @@ class TagsVC: UICollectionViewController {
         super.viewDidLoad()
         fetchResultsController = createTagFetchResultsController()
         fetchResultsController.delegate = self
+        collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
         collectionView.dragDelegate = self
         collectionView.dragInteractionEnabled = true
         collectionView.dropDelegate = self
+        collectionView.alwaysBounceVertical = true
+        let tagCollectionLayout = TagCollectionLayout()
+        collectionView.setCollectionViewLayout(tagCollectionLayout, animated: true)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -119,10 +123,10 @@ extension TagsVC {
         return tagsLoadedFromMemory.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(from: tagModel)
-        tagCell.setTagInfo(tag)
+        let tag = tagFactory.createTag(tagModel: tagModel)
+        tagCell.taskTag = tag
         return tagCell
     }
 }
@@ -131,42 +135,18 @@ extension TagsVC {
 extension TagsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(from: tagModel)
+        let tag = tagFactory.createTag(tagModel: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
-        tagCell.setTagInfo(tag)
+        tagCell.taskTag = tag
         return tagCell.getSizeNeededForContentView()
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return distanceBetweenLines
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return interItemSpacing
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return spaceAroundTagsInCollectionView
-    }
 }
-
-extension TagsVC {
-    //MARK: DataSource Headers
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        switch kind {
-        case UICollectionView.elementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! HeaderView
-            headerView.label.text = "These are tags"
-        return headerView
-        default: assert(false, "Unexpected element kind")
-        
-        }
-    }
-}
-
 
 //MARK: UICollectionViewDragDelegate
 extension TagsVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(from: tagModel)
+        let tag = tagFactory.createTag(tagModel: tagModel)
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = tag as AnyObject
         return [dragItem]

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TagFromAllTagsDeletingDelegate {
-    func performDeletingFromAllTags(of tag: Tag)
+protocol DeleteTagDropAreaVCDelegate {
+    func deleteTagDropAreaVC(_ deleteTagDropAraeaVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag)
 }

@@ -8,16 +8,20 @@
 
 import UIKit
 
-class TagDeletingFromAllTagsDropAreaVC: UIViewController, UIDropInteractionDelegate {
+class DeleteTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     private var tagFactory: TagFactory!
-    var deleteTagDelegate: TagFromAllTagsDeletingDelegate!
+    var delegate: DeleteTagDropAreaVCDelegate!
+    
+    @IBOutlet weak var dropAreaView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tagFactory = TagFactoryImp()
+        let dropInteraction = UIDropInteraction(delegate: self)
+        dropAreaView.addInteraction(dropInteraction)
     }
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
-        if session.items.first!.localObject != nil {
+        if (session.items.first?.localObject as AnyObject) as? Tag != nil {
             return true
         } else {
             return false
@@ -29,6 +33,6 @@ class TagDeletingFromAllTagsDropAreaVC: UIViewController, UIDropInteractionDeleg
     }
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag: Tag = (session.items.first?.localObject as AnyObject) as? Tag else { return }
-        deleteTagDelegate.performDeletingFromAllTags(of: tag)
+        delegate.deleteTagDropAreaVC(self, needToBeDeleted: tag)
     }
 }

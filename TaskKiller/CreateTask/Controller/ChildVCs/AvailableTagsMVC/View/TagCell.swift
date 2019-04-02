@@ -9,10 +9,14 @@
 import UIKit
 
 class TagCell: UICollectionViewCell {
-    var taskTag: Tag! {
+    var tagName: String! {
         didSet {
-            tagView.name = taskTag.name
-            tagView.color = taskTag.color
+            tagView.name = tagName
+        }
+    }
+    var tagColor: UIColor! {
+        didSet {
+            tagView.color = tagColor
         }
     }
     private var tagView = TagView()

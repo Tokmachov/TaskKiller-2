@@ -6,7 +6,7 @@
 //  Copyright © 2019 Oleg Tokmachov. All rights reserved.
 //
 
-protocol EditTagPerformingDelegate {
-    func performEditing(of tag: Tag)
+protocol EditTagDropAreaVCDelegate {
+    func editTagDropAreaVCDelegate(_ editTagDropAreaVC: EditTagDropAreaVC, tagNeedsToBeEdited tag: Tag)
 }
 

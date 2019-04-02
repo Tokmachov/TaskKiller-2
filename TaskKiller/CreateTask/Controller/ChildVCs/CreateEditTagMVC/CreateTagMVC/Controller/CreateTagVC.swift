@@ -10,7 +10,7 @@ import UIKit
 
 class CreateTagVC: UITableViewController, UITextFieldDelegate {
     
-    let maximunTagNameLength = 10
+    let maximunTagNameLength = TagConstants.tagMaximumCharacterLength
     //Mark: model
     private var tagName: String?
     private var tagColor: UIColor?

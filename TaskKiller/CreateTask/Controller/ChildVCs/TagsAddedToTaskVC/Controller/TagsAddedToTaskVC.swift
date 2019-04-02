@@ -57,7 +57,7 @@ extension TagsAddedToTaskVC {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         let tag = tagsAddedToTask.tag(at: indexPath.row)
-        tagCell.taskTag = tag
+        configure(tagCell: tagCell, withTag: tag)
         return tagCell
     }
 }
@@ -67,7 +67,7 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagCell = TagCell(frame: CGRect.zero)
         let tag = tagsAddedToTask.tag(at: indexPath.row)
-        tagCell.taskTag = tag
+        configure(tagCell: tagCell, withTag: tag)
         return tagCell.getSizeNeededForContentView()
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -80,6 +80,8 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
         return spaceAroundTagsInCollectionView
     }
 }
+
+extension TagsAddedToTaskVC: TagCellConfiguring {}
 
 //MARK: UICollectionViewDropDelegate
 extension TagsAddedToTaskVC: UICollectionViewDropDelegate {

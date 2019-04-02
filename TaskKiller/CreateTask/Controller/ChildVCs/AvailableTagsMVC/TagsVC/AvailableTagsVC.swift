@@ -9,16 +9,11 @@
 import UIKit
 import CoreData
 
-class TagsVC: UICollectionViewController {
+class AvailableTagsVC: UICollectionViewController {
     
     private var tagFactory = TagFactoryImp()
-    weak var dropAreaDelegate: TagVCDelegate!
+    weak var delegate: AvailableTagsVCDelegate!
     
-    let distanceBetweenLines: CGFloat = 10
-    let interItemSpacing: CGFloat = 10
-    let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    
-  
     private var tagCellID = "Tag Cell"
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
     private var collectionViewChangeContentsOperations = [BlockOperation]()
@@ -42,7 +37,7 @@ class TagsVC: UICollectionViewController {
     }
 }
 
-extension TagsVC {
+extension AvailableTagsVC {
     private func createTagFetchResultsController() -> NSFetchedResultsController<TagModel> {
         let fetchRequest: NSFetchRequest<TagModel> = TagModel.fetchRequest()
         let orderSort = NSSortDescriptor(key: "positionInUserSelectedOrder", ascending: true)
@@ -71,44 +66,21 @@ extension TagsVC {
     }
 }
 //MARK: NSFetchResultsControllerDelegate
-extension TagsVC: NSFetchedResultsControllerDelegate {
+extension AvailableTagsVC: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert:
-            collectionView.insertItems(at: [newIndexPath!])
-//        case .update:
-//            collectionViewChangeContentsOperations.append(
-//                BlockOperation(block: {
-//                    self.collectionView.reloadItems(at: [indexPath!])
-//                })
-//            )
-//        case .move:
-//            collectionViewChangeContentsOperations.append(
-//                BlockOperation(block: {
-//                    self.collectionView.reloadItems(at: [indexPath!])
-//                })
-//            )
-//            collectionViewChangeContentsOperations.append(
-//                BlockOperation(block: {
-//                    self.collectionView.reloadItems(at: [newIndexPath!])
-//                })
-//            )
-//        case .delete:
-//            collectionViewChangeContentsOperations.append(
-//                BlockOperation(block: {
-//                    self.collectionView.deleteItems(at: [indexPath!])
-//                })
-//            )
+        case .insert: collectionView.insertItems(at: [newIndexPath!])
+        case .delete: collectionView.deleteItems(at: [indexPath!])
+        case .update: self.collectionView.reloadItems(at: [indexPath!])
         default: break
         }
-    
-        }
+    }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
     }
 }
 //MARK: UICollectionViewDataSource
-extension TagsVC {
+extension AvailableTagsVC {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -120,24 +92,26 @@ extension TagsVC {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.createTag(tagModel: tagModel)
-        tagCell.taskTag = tag
+        configure(tagCell: tagCell, withTag: tag)
         return tagCell
     }
 }
 
 //MARK: UICollectionViewDelegateFlowLayout
-extension TagsVC: UICollectionViewDelegateFlowLayout {
+extension AvailableTagsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.createTag(tagModel: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
-        tagCell.taskTag = tag
+        configure(tagCell: tagCell, withTag: tag)
         return tagCell.getSizeNeededForContentView()
     }
 }
 
+extension AvailableTagsVC: TagCellConfiguring {}
+
 //MARK: UICollectionViewDragDelegate
-extension TagsVC: UICollectionViewDragDelegate {
+extension AvailableTagsVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.createTag(tagModel: tagModel)
@@ -151,15 +125,15 @@ extension TagsVC: UICollectionViewDragDelegate {
         return parameters
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        //dropAreaDelegate.prepareTagEditingAndDeletingFromAllTagsDropAreas()
+        delegate.addDeleteAndEditTagDropAreas(for: self)
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        //dropAreaDelegate.removeTagEditingAndDeletingFromAllDropAreas()
+        delegate.removeEditAndDeleteTagDropAreas(for: self)
     }
 }
 
 //MARK: UICollectionViewDropDelegate
-extension TagsVC: UICollectionViewDropDelegate {
+extension AvailableTagsVC: UICollectionViewDropDelegate {
 
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
         guard collectionView.hasActiveDrag else { return false }

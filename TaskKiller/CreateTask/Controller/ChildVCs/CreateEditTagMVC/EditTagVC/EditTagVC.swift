@@ -26,7 +26,10 @@ class EditTagVC: UITableViewController, UITextFieldDelegate {
     
     @IBAction func choseColorButtonWasPressed(_ sender: ColorSelectionButton) {
         tagColorView.chosenColor = sender.color
+        print("sender color \(sender.color)")
+        print("Color \(tag.color)")
         tag.color = sender.color
+        print("Color \(tag.color)")
     }
     @IBAction func tagNameWasChanged(_ sender: UITextField) {
         tag.name = sender.text ?? ""

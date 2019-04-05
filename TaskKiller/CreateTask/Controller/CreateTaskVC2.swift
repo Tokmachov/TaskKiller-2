@@ -27,7 +27,8 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     @IBOutlet weak var dropAreaViewForTagDeleting: UIView!
     @IBOutlet weak var dropAreaViewForRemovingTagFromTask: UIView!
     @IBOutlet weak var dropAreaViewForTagEditing: UIView!
-
+    
+    private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     
     
     override func viewDidLoad() {
@@ -60,6 +61,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
         case "TagsAddedToTaskVC":
             let vc = segue.destination as! TagsAddedToTaskVC
             vc.delegate = self
+            tagsAddedToTaskVC = vc
         default: break
         }
     }
@@ -94,7 +96,9 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     }
     //MAR: DeleteTagDropAreaVCDelegate
     func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag) {
+        tagsAddedToTaskVC.removeFromTask(tag)
         tagFactory.deleteTagFromMemory(tag)
+        
     }
     //MARK: EditTagDropAreaVCDelegate
     func editTagDropAreaVCDelegate(_ editTagDropAreaVC: EditTagDropAreaVC, tagNeedsToBeEdited tag: Tag) {
@@ -106,7 +110,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     }
     //MARK: EditTagVCDelegate
     func editTagVC(_ editTagVC: EditTagVC, didEditTag tag: Tag) {
-        fatalError("Implement please")
+        tagsAddedToTaskVC.tagAddedToTaskWasUpdated(tag)
     }
     
     //MARK: UIContentContainer

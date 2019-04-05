@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 struct TagModelAdapter: Tag {
     
@@ -14,6 +15,7 @@ struct TagModelAdapter: Tag {
     var name: String {
         set {
             adaptee.name = newValue
+            PersistanceService.saveContext()
         }
         get {
             guard let name = adaptee.name else { fatalError() }
@@ -22,7 +24,8 @@ struct TagModelAdapter: Tag {
     }
     var color: UIColor {
         set {
-           adaptee.color = color
+           adaptee.color = newValue
+            PersistanceService.saveContext()
         }
         get {
             guard let color = adaptee.color else { fatalError() }

@@ -39,7 +39,7 @@ class DeadlineVC: UIViewController {
     }
     private var viewWithShownPickerSize: CGSize {
         let width = view.bounds.width
-        let height = CreateTaskViewSizes.deadlineViewMaxHeight
+        let height = deadlineButton.intrinsicContentSize.height + datePickerView.bounds.height
         return CGSize(width: width, height: height)
     }
     
@@ -60,16 +60,24 @@ class DeadlineVC: UIViewController {
             showDatePicker()
             datePickerIsShown = true
         }
+       
     }
 }
 extension DeadlineVC {
     private func showDatePicker() {
-        datePickerView.isHidden = false
-        preferredContentSize = viewWithShownPickerSize
+        UIView.animate(withDuration: 0.1, animations: {
+            self.datePickerView.alpha = 1
+        }, completion: { _ in
+            self.preferredContentSize = self.viewWithShownPickerSize
+        })
     }
     private func hideDatePicker() {
-        datePickerView.isHidden = true
-        preferredContentSize = viewWithHiddenPickerSize
+        UIView.animate(withDuration: 0.1, animations: {
+            self.datePickerView.alpha = 0
+        }, completion: { _ in
+            self.preferredContentSize = self.viewWithHiddenPickerSize
+        })
+        
     }
     private func updateDeadlineButtonTitle() {
         guard let deadline = deadline else {

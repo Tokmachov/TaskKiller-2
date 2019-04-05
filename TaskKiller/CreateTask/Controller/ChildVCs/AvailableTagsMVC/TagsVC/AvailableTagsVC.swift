@@ -128,7 +128,7 @@ extension AvailableTagsVC: UICollectionViewDragDelegate {
         delegate.addDeleteAndEditTagDropAreas(for: self)
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        delegate.removeEditAndDeleteTagDropAreas(for: self)
+        delegate.removeDeleteAndEditTagDropAreas(for: self)
     }
 }
 

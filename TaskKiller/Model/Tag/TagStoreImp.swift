@@ -34,10 +34,9 @@ struct TagStoreImp: TagsStore {
         guard let indexOfTag = tags.firstIndex(where: { $0.tagModel == tag.tagModel }) else { fatalError() }
         tags.remove(at: indexOfTag)
     }
-    mutating func move(from sourceIndex: Int, to destinationIndex: Int) {
-        tags = tags.reorderedByMovement(from: sourceIndex, to: destinationIndex)
+    mutating func insert(tag: Tag, atIndex index: Int) {
+        tags.insert(tag, at: index)
     }
-    
     //MARK: AllTagsGetableStore protocol methods
     func allTags() -> [Tag] {
         return tags

@@ -10,7 +10,7 @@ import Foundation
 
 protocol AvailableTagsVCDelegate: AnyObject {
     func addDeleteAndEditTagDropAreas(for: AvailableTagsVC)
-    func removeEditAndDeleteTagDropAreas(for: AvailableTagsVC)
+    func removeDeleteAndEditTagDropAreas(for: AvailableTagsVC)
     
 }
 

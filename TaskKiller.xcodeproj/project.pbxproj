@@ -54,6 +54,8 @@
 		047FACEC2253038F00DB59D9 /* TagCellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */; };
 		047FACEF22530A4E00DB59D9 /* TagConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEE22530A4E00DB59D9 /* TagConstants.swift */; };
 		047FACF122530C7300DB59D9 /* EditTagVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */; };
+		047FACF42253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */; };
+		047FACF622545C7D00DB59D9 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF522545C7D00DB59D9 /* UICollectionView.swift */; };
 		048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
 		048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */; };
 		0498212A221CF43900CEA932 /* AdditionalTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */; };
@@ -69,7 +71,7 @@
 		0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
 		0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
-		0498EF4321EC327E00676FAB /* TagRemovingFromTaskDropAreaPreparingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4221EC327E00676FAB /* TagRemovingFromTaskDropAreaPreparingDelegate.swift */; };
+		0498EF4321EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */; };
 		0498EF4721EC45E700676FAB /* TagsPreparingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4621EC45E700676FAB /* TagsPreparingStore.swift */; };
 		0498EF4921EC462300676FAB /* TagStoreImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4821EC462300676FAB /* TagStoreImp.swift */; };
 		0498EF4B21ED705300676FAB /* AllTagsGetableStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4A21ED705300676FAB /* AllTagsGetableStore.swift */; };
@@ -124,7 +126,6 @@
 		04EDD98E22468E4C00DF766C /* CreateTaskVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD98D22468E4C00DF766C /* CreateTaskVC2.swift */; };
 		04EDD99022493E1A00DF766C /* DeadlineVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */; };
 		04EDD99222493E4A00DF766C /* DeadlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD99122493E4A00DF766C /* DeadlineVC.swift */; };
-		04EDD9942249CB4200DF766C /* CreateTaskViewSizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD9932249CB4200DF766C /* CreateTaskViewSizes.swift */; };
 		04EDD9992249D34100DF766C /* TaskDescriptionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD9982249D34100DF766C /* TaskDescriptionVC.swift */; };
 		04EDD99B2249D67E00DF766C /* TaskDescriptionVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */; };
 		04EDD9A0224C7D1B00DF766C /* CreateTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */; };
@@ -271,6 +272,8 @@
 		047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellConfiguring.swift; sourceTree = "<group>"; };
 		047FACEE22530A4E00DB59D9 /* TagConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConstants.swift; sourceTree = "<group>"; };
 		047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagVCDelegate.swift; sourceTree = "<group>"; };
+		047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskCollectionLayout.swift; sourceTree = "<group>"; };
+		047FACF522545C7D00DB59D9 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		048A4C00222E27A500D71D6E /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsStoreFactory.swift; sourceTree = "<group>"; };
 		04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesTableViewController.swift; sourceTree = "<group>"; };
@@ -286,7 +289,7 @@
 		0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFromTaskRemovingDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
 		0498EF4021EC1FCD00676FAB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
-		0498EF4221EC327E00676FAB /* TagRemovingFromTaskDropAreaPreparingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRemovingFromTaskDropAreaPreparingDelegate.swift; sourceTree = "<group>"; };
+		0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskVCDelegate.swift; sourceTree = "<group>"; };
 		0498EF4621EC45E700676FAB /* TagsPreparingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsPreparingStore.swift; sourceTree = "<group>"; };
 		0498EF4821EC462300676FAB /* TagStoreImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagStoreImp.swift; sourceTree = "<group>"; };
 		0498EF4A21ED705300676FAB /* AllTagsGetableStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTagsGetableStore.swift; sourceTree = "<group>"; };
@@ -326,7 +329,6 @@
 		04EDD98D22468E4C00DF766C /* CreateTaskVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskVC2.swift; sourceTree = "<group>"; };
 		04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineVCDelegate.swift; sourceTree = "<group>"; };
 		04EDD99122493E4A00DF766C /* DeadlineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineVC.swift; sourceTree = "<group>"; };
-		04EDD9932249CB4200DF766C /* CreateTaskViewSizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewSizes.swift; sourceTree = "<group>"; };
 		04EDD9982249D34100DF766C /* TaskDescriptionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionVC.swift; sourceTree = "<group>"; };
 		04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionVCDelegate.swift; sourceTree = "<group>"; };
 		04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagVC.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		040D906F21E789B60049F410 /* TagsAddedToTaskVC */ = {
 			isa = PBXGroup;
 			children = (
+				047FACF2225317FD00DB59D9 /* View */,
 				04EDD99D2249E2FA00DF766C /* Controller */,
 			);
 			path = TagsAddedToTaskVC;
@@ -564,6 +567,14 @@
 			path = CreateEditTagMVC;
 			sourceTree = "<group>";
 		};
+		047FACF2225317FD00DB59D9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		048A4C02222E27AA00D71D6E /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +682,7 @@
 				0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */,
 				040C211622198BAD00CCFA39 /* UNNotificationResponse.swift */,
 				040C2119221BB17300CCFA39 /* UIAlertController.swift */,
+				047FACF522545C7D00DB59D9 /* UICollectionView.swift */,
 			);
 			path = ExtensionsToStandardTypes;
 			sourceTree = "<group>";
@@ -713,7 +725,6 @@
 				047C4B3121C685AB0009ED40 /* InfoForTagCreationReceiving.swift */,
 				0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */,
 				0498EF5921ED8FEE00676FAB /* EditTagDelegate */,
-				0498EF4221EC327E00676FAB /* TagRemovingFromTaskDropAreaPreparingDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -814,6 +825,7 @@
 				0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */,
 				0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */,
 				047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */,
+				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
 				04EDD98C224673E400DF766C /* ChildVCs */,
 			);
 			path = Controller;
@@ -1006,7 +1018,6 @@
 		B96E0EA32193D5900097AB34 /* CreateTask */ = {
 			isa = PBXGroup;
 			children = (
-				04EDD9932249CB4200DF766C /* CreateTaskViewSizes.swift */,
 				04EDD97C2246623A00DF766C /* View */,
 				04EDD97B22465EF500DF766C /* Controller */,
 				0406D3D221E0D28C003A6E68 /* Constants */,
@@ -1360,7 +1371,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04091E8021C9EBBE00967F50 /* Tag.swift in Sources */,
-				0498EF4321EC327E00676FAB /* TagRemovingFromTaskDropAreaPreparingDelegate.swift in Sources */,
+				0498EF4321EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift in Sources */,
 				049909BE21CF78E700DCC3CA /* UIView.swift in Sources */,
 				04EDD9A2224C7D4400DF766C /* ColorSampleView.swift in Sources */,
 				0406D3D421E0D2B6003A6E68 /* TagEditingAreaConstants.swift in Sources */,
@@ -1415,7 +1426,6 @@
 				0498212D221CF5B300CEA932 /* AddTimeCell.swift in Sources */,
 				04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */,
 				044723CA21C21DB200F0214F /* TagModel+CoreDataClass.swift in Sources */,
-				04EDD9942249CB4200DF766C /* CreateTaskViewSizes.swift in Sources */,
 				047FACE0224F6FD600DB59D9 /* TagCollectionLayout.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
 				04EDD98E22468E4C00DF766C /* CreateTaskVC2.swift in Sources */,
@@ -1424,6 +1434,7 @@
 				04EDD9A0224C7D1B00DF766C /* CreateTagVC.swift in Sources */,
 				B9A8B1172196C3BF0085FCA0 /* TaskCell.swift in Sources */,
 				04F17016223361FE006F062D /* MonthsStoreImp.swift in Sources */,
+				047FACF42253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
@@ -1491,6 +1502,7 @@
 				B96E0EA92193D61C0097AB34 /* AvailableTagsVC.swift in Sources */,
 				B9A8B19D21A2D70D0085FCA0 /* TaskInfoProvidingModel.swift in Sources */,
 				042768F821FFEEC000FA2442 /* TaskStaticInfoUpdatable.swift in Sources */,
+				047FACF622545C7D00DB59D9 /* UICollectionView.swift in Sources */,
 				B96E0EB32193D6E50097AB34 /* TaskDescriptionReceiving.swift in Sources */,
 				042768D621FEAABC00FA2442 /* ProgressTimesLabelsController.swift in Sources */,
 				B96E0EC02193D82C0097AB34 /* TaskStaticInfoController.swift in Sources */,

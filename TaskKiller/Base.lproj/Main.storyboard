@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -102,7 +103,7 @@
                     <navigationItem key="navigationItem" id="r96-CB-k9J">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jhK-Zb-Cmi">
                             <connections>
-                                <segue destination="DrB-Rl-csE" kind="presentation" modalTransitionStyle="crossDissolve" id="H7T-am-g80"/>
+                                <segue destination="DrB-Rl-csE" kind="presentation" modalTransitionStyle="crossDissolve" id="Xni-x8-i0V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,7 +124,7 @@
                         <sections>
                             <tableViewSection headerTitle="Describe your task here" id="5g1-Qg-VvS" userLabel="Task Description Section">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="eqP-Lb-N1M">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="eqP-Lb-N1M">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eqP-Lb-N1M" id="efL-3w-lmP">
@@ -159,8 +160,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-rC-kZ0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-rC-kZ0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="43" id="pM5-fF-5yf"/>
                                                     </constraints>
@@ -181,17 +182,17 @@
                             </tableViewSection>
                             <tableViewSection id="z31-gs-beA" userLabel="TagsAddedToTask">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="89" id="o2R-Hg-Vsq">
-                                        <rect key="frame" x="0.0" y="215.5" width="320" height="89"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="68" id="o2R-Hg-Vsq">
+                                        <rect key="frame" x="0.0" y="215.5" width="320" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o2R-Hg-Vsq" id="fNg-XQ-NVy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="88.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ty8-Vo-Uql">
-                                                    <rect key="frame" x="16" y="11" width="288" height="67"/>
+                                                    <rect key="frame" x="16" y="11" width="288" height="46"/>
                                                     <connections>
-                                                        <segue destination="bBk-bn-udD" kind="embed" id="C9Q-UD-e8O"/>
+                                                        <segue destination="bBk-bn-udD" kind="embed" identifier="TagsAddedToTaskVC" id="C9Q-UD-e8O"/>
                                                     </connections>
                                                 </containerView>
                                             </subviews>
@@ -205,105 +206,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="100" id="dH8-wu-Chv" userLabel="AvailableTagsCell">
-                                        <rect key="frame" x="0.0" y="340.5" width="320" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dH8-wu-Chv" id="KdD-xo-6tP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIp-6i-fwp" customClass="TagCollectionBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="3" y="3" width="314" height="93.5"/>
-                                                    <subviews>
-                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-AJ-Gml">
-                                                            <rect key="frame" x="20" y="2" width="274" height="89.5"/>
-                                                            <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                    <real key="value" value="-8"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
-                                                                    <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                </userDefinedRuntimeAttribute>
-                                                            </userDefinedRuntimeAttributes>
-                                                            <connections>
-                                                                <segue destination="5YP-Nt-EiJ" kind="embed" identifier="TagsAddedToTask" id="HrU-kM-Kkc"/>
-                                                            </connections>
-                                                        </containerView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="U5U-AJ-Gml" secondAttribute="bottom" constant="2" id="1fs-tf-GV5"/>
-                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="leading" secondItem="CIp-6i-fwp" secondAttribute="leading" constant="20" id="eRZ-OI-VS4"/>
-                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="top" secondItem="CIp-6i-fwp" secondAttribute="top" constant="2" id="hKf-PK-oRj"/>
-                                                        <constraint firstAttribute="trailing" secondItem="U5U-AJ-Gml" secondAttribute="trailing" constant="20" id="mPe-Kf-4bi"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="leading" secondItem="KdD-xo-6tP" secondAttribute="leading" constant="3" id="9Xk-TB-Rky"/>
-                                                <constraint firstAttribute="trailing" secondItem="CIp-6i-fwp" secondAttribute="trailing" constant="3" id="UKV-6h-vAB"/>
-                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="top" secondItem="KdD-xo-6tP" secondAttribute="top" constant="3" id="oi1-xL-Gkl"/>
-                                                <constraint firstAttribute="bottom" secondItem="CIp-6i-fwp" secondAttribute="bottom" constant="3" id="vZE-Po-8sj"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="9zz-OW-wax" userLabel="DropAreasCell">
-                                        <rect key="frame" x="0.0" y="440.5" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9zz-OW-wax" id="oba-70-yKF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Dw-Bg-3Uw">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                                    <subviews>
-                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HxR-Ov-X43" userLabel="DeleteTagContainerView">
-                                                            <rect key="frame" x="53.5" y="8" width="27.5" height="27.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="HxR-Ov-X43" secondAttribute="height" multiplier="1:1" id="XyV-zX-8pK"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <segue destination="d01-Hu-STd" kind="embed" identifier="DeleteTagDropAreaVC" id="tB3-b9-U5F"/>
-                                                            </connections>
-                                                        </containerView>
-                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="37o-mS-Fbc" userLabel="EditTagContainerView">
-                                                            <rect key="frame" x="239.5" y="8" width="27.5" height="27.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="37o-mS-Fbc" secondAttribute="height" multiplier="1:1" id="V2H-sI-4yu"/>
-                                                            </constraints>
-                                                            <connections>
-                                                                <segue destination="IXL-iE-dF2" kind="embed" identifier="EditTagDropAreaVC" id="urs-Y4-66e"/>
-                                                            </connections>
-                                                        </containerView>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstItem="37o-mS-Fbc" firstAttribute="top" secondItem="1Dw-Bg-3Uw" secondAttribute="topMargin" id="Div-vp-nre"/>
-                                                        <constraint firstAttribute="height" priority="999" constant="70" id="HVW-Yy-Mg8" userLabel="height"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="HxR-Ov-X43" secondAttribute="bottom" id="Kat-fF-zQR"/>
-                                                        <constraint firstItem="HxR-Ov-X43" firstAttribute="centerX" secondItem="1Dw-Bg-3Uw" secondAttribute="centerX" constant="-93" id="aWj-ew-qI9"/>
-                                                        <constraint firstItem="37o-mS-Fbc" firstAttribute="centerX" secondItem="1Dw-Bg-3Uw" secondAttribute="centerX" constant="93" id="bTi-wF-EXs"/>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="37o-mS-Fbc" secondAttribute="bottom" id="fVL-8O-dEX"/>
-                                                        <constraint firstItem="HxR-Ov-X43" firstAttribute="top" secondItem="1Dw-Bg-3Uw" secondAttribute="topMargin" id="zsV-3p-qEs"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="1Dw-Bg-3Uw" secondAttribute="bottom" id="3Gy-yy-5qM" userLabel="bottom"/>
-                                                <constraint firstItem="1Dw-Bg-3Uw" firstAttribute="top" secondItem="oba-70-yKF" secondAttribute="top" id="fi1-hA-GB4" userLabel="top"/>
-                                                <constraint firstAttribute="trailing" secondItem="1Dw-Bg-3Uw" secondAttribute="trailing" id="gzp-Re-C0R" userLabel="trailing"/>
-                                                <constraint firstItem="1Dw-Bg-3Uw" firstAttribute="leading" secondItem="oba-70-yKF" secondAttribute="leading" id="ic7-te-V3X" userLabel="leading"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="CXF-QR-iaq" userLabel="Create tag Section">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="0Hb-DL-TuD">
-                                        <rect key="frame" x="0.0" y="520.5" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="44" id="0Hb-DL-TuD">
+                                        <rect key="frame" x="0.0" y="319.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Hb-DL-TuD" id="9Qb-FE-b7Z">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -327,6 +233,112 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="9zz-OW-wax" userLabel="DropAreasCell">
+                                        <rect key="frame" x="0.0" y="399.5" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9zz-OW-wax" id="oba-70-yKF">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYD-Py-PCz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-hR-9A2">
+                                                            <rect key="frame" x="87" y="0.0" width="146.5" height="43.5"/>
+                                                            <subviews>
+                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Kf-yk5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="G1O-Kf-yk5" secondAttribute="height" multiplier="1:1" id="aur-Hd-i50"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <segue destination="d01-Hu-STd" kind="embed" identifier="DeleteTagDropAreaVC" id="iOO-jU-l1O"/>
+                                                                    </connections>
+                                                                </containerView>
+                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-5O-fLN">
+                                                                    <rect key="frame" x="51.5" y="0.0" width="43.5" height="43.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Vbk-5O-fLN" secondAttribute="height" multiplier="1:1" id="Stg-av-2F6"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <segue destination="oCO-i3-hlK" kind="embed" id="cac-C1-Zyn"/>
+                                                                    </connections>
+                                                                </containerView>
+                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-wZ-ELv">
+                                                                    <rect key="frame" x="103" y="0.0" width="43.5" height="43.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="jQE-wZ-ELv" secondAttribute="height" multiplier="1:1" id="LBR-Ei-ijz"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <segue destination="IXL-iE-dF2" kind="embed" identifier="EditTagDropAreaVC" id="BRM-AH-Wb1"/>
+                                                                    </connections>
+                                                                </containerView>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" priority="999" constant="43.5" id="9Pg-QR-Lou"/>
+                                                        <constraint firstItem="RiI-hR-9A2" firstAttribute="centerX" secondItem="DYD-Py-PCz" secondAttribute="centerX" id="FOE-bl-4d9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="RiI-hR-9A2" secondAttribute="bottom" id="FiF-5d-sgz"/>
+                                                        <constraint firstItem="RiI-hR-9A2" firstAttribute="top" secondItem="DYD-Py-PCz" secondAttribute="top" id="a2e-yl-vMK"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="DYD-Py-PCz" secondAttribute="bottom" id="5h1-6g-z2P"/>
+                                                <constraint firstAttribute="trailing" secondItem="DYD-Py-PCz" secondAttribute="trailing" id="EDa-bD-eLN"/>
+                                                <constraint firstItem="DYD-Py-PCz" firstAttribute="leading" secondItem="oba-70-yKF" secondAttribute="leading" id="acj-Fr-8X5"/>
+                                                <constraint firstItem="DYD-Py-PCz" firstAttribute="top" secondItem="oba-70-yKF" secondAttribute="top" id="pmy-n4-Ovb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="100" id="dH8-wu-Chv" userLabel="AvailableTagsCell">
+                                        <rect key="frame" x="0.0" y="443.5" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dH8-wu-Chv" id="KdD-xo-6tP">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CIp-6i-fwp" customClass="TagCollectionBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                                    <rect key="frame" x="3" y="3" width="314" height="93.5"/>
+                                                    <subviews>
+                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U5U-AJ-Gml">
+                                                            <rect key="frame" x="20" y="2" width="274" height="89.5"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="-8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="paneColor">
+                                                                    <color key="value" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <segue destination="5YP-Nt-EiJ" kind="embed" identifier="AvailableTagsVC" id="HrU-kM-Kkc"/>
+                                                            </connections>
+                                                        </containerView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="U5U-AJ-Gml" secondAttribute="bottom" constant="2" id="1fs-tf-GV5"/>
+                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="leading" secondItem="CIp-6i-fwp" secondAttribute="leading" constant="20" id="eRZ-OI-VS4"/>
+                                                        <constraint firstItem="U5U-AJ-Gml" firstAttribute="top" secondItem="CIp-6i-fwp" secondAttribute="top" constant="2" id="hKf-PK-oRj"/>
+                                                        <constraint firstAttribute="trailing" secondItem="U5U-AJ-Gml" secondAttribute="trailing" constant="20" id="mPe-Kf-4bi"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="leading" secondItem="KdD-xo-6tP" secondAttribute="leading" constant="3" id="9Xk-TB-Rky"/>
+                                                <constraint firstAttribute="trailing" secondItem="CIp-6i-fwp" secondAttribute="trailing" constant="3" id="UKV-6h-vAB"/>
+                                                <constraint firstItem="CIp-6i-fwp" firstAttribute="top" secondItem="KdD-xo-6tP" secondAttribute="top" constant="3" id="oi1-xL-Gkl"/>
+                                                <constraint firstAttribute="bottom" secondItem="CIp-6i-fwp" secondAttribute="bottom" constant="3" id="vZE-Po-8sj"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="DrB-Rl-csE" id="h9V-1p-QXp"/>
@@ -335,12 +347,15 @@
                     </tableView>
                     <connections>
                         <outlet property="deadlineViewHeightConstraint" destination="pM5-fF-5yf" id="3ap-R8-ug3"/>
-                        <outlet property="dropAreasHeight" destination="HVW-Yy-Mg8" id="OPq-h6-a2T"/>
+                        <outlet property="dropAreaViewForRemovingTagFromTask" destination="Vbk-5O-fLN" id="956-KU-qJO"/>
+                        <outlet property="dropAreaViewForTagDeleting" destination="G1O-Kf-yk5" id="1gy-bl-4y0"/>
+                        <outlet property="dropAreaViewForTagEditing" destination="jQE-wZ-ELv" id="zDd-vZ-rip"/>
+                        <outlet property="dropAreasHeight" destination="9Pg-QR-Lou" id="Pd6-rc-d0t"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wb2-0c-Bmf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970.625" y="235.56338028169014"/>
+            <point key="canvasLocation" x="1342.5" y="235.56338028169014"/>
         </scene>
         <!--TaskVC-->
         <scene sceneID="EKI-3W-5U3">
@@ -816,7 +831,7 @@
             <objects>
                 <collectionViewController id="bBk-bn-udD" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VoJ-7g-VZw">
-                        <rect key="frame" x="0.0" y="0.0" width="288" height="67"/>
+                        <rect key="frame" x="0.0" y="0.0" width="288" height="46"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cQa-fF-gaD">
@@ -826,7 +841,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R1D-WA-dpP">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="R1D-WA-dpP">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -843,7 +858,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8a-mp-B0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3141" y="101"/>
+            <point key="canvasLocation" x="2496" y="113"/>
         </scene>
         <!--Task DescriptionVC-->
         <scene sceneID="1MA-P4-JgW">
@@ -873,61 +888,54 @@
                         <viewLayoutGuide key="safeArea" id="FT8-VW-uF7"/>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="tt5-lY-D6R" id="fYb-bx-5WT"/>
+                        <outlet property="textView" destination="tt5-lY-D6R" id="aRD-Ki-i7d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l39-Ul-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3171" y="-155"/>
+            <point key="canvasLocation" x="2496" y="-143"/>
         </scene>
         <!--DeadlineVC-->
         <scene sceneID="gFz-BH-y3h">
             <objects>
                 <viewController id="YxY-Hw-HrP" customClass="DeadlineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCa-Pt-9R2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="IsA-GD-sxU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eaN-xs-9FX">
-                                        <rect key="frame" x="115.5" y="0.0" width="89" height="43.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="deadlineButtonWasTapped:" destination="YxY-Hw-HrP" eventType="touchUpInside" id="kGj-ZT-rWi"/>
-                                        </connections>
-                                    </button>
-                                    <datePicker hidden="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOx-Cu-Dtf">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="575350601.18026805">
-                                            <!--2019-03-27 03:36:41 +0000-->
-                                        </date>
-                                        <connections>
-                                            <action selector="deadlineWasChanged:" destination="YxY-Hw-HrP" eventType="valueChanged" id="hI7-vO-x92"/>
-                                        </connections>
-                                    </datePicker>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE5-LU-2SS">
+                                <rect key="frame" x="121" y="0.0" width="78" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="deadlineButtonWasTapped:" destination="YxY-Hw-HrP" eventType="touchUpInside" id="KK7-Xx-Mlt"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VE-4w-Bff">
+                                <rect key="frame" x="0.0" y="45" width="320" height="162"/>
+                                <date key="date" timeIntervalSinceReferenceDate="576175790.74738598">
+                                    <!--2019-04-05 16:49:50 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Teq-Ze-tbu" firstAttribute="bottom" secondItem="IsA-GD-sxU" secondAttribute="bottom" id="RhZ-PY-n0c"/>
-                            <constraint firstItem="IsA-GD-sxU" firstAttribute="leading" secondItem="Teq-Ze-tbu" secondAttribute="leading" id="Tk0-5D-5IQ"/>
-                            <constraint firstItem="IsA-GD-sxU" firstAttribute="top" secondItem="Teq-Ze-tbu" secondAttribute="top" id="iLw-M9-Npf"/>
-                            <constraint firstItem="Teq-Ze-tbu" firstAttribute="trailing" secondItem="IsA-GD-sxU" secondAttribute="trailing" id="lKk-Zh-T5O"/>
+                            <constraint firstItem="8VE-4w-Bff" firstAttribute="top" secondItem="gE5-LU-2SS" secondAttribute="bottom" id="7NX-Pe-3tm"/>
+                            <constraint firstItem="8VE-4w-Bff" firstAttribute="leading" secondItem="Teq-Ze-tbu" secondAttribute="leading" id="Hgx-Vd-T5Y"/>
+                            <constraint firstItem="gE5-LU-2SS" firstAttribute="centerX" secondItem="iCa-Pt-9R2" secondAttribute="centerX" id="V8B-gV-yHp"/>
+                            <constraint firstItem="gE5-LU-2SS" firstAttribute="top" secondItem="Teq-Ze-tbu" secondAttribute="top" id="bIo-8M-9HS"/>
+                            <constraint firstItem="8VE-4w-Bff" firstAttribute="trailing" secondItem="Teq-Ze-tbu" secondAttribute="trailing" id="lC7-W3-d0p"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Teq-Ze-tbu"/>
                     </view>
                     <connections>
-                        <outlet property="datePickerView" destination="WOx-Cu-Dtf" id="11n-JI-Ys7"/>
-                        <outlet property="deadlineButton" destination="eaN-xs-9FX" id="mOy-XV-vka"/>
+                        <outlet property="datePickerView" destination="8VE-4w-Bff" id="eC4-As-nrd"/>
+                        <outlet property="deadlineButton" destination="gE5-LU-2SS" id="yBR-hI-1xg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihJ-Qc-fvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3171" y="-41"/>
+            <point key="canvasLocation" x="2496" y="-20"/>
         </scene>
         <!--Available TagsVC-->
         <scene sceneID="Z8W-zA-q9m">
@@ -961,7 +969,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSd-h3-hYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3128" y="259"/>
+            <point key="canvasLocation" x="2496" y="252"/>
         </scene>
         <!--Create TagVC-->
         <scene sceneID="NwL-BU-7eb">
@@ -1400,7 +1408,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3990" y="623"/>
+            <point key="canvasLocation" x="3309" y="561"/>
         </scene>
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
@@ -1846,11 +1854,11 @@
             <objects>
                 <viewController id="d01-Hu-STd" customClass="DeleteTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ll-WK-s6t">
-                        <rect key="frame" x="0.0" y="0.0" width="27.5" height="27.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-99-l5T">
-                                <rect key="frame" x="0.0" y="0.0" width="27.5" height="27.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
                                 <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -1861,6 +1869,7 @@
                             <constraint firstItem="TtN-99-l5T" firstAttribute="top" secondItem="6ll-WK-s6t" secondAttribute="top" id="iJR-4v-l5D"/>
                             <constraint firstAttribute="bottom" secondItem="TtN-99-l5T" secondAttribute="bottom" id="yAz-Rs-NC7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="xmw-nP-Mid"/>
                     </view>
                     <connections>
                         <outlet property="dropAreaView" destination="TtN-99-l5T" id="hwW-Eq-bPy"/>
@@ -1868,18 +1877,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ob4-fp-xYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2454.375" y="863.02816901408448"/>
+            <point key="canvasLocation" x="1076" y="862"/>
         </scene>
         <!--Edit Tag Drop AreaVC-->
         <scene sceneID="cqW-wJ-OBU">
             <objects>
                 <viewController id="IXL-iE-dF2" customClass="EditTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZrN-H0-KuA">
-                        <rect key="frame" x="0.0" y="0.0" width="27.5" height="27.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="du5-0h-eEU">
-                                <rect key="frame" x="0.0" y="0.0" width="27.5" height="27.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
                                 <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
@@ -1890,6 +1899,7 @@
                             <constraint firstItem="du5-0h-eEU" firstAttribute="top" secondItem="ZrN-H0-KuA" secondAttribute="top" id="uOW-QN-JUZ"/>
                             <constraint firstAttribute="trailing" secondItem="du5-0h-eEU" secondAttribute="trailing" id="ufg-to-xIu"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="XpY-lh-ygc"/>
                     </view>
                     <connections>
                         <outlet property="editTagDropAreaView" destination="du5-0h-eEU" id="90v-6y-Spm"/>
@@ -1897,7 +1907,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aao-aM-1JH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="863"/>
+            <point key="canvasLocation" x="1614" y="862"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XyF-9V-35M">
+            <objects>
+                <viewController id="oCO-i3-hlK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3v1-s4-q8w">
+                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="7dL-Co-IKk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z4g-fo-7BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1343" y="863"/>
         </scene>
     </scenes>
 </document>

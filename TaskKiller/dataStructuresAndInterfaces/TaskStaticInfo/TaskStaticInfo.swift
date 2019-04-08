@@ -13,7 +13,7 @@ struct TaskStaticInfo {
 
     var taskDescription: String
     var initialDeadLine: TimeInterval
-    var tags: [Tag]
+    var tags: ImmutableTagStore
 }
 
 extension TaskStaticInfo: Equatable {

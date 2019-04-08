@@ -10,12 +10,29 @@ import UIKit
 class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate, AvailableTagsVCDelegate, DeleteTagDropAreaVCDelegate, EditTagDropAreaVCDelegate, EditTagVCDelegate, TagsAddedToTaskVCDelegate, RemoveTagFromTaskVCDelegate {
   
     private var tagFactory = TagFactoryImp()
+    private var taskFactory = TaskFactoryImp()
     //MARK: Model
-    private var taskDescription: String?
-    private var deadline: TimeInterval?
-    
-    
-    private var scrollPosition: CGPoint!
+    private var taskDescription: String? {
+        didSet { updateGoButtonEnability() }
+    }
+    private var deadline: TimeInterval? {
+        didSet { updateGoButtonEnability() }
+    }
+    private var tagsAddedToTask: ImmutableTagStore? {
+        didSet { updateGoButtonEnability() }
+    }
+    private var isGoButtonEnabled: Bool {
+        let isTaskDescriptionValid: Bool = {
+            if let description = taskDescription, !description.isEmpty { return true }
+                return false
+        }()
+        let isDeadlineValid: Bool = deadline != nil
+        let areTagsAddedToTaskValid: Bool =  {
+            if tagsAddedToTask != nil, !tagsAddedToTask!.tags.isEmpty { return true }
+            return false
+        }()
+        return isTaskDescriptionValid && isDeadlineValid && areTagsAddedToTaskValid
+    }
     //MARK: Views
     @IBOutlet weak var deadlineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dropAreasHeight: NSLayoutConstraint!
@@ -23,6 +40,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     @IBOutlet weak var dropAreaViewForTagDeleting: UIView!
     @IBOutlet weak var dropAreaViewForRemovingTagFromTask: UIView!
     @IBOutlet weak var dropAreaViewForTagEditing: UIView!
+    @IBOutlet weak var goButton: UIBarButtonItem!
     
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     
@@ -31,6 +49,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
         hideDropAreaForTagDeleingAndEditing()
         hideDropAreaForRemovingOfTagFromTask()
         foldDropAreasRow(andThen: {})
+        updateGoButtonEnability()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -60,8 +79,23 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
         case "RemoveTagFromTaskVC":
             let vc = segue.destination as! RemoveTagFromTaskDropAreaVC
             vc.delegate = self 
+        case "StartNewTask":
+            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
+            let taskStaticInfo = TaskStaticInfo(taskDescription: taskDescription!,
+                                                initialDeadLine: deadline!,
+                                                tags: tagsAddedToTaskVC.tagsAddedToTask
+            )
+            let task = taskFactory.createTask(from: taskStaticInfo)
+            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
+            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break
         }
+    }
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func goButtonPressed(_ sender: Any) {
+        
     }
     
     //MARK: TaskDescriptionVCDelegate
@@ -95,6 +129,9 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     func removeDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
         foldDropAreasRow(andThen: { self.hideDropAreaForRemovingOfTagFromTask() })
     }
+    func tagsAddedToTaskWereUpdated(in tagsAddedToTaskVC: TagsAddedToTaskVC) {
+        tagsAddedToTask = tagsAddedToTaskVC.tagsAddedToTask
+    }
     //MAR: DeleteTagDropAreaVCDelegate
     func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag) {
         tagsAddedToTaskVC.removeFromTask(tag)
@@ -114,7 +151,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
         tagsAddedToTaskVC.tagAddedToTaskWasUpdated(tag)
     }
     //MARK: RemoveTagFromTaskDropAreaVCDelegate
-    func removeTagFromTask(of tag: Tag) {
+    func removeTagFromTaskDropAreaVC(_ removeTagFromTaskDropAreaVC: RemoveTagFromTaskDropAreaVC, removeTagFromTask tag: Tag) {
         tagsAddedToTaskVC.removeFromTask(tag)
     }
     //MARK: UIContentContainer
@@ -125,6 +162,7 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
         default: break
         }
     }
+    
 }
 
 extension CreateTaskVC2 {
@@ -158,6 +196,9 @@ extension CreateTaskVC2 {
         }, completion: { _ in
             completion()
         })
+    }
+    private func updateGoButtonEnability() {
+        goButton.isEnabled = isGoButtonEnabled
     }
 }
 

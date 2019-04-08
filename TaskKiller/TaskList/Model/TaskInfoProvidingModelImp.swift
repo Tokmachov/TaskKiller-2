@@ -44,7 +44,7 @@ struct TaskInfoProvidingModelImp: TaskInfoProvidingModel {
     var staticInfo: TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
         let initialDeadline = task.getInitialDeadline()
-        let tags = task.getTags()
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline, tags: tags)
+        let tagsStore = task.tagsStore
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: initialDeadline, tags: tagsStore)
     }
 }

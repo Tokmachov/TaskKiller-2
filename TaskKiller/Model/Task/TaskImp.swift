@@ -8,30 +8,35 @@
 
 import UIKit
 
-struct TaskModelAdapter: Task {
+struct TaskImp: Task {
    
-    private var adaptee: TaskModel
+    private var taskModel: TaskModel
     init(task: TaskModel) {
-        self.adaptee = task
+        self.taskModel = task
+    }
+    var tagsStore: ImmutableTagStore {
+        guard let tags = (taskModel.tags)?.array as? [Tag] else { return TagStoreImp(tags: [Tag]()) }
+        let tagsStore = TagStoreImp(tags: tags)
+        return tagsStore
     }
     func getTaskDescription() -> String {
-        return self.adaptee.taskDescription!
+        return self.taskModel.taskDescription!
     }
     func getTimeSpentInProgress() -> TimeInterval {
-        guard let periods = adaptee.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(0) }
+        guard let periods = taskModel.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(0) }
         let timeSpentInProgress = getDurationOfPeriods(periods)
         return timeSpentInProgress
     }
     func getInitialDeadline() -> TimeInterval {
-        return TimeInterval(adaptee.initialDeadLine)
+        return TimeInterval(taskModel.initialDeadLine)
     }
     func getCurrentDeadline() -> TimeInterval {
-        return TimeInterval(adaptee.postponableDeadLine)
+        return TimeInterval(taskModel.postponableDeadLine)
     }
     
     func saveProgressPeriod(_ period: ProgressPeriod) {
         let period = createPeriodModel(from: period)
-        adaptee.addToPeriodsOfProcess(period)
+        taskModel.addToPeriodsOfProcess(period)
         PersistanceService.saveContext()
     }
     
@@ -46,28 +51,25 @@ struct TaskModelAdapter: Task {
         return durationOfPeriods
     }
     
-    func addTags(_ tags: AllTagsGetableStore) {
-        let tagArray = tags.allTags()
+    func addTags(_ tags: ImmutableTagStore) {
+        let tagArray = tags.tags
         let tagModels = NSOrderedSet(array: tagArray.map({ $0.tagModel }))
-        adaptee.addToTags(tagModels)
+        taskModel.addToTags(tagModels)
         PersistanceService.saveContext()
     }
-    func getTags() -> [Tag] {
-        guard let tags = (adaptee.tags)?.array as? [Tag] else { return [Tag]() }
-        return tags
-    }
+    
     func postponeDeadlineFor(_ timeInterval: TimeInterval) {
         let timeSpentInprogress = getTimeSpentInProgress()
         let newDeadLine = timeInterval + timeSpentInprogress
         setPostponableDeadline(newDeadLine)
     }
     private func setPostponableDeadline(_ newDeadline: TimeInterval) {
-        adaptee.postponableDeadLine = Int16(newDeadline)
+        taskModel.postponableDeadLine = Int16(newDeadline)
         PersistanceService.saveContext()
     }
 }
 
-extension TaskModelAdapter {
+extension TaskImp {
     private func createPeriodModel(from taskProgressPeriod: ProgressPeriod) -> PeriodModel {
         let period = PeriodModel(context: PersistanceService.context)
         let dateStarted = taskProgressPeriod.dateStarted as NSDate

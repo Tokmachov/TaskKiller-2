@@ -11,7 +11,7 @@ import CoreData
 
 protocol Task: DeadlinePostponable {
     init(task: TaskModel)
-    
+    var tagsStore: ImmutableTagStore { get }
     func getTaskDescription() -> String
     
     func getTimeSpentInProgress() -> TimeInterval
@@ -22,9 +22,6 @@ protocol Task: DeadlinePostponable {
     
     func saveProgressPeriod(_ period: ProgressPeriod)
     
-    func addTags(_ tags: AllTagsGetableStore)
-    
-    func getTags() -> [Tag]
-    
+    func addTags(_ tags: ImmutableTagStore)
 }
 

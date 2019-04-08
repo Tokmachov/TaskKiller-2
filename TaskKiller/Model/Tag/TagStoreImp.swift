@@ -10,9 +10,7 @@ import Foundation
 
 struct TagStoreImp: TagsStore {
 
-    private var tags = [Tag]()
-    
-    //MARK: TagsPreparingStore protocol methods
+    var tags = [Tag]()
     var count: Int {
         return tags.count
     }

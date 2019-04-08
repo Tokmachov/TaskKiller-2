@@ -12,13 +12,14 @@ import CoreData
 struct TaskFactoryImp: TaskFactory {
     
     func createTask(from taskModel: TaskModel) -> Task {
-        return TaskModelAdapter(task: taskModel)
+        return TaskImp(task: taskModel)
     }
     
     func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
-        let taskModelFacade = TaskModelAdapter(task: taskModel)
-        return taskModelFacade
+        let task = TaskImp(task: taskModel)
+        task.addTags(taskStaticInfo.tags)
+        return task
     }
 }
 
@@ -34,7 +35,6 @@ extension TaskFactoryImp {
         taskModel.initialDeadLine = initiaLdeadLine
         taskModel.postponableDeadLine = postponableDeadline
         taskModel.dateCreated = currentDate
-        
         PersistanceService.saveContext()
         
         return taskModel

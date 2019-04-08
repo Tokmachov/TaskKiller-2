@@ -33,8 +33,8 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     var staticInfo: TaskStaticInfo {
         let taskDescription = task.getTaskDescription()
         let deadLine = task.getInitialDeadline()
-        let tags = task.getTags()
-        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tags)
+        let tagsStore = task.tagsStore
+        return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tagsStore)
     }
     
     //MARK: TaskProgressSaving

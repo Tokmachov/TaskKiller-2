@@ -30,7 +30,7 @@ class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
     }
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag = session.provideLocalObject(ofType: Tag.self) else { return }
-        delegate.removeTagFromTask(of: tag)
+        delegate.removeTagFromTaskDropAreaVC(self, removeTagFromTask: tag)
     }
 }
 

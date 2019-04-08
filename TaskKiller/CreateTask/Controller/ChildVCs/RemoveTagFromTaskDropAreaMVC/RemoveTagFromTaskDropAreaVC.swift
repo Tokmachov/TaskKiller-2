@@ -8,14 +8,19 @@
 
 import UIKit
 
-class TagRemovingFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
-    
-    private weak var tagFromTaskRemovingDelegate: TagFromTaskRemovingDelegate!
-    
-    func setTagFromTaskRemovalPerfomingDelegate(_ delegate: TagFromTaskRemovingDelegate) {
-        tagFromTaskRemovingDelegate = delegate
+class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
+    weak var delegate: RemoveTagFromTaskVCDelegate!
+    @IBOutlet weak var dropAreaView: UIView! {
+        didSet {
+            let dropInteraction = UIDropInteraction(delegate: self)
+            dropAreaView.addInteraction(dropInteraction)
+        }
     }
-    
+    @IBOutlet var dropAreaBackgroundView: DropAreaBackgroundView! {
+        didSet {
+            dropAreaBackgroundView.circleColor = UIColor.blue
+        }
+    }
     //MARK: UIDropInteractionDelegate
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         return session.hasLocalObject(ofType: Tag.self)
@@ -25,7 +30,7 @@ class TagRemovingFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate
     }
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag = session.provideLocalObject(ofType: Tag.self) else { return }
-        tagFromTaskRemovingDelegate.performRemovingTask(of: tag)
+        delegate.removeTagFromTask(of: tag)
     }
 }
 

@@ -12,13 +12,16 @@ class DeleteTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     private var tagFactory: TagFactory!
     var delegate: DeleteTagDropAreaVCDelegate!
     
-    @IBOutlet weak var dropAreaView: UIView!
+    @IBOutlet weak var dropAreaView: DropAreaBackgroundView! {
+        didSet {
+            let dropInteraction = UIDropInteraction(delegate: self)
+            dropAreaView.addInteraction(dropInteraction)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tagFactory = TagFactoryImp()
-        let dropInteraction = UIDropInteraction(delegate: self)
-        dropAreaView.addInteraction(dropInteraction)
     }
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         if (session.items.first?.localObject as AnyObject) as? Tag != nil {

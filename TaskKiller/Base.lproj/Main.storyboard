@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N6Q-aj-Cpr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N6Q-aj-Cpr">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -245,34 +244,34 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYD-Py-PCz">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="RiI-hR-9A2">
-                                                            <rect key="frame" x="87" y="0.0" width="146.5" height="43.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="emQ-yD-Wig">
+                                                            <rect key="frame" x="71" y="0.0" width="178" height="64"/>
                                                             <subviews>
                                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Kf-yk5">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="G1O-Kf-yk5" secondAttribute="height" multiplier="1:1" id="aur-Hd-i50"/>
+                                                                        <constraint firstAttribute="width" secondItem="G1O-Kf-yk5" secondAttribute="height" multiplier="1:1" id="tmq-ps-2P1"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <segue destination="d01-Hu-STd" kind="embed" identifier="DeleteTagDropAreaVC" id="iOO-jU-l1O"/>
                                                                     </connections>
                                                                 </containerView>
-                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-5O-fLN">
-                                                                    <rect key="frame" x="51.5" y="0.0" width="43.5" height="43.5"/>
+                                                                <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-wZ-ELv">
+                                                                    <rect key="frame" x="89" y="0.0" width="64" height="64"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="Vbk-5O-fLN" secondAttribute="height" multiplier="1:1" id="Stg-av-2F6"/>
-                                                                    </constraints>
-                                                                    <connections>
-                                                                        <segue destination="oCO-i3-hlK" kind="embed" id="cac-C1-Zyn"/>
-                                                                    </connections>
-                                                                </containerView>
-                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-wZ-ELv">
-                                                                    <rect key="frame" x="103" y="0.0" width="43.5" height="43.5"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="jQE-wZ-ELv" secondAttribute="height" multiplier="1:1" id="LBR-Ei-ijz"/>
+                                                                        <constraint firstAttribute="width" secondItem="jQE-wZ-ELv" secondAttribute="height" multiplier="1:1" id="4aM-22-Xql"/>
                                                                     </constraints>
                                                                     <connections>
                                                                         <segue destination="IXL-iE-dF2" kind="embed" identifier="EditTagDropAreaVC" id="BRM-AH-Wb1"/>
+                                                                    </connections>
+                                                                </containerView>
+                                                                <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-5O-fLN">
+                                                                    <rect key="frame" x="114" y="0.0" width="64" height="64"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="Vbk-5O-fLN" secondAttribute="height" multiplier="1:1" id="rXc-Tq-AqY"/>
+                                                                    </constraints>
+                                                                    <connections>
+                                                                        <segue destination="oCO-i3-hlK" kind="embed" identifier="RemoveTagFromTaskVC" id="cac-C1-Zyn"/>
                                                                     </connections>
                                                                 </containerView>
                                                             </subviews>
@@ -280,10 +279,12 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="G1O-Kf-yk5" firstAttribute="width" secondItem="DYD-Py-PCz" secondAttribute="width" multiplier="1:5" id="7x3-xZ-qNk"/>
                                                         <constraint firstAttribute="height" priority="999" constant="43.5" id="9Pg-QR-Lou"/>
-                                                        <constraint firstItem="RiI-hR-9A2" firstAttribute="centerX" secondItem="DYD-Py-PCz" secondAttribute="centerX" id="FOE-bl-4d9"/>
-                                                        <constraint firstAttribute="bottom" secondItem="RiI-hR-9A2" secondAttribute="bottom" id="FiF-5d-sgz"/>
-                                                        <constraint firstItem="RiI-hR-9A2" firstAttribute="top" secondItem="DYD-Py-PCz" secondAttribute="top" id="a2e-yl-vMK"/>
+                                                        <constraint firstItem="emQ-yD-Wig" firstAttribute="centerX" secondItem="DYD-Py-PCz" secondAttribute="centerX" id="URJ-PJ-LZb"/>
+                                                        <constraint firstItem="Vbk-5O-fLN" firstAttribute="width" secondItem="DYD-Py-PCz" secondAttribute="width" multiplier="1:5" id="X81-xi-r9Q"/>
+                                                        <constraint firstItem="emQ-yD-Wig" firstAttribute="top" secondItem="DYD-Py-PCz" secondAttribute="top" id="fSS-a6-sb4"/>
+                                                        <constraint firstItem="jQE-wZ-ELv" firstAttribute="width" secondItem="DYD-Py-PCz" secondAttribute="width" multiplier="1:5" id="fUc-Aa-y0R"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -830,16 +831,11 @@
         <scene sceneID="QWS-mn-rtB">
             <objects>
                 <collectionViewController id="bBk-bn-udD" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="VoJ-7g-VZw">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" id="VoJ-7g-VZw">
                         <rect key="frame" x="0.0" y="0.0" width="288" height="46"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cQa-fF-gaD">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewLayout key="collectionViewLayout" id="Vf3-3N-rk7" customClass="TagsAddedToTaskCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="R1D-WA-dpP">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -858,7 +854,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a8a-mp-B0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="113"/>
+            <point key="canvasLocation" x="2466" y="194"/>
         </scene>
         <!--Task DescriptionVC-->
         <scene sceneID="1MA-P4-JgW">
@@ -916,6 +912,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="576175790.74738598">
                                     <!--2019-04-05 16:49:50 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="deadlineWasChanged:" destination="YxY-Hw-HrP" eventType="valueChanged" id="mfn-UN-cR8"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -969,7 +968,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSd-h3-hYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="252"/>
+            <point key="canvasLocation" x="2453" y="337"/>
         </scene>
         <!--Create TagVC-->
         <scene sceneID="NwL-BU-7eb">
@@ -1408,7 +1407,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="561"/>
+            <point key="canvasLocation" x="3083" y="589"/>
         </scene>
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
@@ -1847,82 +1846,133 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrM-2O-y9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3308" y="1244"/>
+            <point key="canvasLocation" x="3083" y="1263"/>
         </scene>
         <!--Delete Tag Drop AreaVC-->
         <scene sceneID="dfJ-TF-Ktw">
             <objects>
                 <viewController id="d01-Hu-STd" customClass="DeleteTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ll-WK-s6t">
-                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TtN-99-l5T">
-                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
-                                <color key="backgroundColor" red="0.84465640779999995" green="0.51457053419999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-fV-oKx" userLabel="DropBackGround" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                <rect key="frame" x="2" y="2" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delete" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-9m-hsw" userLabel="DeleteImage">
+                                <rect key="frame" x="10.5" y="10.5" width="43" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="9gd-9m-hsw" secondAttribute="height" multiplier="1:1" id="EPV-BQ-apm"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="TtN-99-l5T" secondAttribute="trailing" id="GB2-s3-sVm"/>
-                            <constraint firstItem="TtN-99-l5T" firstAttribute="leading" secondItem="6ll-WK-s6t" secondAttribute="leading" id="NwF-vj-Bma"/>
-                            <constraint firstItem="TtN-99-l5T" firstAttribute="top" secondItem="6ll-WK-s6t" secondAttribute="top" id="iJR-4v-l5D"/>
-                            <constraint firstAttribute="bottom" secondItem="TtN-99-l5T" secondAttribute="bottom" id="yAz-Rs-NC7"/>
+                            <constraint firstItem="3Dv-fV-oKx" firstAttribute="leading" secondItem="xmw-nP-Mid" secondAttribute="leading" constant="2" id="3C4-FH-XTP"/>
+                            <constraint firstItem="xmw-nP-Mid" firstAttribute="bottom" secondItem="3Dv-fV-oKx" secondAttribute="bottom" constant="2" id="BCR-wg-cW0"/>
+                            <constraint firstItem="3Dv-fV-oKx" firstAttribute="top" secondItem="xmw-nP-Mid" secondAttribute="top" constant="2" id="LJz-Nf-Pqg"/>
+                            <constraint firstItem="xmw-nP-Mid" firstAttribute="trailing" secondItem="3Dv-fV-oKx" secondAttribute="trailing" constant="2" id="RyD-jP-cxF"/>
+                            <constraint firstItem="9gd-9m-hsw" firstAttribute="width" secondItem="3Dv-fV-oKx" secondAttribute="width" multiplier="100 : 141" id="rRL-i8-Jrb"/>
+                            <constraint firstItem="9gd-9m-hsw" firstAttribute="centerX" secondItem="6ll-WK-s6t" secondAttribute="centerX" id="xm9-1m-R4M"/>
+                            <constraint firstItem="9gd-9m-hsw" firstAttribute="centerY" secondItem="6ll-WK-s6t" secondAttribute="centerY" id="yNF-GK-VVW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmw-nP-Mid"/>
                     </view>
                     <connections>
-                        <outlet property="dropAreaView" destination="TtN-99-l5T" id="hwW-Eq-bPy"/>
+                        <outlet property="dropAreaView" destination="3Dv-fV-oKx" id="uox-7w-Hek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ob4-fp-xYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="862"/>
+            <point key="canvasLocation" x="1074.375" y="861.97183098591552"/>
         </scene>
         <!--Edit Tag Drop AreaVC-->
         <scene sceneID="cqW-wJ-OBU">
             <objects>
                 <viewController id="IXL-iE-dF2" customClass="EditTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZrN-H0-KuA">
-                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="du5-0h-eEU">
-                                <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
-                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0K-ax-NsL" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                <rect key="frame" x="2" y="2" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-mr-gqR" userLabel="editImage">
+                                <rect key="frame" x="10.5" y="10.5" width="43" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aZO-mr-gqR" secondAttribute="height" multiplier="1:1" id="pM6-dx-v0D"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="du5-0h-eEU" firstAttribute="leading" secondItem="ZrN-H0-KuA" secondAttribute="leading" id="KH3-es-eXn"/>
-                            <constraint firstAttribute="bottom" secondItem="du5-0h-eEU" secondAttribute="bottom" id="l8y-fY-feP"/>
-                            <constraint firstItem="du5-0h-eEU" firstAttribute="top" secondItem="ZrN-H0-KuA" secondAttribute="top" id="uOW-QN-JUZ"/>
-                            <constraint firstAttribute="trailing" secondItem="du5-0h-eEU" secondAttribute="trailing" id="ufg-to-xIu"/>
+                            <constraint firstItem="E0K-ax-NsL" firstAttribute="leading" secondItem="XpY-lh-ygc" secondAttribute="leading" constant="2" id="Sl8-VA-DK5"/>
+                            <constraint firstItem="aZO-mr-gqR" firstAttribute="centerX" secondItem="ZrN-H0-KuA" secondAttribute="centerX" id="TDo-Sw-27h"/>
+                            <constraint firstAttribute="trailing" secondItem="E0K-ax-NsL" secondAttribute="trailing" constant="2" id="byI-iS-yT2"/>
+                            <constraint firstItem="aZO-mr-gqR" firstAttribute="width" secondItem="E0K-ax-NsL" secondAttribute="width" multiplier="100:141" id="fr6-5b-DVy"/>
+                            <constraint firstItem="aZO-mr-gqR" firstAttribute="centerY" secondItem="ZrN-H0-KuA" secondAttribute="centerY" id="hLO-Vt-8r3"/>
+                            <constraint firstItem="E0K-ax-NsL" firstAttribute="top" secondItem="XpY-lh-ygc" secondAttribute="top" constant="2" id="hVb-VT-qvG"/>
+                            <constraint firstAttribute="bottom" secondItem="E0K-ax-NsL" secondAttribute="bottom" constant="2" id="pHu-Sd-m5a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XpY-lh-ygc"/>
                     </view>
                     <connections>
-                        <outlet property="editTagDropAreaView" destination="du5-0h-eEU" id="90v-6y-Spm"/>
+                        <outlet property="dropAreaBackgroundView" destination="E0K-ax-NsL" id="7yV-gp-jIa"/>
+                        <outlet property="editTagDropAreaView" destination="ZrN-H0-KuA" id="5ZK-QE-BlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aao-aM-1JH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="862"/>
+            <point key="canvasLocation" x="1612.5" y="861.97183098591552"/>
         </scene>
-        <!--View Controller-->
+        <!--Remove Tag From Task Drop AreaVC-->
         <scene sceneID="XyF-9V-35M">
             <objects>
-                <viewController id="oCO-i3-hlK" sceneMemberID="viewController">
+                <viewController id="oCO-i3-hlK" customClass="RemoveTagFromTaskDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3v1-s4-q8w">
-                        <rect key="frame" x="0.0" y="0.0" width="43.5" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9O-20-yg2" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
+                                <rect key="frame" x="2" y="2" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remove" translatesAutoresizingMaskIntoConstraints="NO" id="Hmg-Vv-6oX">
+                                <rect key="frame" x="10.5" y="10.5" width="43" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hmg-Vv-6oX" secondAttribute="height" multiplier="1:1" id="XBv-r7-CUy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hmg-Vv-6oX" firstAttribute="width" secondItem="N9O-20-yg2" secondAttribute="width" multiplier="100:141" id="5Qs-fC-bMj"/>
+                            <constraint firstItem="N9O-20-yg2" firstAttribute="leading" secondItem="7dL-Co-IKk" secondAttribute="leading" constant="2" id="HB2-Ez-kQP"/>
+                            <constraint firstItem="Hmg-Vv-6oX" firstAttribute="centerY" secondItem="3v1-s4-q8w" secondAttribute="centerY" id="S8y-bt-p3e"/>
+                            <constraint firstItem="N9O-20-yg2" firstAttribute="top" secondItem="7dL-Co-IKk" secondAttribute="top" constant="2" id="Sth-Xj-0hR"/>
+                            <constraint firstItem="Hmg-Vv-6oX" firstAttribute="centerX" secondItem="3v1-s4-q8w" secondAttribute="centerX" id="cgG-hE-Soi"/>
+                            <constraint firstAttribute="trailing" secondItem="N9O-20-yg2" secondAttribute="trailing" constant="2" id="ffR-hf-xMy"/>
+                            <constraint firstAttribute="bottom" secondItem="N9O-20-yg2" secondAttribute="bottom" constant="2" id="hjL-ad-fOg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7dL-Co-IKk"/>
                     </view>
+                    <connections>
+                        <outlet property="dropAreaBackgroundView" destination="N9O-20-yg2" id="xs4-Wj-njX"/>
+                        <outlet property="dropAreaView" destination="3v1-s4-q8w" id="4GH-cb-gdH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4g-fo-7BO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343" y="863"/>
+            <point key="canvasLocation" x="1342.5" y="861.97183098591552"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Delete" width="40" height="40"/>
+        <image name="edit" width="40" height="40"/>
+        <image name="remove" width="40" height="40"/>
+    </resources>
 </document>

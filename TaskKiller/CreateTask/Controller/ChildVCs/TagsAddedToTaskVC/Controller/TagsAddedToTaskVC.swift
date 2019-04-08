@@ -10,11 +10,8 @@ import UIKit
 
 class TagsAddedToTaskVC: UICollectionViewController {
     
-    private let maximumTagsAmount = 3
-    
-    private let distanceBetweenLines: CGFloat = 10
-    private let interItemSpacing: CGFloat = 10
-    private let spaceAroundTagsInCollectionView = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    private let maximumTagsAmount = 4
+
     //MARK: model
     private var tagsAddedToTask: TagsStore = TagStoreImp()
     
@@ -37,11 +34,9 @@ class TagsAddedToTaskVC: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = UIColor.green
         collectionView.dropDelegate = self
         collectionView.dragDelegate = self
         collectionView.register(TagCell.self, forCellWithReuseIdentifier: "TagCell")
-        collectionView.alwaysBounceVertical = true
         collectionView.dragInteractionEnabled = true
     }
 }
@@ -65,16 +60,8 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
         let tagCell = TagCell(frame: CGRect.zero)
         let tag = tagsAddedToTask.tag(at: indexPath.row)
         configure(tagCell: tagCell, withTag: tag)
+        
         return tagCell.getSizeNeededForContentView()
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return distanceBetweenLines
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return interItemSpacing
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return spaceAroundTagsInCollectionView
     }
 }
 
@@ -101,7 +88,7 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
     }
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: UICollectionViewDropCoordinator) {
         
-        let destinationIndexPath = coordinator.destinationIndexPath ?? collectionView.lastIndexPath()
+        let destinationIndexPath = coordinator.destinationIndexPath ?? IndexPath(row: 0, section: 0)
         guard let tag = coordinator.session.provideLocalObject(ofType: Tag.self),
             let dragItem = coordinator.session.items.first else { return }
         
@@ -116,7 +103,7 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
             return
         }
         coordinator.drop(dragItem, toItemAt: destinationIndexPath)
-        tagsAddedToTask.add(tag)
+        tagsAddedToTask.insert(tag: tag, atIndex: destinationIndexPath.row)
         collectionView.insertItems(at: [destinationIndexPath])
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
@@ -126,7 +113,7 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
         delegate.removeDropAreaForRemovingTagFromTask(for: self)
     }
 }
-
+//MARK: UICollectionViewDragDelegate
 extension TagsAddedToTaskVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let dragItem = UIDragItem(itemProvider: NSItemProvider())

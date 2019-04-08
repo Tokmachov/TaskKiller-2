@@ -38,6 +38,7 @@
 		042F4397220152FD00AF2682 /* TaskModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F4395220152FD00AF2682 /* TaskModel+CoreDataClass.swift */; };
 		042F439B2201555500AF2682 /* AlarmsControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439A2201555500AF2682 /* AlarmsControlling.swift */; };
 		042F439D22015A0200AF2682 /* TaskAlarmsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439C22015A0200AF2682 /* TaskAlarmsController.swift */; };
+		043B2239225B453D0018CB68 /* DropAreaBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B2238225B453D0018CB68 /* DropAreaBackgroundView.swift */; };
 		044723B821C219AF00F0214F /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723B721C219AF00F0214F /* TagView.swift */; };
 		044723C821C21DB200F0214F /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */; };
 		044723C921C21DB200F0214F /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044723C321C21DB200F0214F /* PeriodModel+CoreDataProperties.swift */; };
@@ -67,8 +68,8 @@
 		0498213C2222C93100CEA932 /* RepresentableInSectionedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */; };
 		049821482222D23E00CEA932 /* CreateAdditionalTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */; };
 		0498214D2222D35700CEA932 /* AdditionalTimeAddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */; };
-		0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */; };
-		0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */; };
+		0498EF3821EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */; };
+		0498EF3A21EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
 		0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
 		0498EF4321EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */; };
@@ -255,6 +256,7 @@
 		042F4395220152FD00AF2682 /* TaskModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataClass.swift"; path = "../TaskModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		042F439A2201555500AF2682 /* AlarmsControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsControlling.swift; sourceTree = "<group>"; };
 		042F439C22015A0200AF2682 /* TaskAlarmsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmsController.swift; sourceTree = "<group>"; };
+		043B2238225B453D0018CB68 /* DropAreaBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropAreaBackgroundView.swift; sourceTree = "<group>"; };
 		044723B721C219AF00F0214F /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
 		044723C121C21D4B00F0214F /* TaskKiller 11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 11.xcdatamodel"; sourceTree = "<group>"; };
 		044723C221C21DB200F0214F /* PeriodModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PeriodModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -285,8 +287,8 @@
 		0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepresentableInSectionedTable.swift; sourceTree = "<group>"; };
 		049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdditionalTimeVC.swift; sourceTree = "<group>"; };
 		0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeAddable.swift; sourceTree = "<group>"; };
-		0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRemovingFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
-		0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagFromTaskRemovingDelegate.swift; sourceTree = "<group>"; };
+		0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTagFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
+		0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTagFromTaskVCDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
 		0498EF4021EC1FCD00676FAB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskVCDelegate.swift; sourceTree = "<group>"; };
@@ -447,7 +449,9 @@
 			isa = PBXGroup;
 			children = (
 				04091E7F21C9EBBE00967F50 /* Tag.swift */,
-				0498EF4E21ED70FA00676FAB /* TagStore */,
+				0498EF4C21ED70B700676FAB /* TagsStore.swift */,
+				0498EF4621EC45E700676FAB /* TagsPreparingStore.swift */,
+				0498EF4A21ED705300676FAB /* AllTagsGetableStore.swift */,
 				04091E8121C9ECB300967F50 /* TagFactory.swift */,
 			);
 			path = protcols;
@@ -490,6 +494,14 @@
 			path = AlarmController;
 			sourceTree = "<group>";
 		};
+		046740712257C9F20045B812 /* RemoveTagFromTaskDropAreaMVC */ = {
+			isa = PBXGroup;
+			children = (
+				0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */,
+			);
+			path = RemoveTagFromTaskDropAreaMVC;
+			sourceTree = "<group>";
+		};
 		047FACDC224DD48B00DB59D9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,12 +529,13 @@
 			path = AvailableTagsMVC;
 			sourceTree = "<group>";
 		};
-		047FACE3224FD24800DB59D9 /* DeletaTagDropAreaMVC */ = {
+		047FACE3224FD24800DB59D9 /* DeletTagDropAreaMVC */ = {
 			isa = PBXGroup;
 			children = (
+				043B2238225B453D0018CB68 /* DropAreaBackgroundView.swift */,
 				047FACE4224FD5F600DB59D9 /* Controller */,
 			);
-			path = DeletaTagDropAreaMVC;
+			path = DeletTagDropAreaMVC;
 			sourceTree = "<group>";
 		};
 		047FACE4224FD5F600DB59D9 /* Controller */ = {
@@ -687,16 +700,6 @@
 			path = ExtensionsToStandardTypes;
 			sourceTree = "<group>";
 		};
-		0498EF4E21ED70FA00676FAB /* TagStore */ = {
-			isa = PBXGroup;
-			children = (
-				0498EF4C21ED70B700676FAB /* TagsStore.swift */,
-				0498EF4621EC45E700676FAB /* TagsPreparingStore.swift */,
-				0498EF4A21ED705300676FAB /* AllTagsGetableStore.swift */,
-			);
-			path = TagStore;
-			sourceTree = "<group>";
-		};
 		0498EF5021ED7B7C00676FAB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
@@ -723,18 +726,9 @@
 			isa = PBXGroup;
 			children = (
 				047C4B3121C685AB0009ED40 /* InfoForTagCreationReceiving.swift */,
-				0498EF3921EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift */,
 				0498EF5921ED8FEE00676FAB /* EditTagDelegate */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		0498EF5C21EDA14500676FAB /* TagRemovingFromTaskDropAreaVC */ = {
-			isa = PBXGroup;
-			children = (
-				0498EF3721EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift */,
-			);
-			path = TagRemovingFromTaskDropAreaVC;
 			sourceTree = "<group>";
 		};
 		0498EFD721FA369D00676FAB /* Model */ = {
@@ -825,6 +819,7 @@
 				0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */,
 				0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */,
 				047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */,
+				0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */,
 				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
 				04EDD98C224673E400DF766C /* ChildVCs */,
 			);
@@ -838,21 +833,6 @@
 				0406D3D321E0D2B6003A6E68 /* TagEditingAreaConstants.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		04EDD97D2246630300DF766C /* TagRemovingMVC */ = {
-			isa = PBXGroup;
-			children = (
-				0498EF5C21EDA14500676FAB /* TagRemovingFromTaskDropAreaVC */,
-			);
-			path = TagRemovingMVC;
-			sourceTree = "<group>";
-		};
-		04EDD97F2246638100DF766C /* TaskTagsDisplayingMVC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TaskTagsDisplayingMVC;
 			sourceTree = "<group>";
 		};
 		04EDD9822246646000DF766C /* DeadLineSelectionMVC */ = {
@@ -870,8 +850,9 @@
 				04EDD9822246646000DF766C /* DeadLineSelectionMVC */,
 				047FACDE224F579100DB59D9 /* AvailableTagsMVC */,
 				047FACED22530A0800DB59D9 /* CreateEditTagMVC */,
-				047FACE3224FD24800DB59D9 /* DeletaTagDropAreaMVC */,
+				047FACE3224FD24800DB59D9 /* DeletTagDropAreaMVC */,
 				047FACE62251CC3000DB59D9 /* EditTagDropAreaMVC */,
+				046740712257C9F20045B812 /* RemoveTagFromTaskDropAreaMVC */,
 				040D906F21E789B60049F410 /* TagsAddedToTaskVC */,
 			);
 			path = ChildVCs;
@@ -987,6 +968,7 @@
 		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
 			isa = PBXGroup;
 			children = (
+				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */,
@@ -1000,7 +982,6 @@
 				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
 				B9A8B14621984A740085FCA0 /* TaskVC */,
 				04CEA251222E25DF00CEE425 /* Statistics */,
-				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
 				B96E0E8F219347E60097AB34 /* Info.plist */,
 			);
@@ -1021,9 +1002,7 @@
 				04EDD97C2246623A00DF766C /* View */,
 				04EDD97B22465EF500DF766C /* Controller */,
 				0406D3D221E0D28C003A6E68 /* Constants */,
-				04EDD97F2246638100DF766C /* TaskTagsDisplayingMVC */,
 				0498EF5B21ED9BCE00676FAB /* Protocols */,
-				04EDD97D2246630300DF766C /* TagRemovingMVC */,
 				B96E0EC12193D8360097AB34 /* StaticInfoController */,
 			);
 			path = CreateTask;
@@ -1418,7 +1397,7 @@
 				0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */,
 				0498212A221CF43900CEA932 /* AdditionalTimesTableViewController.swift in Sources */,
 				0498214D2222D35700CEA932 /* AdditionalTimeAddable.swift in Sources */,
-				0498EF3A21EC1C8E00676FAB /* TagFromTaskRemovingDelegate.swift in Sources */,
+				0498EF3A21EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
 				04CEA248222A698B00CEE425 /* AdditionalTimesSaving.swift in Sources */,
 				04C23FC02202B7F2006761ED /* TaskModel+CoreDataProperties.swift in Sources */,
@@ -1450,7 +1429,7 @@
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				047FACEC2253038F00DB59D9 /* TagCellConfiguring.swift in Sources */,
 				047FACEA2251D3C700DB59D9 /* EditTagVC.swift in Sources */,
-				0498EF3821EC1BA600676FAB /* TagRemovingFromTaskDropAreaVC.swift in Sources */,
+				0498EF3821EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift in Sources */,
 				04EDD9992249D34100DF766C /* TaskDescriptionVC.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */,
@@ -1477,6 +1456,7 @@
 				049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */,
 				0498212F221CF87F00CEA932 /* AdditionalTimes.swift in Sources */,
 				047FACD9224DC9D200DB59D9 /* CreateTagVCDelegate.swift in Sources */,
+				043B2239225B453D0018CB68 /* DropAreaBackgroundView.swift in Sources */,
 				B9A8B172219BCF060085FCA0 /* ProgressPeriod.swift in Sources */,
 				04091E8421C9ED4100967F50 /* TagFactoryImp.swift in Sources */,
 				049821322222C83600CEA932 /* AdditionalTime.swift in Sources */,

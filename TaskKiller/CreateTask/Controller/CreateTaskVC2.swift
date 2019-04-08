@@ -7,11 +7,8 @@
 //
 
 import UIKit
-class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate, AvailableTagsVCDelegate, DeleteTagDropAreaVCDelegate, EditTagDropAreaVCDelegate, EditTagVCDelegate, TagsAddedToTaskVCDelegate {
-    
+class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate, AvailableTagsVCDelegate, DeleteTagDropAreaVCDelegate, EditTagDropAreaVCDelegate, EditTagVCDelegate, TagsAddedToTaskVCDelegate, RemoveTagFromTaskVCDelegate {
   
-    
- 
     private var tagFactory = TagFactoryImp()
     //MARK: Model
     private var taskDescription: String?
@@ -22,7 +19,6 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     //MARK: Views
     @IBOutlet weak var deadlineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dropAreasHeight: NSLayoutConstraint!
-    private let unfoldedDropAreasCellHeight: CGFloat = 80
     private let foldedDropAreasCellHeight: CGFloat = 0
     @IBOutlet weak var dropAreaViewForTagDeleting: UIView!
     @IBOutlet weak var dropAreaViewForRemovingTagFromTask: UIView!
@@ -30,12 +26,11 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //hideDropAreaForTagDeleingAndEditing()
-        //.hideDropAreaForRemovingOfTagFromTask()
-        foldDropAreasRow()
+        hideDropAreaForTagDeleingAndEditing()
+        hideDropAreaForRemovingOfTagFromTask()
+        foldDropAreasRow(andThen: {})
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
@@ -62,6 +57,9 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
             let vc = segue.destination as! TagsAddedToTaskVC
             vc.delegate = self
             tagsAddedToTaskVC = vc
+        case "RemoveTagFromTaskVC":
+            let vc = segue.destination as! RemoveTagFromTaskDropAreaVC
+            vc.delegate = self 
         default: break
         }
     }
@@ -80,19 +78,22 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     }
     //MARK: AvailableTagsVCDelegate
     func addDeleteAndEditTagDropAreas(for: AvailableTagsVC) {
-        //showDropAreaForTagDeletingAndEditing()
-        unfoldDropAreasRow()
+        showDropAreaForTagDeletingAndEditing()
+        let heightNeeded = max(dropAreaViewForTagEditing.bounds.height, dropAreaViewForTagDeleting.bounds.height)
+        unfoldDropAreasRow(toHeight: heightNeeded)
     }
     func removeDeleteAndEditTagDropAreas(for: AvailableTagsVC) {
-        //hideDropAreaForTagDeleingAndEditing()
-        foldDropAreasRow()
+        foldDropAreasRow(andThen: { self.hideDropAreaForTagDeleingAndEditing() } )
+        
     }
     //MARK: TagsAddedToTaskDelegate
     func addDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
-        unfoldDropAreasRow()
+        showDropAreaForRemovingOfTagFromTask()
+        let heightNeeded = dropAreaViewForRemovingTagFromTask.bounds.height
+        unfoldDropAreasRow(toHeight: heightNeeded)
     }
     func removeDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
-        foldDropAreasRow()
+        foldDropAreasRow(andThen: { self.hideDropAreaForRemovingOfTagFromTask() })
     }
     //MAR: DeleteTagDropAreaVCDelegate
     func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag) {
@@ -112,7 +113,10 @@ class CreateTaskVC2: UITableViewController, TaskDescriptionVCDelegate, DeadlineV
     func editTagVC(_ editTagVC: EditTagVC, didEditTag tag: Tag) {
         tagsAddedToTaskVC.tagAddedToTaskWasUpdated(tag)
     }
-    
+    //MARK: RemoveTagFromTaskDropAreaVCDelegate
+    func removeTagFromTask(of tag: Tag) {
+        tagsAddedToTaskVC.removeFromTask(tag)
+    }
     //MARK: UIContentContainer
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         switch container {
@@ -143,16 +147,17 @@ extension CreateTaskVC2 {
             self.deadlineViewHeightConstraint.constant = height
         }, completion: nil)
     }
-    private func unfoldDropAreasRow() {
+    private func unfoldDropAreasRow(toHeight height: CGFloat) {
         tableView.beginUpdates()
-        dropAreasHeight.constant = unfoldedDropAreasCellHeight
+        dropAreasHeight.constant = height
         tableView.endUpdates()
     }
-    private func foldDropAreasRow() {
-        tableView.beginUpdates()
-        dropAreasHeight.constant = foldedDropAreasCellHeight
-        tableView.endUpdates()
+    private func foldDropAreasRow(andThen completion: @escaping ()->()) {
+        tableView.performBatchUpdates({
+            self.dropAreasHeight.constant = foldedDropAreasCellHeight
+        }, completion: { _ in
+            completion()
+        })
     }
-    
 }
 

@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol TagFromTaskRemovingDelegate: AnyObject {
-    func performRemovingTask(of tag: Tag)
+protocol RemoveTagFromTaskVCDelegate: AnyObject {
+    func removeTagFromTask(of tag: Tag)
 }

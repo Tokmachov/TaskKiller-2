@@ -1,5 +1,5 @@
 //
-//  TaskModelFactory.swift
+//  ITaskModelHandlingFactory.swift
 //  TaskKiller
 //
 //  Created by Oleg Tokmachov on 12.11.2018.
@@ -7,15 +7,21 @@
 //
 
 import Foundation
+
+protocol TaskFactory {
+    func makeTask(taskStaticInfo: TaskStaticInfo) -> Task
+    func makeTask(taskModel: TaskModel) -> Task
+}
+
 import CoreData
 
 struct TaskFactoryImp: TaskFactory {
     
-    func createTask(from taskModel: TaskModel) -> Task {
+    func makeTask(taskModel: TaskModel) -> Task {
         return TaskImp(task: taskModel)
     }
     
-    func createTask(from taskStaticInfo: TaskStaticInfo) -> Task {
+    func makeTask(taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
         let task = TaskImp(task: taskModel)
         task.addTags(taskStaticInfo.tags)
@@ -40,5 +46,3 @@ extension TaskFactoryImp {
         return taskModel
     }
 }
-
-

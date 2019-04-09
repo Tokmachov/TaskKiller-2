@@ -19,7 +19,7 @@ class TaskDescriptionVC: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var textView: UITextView!
     
-    //hide key bard
+    //hide key board
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()

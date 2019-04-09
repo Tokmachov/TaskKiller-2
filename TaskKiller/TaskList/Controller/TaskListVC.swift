@@ -11,15 +11,15 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var taskFactory: TaskFactory!
+    private var taskFactory: TaskListImmutableModelFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
-    private var taskInfoGetableHandler: TaskInfoProvidingModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskFactory = TaskFactoryImp()
         fetchRequestController = createFetchResultsController()
+        taskFactory = TaskListImmutableModelFactoryImp(taskModelFetchResultsController: fetchRequestController, taskFactory: TaskFactoryImp())
     }
+    
     //MARK: TableViewDelegate, datasource methods
     override func numberOfSections(in tableView: UITableView) -> Int {
         return fetchRequestController.sections!.count
@@ -31,13 +31,13 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
-        let taskModel = fetchRequestController.object(at: indexPath)
-        let task = taskFactory.createTask(from: taskModel)
-        let taskInfoGetableModelHandler = TaskInfoProvidingModelImp(task: task)
-        
-        taskCell.updateStaticInfo(taskInfoGetableModelHandler)
-        taskCell.updateProgressTimes(taskInfoGetableModelHandler)
+        let task = taskFactory.makeTaskListImmutableModel(taskModelIndexPath: indexPath)
+        configureTaskCell(taskCell, withTaskModel: task, andIndex: indexPath.row)
         return taskCell
+    }
+    private func configureTaskCell(_ cell: TaskCell, withTaskModel model: TaskListImmutableModel, andIndex index: Int) {
+        cell.taskDescription = model.taskDescription
+        cell.cellIndex = index
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
@@ -74,10 +74,10 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         case "Continue Task"?:
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
             let task = fetchRequestController.object(at: indexPathOfSelectedRow)
-            let taskModelFacade = taskFactory.createTask(from: task)
-            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: taskModelFacade)
-            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
+//            let taskModelFacade = taskFactory.makeTask(from: task)
+//            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: taskModelFacade)
+//            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
+//            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break
         }
     }

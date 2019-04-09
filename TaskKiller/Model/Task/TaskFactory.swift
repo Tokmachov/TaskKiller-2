@@ -10,17 +10,11 @@ import Foundation
 
 protocol TaskFactory {
     func makeTask(taskStaticInfo: TaskStaticInfo) -> Task
-    func makeTask(taskModel: TaskModel) -> Task
 }
 
 import CoreData
 
 struct TaskFactoryImp: TaskFactory {
-    
-    func makeTask(taskModel: TaskModel) -> Task {
-        return TaskImp(task: taskModel)
-    }
-    
     func makeTask(taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
         let task = TaskImp(task: taskModel)

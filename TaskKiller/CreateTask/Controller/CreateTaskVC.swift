@@ -61,7 +61,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
             vc.delegate = self
             addChild(vc)
         case "CreateTagVC":
-            let vc = segue.destination as! CreateTagVC
+            let vc = (segue.destination as? UINavigationController)?.viewControllers.first as! CreateTagVC
             vc.delegate = self
         case "AvailableTagsVC":
             let vc = segue.destination as! AvailableTagsVC

@@ -51,10 +51,6 @@
                                                     </view>
                                                 </collectionViewCell>
                                             </cells>
-                                            <connections>
-                                                <outlet property="dataSource" destination="3Nc-nP-Zvt" id="lhf-Va-Bai"/>
-                                                <outlet property="delegate" destination="3Nc-nP-Zvt" id="Pmx-aw-7dF"/>
-                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <constraints>
@@ -307,7 +303,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                     <state key="normal" title="Add new tag"/>
                                                     <connections>
-                                                        <segue destination="A9z-gl-o7Z" kind="presentation" identifier="CreateTagVC" modalTransitionStyle="crossDissolve" id="6D9-Pf-HCd"/>
+                                                        <segue destination="gLK-Tj-VvH" kind="presentation" identifier="CreateTagVC" modalTransitionStyle="crossDissolve" id="6D9-Pf-HCd"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1374,14 +1370,27 @@
                             <outlet property="delegate" destination="A9z-gl-o7Z" id="xPT-15-MsL"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="Deq-Iz-96m">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="j13-Hw-OfF">
+                            <connections>
+                                <action selector="tagCreationWasCancelled:" destination="A9z-gl-o7Z" id="UIq-Xf-gkS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="biG-Aw-2aR">
+                            <connections>
+                                <action selector="saveCreatedTag:" destination="A9z-gl-o7Z" id="oID-Yc-qkg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="chosenColorView" destination="jrL-yx-UCg" id="8WH-px-rdv"/>
+                        <outlet property="saveButton" destination="biG-Aw-2aR" id="ekb-ES-ZWz"/>
                         <outlet property="tagNameTextField" destination="fnW-hs-6B5" id="JRG-ao-2SV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4080" y="588.38028169014081"/>
+            <point key="canvasLocation" x="5077.5" y="588.38028169014081"/>
         </scene>
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
@@ -1960,6 +1969,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOX-e5-dU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1342.5" y="235.56338028169014"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Iz6-pw-edC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gLK-Tj-VvH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H81-3W-ZrZ">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="A9z-gl-o7Z" kind="relationship" relationship="rootViewController" id="v9w-2L-Q75"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="esl-3P-bis" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4080" y="588.38028169014081"/>
         </scene>
     </scenes>
     <resources>

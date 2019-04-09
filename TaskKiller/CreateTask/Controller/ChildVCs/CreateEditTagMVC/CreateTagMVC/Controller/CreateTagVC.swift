@@ -12,14 +12,25 @@ class CreateTagVC: UITableViewController, UITextFieldDelegate {
     
     let maximunTagNameLength = TagConstants.tagMaximumCharacterLength
     //Mark: model
-    private var tagName: String?
-    private var tagColor: UIColor?
+    private var tagName: String? {
+        didSet { updateSaveButtonEnability() }
+    }
+    private var tagColor: UIColor = UIColor.gray
+    private var isTagInfoValid: Bool {
+            if let tagName = tagName, !tagName.isEmpty { return true }
+            return false
+    }
     var delegate: CreateTagVCDelegate!
     @IBOutlet weak var tagNameTextField: UITextField!
-    @IBOutlet weak var chosenColorView: ColorSampleView!
+    @IBOutlet weak var chosenColorView: ColorSampleView! {
+        didSet { chosenColorView.chosenColor = tagColor }
+    }
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsSelection = false
+        updateSaveButtonEnability()
     }
     @IBAction func tagNameWasChanged(_ sender: UITextField) {
         tagName = sender.text ?? ""
@@ -47,5 +58,11 @@ class CreateTagVC: UITableViewController, UITextFieldDelegate {
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return (textField.text ?? "" + string).count <= maximunTagNameLength || string.isEmpty
+    }
+}
+
+extension CreateTagVC {
+    private func updateSaveButtonEnability() {
+        saveButton.isEnabled = isTagInfoValid
     }
 }

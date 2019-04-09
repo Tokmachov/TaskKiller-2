@@ -26,7 +26,7 @@ struct TaskListImmutableModelFactoryImp: TaskListImmutableModelFactory {
     
     func makeTaskListImmutableModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel {
         let taskModel = fetchResultsController.object(at: indexPath)
-        let task = taskFactory.makeTask(taskModel: taskModel)
+        let task = TaskImp(task: taskModel)
         return TaskListImmutableModelImp(task: task)
     }
 }

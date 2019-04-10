@@ -14,7 +14,7 @@ protocol TaskListModelFactory {
     func makeTaskListModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel
 }
 
-struct TaskListImmutableModelFactoryImp: TaskListModelFactory {
+struct TaskListModelFactoryImp: TaskListModelFactory {
     
     private var fetchResultsController: NSFetchedResultsController<TaskModel>
     private var taskFactory: TaskFactory

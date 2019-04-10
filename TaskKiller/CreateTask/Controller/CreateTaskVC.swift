@@ -97,9 +97,6 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     @IBAction func cancelButtonPressed(_ sender: Any) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    @IBAction func goButtonPressed(_ sender: Any) {
-        
-    }
     
     //MARK: Delegates
     func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnterDescription taskDescription: String) {

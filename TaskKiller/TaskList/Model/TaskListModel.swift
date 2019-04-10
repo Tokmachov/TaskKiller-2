@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol TaskListImmutableModel: TaskInitiatable {
+protocol TaskListModel: TaskInitiatable {
     var taskDescription: String { get }
     var tagsStore: ImmutableTagStore { get }
 }
 
-struct TaskListImmutableModelImp: TaskListImmutableModel {
+struct TaskListModelImp: TaskListModel {
     
     private let task: Task
 

@@ -12,7 +12,7 @@ class TaskDescriptionVC: UIViewController, UITextViewDelegate {
     //MARK: Model
     private var taskDescription: String = "" {
         didSet {
-            delegate.taskDescriptionVC(self, didEnteredDescription: taskDescription)
+            delegate.taskDescriptionVC(self, didEnterDescription: taskDescription)
         }
     }
     var delegate: TaskDescriptionVCDelegate!

@@ -11,6 +11,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
   
     private var tagFactory = TagFactoryImp()
     private var taskFactory = TaskFactoryImp()
+    
     //MARK: Model
     private var taskDescription: String? {
         didSet { updateGoButtonEnability() }
@@ -21,6 +22,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     private var tagsAddedToTask: ImmutableTagStore? {
         didSet { updateGoButtonEnability() }
     }
+    
     private var isGoButtonEnabled: Bool {
         let isTaskDescriptionValid: Bool = {
             if let description = taskDescription, !description.isEmpty { return true }
@@ -33,6 +35,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
         }()
         return isTaskDescriptionValid && isDeadlineValid && areTagsAddedToTaskValid
     }
+    
     //MARK: Views
     @IBOutlet weak var deadlineViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var dropAreasHeight: NSLayoutConstraint!
@@ -83,7 +86,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
             let taskStaticInfo = TaskStaticInfo(taskDescription: taskDescription!,
                                                 initialDeadLine: deadline!,
-                                                tags: tagsAddedToTaskVC.tagsAddedToTask
+                                                tags: tagsAddedToTaskVC.tagsAddedToTaskStore
             )
             let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
             let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
@@ -98,16 +101,15 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
         
     }
     
-    //MARK: TaskDescriptionVCDelegate
-    func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnteredDescription taskDescription: String) {
+    //MARK: Delegates
+    func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnterDescription taskDescription: String) {
         self.taskDescription = taskDescription
     }
-    //MARK: DeadlineVCDelegate
     func deadlineVC(_ deadlineVC: DeadlineVC, didChoseDeadline deadline: TimeInterval) {
         self.deadline = deadline
     }
     //MARK: CreateTagVCDelegate
-    func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChoseName name: String, AndColor color: UIColor) {
+    func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChooseName name: String, AndColor color: UIColor) {
         _ = tagFactory.makeTag(name: name, color: color)
     }
     //MARK: AvailableTagsVCDelegate
@@ -118,7 +120,6 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     }
     func removeDeleteAndEditTagDropAreas(for: AvailableTagsVC) {
         foldDropAreasRow(andThen: { self.hideDropAreaForTagDeleingAndEditing() } )
-        
     }
     //MARK: TagsAddedToTaskDelegate
     func addDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
@@ -130,7 +131,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
         foldDropAreasRow(andThen: { self.hideDropAreaForRemovingOfTagFromTask() })
     }
     func tagsAddedToTaskWereUpdated(in tagsAddedToTaskVC: TagsAddedToTaskVC) {
-        tagsAddedToTask = tagsAddedToTaskVC.tagsAddedToTask
+        tagsAddedToTask = tagsAddedToTaskVC.tagsAddedToTaskStore
     }
     //MAR: DeleteTagDropAreaVCDelegate
     func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag) {

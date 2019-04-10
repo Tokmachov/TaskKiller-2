@@ -47,7 +47,7 @@ class CreateTagVC: UITableViewController, UITextFieldDelegate {
     @IBAction func saveCreatedTag(_ sender: UIBarButtonItem) {
         let tagName = self.tagName ?? ""
         let tagColor = self.tagColor ?? UIColor.gray
-        delegate.createTagVCDelegate(self, didChoseName: tagName, AndColor: tagColor)
+        delegate.createTagVCDelegate(self, didChooseName: tagName, AndColor: tagColor)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     

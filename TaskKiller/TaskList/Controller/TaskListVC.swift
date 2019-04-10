@@ -104,4 +104,5 @@ extension TaskListVC: UICollectionViewDataSource {
         let tagsStore = task.tagsStore
         return tagsStore.tags.count
     }
+    
 }

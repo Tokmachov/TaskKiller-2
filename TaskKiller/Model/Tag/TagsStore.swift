@@ -13,8 +13,6 @@ protocol ImmutableTagStore {
     var tagsCount: Int { get }
 }
 protocol MutableTagStore {
-    
-    var tags: [Tag] { get }
     mutating func remove(_ tag: Tag)
     mutating func add(_ tag: Tag)
     mutating func insert(tag: Tag, atIndex index: Int)

@@ -9,5 +9,5 @@
 import Foundation
 
 protocol TaskDescriptionVCDelegate {
-    func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnteredDescription taskDescription: String)
+    func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnterDescription taskDescription: String)
 }

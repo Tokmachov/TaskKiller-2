@@ -16,8 +16,7 @@ protocol TaskListImmutableModel: TaskInitiatable {
 struct TaskListImmutableModelImp: TaskListImmutableModel {
     
     private let task: Task
-    
-    //MARK: TaskHandling
+
     init(task: Task) {
         self.task = task
     }

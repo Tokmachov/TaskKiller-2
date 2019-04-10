@@ -11,12 +11,12 @@ import Foundation
 protocol ImmutableTagStore {
     var tags: [Tag] { get }
     var tagsCount: Int { get }
+    func tag(at index: Int) -> Tag
 }
 protocol MutableTagStore {
     mutating func remove(_ tag: Tag)
     mutating func add(_ tag: Tag)
     mutating func insert(tag: Tag, atIndex index: Int)
-    func tag(at index: Int) -> Tag
     func index(Of tag: Tag) -> Int?
     func canAdd(_ tag: Tag) -> Bool
 }

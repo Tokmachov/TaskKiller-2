@@ -84,11 +84,13 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
             vc.delegate = self 
         case "StartNewTask":
             guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
+            print("before creating \(tagsAddedToTaskVC.tagsAddedToTaskStore.tagsCount)")
             let taskStaticInfo = TaskStaticInfo(taskDescription: taskDescription!,
                                                 initialDeadLine: deadline!,
                                                 tags: tagsAddedToTaskVC.tagsAddedToTaskStore
             )
             let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
+            print("Task created \(task.tagsStore.tagsCount)")
             let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
             taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break

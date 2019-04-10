@@ -7,4 +7,10 @@
 //
 
 import Foundation
-typealias  TaskProgressSavingModel = ProgressTimesSource & TaskStaticInfoSource & TaskProgressSaving & TimeLeftToDeadLineGetable & DeadlinePostponable
+
+protocol TaskListModel {
+    var taskDescription: String { get }
+    var tagsStore: ImmutableTagStore { get }
+}
+
+

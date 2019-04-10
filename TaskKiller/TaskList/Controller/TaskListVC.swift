@@ -11,13 +11,13 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var taskListFactory: TaskListModelFactory!
+    private var taskListModelFactory: TaskListModelFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
-        taskListFactory = TaskListModelFactoryImp(taskModelFetchResultsController: fetchRequestController, taskFactory: TaskFactoryImp())
+        taskListModelFactory = TaskListModelFactoryImp(taskFactory: TaskFactoryImp())
     }
     
     //MARK: TableViewDelegate, datasource methods
@@ -31,11 +31,12 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
-        let task = taskListFactory.makeTaskListModel(taskModelIndexPath: indexPath)
-        configureTaskCell(taskCell, withTaskModel: task, andIndex: indexPath.row)
+        let taskModel = fetchRequestController.object(at: indexPath)
+        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
+        configureTaskCell(taskCell, withTaskModel: task, andCellIndex: indexPath.row)
         return taskCell
     }
-    private func configureTaskCell(_ cell: TaskCell, withTaskModel model: TaskListModel, andIndex index: Int) {
+    private func configureTaskCell(_ cell: TaskCell, withTaskModel model: TaskListModel, andCellIndex index: Int) {
         cell.taskDescription = model.taskDescription
         cell.cellIndex = index
     }
@@ -95,24 +96,25 @@ extension TaskListVC {
 }
 
 //MARK: TagsCollection
-extension TaskListVC: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
+extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        taskCellIndexPath(forTagCollectionView: collectionView)
-        let task = taskListFactory.makeTaskListModel(taskModelIndexPath: indexPath)
-        let tagsStore = task.tagsStore
-        return tagsStore.tagsCount
+        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
+        let taskModel = fetchRequestController.object(at: cellIndexPath)
+        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
+        return task.tagsStore.tagsCount
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let taskCellIndexPath = IndexPath(item: collectionView.tag, section: 0)
-        let task = taskListFactory.makeTaskListModel(taskModelIndexPath: taskCellIndexPath)
-        let tagsStore = task.tagsStore
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
+        let tagIndexPath = indexPath
+        let taskModel = fetchRequestController.object(at: cellIndexPath)
+        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
+        let tag = task.tagsStore.tag(at: tagIndexPath.row)
         
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        configure(tagCell: cell, withTag: tag)
+        return cell
     }
     private func taskCellIndexPath(forTagCollectionView collectionView: UICollectionView) -> IndexPath {
-        return let taskCellIndexPath = IndexPath(item: collectionView.tag, section: section)
+        return IndexPath(item: collectionView.tag, section: 0)
     }
 }

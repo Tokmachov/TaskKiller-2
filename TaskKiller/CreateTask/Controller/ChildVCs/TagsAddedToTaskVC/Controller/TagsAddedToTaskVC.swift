@@ -48,7 +48,7 @@ class TagsAddedToTaskVC: UICollectionViewController {
 //MARK: CollectionViewDataSource
 extension TagsAddedToTaskVC {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tagsAddedToTaskStore.count
+        return tagsAddedToTaskStore.tagsCount
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
@@ -76,7 +76,7 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
     func collectionView(_ collectionView: UICollectionView, canHandle session: UIDropSession) -> Bool {
         if collectionView.hasActiveDrag { return true }
         if let tag = session.provideLocalObject(ofType: Tag.self),
-            tagsAddedToTaskStore.count < maximumTagsAmount,
+            tagsAddedToTaskStore.tagsCount < maximumTagsAmount,
             tagsAddedToTaskStore.canAdd(tag)
             { return true }
         return false

@@ -91,7 +91,7 @@ extension AvailableTagsVC {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(tagModel: tagModel)
+        let tag = tagFactory.makeTag(tagModel: tagModel)
         configure(tagCell: tagCell, withTag: tag)
         return tagCell
     }
@@ -101,7 +101,7 @@ extension AvailableTagsVC {
 extension AvailableTagsVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(tagModel: tagModel)
+        let tag = tagFactory.makeTag(tagModel: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
         configure(tagCell: tagCell, withTag: tag)
         return tagCell.getSizeNeededForContentView()
@@ -114,7 +114,7 @@ extension AvailableTagsVC: TagCellConfiguring {}
 extension AvailableTagsVC: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.createTag(tagModel: tagModel)
+        let tag = tagFactory.makeTag(tagModel: tagModel)
         let dragItem = UIDragItem(itemProvider: NSItemProvider())
         dragItem.localObject = tag as AnyObject
         return [dragItem]

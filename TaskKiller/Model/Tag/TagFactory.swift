@@ -1,5 +1,5 @@
 //
-//  TagFactoryImp.swift
+//  TagFactory.swift
 //  TaskKiller
 //
 //  Created by mac on 19/12/2018.
@@ -7,6 +7,13 @@
 //
 
 import UIKit
+
+protocol TagFactory {
+    func makeTag(name: String, color: UIColor) -> Tag
+    func makeTag(tagModel: TagModel) -> Tag
+    func deleteTagFromMemory(_ tag: Tag)
+}
+
 import CoreData
 
 struct TagFactoryImp: TagFactory {
@@ -15,13 +22,13 @@ struct TagFactoryImp: TagFactory {
         PersistanceService.saveContext()
     }
     
-    func createTag(name: String, color: UIColor) -> Tag {
+    func makeTag(name: String, color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)
-        let tag = TagModelAdapter(tagModel: tagModel)
+        let tag = TagImp(tagModel: tagModel)
         return tag
     }
-    func createTag(tagModel: TagModel) -> Tag {
-        return TagModelAdapter(tagModel: tagModel)
+    func makeTag(tagModel: TagModel) -> Tag {
+        return TagImp(tagModel: tagModel)
     }
 }
 

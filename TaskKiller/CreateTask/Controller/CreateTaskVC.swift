@@ -108,7 +108,7 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     }
     //MARK: CreateTagVCDelegate
     func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChoseName name: String, AndColor color: UIColor) {
-        _ = tagFactory.createTag(name: name, color: color)
+        _ = tagFactory.makeTag(name: name, color: color)
     }
     //MARK: AvailableTagsVCDelegate
     func addDeleteAndEditTagDropAreas(for: AvailableTagsVC) {

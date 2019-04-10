@@ -9,12 +9,12 @@
 import Foundation
 import CoreData
 
-protocol TaskListImmutableModelFactory {
+protocol TaskListModelFactory {
     init(taskModelFetchResultsController: NSFetchedResultsController<TaskModel>, taskFactory: TaskFactory)
-    func makeTaskListImmutableModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel
+    func makeTaskListModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel
 }
 
-struct TaskListImmutableModelFactoryImp: TaskListImmutableModelFactory {
+struct TaskListImmutableModelFactoryImp: TaskListModelFactory {
     
     private var fetchResultsController: NSFetchedResultsController<TaskModel>
     private var taskFactory: TaskFactory
@@ -24,7 +24,7 @@ struct TaskListImmutableModelFactoryImp: TaskListImmutableModelFactory {
         self.taskFactory = taskFactory
     }
     
-    func makeTaskListImmutableModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel {
+    func makeTaskListModel(taskModelIndexPath indexPath: IndexPath) -> TaskListImmutableModel {
         let taskModel = fetchResultsController.object(at: indexPath)
         let task = TaskImp(task: taskModel)
         return TaskListImmutableModelImp(task: task)

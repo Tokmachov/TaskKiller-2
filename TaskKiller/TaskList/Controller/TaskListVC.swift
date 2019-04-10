@@ -11,7 +11,7 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var taskFactory: TaskListImmutableModelFactory!
+    private var taskFactory: TaskListModelFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
-        let task = taskFactory.makeTaskListImmutableModel(taskModelIndexPath: indexPath)
+        let task = taskFactory.makeTaskListModel(taskModelIndexPath: indexPath)
         configureTaskCell(taskCell, withTaskModel: task, andIndex: indexPath.row)
         return taskCell
     }
@@ -91,5 +91,17 @@ extension TaskListVC {
         guard let _ = try? fetchRequestController.performFetch() else { fatalError() }
         fetchRequestController.delegate = self
         return fetchRequestController
+    }
+}
+
+extension TaskListVC: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        let indexPath = IndexPath(item: collectionView.tag, section: section)
+        let task = taskFactory.makeTaskListModel(taskModelIndexPath: indexPath)
+        let tagsStore = task.tagsStore
+        return tagsStore.tags.count
     }
 }

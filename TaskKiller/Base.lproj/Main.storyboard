@@ -51,6 +51,10 @@
                                                     </view>
                                                 </collectionViewCell>
                                             </cells>
+                                            <connections>
+                                                <outlet property="dataSource" destination="3Nc-nP-Zvt" id="Tnc-Yy-aA9"/>
+                                                <outlet property="delegate" destination="3Nc-nP-Zvt" id="fer-mP-bjb"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <constraints>

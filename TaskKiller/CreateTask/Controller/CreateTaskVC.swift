@@ -9,8 +9,8 @@
 import UIKit
 class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate, AvailableTagsVCDelegate, DeleteTagDropAreaVCDelegate, EditTagDropAreaVCDelegate, EditTagVCDelegate, TagsAddedToTaskVCDelegate, RemoveTagFromTaskVCDelegate {
   
-    private var tagFactory = TagFactoryImp()
-    private var taskFactory = TaskFactoryImp()
+    private lazy var tagFactory = TagFactoryImp()
+    private lazy var taskFactory = TaskFactoryImp(tagFactory: tagFactory)
     
     //MARK: Model
     private var taskDescription: String? {
@@ -90,7 +90,6 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
                                                 tags: tagsAddedToTaskVC.tagsAddedToTaskStore
             )
             let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
-            print("Task created \(task.tagsStore.tagsCount)")
             let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
             taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break

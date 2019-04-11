@@ -17,7 +17,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
-        taskListModelFactory = TaskListModelFactoryImp(taskFactory: TaskFactoryImp())
+        taskListModelFactory = TaskListModelFactoryImp(taskFactory: TaskFactoryImp(tagFactory: TagFactoryImp()))
     }
     
     //MARK: TableViewDelegate, datasource methods
@@ -30,13 +30,13 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         return sectionInfo.numberOfObjects
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as? TaskCell else { fatalError() }
+        let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskListCell
         let taskModel = fetchRequestController.object(at: indexPath)
         let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
         configureTaskCell(taskCell, withTaskModel: task, andCellIndex: indexPath.row)
         return taskCell
     }
-    private func configureTaskCell(_ cell: TaskCell, withTaskModel model: TaskListModel, andCellIndex index: Int) {
+    private func configureTaskCell(_ cell: TaskListCell, withTaskModel model: TaskListModel, andCellIndex index: Int) {
         cell.taskDescription = model.taskDescription
         cell.cellIndex = index
     }
@@ -109,7 +109,7 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring {
         let taskModel = fetchRequestController.object(at: cellIndexPath)
         let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
         let tag = task.tagsStore.tag(at: tagIndexPath.row)
-        
+        print("collectionView # \(collectionView.tag) tagname \(tag.name)")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         configure(tagCell: cell, withTag: tag)
         return cell

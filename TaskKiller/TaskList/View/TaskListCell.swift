@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TaskCell: UITableViewCell {
+class TaskListCell: UITableViewCell {
     
     @IBOutlet weak var taskDescriptionLabel: UILabel!
     @IBOutlet weak var tagsCollectionView: UICollectionView!

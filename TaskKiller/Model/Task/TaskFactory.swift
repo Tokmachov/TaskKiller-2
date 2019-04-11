@@ -10,16 +10,23 @@ import Foundation
 
 protocol TaskFactory {
     func makeTask(taskStaticInfo: TaskStaticInfo) -> Task
+    func makeTask(taskModel: TaskModel) -> Task
+    init(tagFactory: TagFactory)
 }
 
-import CoreData
-
 struct TaskFactoryImp: TaskFactory {
+    private let tagFactory: TagFactory
+    init(tagFactory: TagFactory) {
+        self.tagFactory = tagFactory
+    }
     func makeTask(taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
-        let task = TaskImp(task: taskModel)
+        let task = TaskImp(task: taskModel, tagFactory: tagFactory)
         task.addTags(taskStaticInfo.tags)
         return task
+    }
+    func makeTask(taskModel: TaskModel) -> Task {
+        return TaskImp(task: taskModel, tagFactory: tagFactory)
     }
 }
 
@@ -38,5 +45,88 @@ extension TaskFactoryImp {
         PersistanceService.saveContext()
         
         return taskModel
+    }
+}
+
+extension TaskFactoryImp {
+    struct TaskImp: Task {
+        
+        private var taskModel: TaskModel
+        private var tagFactory: TagFactory
+        
+        init(task: TaskModel, tagFactory: TagFactory) {
+            self.taskModel = task
+            self.tagFactory = tagFactory
+        }
+        var tagsStore: ImmutableTagStore {
+            
+            guard let tagModels = (taskModel.tags)?.array as? [TagModel] else { return TagStoreImp(tags: [Tag]()) }
+            let tagsStore = createTagsStore(tagsModels: tagModels)
+            return tagsStore
+        }
+        func getTaskDescription() -> String {
+            return self.taskModel.taskDescription!
+        }
+        func getTimeSpentInProgress() -> TimeInterval {
+            guard let periods = taskModel.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(0) }
+            let timeSpentInProgress = getDurationOfPeriods(periods)
+            return timeSpentInProgress
+        }
+        func getInitialDeadline() -> TimeInterval {
+            return TimeInterval(taskModel.initialDeadLine)
+        }
+        func getCurrentDeadline() -> TimeInterval {
+            return TimeInterval(taskModel.postponableDeadLine)
+        }
+        
+        func saveProgressPeriod(_ period: ProgressPeriod) {
+            let period = createPeriodModel(from: period)
+            taskModel.addToPeriodsOfProcess(period)
+            PersistanceService.saveContext()
+        }
+        
+        private func getDurationOfPeriods(_ periods: [PeriodModel]) -> TimeInterval {
+            var durationOfPeriods: TimeInterval = 0
+            for period in periods {
+                let dateStarted = period.dateStarted! as Date
+                let dateFinished = period.dateFinished! as Date
+                let periodTime = dateFinished.timeIntervalSince(dateStarted)
+                durationOfPeriods += periodTime
+            }
+            return durationOfPeriods
+        }
+        
+        func addTags(_ tags: ImmutableTagStore) {
+            let tagArray = tags.tags
+            let tagModels = NSOrderedSet(array: tagArray.map({ $0.tagModel }))
+            taskModel.addToTags(tagModels)
+            PersistanceService.saveContext()
+        }
+        
+        func postponeDeadlineFor(_ timeInterval: TimeInterval) {
+            let timeSpentInprogress = getTimeSpentInProgress()
+            let newDeadLine = timeInterval + timeSpentInprogress
+            setPostponableDeadline(newDeadLine)
+        }
+        private func setPostponableDeadline(_ newDeadline: TimeInterval) {
+            taskModel.postponableDeadLine = Int16(newDeadline)
+            PersistanceService.saveContext()
+        }
+        private func createPeriodModel(from taskProgressPeriod: ProgressPeriod) -> PeriodModel {
+            let period = PeriodModel(context: PersistanceService.context)
+            let dateStarted = taskProgressPeriod.dateStarted as NSDate
+            let dateFinished = taskProgressPeriod.dateEnded as NSDate
+            period.dateStarted = dateStarted
+            period.dateFinished = dateFinished
+            return period
+        }
+        private func createTagsStore(tagsModels: [TagModel]) -> TagsStore {
+            var tags = [Tag]()
+            for tagModel in tagsModels {
+                let tag = tagFactory.makeTag(tagModel: tagModel)
+                tags.append(tag)
+            }
+            return TagStoreImp(tags: tags)
+        }
     }
 }

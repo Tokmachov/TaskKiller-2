@@ -19,31 +19,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="hVV-4f-eem" customClass="TaskCell" customModule="TaskKiller" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="lgd-TD-1yf" customClass="TaskListCell" customModule="TaskKiller" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hVV-4f-eem" id="Hkp-fh-7Bm" customClass="TaskCell" customModule="TaskKiller" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lgd-TD-1yf" id="6PC-Wo-H3o">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkQ-Ww-fmJ">
-                                            <rect key="frame" x="16" y="11" width="288" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="j7q-sT-wmy">
-                                            <rect key="frame" x="16" y="32" width="288" height="55"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aLJ-U6-ZhG">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEU-od-OWH">
+                                            <rect key="frame" x="16" y="29" width="288" height="58"/>
+                                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="58" id="Q7A-p6-G3q"/>
+                                            </constraints>
+                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gMr-oN-eHq">
                                                 <size key="itemSize" width="50" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="pe9-R2-ZHO" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="vZU-pk-bC2" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="4" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -52,25 +49,30 @@
                                                 </collectionViewCell>
                                             </cells>
                                             <connections>
-                                                <outlet property="dataSource" destination="3Nc-nP-Zvt" id="Tnc-Yy-aA9"/>
-                                                <outlet property="delegate" destination="3Nc-nP-Zvt" id="fer-mP-bjb"/>
+                                                <outlet property="dataSource" destination="3Nc-nP-Zvt" id="4I9-K2-qvk"/>
+                                                <outlet property="delegate" destination="3Nc-nP-Zvt" id="h02-R5-IgT"/>
                                             </connections>
                                         </collectionView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-xA-2KJ">
+                                            <rect key="frame" x="16" y="0.0" width="288" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="j7q-sT-wmy" firstAttribute="leading" secondItem="Hkp-fh-7Bm" secondAttribute="leadingMargin" id="9b8-D6-2lI"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pkQ-Ww-fmJ" secondAttribute="trailing" id="MGm-o5-o6z"/>
-                                        <constraint firstItem="pkQ-Ww-fmJ" firstAttribute="top" secondItem="Hkp-fh-7Bm" secondAttribute="topMargin" id="T1g-VC-txQ"/>
-                                        <constraint firstItem="j7q-sT-wmy" firstAttribute="top" secondItem="pkQ-Ww-fmJ" secondAttribute="bottom" id="gxY-xY-hNX"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="j7q-sT-wmy" secondAttribute="trailing" id="h2U-26-aMe"/>
-                                        <constraint firstItem="pkQ-Ww-fmJ" firstAttribute="leading" secondItem="Hkp-fh-7Bm" secondAttribute="leadingMargin" id="vs5-Rr-YKb"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="j7q-sT-wmy" secondAttribute="bottom" id="wsQ-Vn-W8o"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="xaq-xA-2KJ" secondAttribute="trailing" id="38b-FN-3GI"/>
+                                        <constraint firstItem="xaq-xA-2KJ" firstAttribute="top" secondItem="6PC-Wo-H3o" secondAttribute="top" id="8EA-3h-1gP"/>
+                                        <constraint firstItem="fEU-od-OWH" firstAttribute="leading" secondItem="xaq-xA-2KJ" secondAttribute="leading" id="E3M-12-j7V"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fEU-od-OWH" secondAttribute="bottom" id="gxS-Zo-Gri"/>
+                                        <constraint firstItem="xaq-xA-2KJ" firstAttribute="leading" secondItem="6PC-Wo-H3o" secondAttribute="leadingMargin" id="ukX-KA-IZK"/>
+                                        <constraint firstItem="fEU-od-OWH" firstAttribute="top" secondItem="xaq-xA-2KJ" secondAttribute="bottom" constant="8" id="vuo-tE-dC1"/>
+                                        <constraint firstItem="fEU-od-OWH" firstAttribute="width" secondItem="xaq-xA-2KJ" secondAttribute="width" id="wfJ-Ed-Ufp"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="tagsCollectionView" destination="j7q-sT-wmy" id="xgq-Km-rN8"/>
-                                    <outlet property="taskDescriptionLabel" destination="pkQ-Ww-fmJ" id="NED-o0-TZW"/>
-                                    <segue destination="vDa-62-zss" kind="presentation" identifier="Continue Task" modalTransitionStyle="crossDissolve" id="Mb3-T5-EQg"/>
+                                    <outlet property="tagsCollectionView" destination="fEU-od-OWH" id="S3Q-nZ-5ef"/>
+                                    <outlet property="taskDescriptionLabel" destination="xaq-xA-2KJ" id="snX-wl-txl"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -1997,7 +1999,4 @@
         <image name="edit" width="40" height="40"/>
         <image name="remove" width="40" height="40"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Mb3-T5-EQg"/>
-    </inferredMetricsTieBreakers>
 </document>

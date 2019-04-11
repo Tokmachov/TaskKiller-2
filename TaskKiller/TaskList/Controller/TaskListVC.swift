@@ -104,17 +104,30 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring {
         return task.tagsStore.tagsCount
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
-        let tagIndexPath = indexPath
-        let taskModel = fetchRequestController.object(at: cellIndexPath)
-        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
-        let tag = task.tagsStore.tag(at: tagIndexPath.row)
-        print("collectionView # \(collectionView.tag) tagname \(tag.name)")
+        let tag = tagForTagCollection(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         configure(tagCell: cell, withTag: tag)
         return cell
     }
+}
+
+extension TaskListVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let tag = tagForTagCollection(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
+        let tagCell = TagCell(frame: CGRect.zero)
+        configure(tagCell: tagCell, withTag: tag)
+        return tagCell.getSizeNeededForContentView()
+    }
+}
+extension TaskListVC {
     private func taskCellIndexPath(forTagCollectionView collectionView: UICollectionView) -> IndexPath {
         return IndexPath(item: collectionView.tag, section: 0)
+    }
+    private func tagForTagCollection(_ collectionView: UICollectionView, toBeDisplayedAtCollectionViewIndexPath indexPath: IndexPath) -> Tag {
+        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
+        let taskModel = fetchRequestController.object(at: cellIndexPath)
+        let taskListModel = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
+        let tag = taskListModel.tagsStore.tag(at: indexPath.row)
+        return tag
     }
 }

@@ -36,6 +36,6 @@ class DeleteTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     }
     func dropInteraction(_ interaction: UIDropInteraction, performDrop session: UIDropSession) {
         guard let tag: Tag = (session.items.first?.localObject as AnyObject) as? Tag else { return }
-        delegate.deleteTagDropAreaVC(self, needToBeDeleted: tag)
+        delegate.deleteTagDropAreaVC(self, needsToBeDeleted: tag)
     }
 }

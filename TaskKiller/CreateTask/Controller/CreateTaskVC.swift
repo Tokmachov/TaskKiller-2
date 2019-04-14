@@ -103,41 +103,42 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     func taskDescriptionVC(_ taskDescriptionVC: TaskDescriptionVC, didEnterDescription taskDescription: String) {
         self.taskDescription = taskDescription
     }
-    func deadlineVC(_ deadlineVC: DeadlineVC, didChoseDeadline deadline: TimeInterval) {
+    
+    func deadlineVC(_ deadlineVC: DeadlineVC, didChooseDeadline deadline: TimeInterval) {
         self.deadline = deadline
     }
-    //MARK: CreateTagVCDelegate
-    func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChooseName name: String, AndColor color: UIColor) {
+    
+    func createTagVC(_ createTagVC: CreateTagVC, didChooseName name: String, AndColor color: UIColor) {
         _ = tagFactory.makeTag(name: name, color: color)
     }
-    //MARK: AvailableTagsVCDelegate
-    func addDeleteAndEditTagDropAreas(for: AvailableTagsVC) {
+    
+    func availableTagsVCDidBegingDrag(_ availableTagsVC: AvailableTagsVC) {
         showDropAreaForTagDeletingAndEditing()
         let heightNeeded = max(dropAreaViewForTagEditing.bounds.height, dropAreaViewForTagDeleting.bounds.height)
         unfoldDropAreasRow(toHeight: heightNeeded)
     }
-    func removeDeleteAndEditTagDropAreas(for: AvailableTagsVC) {
+    func availableTagsVCDidEndDrag(_ availableTagsVC: AvailableTagsVC) {
         foldDropAreasRow(andThen: { self.hideDropAreaForTagDeleingAndEditing() } )
     }
-    //MARK: TagsAddedToTaskDelegate
-    func addDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
+    
+    func tagsAddedToTaskVCDidBeginDrag(_ tagsAddedToTaskVC: TagsAddedToTaskVC) {
         showDropAreaForRemovingOfTagFromTask()
         let heightNeeded = dropAreaViewForRemovingTagFromTask.bounds.height
         unfoldDropAreasRow(toHeight: heightNeeded)
     }
-    func removeDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC) {
+    func tagsAddedToTaskVCDidEndDrag(_ tagsAddedToTaskVC: TagsAddedToTaskVC) {
         foldDropAreasRow(andThen: { self.hideDropAreaForRemovingOfTagFromTask() })
     }
-    func tagsAddedToTaskWereUpdated(in tagsAddedToTaskVC: TagsAddedToTaskVC) {
+    func tagsAddedToTaskVCDidUpdateTags(_ tagsAddedToTaskVC: TagsAddedToTaskVC) {
         tagsAddedToTask = tagsAddedToTaskVC.tagsAddedToTaskStore
     }
-    //MAR: DeleteTagDropAreaVCDelegate
-    func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag) {
+    
+    func deleteTagDropAreaVC(_ deleteTagVC: DeleteTagDropAreaVC, needsToBeDeleted tag: Tag) {
         tagsAddedToTaskVC.removeFromTask(tag)
         tagFactory.deleteTagFromMemory(tag)
         
     }
-    //MARK: EditTagDropAreaVCDelegate
+    
     func editTagDropAreaVCDelegate(_ editTagDropAreaVC: EditTagDropAreaVC, tagNeedsToBeEdited tag: Tag) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         let editTagVC = storyBoard.instantiateViewController(withIdentifier: "EditTagVC") as! EditTagVC
@@ -145,14 +146,15 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
         editTagVC.delegate = self
         present(editTagVC, animated: true, completion: nil)
     }
-    //MARK: EditTagVCDelegate
+    
     func editTagVC(_ editTagVC: EditTagVC, didEditTag tag: Tag) {
         tagsAddedToTaskVC.tagAddedToTaskWasUpdated(tag)
     }
-    //MARK: RemoveTagFromTaskDropAreaVCDelegate
+    
     func removeTagFromTaskDropAreaVC(_ removeTagFromTaskDropAreaVC: RemoveTagFromTaskDropAreaVC, removeTagFromTask tag: Tag) {
         tagsAddedToTaskVC.removeFromTask(tag)
     }
+    
     //MARK: UIContentContainer
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         switch container {

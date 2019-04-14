@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DeleteTagDropAreaVCDelegate {
-    func deleteTagDropAreaVC(_ deleteTagDropAraeaVC: DeleteTagDropAreaVC, needToBeDeleted tag: Tag)
+    func deleteTagDropAreaVC(_ deleteTagDropAraeaVC: DeleteTagDropAreaVC, needsToBeDeleted tag: Tag)
 }

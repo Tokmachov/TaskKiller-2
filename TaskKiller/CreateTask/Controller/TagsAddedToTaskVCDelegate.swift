@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TagsAddedToTaskVCDelegate: AnyObject {
-    func addDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC)
-    func removeDropAreaForRemovingTagFromTask(for: TagsAddedToTaskVC)
-    func tagsAddedToTaskWereUpdated(in tagsAddedToTaskVC: TagsAddedToTaskVC)
+    func tagsAddedToTaskVCDidBeginDrag(_ tagsAddedToTaskVC: TagsAddedToTaskVC)
+    func tagsAddedToTaskVCDidEndDrag(_ tagsAddedToTaskVC: TagsAddedToTaskVC)
+    func tagsAddedToTaskVCDidUpdateTags(_ tagsAddedToTaskVC: TagsAddedToTaskVC)
 }

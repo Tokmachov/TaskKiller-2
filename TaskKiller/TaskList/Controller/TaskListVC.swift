@@ -13,7 +13,6 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private var taskListModelFactory: TaskListModelFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
@@ -96,7 +95,7 @@ extension TaskListVC {
 }
 
 //MARK: TagsCollection
-extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring {
+extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
         let taskModel = fetchRequestController.object(at: cellIndexPath)
@@ -111,14 +110,6 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring {
     }
 }
 
-extension TaskListVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tag = tagForTagCollection(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
-        let tagCell = TagCell(frame: CGRect.zero)
-        configure(tagCell: tagCell, withTag: tag)
-        return tagCell.getSizeNeededForContentView()
-    }
-}
 extension TaskListVC {
     private func taskCellIndexPath(forTagCollectionView collectionView: UICollectionView) -> IndexPath {
         return IndexPath(item: collectionView.tag, section: 0)

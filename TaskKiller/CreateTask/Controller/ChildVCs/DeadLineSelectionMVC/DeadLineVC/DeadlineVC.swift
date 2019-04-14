@@ -14,7 +14,7 @@ class DeadlineVC: UIViewController {
     private var deadline: TimeInterval? {
         didSet {
             updateDeadlineButtonTitle()
-            delegate.deadlineVC(self, didChoseDeadline: deadline!)
+            delegate.deadlineVC(self, didChooseDeadline: deadline!)
         }
     }
     

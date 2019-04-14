@@ -32,20 +32,32 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="58" id="Q7A-p6-G3q"/>
                                             </constraints>
-                                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gMr-oN-eHq">
-                                                <size key="itemSize" width="50" height="50"/>
-                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                            </collectionViewFlowLayout>
+                                            <collectionViewLayout key="collectionViewLayout" id="P5M-bX-F2a" customClass="TaskListTagCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
                                             <cells>
                                                 <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="vZU-pk-bC2" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="4" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-cz-urQ" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                     </view>
+                                                    <constraints>
+                                                        <constraint firstItem="aLR-cz-urQ" firstAttribute="top" secondItem="vZU-pk-bC2" secondAttribute="top" id="Azt-tb-Noe"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aLR-cz-urQ" secondAttribute="trailing" id="K9R-nm-cje"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aLR-cz-urQ" secondAttribute="bottom" id="hbc-4R-ccc"/>
+                                                        <constraint firstItem="aLR-cz-urQ" firstAttribute="leading" secondItem="vZU-pk-bC2" secondAttribute="leading" id="xlk-BK-9Kl"/>
+                                                    </constraints>
+                                                    <connections>
+                                                        <outlet property="tagLabel" destination="aLR-cz-urQ" id="BKn-UG-xif"/>
+                                                    </connections>
                                                 </collectionViewCell>
                                             </cells>
                                             <connections>
@@ -71,6 +83,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="tagCollectionViewHeightConstraint" destination="Q7A-p6-G3q" id="bFC-UN-duE"/>
                                     <outlet property="tagsCollectionView" destination="fEU-od-OWH" id="S3Q-nZ-5ef"/>
                                     <outlet property="taskDescriptionLabel" destination="xaq-xA-2KJ" id="snX-wl-txl"/>
                                 </connections>

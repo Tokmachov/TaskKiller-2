@@ -9,5 +9,5 @@
 import Foundation
 
 protocol DeadlineVCDelegate {
-    func deadlineVC(_ deadlineVC: DeadlineVC, didChoseDeadline deadline: TimeInterval)
+    func deadlineVC(_ deadlineVC: DeadlineVC, didChooseDeadline deadline: TimeInterval)
 }

@@ -11,12 +11,18 @@ import UIKit
 class TaskListCell: UITableViewCell {
     
     @IBOutlet weak var taskDescriptionLabel: UILabel!
-    @IBOutlet weak var tagsCollectionView: UICollectionView!
+    @IBOutlet weak var tagsCollectionView: UICollectionView! 
+    @IBOutlet weak var tagCollectionViewHeightConstraint: NSLayoutConstraint!
+    
     var taskDescription: String! {
         didSet { taskDescriptionLabel.text = taskDescription }
     }
     var cellIndex: Int! {
         didSet { tagsCollectionView.tag = cellIndex }
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
     }
 }
 

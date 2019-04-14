@@ -15,7 +15,7 @@ class TagsAddedToTaskVC: UICollectionViewController {
     //MARK: model
     private var tagsStore: TagsStore! {
         didSet {
-            delegate.tagsAddedToTaskWereUpdated(in: self)
+            delegate.tagsAddedToTaskVCDidUpdateTags(self)
         }
     }
     var tagsAddedToTaskStore: ImmutableTagStore {
@@ -65,7 +65,7 @@ extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
         let tag = tagsStore.tag(at: indexPath.row)
         configure(tagCell: tagCell, withTag: tag)
         
-        return tagCell.getSizeNeededForContentView()
+        return tagCell.frame.size
     }
 }
 
@@ -111,10 +111,10 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
         collectionView.insertItems(at: [destinationIndexPath])
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        delegate.addDropAreaForRemovingTagFromTask(for: self)
+        delegate.tagsAddedToTaskVCDidBeginDrag(self)
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        delegate.removeDropAreaForRemovingTagFromTask(for: self)
+        delegate.tagsAddedToTaskVCDidEndDrag(self)
     }
 }
 //MARK: UICollectionViewDragDelegate

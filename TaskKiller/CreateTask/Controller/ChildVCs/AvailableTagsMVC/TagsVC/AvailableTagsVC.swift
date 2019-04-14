@@ -104,7 +104,7 @@ extension AvailableTagsVC: UICollectionViewDelegateFlowLayout {
         let tag = tagFactory.makeTag(tagModel: tagModel)
         let tagCell = TagCell(frame: CGRect.zero)
         configure(tagCell: tagCell, withTag: tag)
-        return tagCell.getSizeNeededForContentView()
+        return tagCell.frame.size
     }
 }
 
@@ -125,10 +125,10 @@ extension AvailableTagsVC: UICollectionViewDragDelegate {
         return parameters
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionWillBegin session: UIDragSession) {
-        delegate.addDeleteAndEditTagDropAreas(for: self)
+        delegate.availableTagsVCDidBegingDrag(self)
     }
     func collectionView(_ collectionView: UICollectionView, dragSessionDidEnd session: UIDragSession) {
-        delegate.removeDeleteAndEditTagDropAreas(for: self)
+        delegate.availableTagsVCDidEndDrag(self)
     }
 }
 

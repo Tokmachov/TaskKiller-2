@@ -9,5 +9,5 @@
 import UIKit
 
 protocol CreateTagVCDelegate {
-    func createTagVCDelegate(_ createTagVCDelegate: CreateTagVC, didChooseName name: String, AndColor color: UIColor)
+    func createTagVC(_ createTagVCDelegate: CreateTagVC, didChooseName name: String, AndColor color: UIColor)
 }

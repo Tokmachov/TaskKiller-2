@@ -28,9 +28,9 @@
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEU-od-OWH">
                                             <rect key="frame" x="16" y="29" width="288" height="58"/>
-                                            <color key="backgroundColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="58" id="Q7A-p6-G3q"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="Q7A-p6-G3q"/>
                                             </constraints>
                                             <collectionViewLayout key="collectionViewLayout" id="P5M-bX-F2a" customClass="TaskListTagCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
                                             <cells>
@@ -41,9 +41,9 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-cz-urQ" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-cz-urQ" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -56,7 +56,7 @@
                                                         <constraint firstItem="aLR-cz-urQ" firstAttribute="leading" secondItem="vZU-pk-bC2" secondAttribute="leading" id="xlk-BK-9Kl"/>
                                                     </constraints>
                                                     <connections>
-                                                        <outlet property="tagLabel" destination="aLR-cz-urQ" id="BKn-UG-xif"/>
+                                                        <outlet property="tagLabel" destination="aLR-cz-urQ" id="K3E-pW-qlB"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>
@@ -65,9 +65,9 @@
                                                 <outlet property="delegate" destination="3Nc-nP-Zvt" id="h02-R5-IgT"/>
                                             </connections>
                                         </collectionView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-xA-2KJ">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-xA-2KJ">
                                             <rect key="frame" x="16" y="0.0" width="288" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>

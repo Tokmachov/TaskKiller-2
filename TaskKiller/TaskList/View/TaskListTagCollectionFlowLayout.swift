@@ -10,10 +10,10 @@ import UIKit
 
 class TaskListTagCollectionFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
-        sectionInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        minimumInteritemSpacing = 5
+        sectionInset = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
+        minimumLineSpacing = 5
         scrollDirection = .horizontal
-    
+        
         estimatedItemSize = CGSize(width: 10, height: 10)
     }
 }

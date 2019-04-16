@@ -427,13 +427,6 @@
 			path = ProgressTimesLabelsController;
 			sourceTree = "<group>";
 		};
-		042F439222000ACD00AF2682 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		042F43992201553300AF2682 /* AlarmController */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,6 +442,7 @@
 			isa = PBXGroup;
 			children = (
 				0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */,
+				0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */,
 			);
 			path = RemoveTagFromTaskDropAreaMVC;
 			sourceTree = "<group>";
@@ -457,6 +451,7 @@
 			isa = PBXGroup;
 			children = (
 				04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */,
+				047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -493,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */,
+				0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -509,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */,
+				0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -517,6 +514,7 @@
 			isa = PBXGroup;
 			children = (
 				047FACE92251D3C700DB59D9 /* EditTagVC.swift */,
+				047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */,
 			);
 			path = EditTagVC;
 			sourceTree = "<group>";
@@ -749,15 +747,6 @@
 			isa = PBXGroup;
 			children = (
 				04EDD98D22468E4C00DF766C /* CreateTaskVC.swift */,
-				04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */,
-				04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */,
-				047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */,
-				0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */,
-				0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */,
-				0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */,
-				047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */,
-				0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */,
-				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
 				04EDD98C224673E400DF766C /* ChildVCs */,
 			);
 			path = Controller;
@@ -790,6 +779,7 @@
 			isa = PBXGroup;
 			children = (
 				04EDD9982249D34100DF766C /* TaskDescriptionVC.swift */,
+				04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */,
 			);
 			path = TaskDescriptionMVC;
 			sourceTree = "<group>";
@@ -798,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				040D907021E789F70049F410 /* TagsAddedToTaskVC.swift */,
+				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -936,6 +927,7 @@
 			isa = PBXGroup;
 			children = (
 				04EDD99122493E4A00DF766C /* DeadlineVC.swift */,
+				04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */,
 			);
 			path = DeadLineVC;
 			sourceTree = "<group>";
@@ -945,6 +937,7 @@
 			children = (
 				B96E0EA82193D61C0097AB34 /* AvailableTagsVC.swift */,
 				047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */,
+				0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */,
 			);
 			path = TagsVC;
 			sourceTree = "<group>";
@@ -979,7 +972,6 @@
 		B9A8B11221953A5B0085FCA0 /* TaskList */ = {
 			isa = PBXGroup;
 			children = (
-				042F439222000ACD00AF2682 /* Model */,
 				04EDD97922465E4100DF766C /* View */,
 				04EDD97A22465E4800DF766C /* Controller */,
 			);

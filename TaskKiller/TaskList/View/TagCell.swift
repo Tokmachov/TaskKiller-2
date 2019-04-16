@@ -9,7 +9,9 @@
 import UIKit
 
 class TagCell: UICollectionViewCell {
+    
     @IBOutlet weak var tagLabel: TagLabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -19,7 +21,9 @@ class TagCell: UICollectionViewCell {
         let bottomConstraint = contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
         NSLayoutConstraint.activate([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
     }
-    var tagName: String {
+    
+    
+    var name: String {
         set {
             tagLabel.tagName = newValue
         }
@@ -27,12 +31,15 @@ class TagCell: UICollectionViewCell {
             return tagLabel.tagName
         }
     }
-    var tagColor: UIColor {
+    var color: UIColor {
         set {
             tagLabel.tagColor = newValue
         }
         get {
             return tagLabel.tagColor
         }
+    }
+    func adaptTagCornerRadiusToCellHeight() {
+        tagLabel.adaptCornerRadiusToLabelHeight()
     }
 }

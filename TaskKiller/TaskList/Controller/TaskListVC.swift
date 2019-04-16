@@ -13,10 +13,44 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private var taskListModelFactory: TaskListModelFactory!
     private var fetchRequestController: NSFetchedResultsController<TaskModel>!
+    
+    private var tagHeight: CGFloat {
+        let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)
+        heightReferenceTagLabel.tagName = "SomeName"
+        return heightReferenceTagLabel.intrinsicContentSize.height
+    }
+    
+    
+    //MARK: ViewController lyfe cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchRequestController = createFetchResultsController()
         taskListModelFactory = TaskListModelFactoryImp(taskFactory: TaskFactoryImp(tagFactory: TagFactoryImp()))
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        updateTagCollectionViewsInTaskCells()
+    }
+    private func updateTagCollectionViewsInTaskCells() {
+        guard let endIndex = fetchRequestController.fetchedObjects?.endIndex else { return }
+        for index in 0..<endIndex {
+            let indexPath = IndexPath(row: index, section: 0)
+            let taskListCell = tableView.cellForRow(at: indexPath) as! TaskListCell
+            taskListCell.tagsCollectionView.reloadData()
+        }
+    }
+    //MARK:
+    @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "Continue Task"?:
+            guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
+            let task = fetchRequestController.object(at: indexPathOfSelectedRow)
+            //            let taskModelFacade = taskFactory.makeTask(from: task)
+            //            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: taskModelFacade)
+            //            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
+        //            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
+        default: break
+        }
     }
     
     //MARK: TableViewDelegate, datasource methods
@@ -33,6 +67,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         let taskModel = fetchRequestController.object(at: indexPath)
         let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
         configureTaskCell(taskCell, withTaskModel: task, andCellIndex: indexPath.row)
+        taskCell.adjustTagCollectionViewHeight(to:tagHeight)
         return taskCell
     }
     private func configureTaskCell(_ cell: TaskListCell, withTaskModel model: TaskListModel, andCellIndex index: Int) {
@@ -68,19 +103,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-    @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "Continue Task"?:
-            guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
-            let task = fetchRequestController.object(at: indexPathOfSelectedRow)
-//            let taskModelFacade = taskFactory.makeTask(from: task)
-//            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: taskModelFacade)
-//            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-//            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
-        default: break
-        }
-    }
+
 }
 extension TaskListVC {
     private func createFetchResultsController() -> NSFetchedResultsController<TaskModel> {
@@ -94,28 +117,26 @@ extension TaskListVC {
     }
 }
 
-//MARK: TagsCollection
+//MARK: TagsCollection dataSource, DelegateFlowLayout methods
 extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
+        let cellIndexPath = taskCellIndexPathOfTagCollectionView(collectionView)
         let taskModel = fetchRequestController.object(at: cellIndexPath)
         let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
         return task.tagsStore.tagsCount
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tag = tagForTagCollection(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
-        configure(tagCell: cell, withTag: tag)
-        return cell
+        let tag = tagForTagCollectionView(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
+        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
+        configure(tagCell: tagCell, withTag: tag)
+        return tagCell
     }
-}
-
-extension TaskListVC {
-    private func taskCellIndexPath(forTagCollectionView collectionView: UICollectionView) -> IndexPath {
+    
+    private func taskCellIndexPathOfTagCollectionView(_ collectionView: UICollectionView) -> IndexPath {
         return IndexPath(item: collectionView.tag, section: 0)
     }
-    private func tagForTagCollection(_ collectionView: UICollectionView, toBeDisplayedAtCollectionViewIndexPath indexPath: IndexPath) -> Tag {
-        let cellIndexPath = taskCellIndexPath(forTagCollectionView: collectionView)
+    private func tagForTagCollectionView(_ collectionView: UICollectionView, toBeDisplayedAtCollectionViewIndexPath indexPath: IndexPath) -> Tag {
+        let cellIndexPath = taskCellIndexPathOfTagCollectionView(collectionView)
         let taskModel = fetchRequestController.object(at: cellIndexPath)
         let taskListModel = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
         let tag = taskListModel.tagsStore.tag(at: indexPath.row)

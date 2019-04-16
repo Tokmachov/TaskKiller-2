@@ -10,26 +10,31 @@ import UIKit
 
 
 class TagLabel: UILabel {
+
+    private let borderWidth: CGFloat = 2
+    private let borderColor: UIColor = UIColor.black
+    
     var tagColor: UIColor! { didSet { backgroundColor = tagColor } }
-    var tagName: String! {
-        didSet {
-            text = tagName
-        }
-    }
-    private var borderWidth: CGFloat = 2
-    private var borderColor: UIColor = UIColor.black
+    var tagName: String! { didSet { text = tagName } }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupLabel()
     }
-
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLabel()
+    }
     private func setupLabel() {
         layer.cornerRadius = intrinsicContentSize.height / 2
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
         textAlignment = .center
         layer.masksToBounds = true
+        font = UIFont.preferredFont(forTextStyle: .body)
+    }
+    func adaptCornerRadiusToLabelHeight() {
+        layer.cornerRadius = intrinsicContentSize.height / 2
     }
     override var intrinsicContentSize: CGSize {
         var intrinsicContentsSize = super.intrinsicContentSize
@@ -37,6 +42,5 @@ class TagLabel: UILabel {
         intrinsicContentsSize.height *= 1.5
         return intrinsicContentsSize
     }
-    
-    
 }
+

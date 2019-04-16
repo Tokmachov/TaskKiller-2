@@ -13,7 +13,8 @@ protocol TagCellConfiguring {
 
 extension TagCellConfiguring {
     func configure(tagCell: TagCell, withTag tag: Tag) {
-        tagCell.tagName = tag.name
-        tagCell.tagColor = tag.color
+        tagCell.name = tag.name
+        tagCell.color = tag.color
+        tagCell.adaptTagCornerRadiusToCellHeight()
     }
 }

@@ -20,9 +20,14 @@ class TaskListCell: UITableViewCell {
     var cellIndex: Int! {
         didSet { tagsCollectionView.tag = cellIndex }
     }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    func adjustTagCollectionViewHeight(to tagHeight: CGFloat) {
+        let insets = getTagCollectionInset()
+        tagCollectionViewHeightConstraint.constant = insets.top + insets.bottom +
+        tagHeight * 1.3
         
+    }
+    private func getTagCollectionInset() -> UIEdgeInsets {
+        return (tagsCollectionView.collectionViewLayout as! TaskListTagCollectionFlowLayout).sectionInset
     }
 }
 

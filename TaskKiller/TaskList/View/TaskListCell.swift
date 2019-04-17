@@ -14,20 +14,14 @@ class TaskListCell: UITableViewCell {
     @IBOutlet weak var tagsCollectionView: UICollectionView! 
     @IBOutlet weak var tagCollectionViewHeightConstraint: NSLayoutConstraint!
     
-    var taskDescription: String! {
-        didSet { taskDescriptionLabel.text = taskDescription }
-    }
-    var cellIndex: Int! {
-        didSet { tagsCollectionView.tag = cellIndex }
-    }
+    var taskDescription: String! { didSet { taskDescriptionLabel.text = taskDescription } }
+    var cellIndex: Int! { didSet { tagsCollectionView.tag = cellIndex } }
+    
     func adjustTagCollectionViewHeight(to tagHeight: CGFloat) {
-        let insets = getTagCollectionInset()
-        tagCollectionViewHeightConstraint.constant = insets.top + insets.bottom +
-        tagHeight * 1.3
-        
-    }
-    private func getTagCollectionInset() -> UIEdgeInsets {
-        return (tagsCollectionView.collectionViewLayout as! TaskListTagCollectionFlowLayout).sectionInset
+        tagCollectionViewHeightConstraint.constant =
+            TaskListTagCollectionFlowLayout.Constants.sectionInsets.top +
+            TaskListTagCollectionFlowLayout.Constants.sectionInsets.bottom +
+            tagHeight
     }
 }
 

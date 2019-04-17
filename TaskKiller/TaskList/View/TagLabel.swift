@@ -14,8 +14,8 @@ class TagLabel: UILabel {
     private let borderWidth: CGFloat = 2
     private let borderColor: UIColor = UIColor.black
     
-    var tagColor: UIColor! { didSet { backgroundColor = tagColor } }
-    var tagName: String! { didSet { text = tagName } }
+    var color: UIColor! { didSet { backgroundColor = color } }
+    var name: String! { didSet { text = name } }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

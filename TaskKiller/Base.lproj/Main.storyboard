@@ -28,9 +28,9 @@
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEU-od-OWH">
                                             <rect key="frame" x="16" y="29" width="288" height="58"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="Q7A-p6-G3q"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="58" id="Q7A-p6-G3q"/>
                                             </constraints>
                                             <collectionViewLayout key="collectionViewLayout" id="P5M-bX-F2a" customClass="TaskListTagCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
                                             <cells>

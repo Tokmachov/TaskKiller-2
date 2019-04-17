@@ -22,21 +22,20 @@ class TagCell: UICollectionViewCell {
         NSLayoutConstraint.activate([leftConstraint, rightConstraint, topConstraint, bottomConstraint])
     }
     
-    
     var name: String {
         set {
-            tagLabel.tagName = newValue
+            tagLabel.name = newValue
         }
         get {
-            return tagLabel.tagName
+            return tagLabel.name
         }
     }
     var color: UIColor {
         set {
-            tagLabel.tagColor = newValue
+            tagLabel.color = newValue
         }
         get {
-            return tagLabel.tagColor
+            return tagLabel.color
         }
     }
     func adaptTagCornerRadiusToCellHeight() {

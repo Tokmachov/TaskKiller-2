@@ -16,7 +16,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private var tagHeight: CGFloat {
         let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)
-        heightReferenceTagLabel.tagName = "SomeName"
+        heightReferenceTagLabel.name = "SomeName"
         return heightReferenceTagLabel.intrinsicContentSize.height
     }
     
@@ -66,13 +66,14 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskListCell
         let taskModel = fetchRequestController.object(at: indexPath)
         let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
-        configureTaskCell(taskCell, withTaskModel: task, andCellIndex: indexPath.row)
+        configure(taskListCell: taskCell, withTask: task, andCellIndex: indexPath.row)
         taskCell.adjustTagCollectionViewHeight(to:tagHeight)
         return taskCell
     }
-    private func configureTaskCell(_ cell: TaskListCell, withTaskModel model: TaskListModel, andCellIndex index: Int) {
-        cell.taskDescription = model.taskDescription
-        cell.cellIndex = index
+
+    private func configure(taskListCell: TaskListCell, withTask taskListModel: TaskListModel, andCellIndex index: Int) {
+        taskListCell.taskDescription = taskListModel.taskDescription
+        taskListCell.cellIndex = index
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {

@@ -68,16 +68,15 @@ extension DeadlineVC {
         UIView.animate(withDuration: 0.1, animations: {
             self.datePickerView.alpha = 1
         }, completion: { _ in
-            self.preferredContentSize = self.viewWithShownPickerSize
+           self.reportDeadlineViewSizeWithShownPickerToParentVC()
         })
     }
     private func hideDatePicker() {
         UIView.animate(withDuration: 0.1, animations: {
             self.datePickerView.alpha = 0
         }, completion: { _ in
-            self.preferredContentSize = self.viewWithHiddenPickerSize
+           self.reportDeadlineViewSizeWithHiddenPickerToParentVC()
         })
-        
     }
     private func updateDeadlineButtonTitle() {
         guard let deadline = deadline else {
@@ -86,5 +85,11 @@ extension DeadlineVC {
         }
         let chosenDeadline = formatter.string(from: deadline)
         deadlineButton.setTitle("deadline: \(chosenDeadline!)", for: .normal)
+    }
+    private func reportDeadlineViewSizeWithHiddenPickerToParentVC() {
+        preferredContentSize = viewWithHiddenPickerSize
+    }
+    private func reportDeadlineViewSizeWithShownPickerToParentVC() {
+        preferredContentSize = viewWithShownPickerSize
     }
 }

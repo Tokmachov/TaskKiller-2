@@ -10,14 +10,12 @@ import Foundation
 
 struct TaskProgressSavingModelImp: TaskProgressSavingModel {
 
-    
-    
     private let task: Task
     private var timeSpentInProgress: TimeInterval {
-        return task.getTimeSpentInProgress()
+        return task.timeSpentInProgress
     }
     private var deadLine: TimeInterval {
-        return task.getCurrentDeadline()
+        return task.currentDeadline
     }
     //MARK: TimeLeftToDeadlineGetable
     var timeLeftToDeadLine: TimeLeftToDeadLine {
@@ -31,8 +29,8 @@ struct TaskProgressSavingModelImp: TaskProgressSavingModel {
     
     //MARK: TaskStaticInfoSource
     var staticInfo: TaskStaticInfo {
-        let taskDescription = task.getTaskDescription()
-        let deadLine = task.getInitialDeadline()
+        let taskDescription = task.description
+        let deadLine = task.initialDeadline
         let tagsStore = task.tagsStore
         return TaskStaticInfo.init(taskDescription: taskDescription, initialDeadLine: deadLine, tags: tagsStore)
     }

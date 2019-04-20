@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagsAddedToTaskVC: UICollectionViewController {
+class TagsAddedToTaskVC: UIViewController {
     
     private let maximumTagsAmount = 4
 
@@ -23,49 +23,57 @@ class TagsAddedToTaskVC: UICollectionViewController {
     }
     weak var delegate: TagsAddedToTaskVCDelegate!
     
+    private var tagCollectionHeight: CGFloat {
+        let tagLabel = TagLabel(frame: CGRect.zero)
+        tagLabel.name = "Some name"
+        let tagHeight = tagLabel.intrinsicContentSize.height
+        return TagsAddedToTaskCollectionFlowLayout.Constants.sectionInsets.top +
+               TagsAddedToTaskCollectionFlowLayout.Constants.sectionInsets.bottom +
+               tagHeight
+    }
+    @IBOutlet weak var tagsAddedToTaskCollectionView: UICollectionView!
+    
+    //MARK: ViewController lyfe cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let layout = TagsAddedToTaskCollectionFlowLayout()
+        tagsAddedToTaskCollectionView.collectionViewLayout = layout
+        tagsAddedToTaskCollectionView.dragInteractionEnabled = true
+        tagsStore = TagStoreImp()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        reportSizeNeededByCollectionViewToParentVC()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        reportSizeNeededByCollectionViewToParentVC()
+        tagsAddedToTaskCollectionView.reloadData()
+    }
     func removeFromTask(_ tag: Tag) {
         guard let index = tagsStore.index(Of: tag) else { return }
         let indexPathForTagToRemove = IndexPath(item: index, section: 0)
         tagsStore.remove(tag)
-        collectionView.deleteItems(at: [indexPathForTagToRemove])
+        tagsAddedToTaskCollectionView.deleteItems(at: [indexPathForTagToRemove])
     }
     func tagAddedToTaskWasUpdated(_ tag: Tag) {
         guard let indexOfTag = tagsStore.index(Of: tag) else { return }
         let indexPath = IndexPath(item: indexOfTag, section: 0)
-        collectionView.reloadItems(at: [indexPath])
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        collectionView.dropDelegate = self
-        collectionView.dragDelegate = self
-        collectionView.register(TagCell.self, forCellWithReuseIdentifier: "TagCell")
-        collectionView.dragInteractionEnabled = true
-        tagsStore = TagStoreImp()
+        tagsAddedToTaskCollectionView.reloadItems(at: [indexPath])
     }
 }
 
 //MARK: CollectionViewDataSource
-extension TagsAddedToTaskVC {
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension TagsAddedToTaskVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tagsStore.tagsCount
     }
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         let tag = tagsStore.tag(at: indexPath.row)
         configure(tagCell: tagCell, withTag: tag)
         return tagCell
-    }
-}
-
-//MARK: UICollectionViewDelegateFlowLayout
-extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tagCell = TagCell(frame: CGRect.zero)
-        let tag = tagsStore.tag(at: indexPath.row)
-        configure(tagCell: tagCell, withTag: tag)
-        
-        return tagCell.frame.size
     }
 }
 
@@ -101,8 +109,8 @@ extension TagsAddedToTaskVC: UICollectionViewDropDelegate {
                 coordinator.drop(dragItem, toItemAt: destinationIndexPath)
                 tagsStore.remove(tag)
                 tagsStore.insert(tag: tag, atIndex: destinationIndexPath.row)
-                self.collectionView.deleteItems(at: [sourceIndexPath])
-                self.collectionView.insertItems(at: [destinationIndexPath])
+                self.tagsAddedToTaskCollectionView.deleteItems(at: [sourceIndexPath])
+                self.tagsAddedToTaskCollectionView.insertItems(at: [destinationIndexPath])
             }, completion: nil)
             return
         }
@@ -126,3 +134,9 @@ extension TagsAddedToTaskVC: UICollectionViewDragDelegate {
     }
 }
 
+extension TagsAddedToTaskVC {
+    private func reportSizeNeededByCollectionViewToParentVC() {
+        let width = tagsAddedToTaskCollectionView.bounds.width
+        preferredContentSize = CGSize(width: width, height: tagCollectionHeight)
+    }
+}

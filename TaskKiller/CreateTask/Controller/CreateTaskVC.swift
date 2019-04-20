@@ -7,7 +7,17 @@
 //
 
 import UIKit
-class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVCDelegate, CreateTagVCDelegate, AvailableTagsVCDelegate, DeleteTagDropAreaVCDelegate, EditTagDropAreaVCDelegate, EditTagVCDelegate, TagsAddedToTaskVCDelegate, RemoveTagFromTaskVCDelegate {
+class CreateTaskVC: UITableViewController,
+    TaskDescriptionVCDelegate,
+    DeadlineVCDelegate,
+    CreateTagVCDelegate,
+    AvailableTagsVCDelegate,
+    DeleteTagDropAreaVCDelegate,
+    EditTagDropAreaVCDelegate,
+    EditTagVCDelegate,
+    TagsAddedToTaskVCDelegate,
+    RemoveTagFromTaskVCDelegate
+{
   
     private lazy var tagFactory = TagFactoryImp()
     private lazy var taskFactory = TaskFactoryImp(tagFactory: tagFactory)
@@ -46,6 +56,8 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
     @IBOutlet weak var goButton: UIBarButtonItem!
     
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
+    @IBOutlet weak var tagsAddedToTaskHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var q: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -155,11 +167,16 @@ class CreateTaskVC: UITableViewController, TaskDescriptionVCDelegate, DeadlineVC
         tagsAddedToTaskVC.removeFromTask(tag)
     }
     
-    //MARK: UIContentContainer
+    //MARK: UIContentContainer protocol
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         switch container {
         case let vc where vc is DeadlineVC:
             setDeadlineViewHeight(to: container.preferredContentSize.height)
+         
+        case let vc where vc is TagsAddedToTaskVC:
+            print("frame \(q.frame.height)")
+            setTagsAddedToTaskViewHeight(to: container.preferredContentSize.height)
+            print("frame \(q.frame.height)")
         default: break
         }
     }
@@ -184,6 +201,11 @@ extension CreateTaskVC {
     private func setDeadlineViewHeight(to height: CGFloat) {
         tableView.performBatchUpdates({
             self.deadlineViewHeightConstraint.constant = height
+        }, completion: nil)
+    }
+    private func setTagsAddedToTaskViewHeight(to height: CGFloat) {
+        tableView.performBatchUpdates({
+            self.tagsAddedToTaskHeightConstraint.constant = height
         }, completion: nil)
     }
     private func unfoldDropAreasRow(toHeight height: CGFloat) {

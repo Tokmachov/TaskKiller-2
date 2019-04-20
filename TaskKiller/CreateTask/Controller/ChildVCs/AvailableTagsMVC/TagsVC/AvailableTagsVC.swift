@@ -14,7 +14,6 @@ class AvailableTagsVC: UICollectionViewController {
     private var tagFactory = TagFactoryImp()
     weak var delegate: AvailableTagsVCDelegate!
     
-    private var tagCellID = "Tag Cell"
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
     private var collectionViewChangeContentsOperations = [BlockOperation]()
     
@@ -22,18 +21,18 @@ class AvailableTagsVC: UICollectionViewController {
         super.viewDidLoad()
         fetchResultsController = createTagFetchResultsController()
         fetchResultsController.delegate = self
-        collectionView.register(TagCell.self, forCellWithReuseIdentifier: tagCellID)
         collectionView.dragDelegate = self
         collectionView.dragInteractionEnabled = true
         collectionView.dropDelegate = self
         collectionView.alwaysBounceVertical = true
-        let tagCollectionLayout = TagCollectionLayout()
-        collectionView.setCollectionViewLayout(tagCollectionLayout, animated: true)
         collectionView.reorderingCadence = .slow
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
             alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        collectionView.reloadData()
     }
 }
 
@@ -89,22 +88,11 @@ extension AvailableTagsVC {
         return tagsLoadedFromMemory.count
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellID, for: indexPath) as! TagCell
+        let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.makeTag(tagModel: tagModel)
         configure(tagCell: tagCell, withTag: tag)
         return tagCell
-    }
-}
-
-//MARK: UICollectionViewDelegateFlowLayout
-extension AvailableTagsVC: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tagModel = fetchResultsController.object(at: indexPath)
-        let tag = tagFactory.makeTag(tagModel: tagModel)
-        let tagCell = TagCell(frame: CGRect.zero)
-        configure(tagCell: tagCell, withTag: tag)
-        return tagCell.frame.size
     }
 }
 

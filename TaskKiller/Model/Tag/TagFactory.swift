@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 protocol TagFactory {
     func makeTag(name: String, color: UIColor) -> Tag
@@ -14,14 +15,12 @@ protocol TagFactory {
     func deleteTagFromMemory(_ tag: Tag)
 }
 
-import CoreData
-
 struct TagFactoryImp: TagFactory {
     func deleteTagFromMemory(_ tag: Tag) {
-        PersistanceService.context.delete(tag.tagModel)
+        let tagModel = fetchTagModel(withId: tag.id)
+        PersistanceService.context.delete(tagModel)
         PersistanceService.saveContext()
     }
-    
     func makeTag(name: String, color: UIColor) -> Tag {
         let tagModel = createTagModel(from: name, and: color)
         let tag = TagImp(tagModel: tagModel)
@@ -38,6 +37,7 @@ extension TagFactoryImp {
         tagModel.name = name
         tagModel.color = color
         tagModel.dateCreated = Date() as NSDate
+        tagModel.id = UUID.init().uuidString
         tagModel.positionInUserSelectedOrder = getOrderNumberForNewTag()
         PersistanceService.saveContext()
         return tagModel
@@ -52,4 +52,46 @@ extension TagFactoryImp {
         }
         return Int16(numberOfCreatedTags)
     }
+    private func fetchTagModel(withId id: String) -> TagModel {
+        let fetchRequest: NSFetchRequest<TagModel> = TagModel.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "tagID == %@", id)
+        let fetchedModels = try? fetchRequest.execute()
+        guard let tagModel = fetchedModels?.first else { fatalError() }
+        return tagModel
+    }
 }
+
+extension TagFactoryImp {
+    struct TagImp: Tag {
+        
+        private var tagModel: TagModel
+        var name: String {
+            set {
+                tagModel.name = newValue
+                PersistanceService.saveContext()
+            }
+            get {
+                guard let name = tagModel.name else { fatalError() }
+                return name
+            }
+        }
+        var color: UIColor {
+            set {
+                tagModel.color = newValue
+                PersistanceService.saveContext()
+            }
+            get {
+                guard let color = tagModel.color else { fatalError() }
+                return color as! UIColor
+            }
+        }
+        var id: String {
+            guard tagModel.id != nil else { fatalError() }
+            return tagModel.id!
+        }
+        init(tagModel: TagModel) {
+            self.tagModel = tagModel
+        }
+    }
+}
+

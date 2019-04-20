@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PeriodModel" representedClassName="PeriodModel" syncable="YES">
         <attribute name="dateFinished" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateStarted" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -8,12 +8,14 @@
     <entity name="TagModel" representedClassName="TagModel" syncable="YES">
         <attribute name="color" attributeType="Transformable" valueTransformerName="" syncable="YES"/>
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="positionInUserSelectedOrder" attributeType="Integer 16" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TaskModel" inverseName="tags" inverseEntity="TaskModel" syncable="YES"/>
     </entity>
     <entity name="TaskModel" representedClassName="TaskModel" syncable="YES">
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="initialDeadLine" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="postponableDeadLine" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="taskDescription" attributeType="String" syncable="YES"/>
@@ -22,7 +24,7 @@
     </entity>
     <elements>
         <element name="PeriodModel" positionX="-54" positionY="0" width="128" height="90"/>
-        <element name="TagModel" positionX="-36" positionY="27" width="128" height="120"/>
-        <element name="TaskModel" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="TagModel" positionX="-36" positionY="27" width="128" height="135"/>
+        <element name="TaskModel" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

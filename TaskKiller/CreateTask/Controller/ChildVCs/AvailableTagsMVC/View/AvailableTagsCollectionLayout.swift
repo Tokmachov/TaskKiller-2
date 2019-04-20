@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagCollectionLayout: UICollectionViewFlowLayout {
+class AvailableTagsCollectionLayout: UICollectionViewFlowLayout {
     
     override func prepare() {
         guard collectionView != nil else { return }
@@ -16,6 +16,7 @@ class TagCollectionLayout: UICollectionViewFlowLayout {
         minimumInteritemSpacing = 10
         scrollDirection = .vertical
         sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        sectionInsetReference = .fromContentInset
+        sectionInsetReference = .fromSafeArea
+        estimatedItemSize = CGSize(width: 10, height: 10)
     }
 }

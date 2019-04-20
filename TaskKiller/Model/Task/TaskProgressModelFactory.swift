@@ -13,7 +13,7 @@ protocol TaskProgressModelFactory {
 }
 
 struct TaskProgressModelFactoryImp: TaskProgressModelFactory {
-    func makeTaskProgressModel(task: Task) {
+    func makeTaskProgressModel(task: Task) -> TaskProgressModel {
         return TaskProgressModelImp(task: task)
     }
 }
@@ -21,6 +21,7 @@ struct TaskProgressModelFactoryImp: TaskProgressModelFactory {
 extension TaskProgressModelFactoryImp {
     
     struct TaskProgressModelImp: TaskProgressModel {
+        
         private let task: Task
         
         init(task: Task) {
@@ -35,16 +36,15 @@ extension TaskProgressModelFactoryImp {
             let staticInfo = TaskStaticInfo(
                 taskDescription: description,
                 initialDeadLine: deadLine,
-                tags: tagsStore
+                tagsStore: tagsStore
             )
             return staticInfo
         }
         
         //MARK: TaskProgressSaving
-        func saveTaskProgressPeriod(_ period: ProgressPeriod) {
+        func saveProgressPeriod(_ period: ProgressPeriod) {
             task.saveProgressPeriod(period)
         }
-        
         //MARK: ProgressTimesSource
         var progressTimes: TaskProgressTimes {
             let timeLeftToDeadlineTimeIntervalValue = task.currentDeadline - task.timeSpentInProgress

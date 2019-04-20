@@ -21,6 +21,7 @@ class CreateTaskVC: UITableViewController,
   
     private lazy var tagFactory = TagFactoryImp()
     private lazy var taskFactory = TaskFactoryImp(tagFactory: tagFactory)
+    private lazy var taskProgressModelFactory = TaskProgressModelFactoryImp()
     
     //MARK: Model
     private var taskDescription: String? {
@@ -35,7 +36,7 @@ class CreateTaskVC: UITableViewController,
     private var taskStaticInfo: TaskStaticInfo {
         return TaskStaticInfo(taskDescription: taskDescription!,
                               initialDeadLine: deadline!,
-                              tags: tagsAddedToTaskVC.tagsAddedToTaskStore
+                              tagsStore: tagsAddedToTaskVC.tagsAddedToTaskStore
         )
     }
     private var isGoButtonEnabled: Bool {
@@ -62,7 +63,6 @@ class CreateTaskVC: UITableViewController,
     
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     @IBOutlet weak var tagsAddedToTaskHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var q: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,10 +100,10 @@ class CreateTaskVC: UITableViewController,
             let vc = segue.destination as! RemoveTagFromTaskDropAreaVC
             vc.delegate = self 
         case "StartNewTask":
-            guard let taskVC = segue.destination as? TaskProgressVC else { fatalError() }
-//            let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
-//            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
-//            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
+            guard let taskProgressVC = segue.destination as? TaskProgressVC else { fatalError() }
+            let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
+            let taskProgressModel = taskProgressModelFactory.makeTaskProgressModel(task: task)
+            taskProgressVC.model = taskProgressModel
         default: break
         }
     }
@@ -172,11 +172,8 @@ class CreateTaskVC: UITableViewController,
         switch container {
         case let vc where vc is DeadlineVC:
             setDeadlineViewHeight(to: container.preferredContentSize.height)
-         
         case let vc where vc is TagsAddedToTaskVC:
-            print("frame \(q.frame.height)")
             setTagsAddedToTaskViewHeight(to: container.preferredContentSize.height)
-            print("frame \(q.frame.height)")
         default: break
         }
     }

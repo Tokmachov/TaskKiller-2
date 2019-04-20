@@ -1,16 +1,16 @@
 //
-//  TagsAddedToTaskCollectionLayout.swift
+//  TaskProgressTagsCollectionFlowLayout.swift
 //  TaskKiller
 //
-//  Created by mac on 02/04/2019.
+//  Created by mac on 20/04/2019.
 //  Copyright © 2019 Oleg Tokmachov. All rights reserved.
 //
 
 import UIKit
 
-class TagsAddedToTaskCollectionFlowLayout: UICollectionViewFlowLayout {
+class TaskProgressTagsCollectionFlowLayout: UICollectionViewFlowLayout {
     override func prepare() {
-        sectionInset = TagsAddedToTaskCollectionFlowLayout.Constants.sectionInsets
+        sectionInset = TaskProgressTagsCollectionFlowLayout.Constants.sectionInsets
         sectionInsetReference = .fromSafeArea
         minimumLineSpacing = 5
         scrollDirection = .horizontal
@@ -18,7 +18,7 @@ class TagsAddedToTaskCollectionFlowLayout: UICollectionViewFlowLayout {
     }
 }
 
-extension TagsAddedToTaskCollectionFlowLayout {
+extension TaskProgressTagsCollectionFlowLayout {
     enum Constants {
         static let sectionInsets = UIEdgeInsets(top: 4, left: 5, bottom: 4, right: 5)
     }

@@ -8,5 +8,5 @@
 
 import Foundation
 
-typealias TaskProgressModel = ProgressTimesSource & TaskStaticInfoSource & TaskProgressSaving & DeadlinePostponable
+typealias TaskProgressModel = ProgressTimesSource & TaskStaticInfoSource & DeadlinePostponable & TaskProgressSaving
 

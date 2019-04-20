@@ -23,7 +23,7 @@ struct TaskFactoryImp: TaskFactory {
     func makeTask(taskStaticInfo: TaskStaticInfo) -> Task {
         let taskModel = createTaskModel(from: taskStaticInfo)
         let task = TaskImp(task: taskModel, tagFactory: tagFactory)
-        task.addTags(taskStaticInfo.tags)
+        task.addTags(taskStaticInfo.tagsStore)
         return task
     }
     func makeTask(taskModel: TaskModel) -> Task {
@@ -52,8 +52,8 @@ extension TaskFactoryImp {
 }
 
 extension TaskFactoryImp {
-    
     struct TaskImp: Task {
+        
         private var taskModel: TaskModel
         private var tagFactory: TagFactory
         
@@ -64,14 +64,15 @@ extension TaskFactoryImp {
         var description: String {
             return self.taskModel.taskDescription!
         }
+        var initialDeadline: TimeInterval {
+            return TimeInterval(taskModel.initialDeadLine)
+        }
         var timeSpentInProgress: TimeInterval {
             guard let periods = taskModel.periodsOfProcess?.allObjects as? [PeriodModel] else { return TimeInterval(0) }
             let timeSpentInProgress = getDurationOfPeriods(periods)
             return timeSpentInProgress
         }
-        var initialDeadline: TimeInterval {
-            return TimeInterval(taskModel.initialDeadLine)
-        }
+        
         var currentDeadline: TimeInterval {
             return TimeInterval(taskModel.postponableDeadLine)
         }
@@ -84,12 +85,6 @@ extension TaskFactoryImp {
         init(task: TaskModel, tagFactory: TagFactory) {
             self.taskModel = task
             self.tagFactory = tagFactory
-        }
-     
-        func saveTaskProgressPeriod(_ period: ProgressPeriod) {
-            let period = createPeriodModel(from: period)
-            taskModel.addToPeriodsOfProcess(period)
-            PersistanceService.saveContext()
         }
         
         func addTags(_ tags: ImmutableTagStore) {
@@ -106,7 +101,11 @@ extension TaskFactoryImp {
             let newDeadLine = timeInterval + timeSpentInprogress
             setPostponableDeadline(newDeadLine)
         }
-        
+        func saveProgressPeriod(_ period: ProgressPeriod) {
+            let period = createPeriodModel(from: period)
+            taskModel.addToPeriodsOfProcess(period)
+            PersistanceService.saveContext()
+        }
         private func createTagsStore(tagsModels: [TagModel]) -> TagsStore {
             var tags = [Tag]()
             for tagModel in tagsModels {
@@ -140,11 +139,10 @@ extension TaskFactoryImp {
         }
         private func fetchTagModel(withId id: String) -> TagModel {
             let fetchRequest: NSFetchRequest<TagModel> = TagModel.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "tagID == %@", id)
-            let fetchedModels = try? fetchRequest.execute()
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+            let fetchedModels = try? PersistanceService.context.fetch(fetchRequest)
             guard let tagModel = fetchedModels?.first else { fatalError() }
             return tagModel
         }
-        
     }
 }

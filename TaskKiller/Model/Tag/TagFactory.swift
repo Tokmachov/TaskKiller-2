@@ -54,8 +54,9 @@ extension TagFactoryImp {
     }
     private func fetchTagModel(withId id: String) -> TagModel {
         let fetchRequest: NSFetchRequest<TagModel> = TagModel.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "tagID == %@", id)
-        let fetchedModels = try? fetchRequest.execute()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        let fetchedModels = try? PersistanceService.context.fetch(fetchRequest)
+        
         guard let tagModel = fetchedModels?.first else { fatalError() }
         return tagModel
     }

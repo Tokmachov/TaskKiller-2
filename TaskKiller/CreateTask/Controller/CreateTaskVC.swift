@@ -32,7 +32,12 @@ class CreateTaskVC: UITableViewController,
     private var tagsAddedToTask: ImmutableTagStore? {
         didSet { updateGoButtonEnability() }
     }
-    
+    private var taskStaticInfo: TaskStaticInfo {
+        return TaskStaticInfo(taskDescription: taskDescription!,
+                              initialDeadLine: deadline!,
+                              tags: tagsAddedToTaskVC.tagsAddedToTaskStore
+        )
+    }
     private var isGoButtonEnabled: Bool {
         let isTaskDescriptionValid: Bool = {
             if let description = taskDescription, !description.isEmpty { return true }
@@ -95,15 +100,10 @@ class CreateTaskVC: UITableViewController,
             let vc = segue.destination as! RemoveTagFromTaskDropAreaVC
             vc.delegate = self 
         case "StartNewTask":
-            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-            print("before creating \(tagsAddedToTaskVC.tagsAddedToTaskStore.tagsCount)")
-            let taskStaticInfo = TaskStaticInfo(taskDescription: taskDescription!,
-                                                initialDeadLine: deadline!,
-                                                tags: tagsAddedToTaskVC.tagsAddedToTaskStore
-            )
-            let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
-            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
-            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
+            guard let taskVC = segue.destination as? TaskProgressVC else { fatalError() }
+//            let task = taskFactory.makeTask(taskStaticInfo: taskStaticInfo)
+//            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: task)
+//            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
         default: break
         }
     }

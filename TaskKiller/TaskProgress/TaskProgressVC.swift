@@ -8,12 +8,14 @@
 
 import UIKit
 
-class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, ProgressTimesReceiver, AlarmsControllerDelegate {
-  
-    //MARK: TaskProgressTrackingVC
-    func setProgressTrackingTaskHandler(_ taskHandler: TaskProgressSavingModel) {
-        self.model = taskHandler
-    }
+class TaskProgressVC: UIViewController,
+    TaskStateDelegate,
+    ProgressTimesReceiver,
+    AlarmsControllerDelegate
+{
+    //MARK: model
+    var model: TaskProgressModel!
+    
     private lazy var workTimesWithIds = loadSwitchedOnWorkTimesWithIds()
     private lazy var breakTimesWithIds = loadSwitchedOnBreakTimesWithIds()
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
@@ -29,7 +31,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeLeftToDeadlineLabel: UILabel!
     
-    private var model: TaskProgressSavingModel! 
+    
     private var taskState: TaskState!
     private var uIProgressTimesUpdater: UIProgressTimesUpdater!
     private var taskTimeOutAlarmController: AlarmsControlling!
@@ -74,7 +76,7 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
     }
     
     func canChangeToStarted(_ taskState: TaskState) -> Bool {
-        switch model.timeLeftToDeadLine {
+        switch model.progressTimes.timeLeftToDeadLine {
         case .noTimeLeft:
             showAddTimeVC()
             return false
@@ -82,9 +84,9 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         }
     }
     func taskState(_ taskState: TaskState, didDidChangeToStartedWith date: Date) {
-        guard case .timeLeft = model.timeLeftToDeadLine else { fatalError() }
+        guard case .timeLeft = model.progressTimes.timeLeftToDeadLine else { fatalError() }
         taskTimeOutAlarmController.removeBreakTimeOutAlarm()
-        taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
+        taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.progressTimes.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
         uIProgressTimesUpdater.updateProgressTimes(model)
         uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date)
         taksStateRepresentingViewsController.makeStartedUI()
@@ -130,9 +132,9 @@ class TaskVC: UIViewController, TaskProgressTrackingVC, TaskStateDelegate, Progr
         removeBadgeFromIcon()
     }
 }
-extension TaskVC: SwitchedOnAdditionalTimesWithIdsLoading {}
+extension TaskProgressVC: SwitchedOnAdditionalTimesWithIdsLoading {}
 
-extension TaskVC {
+extension TaskProgressVC {
     private func addWorkTimeToTask(_ workTime: TimeInterval) {
         taskState.goToStoppedState()
         model.postponeDeadlineFor(workTime)

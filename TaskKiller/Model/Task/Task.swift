@@ -9,14 +9,17 @@
 import Foundation
 import CoreData
 
-protocol Task: DeadlinePostponable {
+protocol Task: DeadlinePostponable, TaskProgressSaving {
     var id: String { get }
     var description: String { get }
-    var timeSpentInProgress: TimeInterval { get }
     var initialDeadline: TimeInterval { get }
-    var currentDeadline: TimeInterval { get }
     var tagsStore: ImmutableTagStore { get }
+    var timeSpentInProgress: TimeInterval { get }
+    var currentDeadline: TimeInterval { get }
     
     func saveProgressPeriod(_ period: ProgressPeriod)
     func addTags(_ tags: ImmutableTagStore)
 }
+
+
+

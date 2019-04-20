@@ -85,12 +85,13 @@ extension TaskFactoryImp {
             self.taskModel = task
             self.tagFactory = tagFactory
         }
-        
-        func saveProgressPeriod(_ period: ProgressPeriod) {
+     
+        func saveTaskProgressPeriod(_ period: ProgressPeriod) {
             let period = createPeriodModel(from: period)
             taskModel.addToPeriodsOfProcess(period)
             PersistanceService.saveContext()
         }
+        
         func addTags(_ tags: ImmutableTagStore) {
             let tagArray = tags.tags
             let tagModels = NSOrderedSet(array: tagArray.map { tag in

@@ -24,6 +24,7 @@ class TagLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLabel()
+        setFont()
     }
     private func setupLabel() {
         layer.cornerRadius = intrinsicContentSize.height / 2
@@ -31,6 +32,8 @@ class TagLabel: UILabel {
         layer.borderColor = borderColor.cgColor
         textAlignment = .center
         layer.masksToBounds = true
+    }
+    private func setFont() {
         font = UIFont.preferredFont(forTextStyle: .body)
     }
     func adaptCornerRadiusToLabelHeight() {

@@ -23,24 +23,24 @@ class TaskStaticInfoViewController: UIViewController  {
     @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var tagsCollectionViewHeightConstraint: NSLayoutConstraint!
     
-    private var tagHeight: CGFloat {
+    @IBOutlet weak var staticInfoStack: UIStackView!
+    
+    private var tagCollectionHeight: CGFloat {
         let tagLabel = TagLabel(frame: .zero)
         tagLabel.name = "Some name"
-        return tagLabel.intrinsicContentSize.height
+        let tagHeight = tagLabel.intrinsicContentSize.height
+        return TaskProgressTagsCollectionFlowLayout.Constants.sectionInsets.top +
+            TaskProgressTagsCollectionFlowLayout.Constants.sectionInsets.bottom +
+        tagHeight
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateStaticInfoViews()
+        tagsCollectionViewHeightConstraint.constant = tagCollectionHeight
+        reportSizeNeededForStaticInfoViewToPerentVC()
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        let insets = getCollectionViewInsets()
-//        let collectionViewHeight = insets.top + insets.bottom + tagHeight
-//        tagsCollectionViewHeightConstraint.constant = collectionViewHeight
-    }
-    
 }
 
 extension TaskStaticInfoViewController: UICollectionViewDataSource, TagCellConfiguring {
@@ -61,8 +61,7 @@ extension TaskStaticInfoViewController {
         taskInitialDeadlineLabel.text = formatter.string(from: staticInfo.initialDeadLine)
         tagsStore = staticInfo.tagsStore
     }
-    private func getCollectionViewInsets() -> UIEdgeInsets {
-        let layout = tagCollectionView.collectionViewLayout as! TaskProgressTagsCollectionFlowLayout
-        return layout.sectionInset
+    private func reportSizeNeededForStaticInfoViewToPerentVC() {
+        preferredContentSize = staticInfoStack.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
     }
 }

@@ -13,7 +13,7 @@ class TagsAddedToTaskVC: UIViewController {
     private let maximumTagsAmount = 4
 
     //MARK: model
-    private var tagsStore: TagsStore! {
+    private var tagsStore: TagsStore = TagStoreImp() {
         didSet {
             delegate.tagsAddedToTaskVCDidUpdateTags(self)
         }
@@ -39,7 +39,6 @@ class TagsAddedToTaskVC: UIViewController {
         let layout = TagsAddedToTaskCollectionFlowLayout()
         tagsAddedToTaskCollectionView.collectionViewLayout = layout
         tagsAddedToTaskCollectionView.dragInteractionEnabled = true
-        tagsStore = TagStoreImp()
     }
     
     override func viewDidLayoutSubviews() {
@@ -76,7 +75,15 @@ extension TagsAddedToTaskVC: UICollectionViewDataSource {
         return tagCell
     }
 }
-
+//MARK: UICollectionViewDelegateFlowLayout
+extension TagsAddedToTaskVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let tagLabel = TagLabel()
+        let tag = tagsStore.tag(at: indexPath.row)
+        tagLabel.name = tag.name
+        return tagLabel.intrinsicContentSize
+    }
+}
 extension TagsAddedToTaskVC: TagCellConfiguring {}
 
 //MARK: UICollectionViewDropDelegate

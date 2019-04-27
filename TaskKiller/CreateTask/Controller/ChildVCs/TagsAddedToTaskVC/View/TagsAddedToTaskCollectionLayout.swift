@@ -14,7 +14,6 @@ class TagsAddedToTaskCollectionFlowLayout: UICollectionViewFlowLayout {
         sectionInsetReference = .fromSafeArea
         minimumLineSpacing = 5
         scrollDirection = .horizontal
-        estimatedItemSize = CGSize(width: 10, height: 10)
     }
 }
 

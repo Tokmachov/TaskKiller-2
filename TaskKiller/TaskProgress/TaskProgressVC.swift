@@ -26,16 +26,16 @@ class TaskProgressVC: UIViewController,
     private lazy var breakTimesWithIds = loadSwitchedOnBreakTimesWithIds()
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = .second
+        formatter.allowedUnits = [.second, .minute, .hour]
+        formatter.unitsStyle = .abbreviated
         return formatter
     }()
     
     @IBOutlet weak var taskDescriptionLabel: UILabel!
-    @IBOutlet weak var tagsCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var taskStaticInfoHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeLeftToDeadlineLabel: UILabel!
-    @IBOutlet weak var currentDelayLabel: UILabel! 
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,17 +49,28 @@ class TaskProgressVC: UIViewController,
         taksStateRepresentingViewsController = TaskStateRepresentingViewsController(
                 startButton: startButton
         )
+        uIProgressTimesUpdater.updateProgressTimes(model)
+        taksStateRepresentingViewsController.makeStoppedUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        uIProgressTimesUpdater.updateProgressTimes(model)
+        
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "TaskStaticInfoVC":
             let taskStaticInfoVC = segue.destination as! TaskStaticInfoViewController
             taskStaticInfoVC.staticInfo = model.staticInfo
+            addChild(taskStaticInfoVC)
+        default: break
+        }
+    }
+    override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
+        switch container {
+        case let vc where vc is TaskStaticInfoViewController:
+            setTaskStaticInfoHeightTo(container.preferredContentSize.height)
         default: break
         }
     }
@@ -170,7 +181,7 @@ extension TaskProgressVC {
         let action = UIAlertAction(title: "Finish task", style: .default, handler: { _ in self.finishTask() })
         return action
     }
-    //MARK: showAddTaskTimeVC()
+    //MARK: AddWorkTimeVC()
     private func showAddWorkTimeVC() {
         let vc = createAddWorkTimeVC()
         present(vc, animated: true, completion: nil)
@@ -188,10 +199,10 @@ extension TaskProgressVC {
             actions.append(action)
             return actions
         }
-        let postponeTimes = self.workTimesWithIds.sorted { $0.value < $1.value }.map { $0.value }
-        for time in postponeTimes {
+        let addWorkTimes = self.workTimesWithIds.sorted { $0.value < $1.value }.map { $0.value }
+        for time in addWorkTimes {
             let formattedTime = dateComponentsFormatter.string(from: time)!
-            let action = UIAlertAction(title: "Add \(formattedTime) more", style: .default, handler: { (action) in
+            let action = UIAlertAction(title: "Add \(formattedTime)", style: .default, handler: { (action) in
                 self.addWorkTimeToTask(time)
             })
             actions.append(action)
@@ -229,6 +240,9 @@ extension TaskProgressVC {
         let title = "Please add times in setups"
         let action = UIAlertAction(title: title, style: .destructive, handler: nil)
         return action
+    }
+    private func setTaskStaticInfoHeightTo(_ height: CGFloat) {
+        taskStaticInfoHeightConstraint.constant = height
     }
 }
 

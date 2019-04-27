@@ -10,23 +10,47 @@ import UIKit
 
 struct TaskStateRepresentingViewsController: TaskStateRepresenting {
     
-    private let startButton: UIButton
+    private let startStopButton: UIButton
+    private var playButtonImage: UIImage? {
+        return UIImage(named: "playButton")
+    }
+    private var stopButtonImage: UIImage? {
+        return UIImage(named: "stopButton")
+    }
     
     init(startButton: UIButton) {
-        self.startButton = startButton
+        self.startStopButton = startButton
     }
+    
     func makeStartedUI() {
-        showStoppedButton()
+        showStopButton()
     }
     func makeStoppedUI() {
         showStartButton()
     }
     
     private func showStartButton() {
-        startButton.setTitle("Start", for: .normal)
+        guard let playButtonImage = playButtonImage else {
+            setStopStartButtonName(to: "Stop")
+            return
+        }
+        setStartStopButtonImage(playButtonImage)
     }
     
-    private func showStoppedButton() {
-        startButton.setTitle("Stopped", for: .normal)
+    private func showStopButton() {
+        guard let stopButtonImage = stopButtonImage else {
+            setStopStartButtonName(to: "Start")
+            return
+        }
+        setStartStopButtonImage(stopButtonImage)
+    }
+}
+
+extension TaskStateRepresentingViewsController {
+    private func setStopStartButtonName(to name: String) {
+        startStopButton.setTitle(name, for: .normal)
+    }
+    private func setStartStopButtonImage(_ image: UIImage) {
+        startStopButton.setBackgroundImage(image, for: .normal)
     }
 }

@@ -40,6 +40,10 @@
 		041312E9226B773200E8E920 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B14D219929E50085FCA0 /* Task.swift */; };
 		041312EB226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041312EA226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift */; };
 		041312EC226B807000E8E920 /* TaskProgressTagsCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041312EA226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift */; };
+		041312EF22700EFC00E8E920 /* TaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15121992D270085FCA0 /* TaskFactory.swift */; };
+		041312F022700FB000E8E920 /* TagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E8121C9ECB300967F50 /* TagFactory.swift */; };
+		041312F122700FEC00E8E920 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B5226B2CD300397E98 /* TaskModel+CoreDataProperties.swift */; };
+		041312F222700FEF00E8E920 /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B6226B2CD300397E98 /* TagModel+CoreDataProperties.swift */; };
 		0420FD17223D32C40086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
 		0420FD18223D32FE0086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
 		042768D321FE11DE00FA2442 /* ProgressTimesReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */; };
@@ -71,7 +75,6 @@
 		047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */; };
 		047FACD9224DC9D200DB59D9 /* CreateTagVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */; };
 		047FACE0224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACDF224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift */; };
-		047FACE2224F79EB00DB59D9 /* TagCollectionBackGroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */; };
 		047FACEA2251D3C700DB59D9 /* EditTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACE92251D3C700DB59D9 /* EditTagVC.swift */; };
 		047FACEC2253038F00DB59D9 /* TagCellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */; };
 		047FACEF22530A4E00DB59D9 /* TagConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEE22530A4E00DB59D9 /* TagConstants.swift */; };
@@ -280,7 +283,6 @@
 		047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneBackgroundView.swift; sourceTree = "<group>"; };
 		047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagVCDelegate.swift; sourceTree = "<group>"; };
 		047FACDF224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTagsCollectionLayout.swift; sourceTree = "<group>"; };
-		047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionBackGroundView.swift; sourceTree = "<group>"; };
 		047FACE92251D3C700DB59D9 /* EditTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagVC.swift; sourceTree = "<group>"; };
 		047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellConfiguring.swift; sourceTree = "<group>"; };
 		047FACEE22530A4E00DB59D9 /* TagConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConstants.swift; sourceTree = "<group>"; };
@@ -407,7 +409,6 @@
 			isa = PBXGroup;
 			children = (
 				047FACDF224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift */,
-				047FACE1224F79EB00DB59D9 /* TagCollectionBackGroundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1202,6 +1203,7 @@
 				04F170232234F45B006F062D /* MonthsStoreImp.swift in Sources */,
 				0446989B226B17A400397E98 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				04CEA2402228E9A200CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift in Sources */,
+				041312F222700FEF00E8E920 /* TagModel+CoreDataProperties.swift in Sources */,
 				04CEA24C222A9FC300CEE425 /* AlarmsControllerDelegate.swift in Sources */,
 				0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				04CEA24D222AA03300CEE425 /* AlralrmResponseType.swift in Sources */,
@@ -1227,6 +1229,7 @@
 				041312E9226B773200E8E920 /* Task.swift in Sources */,
 				04F170272234F471006F062D /* PlaceHolderDay.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
+				041312EF22700EFC00E8E920 /* TaskFactory.swift in Sources */,
 				04F1701F2234ED95006F062D /* DayCell.swift in Sources */,
 				041312DE226B4EE900E8E920 /* ProgressTimesSource.swift in Sources */,
 				04F170222234F44B006F062D /* MonthsStore.swift in Sources */,
@@ -1236,8 +1239,10 @@
 				041312E2226B4F2C00E8E920 /* ProgressPeriod.swift in Sources */,
 				043B2241225D91410018CB68 /* Tag.swift in Sources */,
 				043B2242225D91520018CB68 /* PersistanceService.swift in Sources */,
+				041312F022700FB000E8E920 /* TagFactory.swift in Sources */,
 				043B2240225C5FD60018CB68 /* TagsStore.swift in Sources */,
 				04CEA2272226374A00CEE425 /* ToggleState.swift in Sources */,
+				041312F122700FEC00E8E920 /* TaskModel+CoreDataProperties.swift in Sources */,
 				041312E8226B772100E8E920 /* TaskProgressModelFactory.swift in Sources */,
 				04F1702A2234F497006F062D /* Calendar.swift in Sources */,
 				04F170292234F489006F062D /* MonthsModelsStoreFactory.swift in Sources */,
@@ -1316,7 +1321,6 @@
 				04CEA22A222645E600CEE425 /* SwitchedOnAdditionalTimesReadable.swift in Sources */,
 				048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
-				047FACE2224F79EB00DB59D9 /* TagCollectionBackGroundView.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				04F1700F22336195006F062D /* Month.swift in Sources */,

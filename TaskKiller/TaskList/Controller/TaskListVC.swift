@@ -11,8 +11,10 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private var taskListModelFactory: TaskListModelFactory!
-    private var fetchRequestController: NSFetchedResultsController<TaskModel>!
+    private lazy var fetchRequestController: NSFetchedResultsController<TaskModel> = createFetchResultsController()
+    private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: TagFactoryImp())
+    private lazy var taskListModelFactory: TaskListModelFactory = TaskListModelFactoryImp()
+    private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
     
     private var tagHeight: CGFloat {
         let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)
@@ -20,13 +22,6 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         return heightReferenceTagLabel.intrinsicContentSize.height
     }
     
-    
-    //MARK: ViewController lyfe cycle methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        fetchRequestController = createFetchResultsController()
-        taskListModelFactory = TaskListModelFactoryImp(taskFactory: TaskFactoryImp(tagFactory: TagFactoryImp()))
-    }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         updateTagCollectionViewsInTaskCells()
     }
@@ -34,7 +29,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         guard let endIndex = fetchRequestController.fetchedObjects?.endIndex else { return }
         for index in 0..<endIndex {
             let indexPath = IndexPath(row: index, section: 0)
-            let taskListCell = tableView.cellForRow(at: indexPath) as! TaskListCell
+            guard let taskListCell = tableView.cellForRow(at: indexPath) as? TaskListCell else { return }
             taskListCell.tagsCollectionView.reloadData()
         }
     }
@@ -44,11 +39,11 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         switch segue.identifier {
         case "Continue Task"?:
             guard let indexPathOfSelectedRow = tableView.indexPathForSelectedRow else { fatalError() }
-            let task = fetchRequestController.object(at: indexPathOfSelectedRow)
-            //            let taskModelFacade = taskFactory.makeTask(from: task)
-            //            let progressTrackingTaskHandler = TaskProgressSavingModelImp(task: taskModelFacade)
-            //            guard let taskVC = segue.destination as? TaskProgressTrackingVC else { fatalError() }
-        //            taskVC.setProgressTrackingTaskHandler(progressTrackingTaskHandler)
+            let taskModel = fetchRequestController.object(at: indexPathOfSelectedRow)
+            let task = taskFactory.makeTask(taskModel: taskModel)
+            let taskProgressModel = taskProgressModelFactory.makeTaskProgressModel(task: task)
+            let taskProgressVC = segue.destination as! TaskProgressVC
+            taskProgressVC.model = taskProgressModel
         default: break
         }
     }
@@ -65,15 +60,16 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskListCell
         let taskModel = fetchRequestController.object(at: indexPath)
-        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
-        configure(taskListCell: taskCell, withTask: task, andCellIndex: indexPath.row)
-        taskCell.adjustTagCollectionViewHeight(to:tagHeight)
+        let task = taskFactory.makeTask(taskModel: taskModel)
+        let taskListModel = taskListModelFactory.makeTaskListModel(task: task)
+        configure(taskListCell: taskCell, withTask: taskListModel, cellIndex: indexPath.row, tagCollectionHeight: tagHeight)
         return taskCell
     }
 
-    private func configure(taskListCell: TaskListCell, withTask taskListModel: TaskListModel, andCellIndex index: Int) {
+    private func configure(taskListCell: TaskListCell, withTask taskListModel: TaskListModel, cellIndex: Int, tagCollectionHeight: CGFloat) {
         taskListCell.taskDescription = taskListModel.taskDescription
-        taskListCell.cellIndex = index
+        taskListCell.cellIndex = cellIndex
+        taskListCell.adjustTagCollectionViewHeight(to: tagCollectionHeight)
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
@@ -89,7 +85,8 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type:
+        NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
         case .delete:
             tableView.deleteRows(at: [indexPath!], with: .fade)
@@ -123,8 +120,9 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollecti
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let cellIndexPath = taskCellIndexPathOfTagCollectionView(collectionView)
         let taskModel = fetchRequestController.object(at: cellIndexPath)
-        let task = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
-        return task.tagsStore.tagsCount
+        let task = taskFactory.makeTask(taskModel: taskModel)
+        let taskListModel = taskListModelFactory.makeTaskListModel(task: task)
+        return taskListModel.tagsStore.tagsCount
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tag = tagForTagCollectionView(collectionView, toBeDisplayedAtCollectionViewIndexPath: indexPath)
@@ -132,15 +130,15 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollecti
         configure(tagCell: tagCell, withTag: tag)
         return tagCell
     }
-    
-    private func taskCellIndexPathOfTagCollectionView(_ collectionView: UICollectionView) -> IndexPath {
-        return IndexPath(item: collectionView.tag, section: 0)
-    }
     private func tagForTagCollectionView(_ collectionView: UICollectionView, toBeDisplayedAtCollectionViewIndexPath indexPath: IndexPath) -> Tag {
         let cellIndexPath = taskCellIndexPathOfTagCollectionView(collectionView)
         let taskModel = fetchRequestController.object(at: cellIndexPath)
-        let taskListModel = taskListModelFactory.makeTaskListModel(taskModel: taskModel)
+        let task = taskFactory.makeTask(taskModel: taskModel)
+        let taskListModel = taskListModelFactory.makeTaskListModel(task: task)
         let tag = taskListModel.tagsStore.tag(at: indexPath.row)
         return tag
+    }
+    private func taskCellIndexPathOfTagCollectionView(_ collectionView: UICollectionView) -> IndexPath {
+        return IndexPath(item: collectionView.tag, section: 0)
     }
 }

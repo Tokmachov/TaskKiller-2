@@ -27,5 +27,7 @@ class TaskDescriptionVC: UIViewController, UITextViewDelegate {
         }
         return true
     }
-    
+    func textViewDidChange(_ textView: UITextView) {
+        taskDescription = textView.text
+    }
 }

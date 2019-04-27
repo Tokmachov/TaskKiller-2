@@ -15,7 +15,12 @@ class TaskListCell: UITableViewCell {
     @IBOutlet weak var tagCollectionViewHeightConstraint: NSLayoutConstraint!
     
     var taskDescription: String! { didSet { taskDescriptionLabel.text = taskDescription } }
-    var cellIndex: Int! { didSet { tagsCollectionView.tag = cellIndex } }
+    var cellIndex: Int! {
+        didSet {
+            tagsCollectionView.tag = cellIndex
+            tagsCollectionView.reloadData()
+        }
+    }
     
     func adjustTagCollectionViewHeight(to tagHeight: CGFloat) {
         tagCollectionViewHeightConstraint.constant =

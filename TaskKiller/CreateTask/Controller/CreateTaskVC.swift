@@ -19,9 +19,9 @@ class CreateTaskVC: UITableViewController,
     RemoveTagFromTaskVCDelegate
 {
   
-    private lazy var tagFactory = TagFactoryImp()
-    private lazy var taskFactory = TaskFactoryImp(tagFactory: tagFactory)
-    private lazy var taskProgressModelFactory = TaskProgressModelFactoryImp()
+    private lazy var tagFactory: TagFactory = TagFactoryImp()
+    private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: tagFactory)
+    private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
     
     //MARK: Model
     private var taskDescription: String? {
@@ -64,6 +64,7 @@ class CreateTaskVC: UITableViewController,
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     @IBOutlet weak var tagsAddedToTaskHeightConstraint: NSLayoutConstraint!
     
+    //MARK: VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         hideDropAreaForTagDeleingAndEditing()
@@ -71,6 +72,8 @@ class CreateTaskVC: UITableViewController,
         foldDropAreasRow(andThen: {})
         updateGoButtonEnability()
     }
+    
+    //MARK: Sugues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "TaskDescriptionVC":
@@ -95,6 +98,7 @@ class CreateTaskVC: UITableViewController,
         case "TagsAddedToTaskVC":
             let vc = segue.destination as! TagsAddedToTaskVC
             vc.delegate = self
+            addChild(vc)
             tagsAddedToTaskVC = vc
         case "RemoveTagFromTaskVC":
             let vc = segue.destination as! RemoveTagFromTaskDropAreaVC

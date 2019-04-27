@@ -13,6 +13,7 @@ protocol TaskProgressModelFactory {
 }
 
 struct TaskProgressModelFactoryImp: TaskProgressModelFactory {
+    
     func makeTaskProgressModel(task: Task) -> TaskProgressModel {
         return TaskProgressModelImp(task: task)
     }

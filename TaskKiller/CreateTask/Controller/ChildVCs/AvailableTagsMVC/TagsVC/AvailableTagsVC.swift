@@ -96,6 +96,17 @@ extension AvailableTagsVC {
     }
 }
 
+//MARK: UICollectionViewDelegateFlowlayout
+extension AvailableTagsVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let tagView = TagLabel()
+        let tagModel = fetchResultsController.object(at: indexPath)
+        let tag = tagFactory.makeTag(tagModel: tagModel)
+        tagView.name = tag.name
+        return tagView.intrinsicContentSize
+    }
+}
+
 extension AvailableTagsVC: TagCellConfiguring {}
 
 //MARK: UICollectionViewDragDelegate

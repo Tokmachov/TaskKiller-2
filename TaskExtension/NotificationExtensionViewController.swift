@@ -17,8 +17,8 @@ class NotificationExtensionViewController: UIViewController, UNNotificationConte
     
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = .second
-        formatter.unitsStyle = .full
+        formatter.allowedUnits = [.second, .minute, .hour]
+        formatter.unitsStyle = .abbreviated
         return formatter
     }()
     

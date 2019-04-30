@@ -8,13 +8,20 @@
 
 import UIKit
 
-class AdditionalTimesTableViewController: UITableViewController, AdditionalTimeSavingDelegate {
+class AdditionalTimesTableViewController: UITableViewController,
+    CreateAdditionalTimeVCDelegate,
+    AdditionalTimesLoading,
+    AdditionalTimesSaving,
+    SwitchedOnAdditionalTimesWithIdsSaving
+{
     let cellId = "AdditionalTimeCell"
     let workTimesSectionNumber = 0
     let breakTimesSectionNumber = 1
     
+    //MARK: Model
     private lazy var model: TimesModelForTable = loadAdditionalTimes()
     
+    //MARK: ViewController lifeCycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         customizeNavigationBar()
@@ -23,9 +30,8 @@ class AdditionalTimesTableViewController: UITableViewController, AdditionalTimeS
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    
+    //MARK: Action methods
     @IBAction func additionalTimeStateWasSwitched(_ sender: UISwitch) {
         let indexPath = getCellIndexPath(of: sender)
         let state = getTimeToggleState(sender)
@@ -38,14 +44,26 @@ class AdditionalTimesTableViewController: UITableViewController, AdditionalTimeS
         saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
     
-    //MARK: CreateAdditionalTimesVCDelegate methods
-    func additionalTimeWasCreated(_ additionalTime: AdditionalTime) {
+    //MARK: Segue methods
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "CreateAdditionalTimeSegue":
+            let createAdditionalTimeVC = segue.destination as! CreateAdditionalTimeVC
+            createAdditionalTimeVC.delegate = self
+        default: fatalError()
+        }
+    }
+    
+    //MARK: createAdditionalTimeVCDelegate methods
+    func createAdditionalTimeVC(_ cerateAdditionalTimeVC: CreateAdditionalTimeVC, didCreateAdditionalTime additionalTime: AdditionalTime) {
         model.addAdditionalTime(additionalTime)
         saveAdditionalTimes(model)
         saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
-    
-    //TableView Delegate methods
+}
+
+//MARK: TableViewDataSource, TableViewDelegate methods
+extension AdditionalTimesTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return model.numberOfAdditionalTimesTypes
     }
@@ -84,22 +102,10 @@ class AdditionalTimesTableViewController: UITableViewController, AdditionalTimeS
         saveAdditionalTimes(model)
         saveSwitchedOnAdditionalTimesWithIds(from: model)
     }
-    //Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        switch segue.identifier {
-        case "CreateAdditionalTimeSegue":
-            var destinationVC = segue.destination as! AdditionalTimeCreating
-            destinationVC.delegate = self
-        default: fatalError()
-        }
-    }
 }
-extension AdditionalTimesTableViewController: SwitchedOnAdditionalTimesWithIdsSaving {}
-extension AdditionalTimesTableViewController: AdditionalTimesLoading {}
-extension AdditionalTimesTableViewController: AdditionalTimesSaving {}
 
+//MARK: Utility functions
 extension AdditionalTimesTableViewController {
-    //MARK: configureCell(cell:, atIndexPath:, from:)
     private func configureCell(cell: AdditionalTimeCell, atIndexPath indexPath: IndexPath, from additionalTimes: AdditionalTimes) {
         let additionalTime = getAdditionalTime(from: additionalTimes, forIndexPath: indexPath)
         
@@ -122,7 +128,6 @@ extension AdditionalTimesTableViewController {
         return additionalTime
     }
     
-    //MARK: customizeNavigationBar()
     private func customizeNavigationBar() {
         navigationItem.title = "Add times"
         navigationController?.navigationBar.prefersLargeTitles = true

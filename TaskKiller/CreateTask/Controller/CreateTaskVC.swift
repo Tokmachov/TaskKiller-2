@@ -36,7 +36,7 @@ class CreateTaskVC: UITableViewController,
     private var taskStaticInfo: TaskStaticInfo {
         return TaskStaticInfo(taskDescription: taskDescription!,
                               initialDeadLine: deadline!,
-                              tagsStore: tagsAddedToTaskVC.tagsAddedToTaskStore
+                              tagsStore: tagsAddedToTask!
         )
     }
     private var isGoButtonEnabled: Bool {
@@ -64,6 +64,8 @@ class CreateTaskVC: UITableViewController,
     private weak var tagsAddedToTaskVC: TagsAddedToTaskVC!
     @IBOutlet weak var tagsAddedToTaskHeightConstraint: NSLayoutConstraint!
     
+    private weak var taskDescriptionVC: TaskDescriptionVC!
+    
     //MARK: VC lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +81,7 @@ class CreateTaskVC: UITableViewController,
         case "TaskDescriptionVC":
             let vc = segue.destination as! TaskDescriptionVC
             vc.delegate = self
+            taskDescriptionVC = vc
         case "DeadlineVC":
             let vc = segue.destination as! DeadlineVC
             vc.delegate = self
@@ -122,6 +125,9 @@ class CreateTaskVC: UITableViewController,
     
     func deadlineVC(_ deadlineVC: DeadlineVC, didChooseDeadline deadline: TimeInterval) {
         self.deadline = deadline
+    }
+    func deadlineVCDidShowDatePicker(_ deadLineVC: DeadlineVC) {
+        taskDescriptionVC.finishTextInput()
     }
     
     func createTagVC(_ createTagVC: CreateTagVC, didChooseName name: String, AndColor color: UIColor) {

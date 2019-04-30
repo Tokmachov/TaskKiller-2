@@ -47,6 +47,10 @@ class DeadlineVC: UIViewController {
         hideDatePicker()
         deadline = datePickerView.countDownDuration
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setInitialDatePickerValue()
+    }
     @IBAction func deadlineWasChanged(_ sender: UIDatePicker) {
         deadline = sender.countDownDuration
     }
@@ -59,6 +63,7 @@ class DeadlineVC: UIViewController {
         case false:
             showDatePicker()
             datePickerIsShown = true
+            delegate.deadlineVCDidShowDatePicker(self)
         }
        
     }
@@ -91,5 +96,8 @@ extension DeadlineVC {
     }
     private func reportDeadlineViewSizeWithShownPickerToParentVC() {
         preferredContentSize = viewWithShownPickerSize
+    }
+    private func setInitialDatePickerValue() {
+        datePickerView.countDownDuration = 60
     }
 }

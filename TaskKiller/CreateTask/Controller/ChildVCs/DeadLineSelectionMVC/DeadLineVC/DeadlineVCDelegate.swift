@@ -10,4 +10,5 @@ import Foundation
 
 protocol DeadlineVCDelegate {
     func deadlineVC(_ deadlineVC: DeadlineVC, didChooseDeadline deadline: TimeInterval)
+    func deadlineVCDidShowDatePicker(_ deadLineVC: DeadlineVC)
 }

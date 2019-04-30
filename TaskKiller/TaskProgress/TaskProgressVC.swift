@@ -13,6 +13,8 @@ class TaskProgressVC: UIViewController,
     ProgressTimesReceiver,
     AlarmsControllerDelegate
 {
+    @IBOutlet weak var q: UIView!
+    
     //MARK: model
     var model: TaskProgressModel!
     
@@ -31,8 +33,7 @@ class TaskProgressVC: UIViewController,
         return formatter
     }()
     
-    @IBOutlet weak var taskDescriptionLabel: UILabel!
-    @IBOutlet weak var taskStaticInfoHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var taskStaticInfoViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeLeftToDeadlineLabel: UILabel!
@@ -70,7 +71,7 @@ class TaskProgressVC: UIViewController,
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         switch container {
         case let vc where vc is TaskStaticInfoViewController:
-            setTaskStaticInfoHeightTo(container.preferredContentSize.height)
+            setTaskStaticInfoViewHeightTo(container.preferredContentSize.height)
         default: break
         }
     }
@@ -241,8 +242,8 @@ extension TaskProgressVC {
         let action = UIAlertAction(title: title, style: .destructive, handler: nil)
         return action
     }
-    private func setTaskStaticInfoHeightTo(_ height: CGFloat) {
-        taskStaticInfoHeightConstraint.constant = height
+    private func setTaskStaticInfoViewHeightTo(_ height: CGFloat) {
+        taskStaticInfoViewHeightConstraint.constant = height
     }
 }
 

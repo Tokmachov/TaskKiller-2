@@ -30,4 +30,7 @@ class TaskDescriptionVC: UIViewController, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         taskDescription = textView.text
     }
+    func finishTextInput() {
+        textView.resignFirstResponder()
+    }
 }

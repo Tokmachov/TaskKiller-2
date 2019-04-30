@@ -34,11 +34,14 @@ class TaskStaticInfoViewController: UIViewController  {
         tagHeight
     }
     
-    
+    //MARK: ViewController lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateStaticInfoViews()
         tagsCollectionViewHeightConstraint.constant = tagCollectionHeight
+        reportSizeNeededForStaticInfoViewToPerentVC()
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         reportSizeNeededForStaticInfoViewToPerentVC()
     }
 }

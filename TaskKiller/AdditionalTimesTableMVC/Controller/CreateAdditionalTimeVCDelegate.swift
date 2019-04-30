@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol AdditionalTimeSavingDelegate {
-    func additionalTimeWasCreated(_ additionalTime: AdditionalTime)
+protocol CreateAdditionalTimeVCDelegate {
+    func createAdditionalTimeVC(_  cerateAdditionalTimeVC: CreateAdditionalTimeVC, didCreateAdditionalTime additionalTime: AdditionalTime)
 }

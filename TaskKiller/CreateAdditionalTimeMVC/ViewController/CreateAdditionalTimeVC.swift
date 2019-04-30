@@ -8,13 +8,9 @@
 
 import UIKit
 
-class CreateAdditionalTimeVC: UIViewController, AdditionalTimeCreating {
+class CreateAdditionalTimeVC: UIViewController {
     
-    private var sliderCurrentValue: Float = 0.0 {
-        didSet {
-            chosenAdditionalTimeType = choseAdditionalTimeType(forValue: sliderCurrentValue)
-        }
-    }
+    //MARK: model
     private var chosenAdditionalTimeType = AdditionalTimeType.additionalWorkTime {
         didSet {
             updateChosenAdditionalTimeTypeLabel(withType: chosenAdditionalTimeType)
@@ -23,29 +19,31 @@ class CreateAdditionalTimeVC: UIViewController, AdditionalTimeCreating {
     private var chosenAdditionalTimeValue: TimeInterval {
         return timePicker.countDownDuration
     }
-    //MARK: AdditionalTimesSetable
     
-    var delegate: AdditionalTimeSavingDelegate!
+    //MARK: Delegate
+    var delegate: CreateAdditionalTimeVCDelegate!
     
-    private var aditionalTimesTypesForSliderValues: [Int : AdditionalTimeType ] = [
-        0 : .additionalWorkTime,
-        1 : .breakTime
-    ]
-    private var additionalTimesTypeStringNamesForTypes: [AdditionalTimeType : String] = [
-        .additionalWorkTime : "Additional work time",
-        .breakTime : "Additional break time"
-    ]
+    //MARK: Outlets
     @IBOutlet weak var timePicker: UIDatePicker!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var chosenAdditionalTimeTypeLabel: UILabel!
     
+    //MARK: ViewController lifeCycle methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSlider()
+        moveSliderToInitialPosition()
+        
+    }
+    
+    //MARK: Action methods
     @IBAction func sliderMoved(_ sender: UISlider) {
         moveSliderToClosestDescreteValue(sender)
-        sliderCurrentValue = sender.value
+        chosenAdditionalTimeType = additionalTimeType(forValue: slider.value)
     }
-    @IBAction func createAdditionalTime() {
+    @IBAction func createAdditionalTimeButtonWasPressed() {
         let additionalTime = AdditionalTime(time: chosenAdditionalTimeValue, type: chosenAdditionalTimeType, toggleState: .on)
-        delegate.additionalTimeWasCreated(additionalTime)
+        delegate.createAdditionalTimeVC(self, didCreateAdditionalTime: additionalTime)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     @IBAction func canceledAdditionalTimeCreation() {
@@ -53,17 +51,11 @@ class CreateAdditionalTimeVC: UIViewController, AdditionalTimeCreating {
     }
     @IBAction func addTestAlarm(_ sender: Any) {
         let testAdditionalTime = AdditionalTime(time: 10, type: chosenAdditionalTimeType, toggleState: .on)
-        delegate.additionalTimeWasCreated(testAdditionalTime)
-        
+        delegate.createAdditionalTimeVC(self, didCreateAdditionalTime: testAdditionalTime)
         presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupSlider()
-        moveSliderToInitialPosition()
-        
-    }
+ 
 }
 
 extension CreateAdditionalTimeVC {
@@ -73,19 +65,27 @@ extension CreateAdditionalTimeVC {
     }
     private func moveSliderToInitialPosition() {
         slider.setValue(0, animated: true)
-        sliderCurrentValue = slider.value
     }
     private func moveSliderToClosestDescreteValue(_ slider: UISlider) {
         let sliderDescreteValue = slider.value.rounded()
         slider.setValue(sliderDescreteValue, animated: true)
     }
-    private func choseAdditionalTimeType(forValue sliderVaue: Float) -> AdditionalTimeType {
+    private func additionalTimeType(forValue sliderVaue: Float) -> AdditionalTimeType {
         let sliderValue = Int(sliderVaue)
+        var aditionalTimesTypesForSliderValues: [Int : AdditionalTimeType ] = [
+            0 : .additionalWorkTime,
+            1 : .breakTime
+        ]
         let chosenAdditionalTimeType = aditionalTimesTypesForSliderValues[sliderValue]!
         return chosenAdditionalTimeType
     }
     private func updateChosenAdditionalTimeTypeLabel(withType type: AdditionalTimeType) {
+        var additionalTimesTypeStringNamesForTypes: [AdditionalTimeType : String] = [
+            .additionalWorkTime : "Additional work time",
+            .breakTime : "Additional break time"
+        ]
         let typeName = additionalTimesTypeStringNamesForTypes[type]!
         chosenAdditionalTimeTypeLabel.setText(typeName)
     }
 }
+

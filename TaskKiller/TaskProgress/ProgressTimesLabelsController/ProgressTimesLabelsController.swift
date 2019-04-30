@@ -21,6 +21,7 @@ struct ProgressTimesLabelsController {
     init(timeSpentInProgressLabel: UILabel, timeLeftToDeadLineLabel: UILabel) {
         self.timeSpentInProgressLabel = timeSpentInProgressLabel
         self.timeLeftToDeadlineLabel = timeLeftToDeadLineLabel
+        setupLabels()
     }
 }
 
@@ -34,5 +35,22 @@ extension ProgressTimesLabelsController: ProgressTimesUpdatable {
             case .timeLeft(let time): return formatter.string(from: time)
             }
         }()
+    }
+}
+
+extension ProgressTimesLabelsController {
+    private func setupLabels() {
+       setupTimeLeftToDeadlineLabel()
+       setupTimeSpentInProgressLabel()
+    }
+    private func setupTimeLeftToDeadlineLabel() {
+        let font = timeLeftToDeadlineLabel.font
+        timeLeftToDeadlineLabel.font = UIFontMetrics.default.scaledFont(for: font!)
+        timeSpentInProgressLabel.adjustsFontForContentSizeCategory = true
+    }
+    private func setupTimeSpentInProgressLabel() {
+        let font = timeSpentInProgressLabel.font
+        timeSpentInProgressLabel.font = UIFontMetrics.default.scaledFont(for: font!)
+        timeSpentInProgressLabel.adjustsFontForContentSizeCategory = true
     }
 }

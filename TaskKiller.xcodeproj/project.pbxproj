@@ -110,7 +110,6 @@
 		04C23FD8220D3BB7006761ED /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C23FD6220D3BB7006761ED /* MainInterface.storyboard */; };
 		04C23FDC220D3BB8006761ED /* TaskExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 04C23FCD220D3BB7006761ED /* TaskExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		04CEA2192224DE2E00CEE425 /* AdditionalTimesEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2182224DE2E00CEE425 /* AdditionalTimesEditable.swift */; };
-		04CEA21F2224FCB100CEE425 /* AdditionalTimeCreating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */; };
 		04CEA222222636EA00CEE425 /* AdditionalTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498212E221CF87F00CEA932 /* AdditionalTimes.swift */; };
 		04CEA2232226372800CEE425 /* RepresentableInSectionedTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498213B2222C93000CEA932 /* RepresentableInSectionedTable.swift */; };
 		04CEA2242226372B00CEE425 /* AdditionalTimeAddable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498214C2222D35600CEA932 /* AdditionalTimeAddable.swift */; };
@@ -122,7 +121,7 @@
 		04CEA22E2226F6C900CEE425 /* SwitchedOnAdditionalTimesReadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA229222645E600CEE425 /* SwitchedOnAdditionalTimesReadable.swift */; };
 		04CEA2322226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2312226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift */; };
 		04CEA2342227027300CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2312226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift */; };
-		04CEA2382227078000CEE425 /* AdditionalTimeSavingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */; };
+		04CEA2382227078000CEE425 /* CreateAdditionalTimeVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA2372227078000CEE425 /* CreateAdditionalTimeVCDelegate.swift */; };
 		04CEA23C222793F100CEE425 /* AdditionalTimeRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */; };
 		04CEA23D2227943500CEE425 /* AdditionalTimeRemovable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */; };
 		04CEA23F2228E5B500CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CEA23E2228E5B500CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift */; };
@@ -319,10 +318,9 @@
 		04C23FD7220D3BB7006761ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		04C23FD9220D3BB7006761ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04CEA2182224DE2E00CEE425 /* AdditionalTimesEditable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesEditable.swift; sourceTree = "<group>"; };
-		04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeCreating.swift; sourceTree = "<group>"; };
 		04CEA229222645E600CEE425 /* SwitchedOnAdditionalTimesReadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedOnAdditionalTimesReadable.swift; sourceTree = "<group>"; };
 		04CEA2312226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedOnAdditionalTimesWithIdsLoading.swift; sourceTree = "<group>"; };
-		04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeSavingDelegate.swift; sourceTree = "<group>"; };
+		04CEA2372227078000CEE425 /* CreateAdditionalTimeVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAdditionalTimeVCDelegate.swift; sourceTree = "<group>"; };
 		04CEA23B222793F100CEE425 /* AdditionalTimeRemovable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimeRemovable.swift; sourceTree = "<group>"; };
 		04CEA23E2228E5B500CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchedOnAdditionalTimesWithIdsSaving.swift; sourceTree = "<group>"; };
 		04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesLoading.swift; sourceTree = "<group>"; };
@@ -570,7 +568,7 @@
 			isa = PBXGroup;
 			children = (
 				04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */,
-				04CEA2372227078000CEE425 /* AdditionalTimeSavingDelegate.swift */,
+				04CEA2372227078000CEE425 /* CreateAdditionalTimeVCDelegate.swift */,
 				04CEA2412228F79A00CEE425 /* AdditionalTimesLoading.swift */,
 				04CEA247222A698B00CEE425 /* AdditionalTimesSaving.swift */,
 			);
@@ -632,7 +630,6 @@
 			isa = PBXGroup;
 			children = (
 				049821472222D23E00CEA932 /* CreateAdditionalTimeVC.swift */,
-				04CEA21E2224FCB100CEE425 /* AdditionalTimeCreating.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1284,7 +1281,6 @@
 				04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */,
 				040D906721E4F5840049F410 /* EditTagDropAreaVC.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
-				04CEA21F2224FCB100CEE425 /* AdditionalTimeCreating.swift in Sources */,
 				0498213C2222C93100CEA932 /* RepresentableInSectionedTable.swift in Sources */,
 				04469892226B172A00397E98 /* TaskModel+CoreDataClass.swift in Sources */,
 				04CEA253222E262C00CEE425 /* StatisticsVC.swift in Sources */,
@@ -1365,7 +1361,7 @@
 				04CEA2322226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */,
 				041312E6226B75A100E8E920 /* TaskProgressSaving.swift in Sources */,
 				043B225122620E050018CB68 /* TagLabel.swift in Sources */,
-				04CEA2382227078000CEE425 /* AdditionalTimeSavingDelegate.swift in Sources */,
+				04CEA2382227078000CEE425 /* CreateAdditionalTimeVCDelegate.swift in Sources */,
 				04EDD99B2249D67E00DF766C /* TaskDescriptionVCDelegate.swift in Sources */,
 				B96E0EC32193D8820097AB34 /* TaskStaticInfoSource.swift in Sources */,
 				0408C6482213CB44005B1B83 /* UserDaefaultsKeys.swift in Sources */,

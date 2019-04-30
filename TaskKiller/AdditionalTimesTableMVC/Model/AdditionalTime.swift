@@ -9,10 +9,11 @@
 import Foundation
 
 class AdditionalTime: NSObject, NSCoding {
-    static let timeKey = "time"
-    static let typeKey = "type"
-    static let toggleStateKey = "toggleState"
-    
+    enum CodingKeys {
+        static let timeKey = "time"
+        static let timeTypeKey = "type"
+        static let toggleStateKey = "toggleState"
+    }
     var time: TimeInterval
     var type: AdditionalTimeType
     var toggleState: ToggleState
@@ -23,14 +24,14 @@ class AdditionalTime: NSObject, NSCoding {
         self.toggleState = toggleState
     }
     required init?(coder aDecoder: NSCoder) {
-        self.time = AdditionalTime.decodeTime(withCoder: aDecoder, forKey: AdditionalTime.timeKey)
-        self.type = AdditionalTime.decodeTimeType(withCoder: aDecoder, forKey: AdditionalTime.typeKey)!
-        self.toggleState = AdditionalTime.decodeToggleState(withCoder: aDecoder, forKey: AdditionalTime.toggleStateKey)!
+        self.time = AdditionalTime.decodeTime(withCoder: aDecoder, forKey: CodingKeys.timeKey)
+        self.type = AdditionalTime.decodeTimeType(withCoder: aDecoder, forKey: CodingKeys.timeTypeKey)!
+        self.toggleState = AdditionalTime.decodeToggleState(withCoder: aDecoder, forKey: AdditionalTime.CodingKeys.toggleStateKey)!
     }
     func encode(with aCoder: NSCoder) {
-        aCoder.encode(time, forKey: AdditionalTime.timeKey)
-        aCoder.encode(type.rawValue, forKey: AdditionalTime.typeKey)
-        aCoder.encode(toggleState.rawValue, forKey: AdditionalTime.toggleStateKey)
+        aCoder.encode(time, forKey: CodingKeys.timeKey)
+        aCoder.encode(type.rawValue, forKey: CodingKeys.timeTypeKey)
+        aCoder.encode(toggleState.rawValue, forKey: CodingKeys.toggleStateKey)
     }
 }
 

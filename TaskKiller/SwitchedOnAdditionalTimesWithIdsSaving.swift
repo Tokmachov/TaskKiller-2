@@ -9,15 +9,18 @@
 import Foundation
 
 protocol SwitchedOnAdditionalTimesWithIdsSaving {
-    func saveSwitchedOnAdditionalTimesWithIds(from timesSource: SwitchedOnAdditionalTimesReadable)
+    func saveSwitchedOnAdditionalWorkTimesAndIds(_ times: SwitchedOnAdditionalWorkTimesAndIds)
+    func saveSwitchedOnAdditionalBreakTimesAndIds(_ times: SwitchedOnAdditionalBreakTimesAndIds)
 }
 
 extension SwitchedOnAdditionalTimesWithIdsSaving {
-    func saveSwitchedOnAdditionalTimesWithIds(from timesSource: SwitchedOnAdditionalTimesReadable) {
+    func saveSwitchedOnAdditionalWorkTimesAndIds(_ times: SwitchedOnAdditionalWorkTimesAndIds) {
         guard let userDeaults = UserDefaults(suiteName: TaskKillerGroupID.id) else { fatalError() }
-        let workTimes = timesSource.workTimesWithIds
-        let breakTimes = timesSource.breakTimesWithIds
-        userDeaults.set(workTimes, forKey: UserDefaultsKeys.additionalWorkTimesForIds)
-        userDeaults.set(breakTimes, forKey: UserDefaultsKeys.breakTimesForIds)
+        userDeaults.set(times, forKey: UserDefaultsKeys.additionalWorkTimesForIds)
+    
+    }
+    func saveSwitchedOnAdditionalBreakTimesAndIds(_ times: SwitchedOnAdditionalBreakTimesAndIds) {
+        guard let userDeaults = UserDefaults(suiteName: TaskKillerGroupID.id) else { fatalError() }
+        userDeaults.set(times, forKey: UserDefaultsKeys.breakTimesForIds)
     }
 }

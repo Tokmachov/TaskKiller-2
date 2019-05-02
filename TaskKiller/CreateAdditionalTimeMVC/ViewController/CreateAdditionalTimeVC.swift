@@ -11,7 +11,7 @@ import UIKit
 class CreateAdditionalTimeVC: UIViewController {
     
     //MARK: model
-    private var chosenAdditionalTimeType = AdditionalTimeType.additionalWorkTime {
+    private var chosenAdditionalTimeType = AdditionalTime.AdditionalTimeType.workTime {
         didSet {
             updateChosenAdditionalTimeTypeLabel(withType: chosenAdditionalTimeType)
         }
@@ -70,18 +70,18 @@ extension CreateAdditionalTimeVC {
         let sliderDescreteValue = slider.value.rounded()
         slider.setValue(sliderDescreteValue, animated: true)
     }
-    private func additionalTimeType(forValue sliderVaue: Float) -> AdditionalTimeType {
+    private func additionalTimeType(forValue sliderVaue: Float) -> AdditionalTime.AdditionalTimeType {
         let sliderValue = Int(sliderVaue)
-        var aditionalTimesTypesForSliderValues: [Int : AdditionalTimeType ] = [
-            0 : .additionalWorkTime,
+        var aditionalTimesTypesForSliderValues: [Int : AdditionalTime.AdditionalTimeType ] = [
+            0 : .workTime,
             1 : .breakTime
         ]
         let chosenAdditionalTimeType = aditionalTimesTypesForSliderValues[sliderValue]!
         return chosenAdditionalTimeType
     }
-    private func updateChosenAdditionalTimeTypeLabel(withType type: AdditionalTimeType) {
-        var additionalTimesTypeStringNamesForTypes: [AdditionalTimeType : String] = [
-            .additionalWorkTime : "Additional work time",
+    private func updateChosenAdditionalTimeTypeLabel(withType type: AdditionalTime.AdditionalTimeType) {
+        var additionalTimesTypeStringNamesForTypes: [AdditionalTime.AdditionalTimeType : String] = [
+            .workTime : "Additional work time",
             .breakTime : "Additional break time"
         ]
         let typeName = additionalTimesTypeStringNamesForTypes[type]!

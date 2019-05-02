@@ -22,7 +22,7 @@ class AdditionalTimeCell: UITableViewCell {
             timeLabel.setText(formattedTime)
         }
     }
-    private var toggleState: ToggleState = .off {
+    private var toggleState: AdditionalTime.ToggleState = .off {
         didSet {
             switch toggleState {
             case .on: timeSwitch.isOn = true
@@ -36,7 +36,7 @@ class AdditionalTimeCell: UITableViewCell {
     func setTime(_ time: TimeInterval) {
         self.time = time
     }
-    func setToggleState(_ toggleState: ToggleState) {
+    func setToggleState(_ toggleState: AdditionalTime.ToggleState) {
        self.toggleState = toggleState
     }
 }

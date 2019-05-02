@@ -10,16 +10,20 @@ import UIKit
 
 class AdditionalTimesTableViewController: UITableViewController,
     CreateAdditionalTimeVCDelegate,
-    AdditionalTimesLoading,
-    AdditionalTimesSaving,
     SwitchedOnAdditionalTimesWithIdsSaving
 {
     let cellId = "AdditionalTimeCell"
-    let workTimesSectionNumber = 0
-    let breakTimesSectionNumber = 1
     
     //MARK: Model
-    private lazy var model: TimesModelForTable = loadAdditionalTimes()
+    private var additionalTimesStore: AdditionalTimesStore {
+        get {
+            return tableViewModelController.additionalTimesStore
+        }
+    }
+    private lazy var tableViewModelController: AdditionalTimesTableViewModelController = {
+       let additionalTimesStore = loadAdditionalTimes()
+        return AdditionalTimesTableViewModelController(additionalTimesStore: additionalTimesStore)
+    }()
     
     //MARK: ViewController lifeCycle methods
     override func viewDidLoad() {
@@ -35,13 +39,12 @@ class AdditionalTimesTableViewController: UITableViewController,
     @IBAction func additionalTimeStateWasSwitched(_ sender: UISwitch) {
         let indexPath = getCellIndexPath(of: sender)
         let state = getTimeToggleState(sender)
-        switch indexPath.section {
-        case workTimesSectionNumber: model.changeToggleStateOfWorkTime(atIndex: indexPath.row, to: state)
-        case breakTimesSectionNumber: model.changeToggleStateOfBreakTime(atIndex: indexPath.row, to: state)
-        default: fatalError()
-        }
-        saveAdditionalTimes(model)
-        saveSwitchedOnAdditionalTimesWithIds(from: model)
+        tableViewModelController.changeToggleStateOfAdditionalTime(atIndexPath: indexPath, newTogglesState: state)
+        saveAdditionalTimes(additionalTimesStore)
+        let workTimes = getSwitchedOnAdditionalWorkTimesAndIds()
+        let breakTimes = getSwitchedOnAdditionalBreakTimesAndIds()
+        saveSwitchedOnAdditionalWorkTimesAndIds(workTimes)
+        saveSwitchedOnAdditionalBreakTimesAndIds(breakTimes)
     }
     
     //MARK: Segue methods
@@ -56,76 +59,59 @@ class AdditionalTimesTableViewController: UITableViewController,
     
     //MARK: createAdditionalTimeVCDelegate methods
     func createAdditionalTimeVC(_ cerateAdditionalTimeVC: CreateAdditionalTimeVC, didCreateAdditionalTime additionalTime: AdditionalTime) {
-        model.addAdditionalTime(additionalTime)
-        saveAdditionalTimes(model)
-        saveSwitchedOnAdditionalTimesWithIds(from: model)
+        tableViewModelController.add(additionalTime)
+        saveAdditionalTimes(additionalTimesStore)
+        let additionalWorkTimesAndIds = getSwitchedOnAdditionalWorkTimesAndIds()
+        let additionalBreakTImesAndIds = getSwitchedOnAdditionalBreakTimesAndIds()
+        saveSwitchedOnAdditionalWorkTimesAndIds(additionalWorkTimesAndIds)
+        saveSwitchedOnAdditionalBreakTimesAndIds(additionalBreakTImesAndIds)
     }
 }
 
 //MARK: TableViewDataSource, TableViewDelegate methods
 extension AdditionalTimesTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return model.numberOfAdditionalTimesTypes
+        return tableViewModelController.numberOfAdditionalTimesSections
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case workTimesSectionNumber: return model.additionalWorkTimes.count
-        case breakTimesSectionNumber: return model.additionalBreakTimes.count
-        default: return workTimesSectionNumber
-        }
+        return tableViewModelController.numberOfAdditionalTimes(inSectionNumber: section)
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = UILabel()
         sectionHeader.backgroundColor = UIColor.gray
-        switch section {
-        case workTimesSectionNumber:
-            sectionHeader.setText(model.titleForAdditionalWorkTimesSection)
-            return sectionHeader
-        case breakTimesSectionNumber:
-            sectionHeader.setText(model.titleForAdditionalBreakTimesSection)
-            return sectionHeader
-        default: fatalError()
-        }
+        let sectionTitle = tableViewModelController.sectionTitle(forSection: section)
+        sectionHeader.text = sectionTitle
+        return sectionHeader
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AdditionalTimeCell
-        configureCell(cell: cell, atIndexPath: indexPath, from: model)
+        configureCell(cell: cell, atIndexPath: indexPath, from: tableViewModelController)
         return cell
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
-        case .delete where indexPath.section == workTimesSectionNumber: model.removeWorkTime(atIndex: indexPath.row)
-        case .delete where indexPath.section == breakTimesSectionNumber: model.removeBreakTime(atIndex: indexPath.row)
+        case .delete :
+            tableViewModelController.removeAdditionalTime(atIndexPath: indexPath)
         default: break
         }
         tableView.deleteRows(at: [indexPath], with: .automatic)
-        saveAdditionalTimes(model)
-        saveSwitchedOnAdditionalTimesWithIds(from: model)
+        
+        saveAdditionalTimes(additionalTimesStore)
+        let additionalWorkTimesAndIds = getSwitchedOnAdditionalWorkTimesAndIds()
+        let additionalBreakTImesAndIds = getSwitchedOnAdditionalBreakTimesAndIds()
+        saveSwitchedOnAdditionalWorkTimesAndIds(additionalWorkTimesAndIds)
+        saveSwitchedOnAdditionalBreakTimesAndIds(additionalBreakTImesAndIds)
     }
 }
 
 //MARK: Utility functions
 extension AdditionalTimesTableViewController {
-    private func configureCell(cell: AdditionalTimeCell, atIndexPath indexPath: IndexPath, from additionalTimes: AdditionalTimes) {
-        let additionalTime = getAdditionalTime(from: additionalTimes, forIndexPath: indexPath)
-        
+    private func configureCell(cell: AdditionalTimeCell, atIndexPath indexPath: IndexPath, from additionalTimes: AdditionalTimesTableViewModelController) {
+        let additionalTime = tableViewModelController.additionalTime(forIndexPath: indexPath)
         let time = additionalTime.time
         let toggleState = additionalTime.toggleState
-
         cell.setTime(time)
         cell.setToggleState(toggleState)
-    }
-    private func getAdditionalTime(from additionalTimes: AdditionalTimes, forIndexPath indexPath: IndexPath) -> AdditionalTime {
-        let validSectionsRange = 0...2
-        guard validSectionsRange.contains(indexPath.section) else { fatalError() }
-        
-        let additionalTime: AdditionalTime
-        switch indexPath.section {
-        case workTimesSectionNumber: additionalTime = additionalTimes.additionalWorkTimes[indexPath.row]
-        case breakTimesSectionNumber: additionalTime = additionalTimes.additionalBreakTimes[indexPath.row]
-        default: fatalError()
-        }
-        return additionalTime
     }
     
     private func customizeNavigationBar() {
@@ -133,10 +119,10 @@ extension AdditionalTimesTableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    private func getTimeToggleState(_ sender: UISwitch) -> ToggleState {
+    private func getTimeToggleState(_ sender: UISwitch) -> AdditionalTime.ToggleState {
         switch sender.isOn {
-        case true: return ToggleState.on
-        case false: return ToggleState.off
+        case true: return AdditionalTime.ToggleState.on
+        case false: return AdditionalTime.ToggleState.off
         }
     }
     private func getCell(of sender: UISwitch) -> AdditionalTimeCell {
@@ -152,3 +138,41 @@ extension AdditionalTimesTableViewController {
 
 }
 
+extension AdditionalTimesTableViewController {
+    //MARK: loadAdditionalTimes()
+    private func loadAdditionalTimes() -> AdditionalTimesStore {
+        guard let data = loadAdditionalTimesDataFromUserDefaults() else { return AdditionalTimesStore() }
+        guard let additionalTimesStore = unarchiveAdditionalTimesData(data) else { fatalError() }
+        return additionalTimesStore
+    }
+    private func loadAdditionalTimesDataFromUserDefaults() -> Data? {
+        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesKey)
+        return additionalTimesData
+    }
+    private func unarchiveAdditionalTimesData(_ data: Data) -> AdditionalTimesStore? {
+        let additionalTimes = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? AdditionalTimesStore
+        return additionalTimes!
+    }
+}
+extension AdditionalTimesTableViewController {
+    //MARKL: saveAdditionalTimes
+    private func saveAdditionalTimes(_ times: AdditionalTimesStore) {
+        let data = try! NSKeyedArchiver.archivedData(withRootObject: times, requiringSecureCoding: false)
+        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        userDefaults!.set(data, forKey: UserDefaultsKeys.additionalTimesKey)
+    }
+}
+
+extension AdditionalTimesTableViewController {
+    private func getSwitchedOnAdditionalWorkTimesAndIds() -> SwitchedOnAdditionalWorkTimesAndIds {
+        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on }.map { (UUID.init().uuidString, $0.time) }
+        return Dictionary(uniqueKeysWithValues: timesAndIds)
+    }
+    private func getSwitchedOnAdditionalBreakTimesAndIds() -> SwitchedOnAdditionalBreakTimesAndIds {
+        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on }.map { (UUID.init().uuidString, $0.time) }
+        return Dictionary(uniqueKeysWithValues: timesAndIds)
+    }
+}
+typealias SwitchedOnAdditionalWorkTimesAndIds = [String : TimeInterval]
+typealias SwitchedOnAdditionalBreakTimesAndIds = [String : TimeInterval]

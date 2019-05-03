@@ -47,41 +47,10 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
         default: break
         }
     }
-    
-    //MARK: TableViewDelegate, datasource methods
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return fetchRequestController.sections!.count
-    }
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sections = fetchRequestController.sections else { fatalError() }
-        let sectionInfo = sections[section]
-        return sectionInfo.numberOfObjects
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskListCell
-        let taskModel = fetchRequestController.object(at: indexPath)
-        let task = taskFactory.makeTask(taskModel: taskModel)
-        let taskListModel = taskListModelFactory.makeTaskListModel(task: task)
-        configure(taskListCell: taskCell, withTask: taskListModel, cellIndex: indexPath.row, tagCollectionHeight: tagHeight)
-        return taskCell
-    }
+}
 
-    private func configure(taskListCell: TaskListCell, withTask taskListModel: TaskListModel, cellIndex: Int, tagCollectionHeight: CGFloat) {
-        taskListCell.taskDescription = taskListModel.taskDescription
-        taskListCell.cellIndex = cellIndex
-        taskListCell.adjustTagCollectionViewHeight(to: tagCollectionHeight)
-    }
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        switch editingStyle {
-        case .delete:
-            let task = fetchRequestController.object(at: indexPath)
-            PersistanceService.context.delete(task)
-            PersistanceService.saveContext()
-        default: break
-        }
-    }
-    
-    //MARK: NSFetchedResultsControllerDelegate
+//MARK: NSFetchedResultsControllerDelegate
+extension TaskListVC {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }
@@ -101,9 +70,6 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
     }
-
-}
-extension TaskListVC {
     private func createFetchResultsController() -> NSFetchedResultsController<TaskModel> {
         let fetchResuest: NSFetchRequest<TaskModel> = TaskModel.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: true)
@@ -115,6 +81,43 @@ extension TaskListVC {
     }
 }
 
+//MARK: TableViewDataSource
+extension TaskListVC {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return fetchRequestController.sections!.count
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let sections = fetchRequestController.sections else { fatalError() }
+        let sectionInfo = sections[section]
+        return sectionInfo.numberOfObjects
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let taskCell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath) as! TaskListCell
+        let taskModel = fetchRequestController.object(at: indexPath)
+        let task = taskFactory.makeTask(taskModel: taskModel)
+        let taskListModel = taskListModelFactory.makeTaskListModel(task: task)
+        configure(taskListCell: taskCell, withTask: taskListModel, cellIndex: indexPath.row, tagCollectionHeight: tagHeight)
+        return taskCell
+    }
+    
+    private func configure(taskListCell: TaskListCell, withTask taskListModel: TaskListModel, cellIndex: Int, tagCollectionHeight: CGFloat) {
+        taskListCell.taskDescription = taskListModel.taskDescription
+        taskListCell.cellIndex = cellIndex
+        taskListCell.adjustTagCollectionViewHeight(to: tagCollectionHeight)
+    }
+}
+//MARK: TableViewDelegate
+extension TaskListVC {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let task = fetchRequestController.object(at: indexPath)
+            PersistanceService.context.delete(task)
+            PersistanceService.saveContext()
+        default: break
+        }
+    }
+}
 //MARK: TagsCollection dataSource, DelegateFlowLayout methods
 extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

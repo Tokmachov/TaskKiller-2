@@ -9,30 +9,31 @@
 import UIKit
 import CoreData
 
-class AvailableTagsVC: UICollectionViewController {
+class AvailableTagsVC: UIViewController {
     
     private var tagFactory = TagFactoryImp()
-    weak var delegate: AvailableTagsVCDelegate!
     
+    weak var delegate: AvailableTagsVCDelegate!
+    var heightOfContent: CGFloat {
+        return tagsCollectionView.contentSize.height
+    }
     private var fetchResultsController: NSFetchedResultsController<TagModel>!
     private var collectionViewChangeContentsOperations = [BlockOperation]()
+    
+    @IBOutlet weak var tagsCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchResultsController = createTagFetchResultsController()
         fetchResultsController.delegate = self
-        collectionView.dragDelegate = self
-        collectionView.dragInteractionEnabled = true
-        collectionView.dropDelegate = self
-        collectionView.alwaysBounceVertical = true
-        collectionView.reorderingCadence = .slow
+        tagsCollectionView.dragInteractionEnabled = true
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
             alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
     }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        collectionView.reloadData()
+        tagsCollectionView.reloadData()
     }
 }
 
@@ -69,9 +70,9 @@ extension AvailableTagsVC: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert: collectionView.insertItems(at: [newIndexPath!])
-        case .delete: collectionView.deleteItems(at: [indexPath!])
-        case .update: self.collectionView.reloadItems(at: [indexPath!])
+        case .insert: tagsCollectionView.insertItems(at: [newIndexPath!])
+        case .delete: tagsCollectionView.deleteItems(at: [indexPath!])
+        case .update: tagsCollectionView.reloadItems(at: [indexPath!])
         default: break
         }
     }
@@ -79,15 +80,15 @@ extension AvailableTagsVC: NSFetchedResultsControllerDelegate {
     }
 }
 //MARK: UICollectionViewDataSource
-extension AvailableTagsVC {
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+extension AvailableTagsVC: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let tagsLoadedFromMemory = fetchResultsController.fetchedObjects else { fatalError("Tags are not loaded from memory") }
         return tagsLoadedFromMemory.count
     }
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let tagCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCell", for: indexPath) as! TagCell
         let tagModel = fetchResultsController.object(at: indexPath)
         let tag = tagFactory.makeTag(tagModel: tagModel)

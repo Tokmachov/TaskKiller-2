@@ -18,7 +18,7 @@ class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
     }
     @IBOutlet var dropAreaBackgroundView: DropAreaBackgroundView! {
         didSet {
-            dropAreaBackgroundView.circleColor = UIColor.blue
+            dropAreaBackgroundView.backGroundColor = UIColor.blue
         }
     }
     //MARK: UIDropInteractionDelegate

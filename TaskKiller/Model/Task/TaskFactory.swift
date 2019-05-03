@@ -24,6 +24,7 @@ struct TaskFactoryImp: TaskFactory {
         let taskModel = createTaskModel(from: taskStaticInfo)
         let task = TaskImp(task: taskModel, tagFactory: tagFactory)
         task.addTags(taskStaticInfo.tagsStore)
+        PersistanceService.saveContext()
         return task
     }
     func makeTask(taskModel: TaskModel) -> Task {
@@ -38,6 +39,7 @@ extension TaskFactoryImp {
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
         let currentDate = Date() as NSDate
+        
         let taskModel = TaskModel(context: PersistanceService.context)
         
         taskModel.id = id
@@ -45,8 +47,7 @@ extension TaskFactoryImp {
         taskModel.initialDeadLine = initiaLdeadLine
         taskModel.postponableDeadLine = postponableDeadline
         taskModel.dateCreated = currentDate
-        PersistanceService.saveContext()
-        
+
         return taskModel
     }
 }

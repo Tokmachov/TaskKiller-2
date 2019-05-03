@@ -9,11 +9,12 @@
 import UIKit
 
 class DropAreaBackgroundView: UIView {
-    var circleColor = UIColor.red
+    var backGroundColor = UIColor.red
+    private let cornerRadius: CGFloat = 20
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        let path = UIBezierPath(ovalIn: rect)
-        circleColor.setFill()
+        let path = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius)
+        backGroundColor.setFill()
         path.fill()
     }
 }

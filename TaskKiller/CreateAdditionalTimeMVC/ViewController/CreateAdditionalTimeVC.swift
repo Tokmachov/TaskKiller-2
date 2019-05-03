@@ -33,13 +33,13 @@ class CreateAdditionalTimeVC: UIViewController {
         super.viewDidLoad()
         setupSlider()
         moveSliderToInitialPosition()
-        
+        updateChosenAdditionalTimeType()
     }
     
     //MARK: Action methods
     @IBAction func sliderMoved(_ sender: UISlider) {
         moveSliderToClosestDescreteValue(sender)
-        chosenAdditionalTimeType = additionalTimeType(forValue: slider.value)
+        updateChosenAdditionalTimeType()
     }
     @IBAction func createAdditionalTimeButtonWasPressed() {
         let additionalTime = AdditionalTime(time: chosenAdditionalTimeValue, type: chosenAdditionalTimeType, toggleState: .on)
@@ -86,6 +86,9 @@ extension CreateAdditionalTimeVC {
         ]
         let typeName = additionalTimesTypeStringNamesForTypes[type]!
         chosenAdditionalTimeTypeLabel.setText(typeName)
+    }
+    private func updateChosenAdditionalTimeType() {
+        chosenAdditionalTimeType = additionalTimeType(forValue: slider.value)
     }
 }
 

@@ -74,7 +74,7 @@ extension AdditionalTimesTableViewController {
         return tableViewModelController.numberOfAdditionalTimesSections
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableViewModelController.numberOfAdditionalTimes(inSectionNumber: section)
+        return tableViewModelController.numberOfAdditionalTimes(inSection: section)
     }
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionHeader = UILabel()

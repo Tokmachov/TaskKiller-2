@@ -11,6 +11,5 @@ import Foundation
 protocol AvailableTagsVCDelegate: AnyObject {
     func availableTagsVCDidBegingDrag(_ availableTagsVC: AvailableTagsVC)
     func availableTagsVCDidEndDrag(_ availableTagsVC: AvailableTagsVC)
-    
 }
 

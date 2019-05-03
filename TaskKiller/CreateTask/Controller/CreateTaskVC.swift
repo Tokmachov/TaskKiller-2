@@ -18,7 +18,7 @@ class CreateTaskVC: UITableViewController,
     TagsAddedToTaskVCDelegate,
     RemoveTagFromTaskVCDelegate
 {
-  
+    
     private lazy var tagFactory: TagFactory = TagFactoryImp()
     private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: tagFactory)
     private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
@@ -39,6 +39,8 @@ class CreateTaskVC: UITableViewController,
                               tagsStore: tagsAddedToTask!
         )
     }
+    
+    //MARK: State flags
     private var isGoButtonEnabled: Bool {
         let isTaskDescriptionValid: Bool = {
             if let description = taskDescription, !description.isEmpty { return true }
@@ -57,7 +59,9 @@ class CreateTaskVC: UITableViewController,
     private let foldedDropAreasCellHeight: CGFloat = 0
     private let foldedAvailableTagsCellHeight: CGFloat = 0
     private var unfoldedAvailableTagsCellHeight: CGFloat {
-        return min(availableTagsVC.heightOfContent, view.bounds.height / 2.5) + createTagButton.intrinsicContentSize.height
+        let minimumHeight = tableView.bounds.height / 7
+        let maximumHeight = tableView.bounds.height / 2.5
+        return min(max(minimumHeight, availableTagsVC.heightOfContent), maximumHeight) + createTagButton.intrinsicContentSize.height
     }
     private var availableTagsCellIndexPath: IndexPath {
         return tableView.indexPath(for: availableTagsCell)!
@@ -68,7 +72,8 @@ class CreateTaskVC: UITableViewController,
     @IBOutlet weak var dropAreasHeight: NSLayoutConstraint!
     @IBOutlet weak var tagsAddedToTaskHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var availableTagsViewHeightConstraint: NSLayoutConstraint!
-   
+    
+    //MARK: Views outlets
     @IBOutlet weak var dropAreaViewForTagDeleting: UIView!
     @IBOutlet weak var dropAreaViewForRemovingTagFromTask: UIView!
     @IBOutlet weak var dropAreaViewForTagEditing: UIView!
@@ -215,7 +220,7 @@ extension CreateTaskVC {
         goButton.isEnabled = isGoButtonEnabled
     }
     private func showDropAreaForTagDeletingAndEditing() {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.dropAreaViewForTagDeleting.isHidden = false
             self.dropAreaViewForTagEditing.isHidden = false
             self.dropAreaViewForTagDeleting.alpha = 1
@@ -223,7 +228,7 @@ extension CreateTaskVC {
         }, completion: nil)
     }
     private func hideDropAreaForTagDeleingAndEditing() {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.dropAreaViewForTagDeleting.alpha = 0
             self.dropAreaViewForTagEditing.alpha = 0
         }, completion: {_ in
@@ -232,13 +237,13 @@ extension CreateTaskVC {
         })
     }
     private func showDropAreaForRemovingOfTagFromTask() {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.dropAreaViewForRemovingTagFromTask.isHidden = false
             self.dropAreaViewForRemovingTagFromTask.alpha = 1
         }, completion: nil)
     }
     private func hideDropAreaForRemovingOfTagFromTask() {
-        UIView.animate(withDuration: 1, animations: {
+        UIView.animate(withDuration: 0.3, animations: {
             self.dropAreaViewForRemovingTagFromTask.alpha = 0
         }, completion: { _ in
             self.dropAreaViewForRemovingTagFromTask.isHidden = true
@@ -254,19 +259,19 @@ extension CreateTaskVC {
             self.tagsAddedToTaskHeightConstraint.constant = height
         }, completion: nil)
     }
-    private func unfoldAvailableTagsRow(andThen completion: @escaping ()->()) {
-        tableView.performBatchUpdates({
-            availableTagsViewHeightConstraint.constant = unfoldedAvailableTagsCellHeight
-        }, completion: { _ in
-            completion()
-        })
+    
+    private func stopAddingTags() {
+        isInTagAddingProcess = false
+        changeTagAddingButtonToAdd()
+        foldAvailableTagsViewRow()
     }
-    private func foldAvailableTagsViewRow() {
-        tableView.performBatchUpdates({
-            availableTagsViewHeightConstraint.constant = foldedAvailableTagsCellHeight
-        }, completion: nil)
+    private func startAddingTags() {
+        isInTagAddingProcess = true
+        taskDescriptionVC.finishTextInput()
+        changeTagAddingButtonToDone()
+        unfoldAvailableTagsRow { self.positionAvailableTagsRow() }
     }
-  
+    
     private func changeTagAddingButtonToDone() {
         guard let image = UIImage(named: "DoneTagAdding") else {
             tagAddingButton.setTitle("Done", for: .normal)
@@ -281,15 +286,19 @@ extension CreateTaskVC {
         }
         tagAddingButton.setImage(image, for: .normal)
     }
-    private func stopAddingTags() {
-        isInTagAddingProcess = false
-        changeTagAddingButtonToAdd()
-        foldAvailableTagsViewRow()
+    private func foldAvailableTagsViewRow() {
+        tableView.performBatchUpdates({
+            availableTagsViewHeightConstraint.constant = foldedAvailableTagsCellHeight
+        }, completion: nil)
     }
-    private func startAddingTags() {
-        isInTagAddingProcess = true
-        changeTagAddingButtonToDone()
-        unfoldAvailableTagsRow { self.positionAvailableTagsRow() }
+    private func unfoldAvailableTagsRow(andThen completion: (()->())?) {
+        
+        tableView.performBatchUpdates({
+            availableTagsViewHeightConstraint.constant = unfoldedAvailableTagsCellHeight
+        }, completion: { _ in
+            guard completion != nil else { return }
+            completion!()
+        })
     }
     private func positionAvailableTagsRow() {
         tableView.scrollToRow(at: availableTagsCellIndexPath, at: .bottom, animated: true)

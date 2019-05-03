@@ -70,8 +70,10 @@ extension AvailableTagsVC: NSFetchedResultsControllerDelegate {
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .insert: tagsCollectionView.insertItems(at: [newIndexPath!])
-        case .delete: tagsCollectionView.deleteItems(at: [indexPath!])
+        case .insert:
+            tagsCollectionView.insertItems(at: [newIndexPath!])
+        case .delete:
+            tagsCollectionView.deleteItems(at: [indexPath!])
         case .update: tagsCollectionView.reloadItems(at: [indexPath!])
         default: break
         }

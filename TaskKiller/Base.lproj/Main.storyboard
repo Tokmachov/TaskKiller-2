@@ -147,10 +147,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="uiW-oZ-r6u" userLabel="Deadline Section">
+                            <tableViewSection headerTitle="Chose deadline" id="uiW-oZ-r6u" userLabel="Deadline Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="YLP-AT-n5n" userLabel="DeadLineCell">
-                                        <rect key="frame" x="0.0" y="135.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YLP-AT-n5n" id="PMj-B0-gXP">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -176,17 +176,17 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="z31-gs-beA" userLabel="TagsAddedToTask">
+                            <tableViewSection headerTitle="Add tags" id="z31-gs-beA" userLabel="TagsAddedToTask Section">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="o2R-Hg-Vsq">
-                                        <rect key="frame" x="0.0" y="215.5" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="o2R-Hg-Vsq" userLabel="TagsAddedToTask Cell">
+                                        <rect key="frame" x="0.0" y="255.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o2R-Hg-Vsq" id="fNg-XQ-NVy">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fa-Gn-nhE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="270" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="60" id="bZL-R9-WvZ"/>
                                                     </constraints>
@@ -195,7 +195,10 @@
                                                     </connections>
                                                 </containerView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-4L-GSV">
-                                                    <rect key="frame" x="280" y="0.0" width="30" height="43.5"/>
+                                                    <rect key="frame" x="266.5" y="0.0" width="43.5" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="AnD-4L-GSV" secondAttribute="height" multiplier="1:1" id="cDZ-7M-YP9"/>
+                                                    </constraints>
                                                     <connections>
                                                         <action selector="addTagButtonWasPressed" destination="DrB-Rl-csE" eventType="touchUpInside" id="4t6-hw-sMc"/>
                                                     </connections>
@@ -214,10 +217,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags">
+                            <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="9zz-OW-wax" userLabel="DropAreasCell">
-                                        <rect key="frame" x="0.0" y="295.5" width="320" height="67"/>
+                                        <rect key="frame" x="0.0" y="335.5" width="320" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9zz-OW-wax" id="oba-70-yKF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
@@ -271,8 +274,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="dH8-wu-Chv" userLabel="AvailableTagsCell">
-                                        <rect key="frame" x="0.0" y="362.5" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="dH8-wu-Chv" userLabel="AvailableTags Cell">
+                                        <rect key="frame" x="0.0" y="402.5" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dH8-wu-Chv" id="KdD-xo-6tP">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -1315,7 +1318,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5077.5" y="588.38028169014081"/>
+            <point key="canvasLocation" x="5001" y="1060"/>
         </scene>
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
@@ -1754,7 +1757,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrM-2O-y9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4080" y="1272"/>
+            <point key="canvasLocation" x="4114" y="1722"/>
         </scene>
         <!--Delete Tag Drop AreaVC-->
         <scene sceneID="dfJ-TF-Ktw">
@@ -1911,18 +1914,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esl-3P-bis" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4080" y="588.38028169014081"/>
+            <point key="canvasLocation" x="4114" y="1060"/>
         </scene>
         <!--Tags Added To TaskVC-->
         <scene sceneID="kbi-eK-4cV">
             <objects>
                 <viewController id="h9E-VH-fRi" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFj-n7-n9B">
-                        <rect key="frame" x="0.0" y="0.0" width="270" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eM0-KV-8jY">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="43.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aax-27-pO9">
                                     <size key="itemSize" width="50" height="50"/>

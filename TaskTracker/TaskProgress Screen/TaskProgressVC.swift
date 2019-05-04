@@ -56,7 +56,6 @@ class TaskProgressVC: UIViewController,
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

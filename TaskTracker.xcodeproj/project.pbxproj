@@ -393,6 +393,7 @@
 		042F43992201553300AF2682 /* AlarmController */ = {
 			isa = PBXGroup;
 			children = (
+				04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */,
 				042F439C22015A0200AF2682 /* TaskAlarmsController.swift */,
 				042F439A2201555500AF2682 /* AlarmsControlling.swift */,
 				0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */,
@@ -922,7 +923,6 @@
 			isa = PBXGroup;
 			children = (
 				B9A8B142219843980085FCA0 /* TaskProgressVC.swift */,
-				04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */,
 				B9A8B17C219D20230085FCA0 /* State */,
 				B997F63D21A6660E00750092 /* TaskStaticInfoViewController */,
 				042F43992201553300AF2682 /* AlarmController */,

@@ -91,6 +91,8 @@
 		0498EF5621ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */; };
 		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
 		04990B43227DE2A10017CAE3 /* TagCellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */; };
+		049C4A9B227DFA9F00CA8048 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
+		049C4A9C227DFAA200CA8048 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B225022620E050018CB68 /* TagLabel.swift */; };
 		04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */; };
 		04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */; };
 		04C23FD0220D3BB7006761ED /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C23FCF220D3BB7006761ED /* UserNotifications.framework */; };
@@ -803,6 +805,7 @@
 				0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */,
 				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E7F219347E50097AB34 /* TaskTracker */,
+				04C23FD3220D3BB7006761ED /* TaskExtension */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,
 				04C23FCE220D3BB7006761ED /* Frameworks */,
 				B96E0E7E219347E50097AB34 /* Products */,
@@ -835,7 +838,6 @@
 				049821442222CA8400CEA932 /* AdditionalTimesTable Screen */,
 				049821462222D21500CEA932 /* CreateAdditionalTime Screen */,
 				04CEA251222E25DF00CEE425 /* Statistics Screen */,
-				04C23FD3220D3BB7006761ED /* TaskExtension */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
 				B96E0E8F219347E60097AB34 /* Info.plist */,
 			);
@@ -1121,6 +1123,7 @@
 				04F170282234F474006F062D /* ValidDay.swift in Sources */,
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				04CEA24A222A9CC800CEE425 /* AlarmsControlling.swift in Sources */,
+				049C4A9C227DFAA200CA8048 /* TagLabel.swift in Sources */,
 				041312E7226B75CB00E8E920 /* TaskProgressSaving.swift in Sources */,
 				04CEA2342227027300CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */,
 				040A05B82279924E0082D02B /* AddTimeCell.swift in Sources */,
@@ -1134,6 +1137,7 @@
 				04F170272234F471006F062D /* PlaceHolderDay.swift in Sources */,
 				04EEBBC4227DA5A300254FE7 /* PeriodModel+CoreDataClass.swift in Sources */,
 				040A05B6227992160082D02B /* CreateAdditionalTimeVCDelegate.swift in Sources */,
+				049C4A9B227DFA9F00CA8048 /* TagCell.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				041312EF22700EFC00E8E920 /* TaskFactory.swift in Sources */,
 				04F1701F2234ED95006F062D /* DayCell.swift in Sources */,

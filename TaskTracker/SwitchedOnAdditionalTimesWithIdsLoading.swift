@@ -27,3 +27,9 @@ extension SwitchedOnAdditionalTimesWithIdsLoading {
         return possibleBreakTimes!
     }
 }
+
+extension SwitchedOnAdditionalWorkTimesAndIds {
+    func printHello() {
+        print("Hello")
+    }
+}

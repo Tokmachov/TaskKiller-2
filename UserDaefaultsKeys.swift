@@ -15,3 +15,4 @@ struct UserDefaultsKeys {
 }
 
 print("Test")
+print("Test2")

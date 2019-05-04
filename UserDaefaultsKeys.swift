@@ -13,3 +13,5 @@ struct UserDefaultsKeys {
     static var additionalWorkTimesForIds = "additionalWorkTimesForKeys"
     static var breakTimesForIds = "breakTimesForKeys"
 }
+
+print("Test")

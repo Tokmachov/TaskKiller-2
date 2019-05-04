@@ -90,6 +90,7 @@
 		0498EF5221ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */; };
 		0498EF5621ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */; };
 		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
+		04990B43227DE2A10017CAE3 /* TagCellConfiguring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */; };
 		04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */; };
 		04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */; };
 		04C23FD0220D3BB7006761ED /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C23FCF220D3BB7006761ED /* UserNotifications.framework */; };
@@ -369,21 +370,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0406D3CD21E0CC8C003A6E68 /* View */ = {
+		040D906F21E789B60049F410 /* TagsAddedToTask */ = {
 			isa = PBXGroup;
 			children = (
-				047FACDF224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift */,
+				047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */,
+				040D907021E789F70049F410 /* TagsAddedToTaskVC.swift */,
+				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		040D906F21E789B60049F410 /* TagsAddedToTaskVC */ = {
-			isa = PBXGroup;
-			children = (
-				047FACF2225317FD00DB59D9 /* View */,
-				04EDD99D2249E2FA00DF766C /* Controller */,
-			);
-			path = TagsAddedToTaskVC;
+			path = TagsAddedToTask;
 			sourceTree = "<group>";
 		};
 		042768D421FEAA8300FA2442 /* ProgressTimesLabelsController */ = {
@@ -405,50 +399,42 @@
 			path = AlarmController;
 			sourceTree = "<group>";
 		};
-		046740712257C9F20045B812 /* RemoveTagFromTaskDropAreaMVC */ = {
+		046740712257C9F20045B812 /* RemoveTagFromTaskDropArea */ = {
 			isa = PBXGroup;
 			children = (
 				0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */,
 				0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */,
 			);
-			path = RemoveTagFromTaskDropAreaMVC;
+			path = RemoveTagFromTaskDropArea;
 			sourceTree = "<group>";
 		};
-		047FACDC224DD48B00DB59D9 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */,
-				047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		047FACDD224DD49D00DB59D9 /* View */ = {
+		047FACDD224DD49D00DB59D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				04EDD9A1224C7D4400DF766C /* ColorSampleView.swift */,
 				047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */,
 				047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		047FACDE224F579100DB59D9 /* AvailableTagsMVC */ = {
+		047FACDE224F579100DB59D9 /* AvailableTags */ = {
 			isa = PBXGroup;
 			children = (
-				0406D3CD21E0CC8C003A6E68 /* View */,
-				B96E0EBA2193D7C70097AB34 /* TagsVC */,
+				047FACDF224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift */,
+				B96E0EA82193D61C0097AB34 /* AvailableTagsVC.swift */,
+				0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */,
 			);
-			path = AvailableTagsMVC;
+			path = AvailableTags;
 			sourceTree = "<group>";
 		};
-		047FACE3224FD24800DB59D9 /* DeletTagDropAreaMVC */ = {
+		047FACE3224FD24800DB59D9 /* DeletTagDropArea */ = {
 			isa = PBXGroup;
 			children = (
-				043B2238225B453D0018CB68 /* DropAreaBackgroundView.swift */,
+				04990B44227DE4650017CAE3 /* View */,
 				047FACE4224FD5F600DB59D9 /* Controller */,
 			);
-			path = DeletTagDropAreaMVC;
+			path = DeletTagDropArea;
 			sourceTree = "<group>";
 		};
 		047FACE4224FD5F600DB59D9 /* Controller */ = {
@@ -460,21 +446,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		047FACE62251CC3000DB59D9 /* EditTagDropAreaMVC */ = {
-			isa = PBXGroup;
-			children = (
-				047FACE72251CD9300DB59D9 /* Controller */,
-			);
-			path = EditTagDropAreaMVC;
-			sourceTree = "<group>";
-		};
-		047FACE72251CD9300DB59D9 /* Controller */ = {
+		047FACE62251CC3000DB59D9 /* EditTagDropArea */ = {
 			isa = PBXGroup;
 			children = (
 				040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */,
 				0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */,
 			);
-			path = Controller;
+			path = EditTagDropArea;
 			sourceTree = "<group>";
 		};
 		047FACE82251D3A100DB59D9 /* EditTagVC */ = {
@@ -486,22 +464,15 @@
 			path = EditTagVC;
 			sourceTree = "<group>";
 		};
-		047FACED22530A0800DB59D9 /* CreateEditTagMVC */ = {
+		047FACED22530A0800DB59D9 /* CreateEditTag */ = {
 			isa = PBXGroup;
 			children = (
 				047FACEE22530A4E00DB59D9 /* TagConstants.swift */,
-				04EDD99E224C7CE600DF766C /* CreateTagMVC */,
+				047FACDD224DD49D00DB59D9 /* Views */,
+				04EDD99E224C7CE600DF766C /* CreateTagVC */,
 				047FACE82251D3A100DB59D9 /* EditTagVC */,
 			);
-			path = CreateEditTagMVC;
-			sourceTree = "<group>";
-		};
-		047FACF2225317FD00DB59D9 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */,
-			);
-			path = View;
+			path = CreateEditTag;
 			sourceTree = "<group>";
 		};
 		048A4C02222E27AA00D71D6E /* Calendar */ = {
@@ -549,14 +520,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		049821442222CA8400CEA932 /* AdditionalTimesTableMVC */ = {
+		049821442222CA8400CEA932 /* AdditionalTimesTable Screen */ = {
 			isa = PBXGroup;
 			children = (
 				049821432222CA3200CEA932 /* Model */,
 				049821452222CADA00CEA932 /* View - cell */,
 				0498212B221CF59200CEA932 /* Controller */,
 			);
-			path = AdditionalTimesTableMVC;
+			path = "AdditionalTimesTable Screen";
 			sourceTree = "<group>";
 		};
 		049821452222CADA00CEA932 /* View - cell */ = {
@@ -567,12 +538,12 @@
 			path = "View - cell";
 			sourceTree = "<group>";
 		};
-		049821462222D21500CEA932 /* CreateAdditionalTimeMVC */ = {
+		049821462222D21500CEA932 /* CreateAdditionalTime Screen */ = {
 			isa = PBXGroup;
 			children = (
 				049821492222D25E00CEA932 /* ViewController */,
 			);
-			path = CreateAdditionalTimeMVC;
+			path = "CreateAdditionalTime Screen";
 			sourceTree = "<group>";
 		};
 		049821492222D25E00CEA932 /* ViewController */ = {
@@ -608,6 +579,51 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		04990B3F227DD0B70017CAE3 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				B9A8B15121992D270085FCA0 /* TaskFactory.swift */,
+				B9A8B14D219929E50085FCA0 /* Task.swift */,
+			);
+			name = Task;
+			path = Task/Task;
+			sourceTree = "<group>";
+		};
+		04990B40227DD0CB0017CAE3 /* TaskListModel */ = {
+			isa = PBXGroup;
+			children = (
+				043B223E225C48CA0018CB68 /* TaskListModelFactory.swift */,
+				B9A8B19C21A2D70D0085FCA0 /* TaskListModel.swift */,
+			);
+			path = TaskListModel;
+			sourceTree = "<group>";
+		};
+		04990B41227DD0ED0017CAE3 /* TaskProgressModel */ = {
+			isa = PBXGroup;
+			children = (
+				041312DB226B4AA000E8E920 /* TaskProgressModelFactory.swift */,
+				B9A8B15C219A74B90085FCA0 /* TaskProgressModel.swift */,
+			);
+			path = TaskProgressModel;
+			sourceTree = "<group>";
+		};
+		04990B42227DE23B0017CAE3 /* Common Views */ = {
+			isa = PBXGroup;
+			children = (
+				049909BB21CB49E500DCC3CA /* TagCell.swift */,
+				043B225022620E050018CB68 /* TagLabel.swift */,
+			);
+			path = "Common Views";
+			sourceTree = "<group>";
+		};
+		04990B44227DE4650017CAE3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				043B2238225B453D0018CB68 /* DropAreaBackgroundView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04C23FCE220D3BB7006761ED /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,111 +644,98 @@
 			path = TaskExtension;
 			sourceTree = "<group>";
 		};
-		04CEA251222E25DF00CEE425 /* Statistics */ = {
+		04CEA251222E25DF00CEE425 /* Statistics Screen */ = {
 			isa = PBXGroup;
 			children = (
 				04CEA252222E262C00CEE425 /* StatisticsVC.swift */,
 				048A4C02222E27AA00D71D6E /* Calendar */,
 			);
-			path = Statistics;
+			path = "Statistics Screen";
 			sourceTree = "<group>";
 		};
 		04EDD97722464D4400DF766C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				041312E5226B75A100E8E920 /* TaskProgressSaving.swift */,
+				041312D7226B4A2B00E8E920 /* DeadlinePostponable.swift */,
+				04990B3F227DD0B70017CAE3 /* Task */,
 				B9A8B141219842810085FCA0 /* Tag */,
-				B96E0EC62193E7740097AB34 /* Task */,
+				04990B41227DD0ED0017CAE3 /* TaskProgressModel */,
+				04990B40227DD0CB0017CAE3 /* TaskListModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		04EDD97822464E1200DF766C /* dataStructuresAndInterfaces */ = {
+		04EDD97822464E1200DF766C /* Common types */ = {
 			isa = PBXGroup;
 			children = (
+				047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */,
+				04CEA2312226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift */,
+				04CEA23E2228E5B500CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift */,
 				B9A8B13F219842160085FCA0 /* TaskProgressTimes */,
 				B9A8B13E219841FC0085FCA0 /* TaskStaticInfo */,
 				B9A8B170219BCED90085FCA0 /* TaskProgressPeriod */,
 			);
-			path = dataStructuresAndInterfaces;
+			path = "Common types";
 			sourceTree = "<group>";
 		};
-		04EDD97922465E4100DF766C /* View */ = {
+		04EDD97922465E4100DF766C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				049909BB21CB49E500DCC3CA /* TagCell.swift */,
-				043B225022620E050018CB68 /* TagLabel.swift */,
 				B9A8B1162196C3BF0085FCA0 /* TaskListCell.swift */,
 				043B2248225EFDCC0018CB68 /* TaskListTagCollectionFlowLayout.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		04EDD97A22465E4800DF766C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				B9A8B11321953C540085FCA0 /* TaskListVC.swift */,
-				047FACEB2253038F00DB59D9 /* TagCellConfiguring.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		04EDD97B22465EF500DF766C /* Controller */ = {
+		04EDD9822246646000DF766C /* DeadLine */ = {
 			isa = PBXGroup;
 			children = (
-				04EDD98D22468E4C00DF766C /* CreateTaskVC.swift */,
-				04EDD98C224673E400DF766C /* ChildVCs */,
+				04EDD99122493E4A00DF766C /* DeadlineVC.swift */,
+				04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		04EDD9822246646000DF766C /* DeadLineSelectionMVC */ = {
-			isa = PBXGroup;
-			children = (
-				B96E0EB62193D7430097AB34 /* DeadLineVC */,
-			);
-			path = DeadLineSelectionMVC;
+			path = DeadLine;
 			sourceTree = "<group>";
 		};
 		04EDD98C224673E400DF766C /* ChildVCs */ = {
 			isa = PBXGroup;
 			children = (
-				04EDD9952249D2B800DF766C /* TaskDescriptionMVC */,
-				04EDD9822246646000DF766C /* DeadLineSelectionMVC */,
-				047FACDE224F579100DB59D9 /* AvailableTagsMVC */,
-				047FACED22530A0800DB59D9 /* CreateEditTagMVC */,
-				047FACE3224FD24800DB59D9 /* DeletTagDropAreaMVC */,
-				047FACE62251CC3000DB59D9 /* EditTagDropAreaMVC */,
-				046740712257C9F20045B812 /* RemoveTagFromTaskDropAreaMVC */,
-				040D906F21E789B60049F410 /* TagsAddedToTaskVC */,
+				04EDD9952249D2B800DF766C /* TaskDescription */,
+				04EDD9822246646000DF766C /* DeadLine */,
+				047FACDE224F579100DB59D9 /* AvailableTags */,
+				047FACED22530A0800DB59D9 /* CreateEditTag */,
+				047FACE3224FD24800DB59D9 /* DeletTagDropArea */,
+				047FACE62251CC3000DB59D9 /* EditTagDropArea */,
+				046740712257C9F20045B812 /* RemoveTagFromTaskDropArea */,
+				040D906F21E789B60049F410 /* TagsAddedToTask */,
 			);
 			path = ChildVCs;
 			sourceTree = "<group>";
 		};
-		04EDD9952249D2B800DF766C /* TaskDescriptionMVC */ = {
+		04EDD9952249D2B800DF766C /* TaskDescription */ = {
 			isa = PBXGroup;
 			children = (
 				04EDD9982249D34100DF766C /* TaskDescriptionVC.swift */,
 				04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */,
 			);
-			path = TaskDescriptionMVC;
+			path = TaskDescription;
 			sourceTree = "<group>";
 		};
-		04EDD99D2249E2FA00DF766C /* Controller */ = {
+		04EDD99E224C7CE600DF766C /* CreateTagVC */ = {
 			isa = PBXGroup;
 			children = (
-				040D907021E789F70049F410 /* TagsAddedToTaskVC.swift */,
-				0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */,
+				04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */,
+				047FACD8224DC9D200DB59D9 /* CreateTagVCDelegate.swift */,
 			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		04EDD99E224C7CE600DF766C /* CreateTagMVC */ = {
-			isa = PBXGroup;
-			children = (
-				047FACDD224DD49D00DB59D9 /* View */,
-				047FACDC224DD48B00DB59D9 /* Controller */,
-			);
-			path = CreateTagMVC;
+			path = CreateTagVC;
 			sourceTree = "<group>";
 		};
 		04F17005223360F6006F062D /* Model */ = {
@@ -800,7 +803,6 @@
 				0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */,
 				0498EF5021ED7B7C00676FAB /* CoreData */,
 				B96E0E7F219347E50097AB34 /* TaskTracker */,
-				04C23FD3220D3BB7006761ED /* TaskExtension */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,
 				04C23FCE220D3BB7006761ED /* Frameworks */,
 				B96E0E7E219347E50097AB34 /* Products */,
@@ -825,15 +827,15 @@
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				0498EF3F21EC1F6C00676FAB /* Extensions */,
 				04EDD97722464D4400DF766C /* Model */,
-				04EDD97822464E1200DF766C /* dataStructuresAndInterfaces */,
-				B9A8B11221953A5B0085FCA0 /* TaskList */,
-				B96E0EA32193D5900097AB34 /* CreateTask */,
-				B9A8B14621984A740085FCA0 /* TaskProgress */,
-				04CEA2312226FE7100CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift */,
-				04CEA23E2228E5B500CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift */,
-				049821442222CA8400CEA932 /* AdditionalTimesTableMVC */,
-				049821462222D21500CEA932 /* CreateAdditionalTimeMVC */,
-				04CEA251222E25DF00CEE425 /* Statistics */,
+				04EDD97822464E1200DF766C /* Common types */,
+				04990B42227DE23B0017CAE3 /* Common Views */,
+				B9A8B11221953A5B0085FCA0 /* TaskList Screen */,
+				B96E0EA32193D5900097AB34 /* CreateTask Screen */,
+				B9A8B14621984A740085FCA0 /* TaskProgress Screen */,
+				049821442222CA8400CEA932 /* AdditionalTimesTable Screen */,
+				049821462222D21500CEA932 /* CreateAdditionalTime Screen */,
+				04CEA251222E25DF00CEE425 /* Statistics Screen */,
+				04C23FD3220D3BB7006761ED /* TaskExtension */,
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
 				B96E0E8F219347E60097AB34 /* Info.plist */,
 			);
@@ -848,45 +850,13 @@
 			path = TaskKillerTests;
 			sourceTree = "<group>";
 		};
-		B96E0EA32193D5900097AB34 /* CreateTask */ = {
+		B96E0EA32193D5900097AB34 /* CreateTask Screen */ = {
 			isa = PBXGroup;
 			children = (
-				04EDD97B22465EF500DF766C /* Controller */,
+				04EDD98D22468E4C00DF766C /* CreateTaskVC.swift */,
+				04EDD98C224673E400DF766C /* ChildVCs */,
 			);
-			path = CreateTask;
-			sourceTree = "<group>";
-		};
-		B96E0EB62193D7430097AB34 /* DeadLineVC */ = {
-			isa = PBXGroup;
-			children = (
-				04EDD99122493E4A00DF766C /* DeadlineVC.swift */,
-				04EDD98F22493E1A00DF766C /* DeadlineVCDelegate.swift */,
-			);
-			path = DeadLineVC;
-			sourceTree = "<group>";
-		};
-		B96E0EBA2193D7C70097AB34 /* TagsVC */ = {
-			isa = PBXGroup;
-			children = (
-				B96E0EA82193D61C0097AB34 /* AvailableTagsVC.swift */,
-				0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */,
-			);
-			path = TagsVC;
-			sourceTree = "<group>";
-		};
-		B96E0EC62193E7740097AB34 /* Task */ = {
-			isa = PBXGroup;
-			children = (
-				B9A8B15121992D270085FCA0 /* TaskFactory.swift */,
-				B9A8B14D219929E50085FCA0 /* Task.swift */,
-				043B223E225C48CA0018CB68 /* TaskListModelFactory.swift */,
-				B9A8B19C21A2D70D0085FCA0 /* TaskListModel.swift */,
-				041312DB226B4AA000E8E920 /* TaskProgressModelFactory.swift */,
-				B9A8B15C219A74B90085FCA0 /* TaskProgressModel.swift */,
-				041312D7226B4A2B00E8E920 /* DeadlinePostponable.swift */,
-				041312E5226B75A100E8E920 /* TaskProgressSaving.swift */,
-			);
-			path = Task;
+			path = "CreateTask Screen";
 			sourceTree = "<group>";
 		};
 		B997F63D21A6660E00750092 /* TaskStaticInfoViewController */ = {
@@ -906,13 +876,13 @@
 			path = UIProgressTimesUpdater;
 			sourceTree = "<group>";
 		};
-		B9A8B11221953A5B0085FCA0 /* TaskList */ = {
+		B9A8B11221953A5B0085FCA0 /* TaskList Screen */ = {
 			isa = PBXGroup;
 			children = (
-				04EDD97922465E4100DF766C /* View */,
+				04EDD97922465E4100DF766C /* Views */,
 				04EDD97A22465E4800DF766C /* Controller */,
 			);
-			path = TaskList;
+			path = "TaskList Screen";
 			sourceTree = "<group>";
 		};
 		B9A8B13E219841FC0085FCA0 /* TaskStaticInfo */ = {
@@ -945,7 +915,7 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
-		B9A8B14621984A740085FCA0 /* TaskProgress */ = {
+		B9A8B14621984A740085FCA0 /* TaskProgress Screen */ = {
 			isa = PBXGroup;
 			children = (
 				B9A8B142219843980085FCA0 /* TaskProgressVC.swift */,
@@ -959,7 +929,7 @@
 				B997F63E21A6662D00750092 /* UIProgressTimesUpdater */,
 				B9A8B166219A84FE0085FCA0 /* StateRepresentation */,
 			);
-			path = TaskProgress;
+			path = "TaskProgress Screen";
 			sourceTree = "<group>";
 		};
 		B9A8B166219A84FE0085FCA0 /* StateRepresentation */ = {
@@ -1179,6 +1149,7 @@
 				041312E8226B772100E8E920 /* TaskProgressModelFactory.swift in Sources */,
 				04F1702A2234F497006F062D /* Calendar.swift in Sources */,
 				04F170292234F489006F062D /* MonthsModelsStoreFactory.swift in Sources */,
+				04990B43227DE2A10017CAE3 /* TagCellConfiguring.swift in Sources */,
 				040A05B72279922A0082D02B /* CreateAdditionalTimeVC.swift in Sources */,
 				04EEBBC2227DA5A300254FE7 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				04CEA2262226374700CEE425 /* AdditionalTime.swift in Sources */,

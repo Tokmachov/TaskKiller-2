@@ -48,8 +48,6 @@
 		041312EC226B807000E8E920 /* TaskProgressTagsCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041312EA226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift */; };
 		041312EF22700EFC00E8E920 /* TaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15121992D270085FCA0 /* TaskFactory.swift */; };
 		041312F022700FB000E8E920 /* TagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E8121C9ECB300967F50 /* TagFactory.swift */; };
-		041312F122700FEC00E8E920 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B5226B2CD300397E98 /* TaskModel+CoreDataProperties.swift */; };
-		041312F222700FEF00E8E920 /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B6226B2CD300397E98 /* TagModel+CoreDataProperties.swift */; };
 		0420FD17223D32C40086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
 		0420FD18223D32FE0086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
 		042768D321FE11DE00FA2442 /* ProgressTimesReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */; };
@@ -67,17 +65,9 @@
 		043B2242225D91520018CB68 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */; };
 		043B2249225EFDCC0018CB68 /* TaskListTagCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B2248225EFDCC0018CB68 /* TaskListTagCollectionFlowLayout.swift */; };
 		043B225122620E050018CB68 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043B225022620E050018CB68 /* TagLabel.swift */; };
-		04469890226B172A00397E98 /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988A226B172A00397E98 /* TagModel+CoreDataClass.swift */; };
 		04469892226B172A00397E98 /* TaskModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988C226B172A00397E98 /* TaskModel+CoreDataClass.swift */; };
-		04469894226B172A00397E98 /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988E226B172A00397E98 /* PeriodModel+CoreDataClass.swift */; };
-		04469895226B172A00397E98 /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988F226B172A00397E98 /* PeriodModel+CoreDataProperties.swift */; };
-		04469896226B179500397E98 /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988A226B172A00397E98 /* TagModel+CoreDataClass.swift */; };
 		04469898226B179B00397E98 /* TaskModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988C226B172A00397E98 /* TaskModel+CoreDataClass.swift */; };
-		0446989A226B17A100397E98 /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988E226B172A00397E98 /* PeriodModel+CoreDataClass.swift */; };
-		0446989B226B17A400397E98 /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0446988F226B172A00397E98 /* PeriodModel+CoreDataProperties.swift */; };
 		044698AE226B2A8800397E98 /* TaskKiller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0446989C226B2A8800397E98 /* TaskKiller.xcdatamodeld */; };
-		044698B7226B2CD300397E98 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B5226B2CD300397E98 /* TaskModel+CoreDataProperties.swift */; };
-		044698B8226B2CD300397E98 /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044698B6226B2CD300397E98 /* TagModel+CoreDataProperties.swift */; };
 		04736A1C21FAB13900464C72 /* TimeLeftToDeadLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04736A1B21FAB13900464C72 /* TimeLeftToDeadLine.swift */; };
 		047C4B3721C690DB0009ED40 /* ColorSelectionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */; };
 		047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */; };
@@ -129,6 +119,16 @@
 		04EDD99B2249D67E00DF766C /* TaskDescriptionVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */; };
 		04EDD9A0224C7D1B00DF766C /* CreateTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */; };
 		04EDD9A2224C7D4400DF766C /* ColorSampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDD9A1224C7D4400DF766C /* ColorSampleView.swift */; };
+		04EEBBBC227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB7227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift */; };
+		04EEBBBD227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB8227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift */; };
+		04EEBBBE227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB9227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift */; };
+		04EEBBBF227DA59B00254FE7 /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBBA227DA59B00254FE7 /* TagModel+CoreDataClass.swift */; };
+		04EEBBC0227DA59B00254FE7 /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBBB227DA59B00254FE7 /* TagModel+CoreDataProperties.swift */; };
+		04EEBBC1227DA5A300254FE7 /* TagModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBBB227DA59B00254FE7 /* TagModel+CoreDataProperties.swift */; };
+		04EEBBC2227DA5A300254FE7 /* PeriodModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB9227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift */; };
+		04EEBBC3227DA5A300254FE7 /* TagModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBBA227DA59B00254FE7 /* TagModel+CoreDataClass.swift */; };
+		04EEBBC4227DA5A300254FE7 /* PeriodModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB8227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift */; };
+		04EEBBC5227DA5A300254FE7 /* TaskModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EEBBB7227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift */; };
 		04F1700722336114006F062D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700622336114006F062D /* Day.swift */; };
 		04F1700922336137006F062D /* PlaceHolderDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700822336137006F062D /* PlaceHolderDay.swift */; };
 		04F1700B22336159006F062D /* ValidDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700A22336159006F062D /* ValidDay.swift */; };
@@ -242,10 +242,7 @@
 		043B223E225C48CA0018CB68 /* TaskListModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModelFactory.swift; sourceTree = "<group>"; };
 		043B2248225EFDCC0018CB68 /* TaskListTagCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTagCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		043B225022620E050018CB68 /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
-		0446988A226B172A00397E98 /* TagModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TagModel+CoreDataClass.swift"; path = "../TagModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0446988C226B172A00397E98 /* TaskModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataClass.swift"; path = "../TaskModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0446988E226B172A00397E98 /* PeriodModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PeriodModel+CoreDataClass.swift"; path = "../PeriodModel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		0446988F226B172A00397E98 /* PeriodModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PeriodModel+CoreDataProperties.swift"; path = "../PeriodModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0446989D226B2A8800397E98 /* TaskKiller 15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 15.xcdatamodel"; sourceTree = "<group>"; };
 		0446989E226B2A8800397E98 /* TaskKiller 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 5.xcdatamodel"; sourceTree = "<group>"; };
 		0446989F226B2A8800397E98 /* TaskKiller 19.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 19.xcdatamodel"; sourceTree = "<group>"; };
@@ -263,8 +260,6 @@
 		044698AB226B2A8800397E98 /* TaskKiller 17.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 17.xcdatamodel"; sourceTree = "<group>"; };
 		044698AC226B2A8800397E98 /* TaskKiller 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 7.xcdatamodel"; sourceTree = "<group>"; };
 		044698AD226B2A8800397E98 /* TaskKiller 12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TaskKiller 12.xcdatamodel"; sourceTree = "<group>"; };
-		044698B5226B2CD300397E98 /* TaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataProperties.swift"; path = "../TaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		044698B6226B2CD300397E98 /* TagModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TagModel+CoreDataProperties.swift"; path = "../TagModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04736A1B21FAB13900464C72 /* TimeLeftToDeadLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLeftToDeadLine.swift; sourceTree = "<group>"; };
 		047C4B3621C690DB0009ED40 /* ColorSelectionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectionButton.swift; sourceTree = "<group>"; };
 		047C4B3821C694270009ED40 /* ColorPaneBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPaneBackgroundView.swift; sourceTree = "<group>"; };
@@ -311,6 +306,11 @@
 		04EDD99A2249D67E00DF766C /* TaskDescriptionVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDescriptionVCDelegate.swift; sourceTree = "<group>"; };
 		04EDD99F224C7D1B00DF766C /* CreateTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTagVC.swift; sourceTree = "<group>"; };
 		04EDD9A1224C7D4400DF766C /* ColorSampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSampleView.swift; sourceTree = "<group>"; };
+		04EEBBB7227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TaskModel+CoreDataProperties.swift"; path = "../TaskModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04EEBBB8227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PeriodModel+CoreDataClass.swift"; path = "../PeriodModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04EEBBB9227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "PeriodModel+CoreDataProperties.swift"; path = "../PeriodModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04EEBBBA227DA59B00254FE7 /* TagModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TagModel+CoreDataClass.swift"; path = "../TagModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04EEBBBB227DA59B00254FE7 /* TagModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "TagModel+CoreDataProperties.swift"; path = "../TagModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04F1700622336114006F062D /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		04F1700822336137006F062D /* PlaceHolderDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderDay.swift; sourceTree = "<group>"; };
 		04F1700A22336159006F062D /* ValidDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidDay.swift; sourceTree = "<group>"; };
@@ -612,12 +612,12 @@
 		0498EF5021ED7B7C00676FAB /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				044698B5226B2CD300397E98 /* TaskModel+CoreDataProperties.swift */,
-				044698B6226B2CD300397E98 /* TagModel+CoreDataProperties.swift */,
-				0446988A226B172A00397E98 /* TagModel+CoreDataClass.swift */,
+				04EEBBB7227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift */,
+				04EEBBB8227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift */,
+				04EEBBB9227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift */,
+				04EEBBBA227DA59B00254FE7 /* TagModel+CoreDataClass.swift */,
+				04EEBBBB227DA59B00254FE7 /* TagModel+CoreDataProperties.swift */,
 				0446988C226B172A00397E98 /* TaskModel+CoreDataClass.swift */,
-				0446988E226B172A00397E98 /* PeriodModel+CoreDataClass.swift */,
-				0446988F226B172A00397E98 /* PeriodModel+CoreDataProperties.swift */,
 				B96E0ED72193EB8A0097AB34 /* PersistanceService.swift */,
 				0446989C226B2A8800397E98 /* TaskKiller.xcdatamodeld */,
 			);
@@ -1157,10 +1157,8 @@
 				04F170262234F46D006F062D /* Day.swift in Sources */,
 				041312DD226B4ECF00E8E920 /* TaskProgressModel.swift in Sources */,
 				04F170232234F45B006F062D /* MonthsStoreImp.swift in Sources */,
-				0446989B226B17A400397E98 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				04384D50227B1A8500B6F25C /* AdditionalTimesStore.swift in Sources */,
 				04CEA2402228E9A200CEE425 /* SwitchedOnAdditionalTimesWithIdsSaving.swift in Sources */,
-				041312F222700FEF00E8E920 /* TagModel+CoreDataProperties.swift in Sources */,
 				04CEA24C222A9FC300CEE425 /* AlarmsControllerDelegate.swift in Sources */,
 				0408C6492213D8C4005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				04CEA24D222AA03300CEE425 /* AlralrmResponseType.swift in Sources */,
@@ -1174,13 +1172,14 @@
 				04CEA2342227027300CEE425 /* SwitchedOnAdditionalTimesWithIdsLoading.swift in Sources */,
 				040A05B82279924E0082D02B /* AddTimeCell.swift in Sources */,
 				04F170202234F159006F062D /* CalendarVC.swift in Sources */,
+				04EEBBC5227DA5A300254FE7 /* TaskModel+CoreDataProperties.swift in Sources */,
 				040A05B52279916D0082D02B /* AdditionalTimesTableViewController.swift in Sources */,
 				041312EC226B807000E8E920 /* TaskProgressTagsCollectionFlowLayout.swift in Sources */,
 				04F170252234F465006F062D /* MonthImp.swift in Sources */,
-				0446989A226B17A100397E98 /* PeriodModel+CoreDataClass.swift in Sources */,
 				04469898226B179B00397E98 /* TaskModel+CoreDataClass.swift in Sources */,
 				041312E9226B773200E8E920 /* Task.swift in Sources */,
 				04F170272234F471006F062D /* PlaceHolderDay.swift in Sources */,
+				04EEBBC4227DA5A300254FE7 /* PeriodModel+CoreDataClass.swift in Sources */,
 				040A05B6227992160082D02B /* CreateAdditionalTimeVCDelegate.swift in Sources */,
 				0408C6422211BA2D005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				041312EF22700EFC00E8E920 /* TaskFactory.swift in Sources */,
@@ -1188,19 +1187,20 @@
 				041312DE226B4EE900E8E920 /* ProgressTimesSource.swift in Sources */,
 				04F170222234F44B006F062D /* MonthsStore.swift in Sources */,
 				040C211822198CE200CCFA39 /* UNNotificationResponse.swift in Sources */,
+				04EEBBC3227DA5A300254FE7 /* TagModel+CoreDataClass.swift in Sources */,
 				041312E2226B4F2C00E8E920 /* ProgressPeriod.swift in Sources */,
 				043B2241225D91410018CB68 /* Tag.swift in Sources */,
 				043B2242225D91520018CB68 /* PersistanceService.swift in Sources */,
 				041312F022700FB000E8E920 /* TagFactory.swift in Sources */,
 				043B2240225C5FD60018CB68 /* TagsStore.swift in Sources */,
-				041312F122700FEC00E8E920 /* TaskModel+CoreDataProperties.swift in Sources */,
 				041312E8226B772100E8E920 /* TaskProgressModelFactory.swift in Sources */,
 				04F1702A2234F497006F062D /* Calendar.swift in Sources */,
 				04F170292234F489006F062D /* MonthsModelsStoreFactory.swift in Sources */,
 				040A05B72279922A0082D02B /* CreateAdditionalTimeVC.swift in Sources */,
+				04EEBBC2227DA5A300254FE7 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				04CEA2262226374700CEE425 /* AdditionalTime.swift in Sources */,
-				04469896226B179500397E98 /* TagModel+CoreDataClass.swift in Sources */,
 				0420FD18223D32FE0086E199 /* DayType.swift in Sources */,
+				04EEBBC1227DA5A300254FE7 /* TagModel+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1213,14 +1213,11 @@
 				049909BE21CF78E700DCC3CA /* UIView.swift in Sources */,
 				04EDD9A2224C7D4400DF766C /* ColorSampleView.swift in Sources */,
 				040C211722198BAD00CCFA39 /* UNNotificationResponse.swift in Sources */,
-				044698B8226B2CD300397E98 /* TagModel+CoreDataProperties.swift in Sources */,
 				042F439D22015A0200AF2682 /* TaskAlarmsController.swift in Sources */,
 				04F1701E2234ED56006F062D /* DayCell.swift in Sources */,
 				04056BA821E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift in Sources */,
 				B997F63A21A500BF00750092 /* TaskStateDelegate.swift in Sources */,
 				B9A8B143219843980085FCA0 /* TaskProgressVC.swift in Sources */,
-				04469890226B172A00397E98 /* TagModel+CoreDataClass.swift in Sources */,
-				044698B7226B2CD300397E98 /* TaskModel+CoreDataProperties.swift in Sources */,
 				04056BA621E290A300EBCE05 /* UIViewController.swift in Sources */,
 				04EDD99022493E1A00DF766C /* DeadlineVCDelegate.swift in Sources */,
 				B9A8B11B2196C7840085FCA0 /* ProgressTimesSource.swift in Sources */,
@@ -1233,8 +1230,10 @@
 				040A05BE227B175B0082D02B /* AdditionalTimesStore.swift in Sources */,
 				04F1700722336114006F062D /* Day.swift in Sources */,
 				040D907121E789F70049F410 /* TagsAddedToTaskVC.swift in Sources */,
+				04EEBBBE227DA59B00254FE7 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */,
 				040D906721E4F5840049F410 /* EditTagDropAreaVC.swift in Sources */,
+				04EEBBBC227DA59B00254FE7 /* TaskModel+CoreDataProperties.swift in Sources */,
 				B96E0ED82193EB8A0097AB34 /* PersistanceService.swift in Sources */,
 				04469892226B172A00397E98 /* TaskModel+CoreDataClass.swift in Sources */,
 				04CEA253222E262C00CEE425 /* StatisticsVC.swift in Sources */,
@@ -1249,7 +1248,6 @@
 				044698AE226B2A8800397E98 /* TaskKiller.xcdatamodeld in Sources */,
 				B9A8B11F2196C7D10085FCA0 /* TaskProgressTimes.swift in Sources */,
 				04F17014223361E8006F062D /* MonthsStore.swift in Sources */,
-				04469895226B172A00397E98 /* PeriodModel+CoreDataProperties.swift in Sources */,
 				0498212D221CF5B300CEA932 /* AddTimeCell.swift in Sources */,
 				047FACE0224F6FD600DB59D9 /* AvailableTagsCollectionLayout.swift in Sources */,
 				B9A8B11421953C540085FCA0 /* TaskListVC.swift in Sources */,
@@ -1260,12 +1258,14 @@
 				B9A8B1172196C3BF0085FCA0 /* TaskListCell.swift in Sources */,
 				04F17016223361FE006F062D /* MonthsStoreImp.swift in Sources */,
 				047FACF42253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift in Sources */,
+				04EEBBC0227DA59B00254FE7 /* TagModel+CoreDataProperties.swift in Sources */,
 				041312D8226B4A2B00E8E920 /* DeadlinePostponable.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
 				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
 				048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */,
 				048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */,
+				04EEBBBD227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
 				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
@@ -1277,7 +1277,6 @@
 				04EDD9992249D34100DF766C /* TaskDescriptionVC.swift in Sources */,
 				043B2249225EFDCC0018CB68 /* TaskListTagCollectionFlowLayout.swift in Sources */,
 				B9A8B176219BD77A0085FCA0 /* States.swift in Sources */,
-				04469894226B172A00397E98 /* PeriodModel+CoreDataClass.swift in Sources */,
 				B9A8B11D2196C7A40085FCA0 /* ProgressTimesUpdatable.swift in Sources */,
 				0408C6462213C919005B1B83 /* TaskKillerGroupID.swift in Sources */,
 				B9A8B14A21991D410085FCA0 /* TaskStaticInfoViewController.swift in Sources */,
@@ -1318,6 +1317,7 @@
 				047FACF622545C7D00DB59D9 /* UICollectionView.swift in Sources */,
 				042768D621FEAABC00FA2442 /* ProgressTimesLabelsController.swift in Sources */,
 				04F1701B223362B2006F062D /* Calendar.swift in Sources */,
+				04EEBBBF227DA59B00254FE7 /* TagModel+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

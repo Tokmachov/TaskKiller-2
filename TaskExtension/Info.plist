@@ -29,11 +29,11 @@
 				<string>TaskTimeOutCategory</string>
 				<string>BreakIsOverCategory</string>
 			</array>
+			<key>UNNotificationExtensionDefaultContentHidden</key>
+			<true/>
 			<key>UNNotificationExtensionInitialContentSizeRatio</key>
 			<real>1</real>
 			<key>UNNotificationExtensionUserInteractionEnabled</key>
-			<true/>
-			<key>UNNotificationExtensionDefaultContentHidden</key>
 			<true/>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

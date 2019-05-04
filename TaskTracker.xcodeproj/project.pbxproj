@@ -216,7 +216,7 @@
 		0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTagsVCDelegate.swift; sourceTree = "<group>"; };
 		0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmActionsIdentifiers.swift; sourceTree = "<group>"; };
 		0408C6432213BCA3005B1B83 /* TaskExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskExtension.entitlements; sourceTree = "<group>"; };
-		0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskKiller.entitlements; sourceTree = "<group>"; };
+		0408C6442213BEE2005B1B83 /* TaskTracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskTracker.entitlements; sourceTree = "<group>"; };
 		0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskKillerGroupID.swift; sourceTree = "<group>"; };
 		0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDaefaultsKeys.swift; sourceTree = "<group>"; };
 		0408C64D221507EF005B1B83 /* AlralrmResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlralrmResponseType.swift; sourceTree = "<group>"; };
@@ -320,13 +320,13 @@
 		04F17015223361FE006F062D /* MonthsStoreImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsStoreImp.swift; sourceTree = "<group>"; };
 		04F1701A223362B2006F062D /* Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calendar.swift; sourceTree = "<group>"; };
 		04F1701D2234ED56006F062D /* DayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCell.swift; sourceTree = "<group>"; };
-		B96E0E7D219347E50097AB34 /* TaskKiller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskKiller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96E0E7D219347E50097AB34 /* TaskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E80219347E50097AB34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B96E0E85219347E50097AB34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B96E0E8A219347E60097AB34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B96E0E8D219347E60097AB34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B96E0E8F219347E60097AB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B96E0E94219347E60097AB34 /* TaskKillerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskKillerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B96E0E94219347E60097AB34 /* TaskTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B96E0E9A219347E60097AB34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B96E0EA82193D61C0097AB34 /* AvailableTagsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTagsVC.swift; sourceTree = "<group>"; };
 		B96E0EBD2193D80A0097AB34 /* TaskStaticInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStaticInfo.swift; sourceTree = "<group>"; };
@@ -815,7 +815,7 @@
 				0408C6452213C919005B1B83 /* TaskKillerGroupID.swift */,
 				0408C6472213CB44005B1B83 /* UserDaefaultsKeys.swift */,
 				0498EF5021ED7B7C00676FAB /* CoreData */,
-				B96E0E7F219347E50097AB34 /* TaskKiller */,
+				B96E0E7F219347E50097AB34 /* TaskTracker */,
 				04C23FD3220D3BB7006761ED /* TaskExtension */,
 				B96E0E97219347E60097AB34 /* TaskKillerTests */,
 				04C23FCE220D3BB7006761ED /* Frameworks */,
@@ -826,18 +826,18 @@
 		B96E0E7E219347E50097AB34 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B96E0E7D219347E50097AB34 /* TaskKiller.app */,
-				B96E0E94219347E60097AB34 /* TaskKillerTests.xctest */,
+				B96E0E7D219347E50097AB34 /* TaskTracker.app */,
+				B96E0E94219347E60097AB34 /* TaskTrackerTests.xctest */,
 				04C23FCD220D3BB7006761ED /* TaskExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B96E0E7F219347E50097AB34 /* TaskKiller */ = {
+		B96E0E7F219347E50097AB34 /* TaskTracker */ = {
 			isa = PBXGroup;
 			children = (
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
-				0408C6442213BEE2005B1B83 /* TaskKiller.entitlements */,
+				0408C6442213BEE2005B1B83 /* TaskTracker.entitlements */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
 				0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */,
 				04EDD97722464D4400DF766C /* Model */,
@@ -853,7 +853,7 @@
 				B96E0E8C219347E60097AB34 /* LaunchScreen.storyboard */,
 				B96E0E8F219347E60097AB34 /* Info.plist */,
 			);
-			path = TaskKiller;
+			path = TaskTracker;
 			sourceTree = "<group>";
 		};
 		B96E0E97219347E60097AB34 /* TaskKillerTests */ = {
@@ -1026,9 +1026,9 @@
 			productReference = 04C23FCD220D3BB7006761ED /* TaskExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		B96E0E7C219347E50097AB34 /* TaskKiller */ = {
+		B96E0E7C219347E50097AB34 /* TaskTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B96E0E9D219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskKiller" */;
+			buildConfigurationList = B96E0E9D219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskTracker" */;
 			buildPhases = (
 				B96E0E79219347E50097AB34 /* Sources */,
 				B96E0E7A219347E50097AB34 /* Frameworks */,
@@ -1040,14 +1040,14 @@
 			dependencies = (
 				04C23FDB220D3BB7006761ED /* PBXTargetDependency */,
 			);
-			name = TaskKiller;
+			name = TaskTracker;
 			productName = TaskKiller;
-			productReference = B96E0E7D219347E50097AB34 /* TaskKiller.app */;
+			productReference = B96E0E7D219347E50097AB34 /* TaskTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B96E0E93219347E60097AB34 /* TaskKillerTests */ = {
+		B96E0E93219347E60097AB34 /* TaskTrackerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B96E0EA0219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskKillerTests" */;
+			buildConfigurationList = B96E0EA0219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskTrackerTests" */;
 			buildPhases = (
 				B96E0E90219347E60097AB34 /* Sources */,
 				B96E0E91219347E60097AB34 /* Frameworks */,
@@ -1058,9 +1058,9 @@
 			dependencies = (
 				B96E0E96219347E60097AB34 /* PBXTargetDependency */,
 			);
-			name = TaskKillerTests;
+			name = TaskTrackerTests;
 			productName = TaskKillerTests;
-			productReference = B96E0E94219347E60097AB34 /* TaskKillerTests.xctest */;
+			productReference = B96E0E94219347E60097AB34 /* TaskTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -1095,7 +1095,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B96E0E78219347E50097AB34 /* Build configuration list for PBXProject "TaskKiller" */;
+			buildConfigurationList = B96E0E78219347E50097AB34 /* Build configuration list for PBXProject "TaskTracker" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -1108,8 +1108,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B96E0E7C219347E50097AB34 /* TaskKiller */,
-				B96E0E93219347E60097AB34 /* TaskKillerTests */,
+				B96E0E7C219347E50097AB34 /* TaskTracker */,
+				B96E0E93219347E60097AB34 /* TaskTrackerTests */,
 				04C23FCC220D3BB7006761ED /* TaskExtension */,
 			);
 		};
@@ -1338,7 +1338,7 @@
 		};
 		B96E0E96219347E60097AB34 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B96E0E7C219347E50097AB34 /* TaskKiller */;
+			target = B96E0E7C219347E50097AB34 /* TaskTracker */;
 			targetProxy = B96E0E95219347E60097AB34 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1383,7 +1383,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskKiller.TaskExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskTracker.TaskExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1403,7 +1403,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskKiller.TaskExtension;
+				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskTracker.TaskExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
@@ -1532,15 +1532,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TaskKiller/TaskKiller.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
-				INFOPLIST_FILE = TaskKiller/Info.plist;
+				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskKiller;
+				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1552,15 +1552,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TaskKiller/TaskKiller.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TaskTracker/TaskTracker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NHCQUZ8AKK;
-				INFOPLIST_FILE = TaskKiller/Info.plist;
+				INFOPLIST_FILE = TaskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskKiller;
+				PRODUCT_BUNDLE_IDENTIFIER = feelGood.TaskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1584,7 +1584,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskKiller.app/TaskKiller";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskTracker.app/TaskTracker";
 			};
 			name = Debug;
 		};
@@ -1605,7 +1605,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskKiller.app/TaskKiller";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskTracker.app/TaskTracker";
 			};
 			name = Release;
 		};
@@ -1621,7 +1621,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B96E0E78219347E50097AB34 /* Build configuration list for PBXProject "TaskKiller" */ = {
+		B96E0E78219347E50097AB34 /* Build configuration list for PBXProject "TaskTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B96E0E9B219347E60097AB34 /* Debug */,
@@ -1630,7 +1630,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B96E0E9D219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskKiller" */ = {
+		B96E0E9D219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B96E0E9E219347E60097AB34 /* Debug */,
@@ -1639,7 +1639,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B96E0EA0219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskKillerTests" */ = {
+		B96E0EA0219347E60097AB34 /* Build configuration list for PBXNativeTarget "TaskTrackerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B96E0EA1219347E60097AB34 /* Debug */,

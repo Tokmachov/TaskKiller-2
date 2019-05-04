@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TagView.setTagInfo(_:):TagView.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagsVC.changeIsUserDriven.getter:TagsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagsVC.collectionView(_:cellForItemAt:):TagsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagsVC.controllerDidChangeContent(_:):TagsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagsVC.changeIsUserDriven.setter:TagsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "static TagFactoryImp.createTagModel(from:and:):TagFactoryImp.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagsVC.controller(_:didChange:at:for:newIndexPath:):TagsVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TagModelAdapter.getColor():TagModelAdapter.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

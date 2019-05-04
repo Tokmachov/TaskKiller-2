@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TaskState {
-    init(stateSavingDelegate: TaskStateDelegate)
+    init(delegate: TaskStateDelegate)
     mutating func goToNextState()
     mutating func goToStartedState()
     mutating func goToStoppedState()

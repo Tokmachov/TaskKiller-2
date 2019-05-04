@@ -26,8 +26,8 @@ class TaskAlarmsController: NSObject, AlarmsControlling, UNUserNotificationCente
     private let notificationCenter = UNUserNotificationCenter.current()
     private let taskTimeOutNotificationRequestIdentifier = UUID().uuidString
     private let breakTimeOutNotificationRequestIdentifier = UUID().uuidString
-    required init(alarmsControllerDelegate: AlarmsControllerDelegate) {
-        self.alarmsControllerDelegate = alarmsControllerDelegate
+    required init(delegate: AlarmsControllerDelegate) {
+        self.alarmsControllerDelegate = delegate
         super.init()
         notificationCenter.delegate = self
     }

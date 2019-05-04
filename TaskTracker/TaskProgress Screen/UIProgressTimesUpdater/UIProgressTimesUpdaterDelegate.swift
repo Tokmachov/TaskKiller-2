@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ProgressTimesReceiver: AnyObject {
-    func receiveProgressTimes(_ progressTimesSource: ProgressTimesSource)
+protocol UIProgressTimesUpdaterDelegate: AnyObject {
+    func uIPrgressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: UIProgressTimesUpdater)
 }

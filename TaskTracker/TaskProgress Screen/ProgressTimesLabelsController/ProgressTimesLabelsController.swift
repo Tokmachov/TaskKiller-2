@@ -27,7 +27,7 @@ struct ProgressTimesLabelsController {
 
 extension ProgressTimesLabelsController: ProgressTimesUpdatable {
  
-    func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
+    func updateProgressTimes(from progressTimesSource: ProgressTimesSource) {
         timeSpentInProgressLabel.text = formatter.string(from: progressTimesSource.progressTimes.timeSpentInprogress)
         timeLeftToDeadlineLabel.text = {
             switch progressTimesSource.progressTimes.timeLeftToDeadLine {

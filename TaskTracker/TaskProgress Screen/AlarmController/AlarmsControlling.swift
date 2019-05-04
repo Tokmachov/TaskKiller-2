@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AlarmsControlling {
-    init(alarmsControllerDelegate: AlarmsControllerDelegate)
+    init(delegate: AlarmsControllerDelegate)
     func addTaskTimeOutAlarmThatFiresIn(_ timeInterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoSource)
     func addBreakTimeOutAlarmThatFiresIn(_ timeinterval: TimeInterval, alarmInfo taskStaticInfoSource: TaskStaticInfoSource)
     func removeTaskTimeOutAlarm()

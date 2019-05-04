@@ -13,7 +13,7 @@ class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
     private let oneSecond: TimeInterval = 1
     
     private var initialProgressTimes: TaskProgressTimes!
-    private weak var progressTimesReceiver: ProgressTimesReceiver!
+    private weak var delegate: UIProgressTimesUpdaterDelegate!
     private var timer: Timer!
     
     private var initialTimeSpentInProgress: TimeInterval {
@@ -40,14 +40,14 @@ class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
         return TaskProgressTimes.init(timeSpentInprogress: currentTimeSpentInProgress, timeLeftToDeadLine: currentTimeLeftToDeadLine)
     }
     
-    init(progressTimesReceiver: ProgressTimesReceiver) {
-        self.progressTimesReceiver = progressTimesReceiver
+    init(delegate: UIProgressTimesUpdaterDelegate) {
+        self.delegate = delegate
     }
     
     //MARK: ProgressTimesUpdatable
-    func updateProgressTimes(_ progressTimesSource: ProgressTimesSource) {
+    func updateProgressTimes(from progressTimesSource: ProgressTimesSource) {
         initialProgressTimes = progressTimesSource.progressTimes
-        progressTimesReceiver.receiveProgressTimes(progressTimesSource)
+        delegate.uIPrgressTimesUpdaterDidUpdateProgressTimes(self)
     }
     func startUpdatingUIProgressTimes(dateStarted: Date) {
         guard initialProgressTimes != nil else { fatalError() }
@@ -64,7 +64,7 @@ class UIProgressTimesUpdater: ProgressTimesSource, ProgressTimesUpdatable {
     }
    
     @objc private func reportOneSecondPassed() {
-        progressTimesReceiver.receiveProgressTimes(self)
+        delegate.uIPrgressTimesUpdaterDidUpdateProgressTimes(self)
     }
 }
 

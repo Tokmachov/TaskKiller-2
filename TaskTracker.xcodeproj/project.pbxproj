@@ -48,7 +48,7 @@
 		041312F022700FB000E8E920 /* TagFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04091E8121C9ECB300967F50 /* TagFactory.swift */; };
 		0420FD17223D32C40086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
 		0420FD18223D32FE0086E199 /* DayType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0420FD16223D32C40086E199 /* DayType.swift */; };
-		042768D321FE11DE00FA2442 /* ProgressTimesReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */; };
+		042768D321FE11DE00FA2442 /* UIProgressTimesUpdaterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D221FE11DE00FA2442 /* UIProgressTimesUpdaterDelegate.swift */; };
 		042768D621FEAABC00FA2442 /* ProgressTimesLabelsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042768D521FEAABC00FA2442 /* ProgressTimesLabelsController.swift */; };
 		042F439B2201555500AF2682 /* AlarmsControlling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439A2201555500AF2682 /* AlarmsControlling.swift */; };
 		042F439D22015A0200AF2682 /* TaskAlarmsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042F439C22015A0200AF2682 /* TaskAlarmsController.swift */; };
@@ -229,7 +229,7 @@
 		041312E5226B75A100E8E920 /* TaskProgressSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressSaving.swift; sourceTree = "<group>"; };
 		041312EA226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressTagsCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		0420FD16223D32C40086E199 /* DayType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayType.swift; sourceTree = "<group>"; };
-		042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimesReceiver.swift; sourceTree = "<group>"; };
+		042768D221FE11DE00FA2442 /* UIProgressTimesUpdaterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIProgressTimesUpdaterDelegate.swift; sourceTree = "<group>"; };
 		042768D521FEAABC00FA2442 /* ProgressTimesLabelsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTimesLabelsController.swift; sourceTree = "<group>"; };
 		042F439A2201555500AF2682 /* AlarmsControlling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsControlling.swift; sourceTree = "<group>"; };
 		042F439C22015A0200AF2682 /* TaskAlarmsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmsController.swift; sourceTree = "<group>"; };
@@ -873,6 +873,7 @@
 		B997F63E21A6662D00750092 /* UIProgressTimesUpdater */ = {
 			isa = PBXGroup;
 			children = (
+				042768D221FE11DE00FA2442 /* UIProgressTimesUpdaterDelegate.swift */,
 				B9A8B1302196FF530085FCA0 /* UIProgressTimesUpdater.swift */,
 			);
 			path = UIProgressTimesUpdater;
@@ -921,8 +922,6 @@
 			isa = PBXGroup;
 			children = (
 				B9A8B142219843980085FCA0 /* TaskProgressVC.swift */,
-				B997F63921A500BF00750092 /* TaskStateDelegate.swift */,
-				042768D221FE11DE00FA2442 /* ProgressTimesReceiver.swift */,
 				04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */,
 				B9A8B17C219D20230085FCA0 /* State */,
 				B997F63D21A6660E00750092 /* TaskStaticInfoViewController */,
@@ -954,6 +953,7 @@
 		B9A8B17C219D20230085FCA0 /* State */ = {
 			isa = PBXGroup;
 			children = (
+				B997F63921A500BF00750092 /* TaskStateDelegate.swift */,
 				B9A8B173219BD3220085FCA0 /* TaskStateImp.swift */,
 				B9A8B16E219BC9F60085FCA0 /* TaskState.swift */,
 				04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */,
@@ -1194,7 +1194,7 @@
 				04469892226B172A00397E98 /* TaskModel+CoreDataClass.swift in Sources */,
 				04CEA253222E262C00CEE425 /* StatisticsVC.swift in Sources */,
 				043B223F225C48CA0018CB68 /* TaskListModelFactory.swift in Sources */,
-				042768D321FE11DE00FA2442 /* ProgressTimesReceiver.swift in Sources */,
+				042768D321FE11DE00FA2442 /* UIProgressTimesUpdaterDelegate.swift in Sources */,
 				04F1700922336137006F062D /* PlaceHolderDay.swift in Sources */,
 				041312EB226B803700E8E920 /* TaskProgressTagsCollectionFlowLayout.swift in Sources */,
 				042F439B2201555500AF2682 /* AlarmsControlling.swift in Sources */,

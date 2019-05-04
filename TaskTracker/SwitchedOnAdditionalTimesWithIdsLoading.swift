@@ -28,8 +28,3 @@ extension SwitchedOnAdditionalTimesWithIdsLoading {
     }
 }
 
-extension SwitchedOnAdditionalWorkTimesAndIds {
-    func printHello() {
-        print("Hello")
-    }
-}

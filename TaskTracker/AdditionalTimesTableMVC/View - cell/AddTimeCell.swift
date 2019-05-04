@@ -19,7 +19,7 @@ class AdditionalTimeCell: UITableViewCell {
     private var time: TimeInterval = 0.0 {
         didSet {
             let formattedTime = dateComponentsFormater.string(from: time)!
-            timeLabel.setText(formattedTime)
+            timeLabel.text = formattedTime
         }
     }
     private var toggleState: AdditionalTime.ToggleState = .off {

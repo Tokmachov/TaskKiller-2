@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04056BA621E290A300EBCE05 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA521E290A300EBCE05 /* UIViewController.swift */; };
 		04056BA821E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */; };
 		0406D3CF21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */; };
 		0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */; };
@@ -31,7 +30,6 @@
 		040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040C2119221BB17300CCFA39 /* UIAlertController.swift */; };
 		040D906721E4F5840049F410 /* EditTagDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */; };
 		040D907121E789F70049F410 /* TagsAddedToTaskVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040D907021E789F70049F410 /* TagsAddedToTaskVC.swift */; };
-		040F573F21E8F5680089DE82 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F573E21E8F5680089DE82 /* Array.swift */; };
 		041312D8226B4A2B00E8E920 /* DeadlinePostponable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041312D7226B4A2B00E8E920 /* DeadlinePostponable.swift */; };
 		041312DC226B4AA000E8E920 /* TaskProgressModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041312DB226B4AA000E8E920 /* TaskProgressModelFactory.swift */; };
 		041312DD226B4ECF00E8E920 /* TaskProgressModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A8B15C219A74B90085FCA0 /* TaskProgressModel.swift */; };
@@ -88,13 +86,11 @@
 		0498EF3821EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */; };
 		0498EF3A21EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */; };
 		0498EF3C21EC1F3C00676FAB /* UIDropSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */; };
-		0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
 		0498EF4321EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */; };
 		0498EF4721EC45E700676FAB /* TagsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4621EC45E700676FAB /* TagsStore.swift */; };
 		0498EF5221ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */; };
 		0498EF5621ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */; };
 		049909BC21CB49E500DCC3CA /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BB21CB49E500DCC3CA /* TagCell.swift */; };
-		049909BE21CF78E700DCC3CA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049909BD21CF78E700DCC3CA /* UIView.swift */; };
 		04C23FBD2202AB4E006761ED /* AlarmsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */; };
 		04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */; };
 		04C23FD0220D3BB7006761ED /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04C23FCF220D3BB7006761ED /* UserNotifications.framework */; };
@@ -140,7 +136,6 @@
 		04F1701E2234ED56006F062D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701D2234ED56006F062D /* DayCell.swift */; };
 		04F1701F2234ED95006F062D /* DayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1701D2234ED56006F062D /* DayCell.swift */; };
 		04F170202234F159006F062D /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
-		04F170212234F1DA006F062D /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0498EF4021EC1FCD00676FAB /* UILabel.swift */; };
 		04F170222234F44B006F062D /* MonthsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17013223361E8006F062D /* MonthsStore.swift */; };
 		04F170232234F45B006F062D /* MonthsStoreImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17015223361FE006F062D /* MonthsStoreImp.swift */; };
 		04F170242234F463006F062D /* Month.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1700E22336195006F062D /* Month.swift */; };
@@ -211,7 +206,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		04056BA521E290A300EBCE05 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		04056BA721E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTagDropAreaVC.swift; sourceTree = "<group>"; };
 		0406D3CE21E0CDFA003A6E68 /* AvailableTagsVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableTagsVCDelegate.swift; sourceTree = "<group>"; };
 		0408C63F2211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAlarmActionsIdentifiers.swift; sourceTree = "<group>"; };
@@ -228,7 +222,6 @@
 		040C2119221BB17300CCFA39 /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
 		040D906621E4F5840049F410 /* EditTagDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagDropAreaVC.swift; sourceTree = "<group>"; };
 		040D907021E789F70049F410 /* TagsAddedToTaskVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskVC.swift; sourceTree = "<group>"; };
-		040F573E21E8F5680089DE82 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		041312D7226B4A2B00E8E920 /* DeadlinePostponable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlinePostponable.swift; sourceTree = "<group>"; };
 		041312DB226B4AA000E8E920 /* TaskProgressModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressModelFactory.swift; sourceTree = "<group>"; };
 		041312E5226B75A100E8E920 /* TaskProgressSaving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressSaving.swift; sourceTree = "<group>"; };
@@ -280,13 +273,11 @@
 		0498EF3721EC1BA600676FAB /* RemoveTagFromTaskDropAreaVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTagFromTaskDropAreaVC.swift; sourceTree = "<group>"; };
 		0498EF3921EC1C8E00676FAB /* RemoveTagFromTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveTagFromTaskVCDelegate.swift; sourceTree = "<group>"; };
 		0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDropSession.swift; sourceTree = "<group>"; };
-		0498EF4021EC1FCD00676FAB /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		0498EF4221EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskVCDelegate.swift; sourceTree = "<group>"; };
 		0498EF4621EC45E700676FAB /* TagsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsStore.swift; sourceTree = "<group>"; };
 		0498EF5121ED84A100676FAB /* DeleteTagDropAreaVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteTagDropAreaVCDelegate.swift; sourceTree = "<group>"; };
 		0498EF5521ED8FA800676FAB /* EditTagDropAreaVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagDropAreaVCDelegate.swift; sourceTree = "<group>"; };
 		049909BB21CB49E500DCC3CA /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
-		049909BD21CF78E700DCC3CA /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		04C23FBC2202AB4E006761ED /* AlarmsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmsControllerDelegate.swift; sourceTree = "<group>"; };
 		04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskProgressPeriodGetable.swift; sourceTree = "<group>"; };
 		04C23FCD220D3BB7006761ED /* TaskExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TaskExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -594,19 +585,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */ = {
+		0498EF3F21EC1F6C00676FAB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				040F573E21E8F5680089DE82 /* Array.swift */,
-				049909BD21CF78E700DCC3CA /* UIView.swift */,
-				04056BA521E290A300EBCE05 /* UIViewController.swift */,
-				0498EF4021EC1FCD00676FAB /* UILabel.swift */,
 				0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */,
 				040C211622198BAD00CCFA39 /* UNNotificationResponse.swift */,
 				040C2119221BB17300CCFA39 /* UIAlertController.swift */,
 				047FACF522545C7D00DB59D9 /* UICollectionView.swift */,
 			);
-			path = ExtensionsToStandardTypes;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		0498EF5021ED7B7C00676FAB /* CoreData */ = {
@@ -839,7 +826,7 @@
 				B96E0E8A219347E60097AB34 /* Assets.xcassets */,
 				0408C6442213BEE2005B1B83 /* TaskTracker.entitlements */,
 				B96E0E84219347E50097AB34 /* Main.storyboard */,
-				0498EF3F21EC1F6C00676FAB /* ExtensionsToStandardTypes */,
+				0498EF3F21EC1F6C00676FAB /* Extensions */,
 				04EDD97722464D4400DF766C /* Model */,
 				04EDD97822464E1200DF766C /* dataStructuresAndInterfaces */,
 				B9A8B11221953A5B0085FCA0 /* TaskList */,
@@ -1164,7 +1151,6 @@
 				04CEA24D222AA03300CEE425 /* AlralrmResponseType.swift in Sources */,
 				041312E3226B4F4000E8E920 /* DeadlinePostponable.swift in Sources */,
 				043B223D225B757F0018CB68 /* TaskStaticInfoSource.swift in Sources */,
-				04F170212234F1DA006F062D /* UILabel.swift in Sources */,
 				04F170282234F474006F062D /* ValidDay.swift in Sources */,
 				0408C64A2213DA7A005B1B83 /* UserDaefaultsKeys.swift in Sources */,
 				04CEA24A222A9CC800CEE425 /* AlarmsControlling.swift in Sources */,
@@ -1210,7 +1196,6 @@
 			files = (
 				04091E8021C9EBBE00967F50 /* Tag.swift in Sources */,
 				0498EF4321EC327E00676FAB /* TagsAddedToTaskVCDelegate.swift in Sources */,
-				049909BE21CF78E700DCC3CA /* UIView.swift in Sources */,
 				04EDD9A2224C7D4400DF766C /* ColorSampleView.swift in Sources */,
 				040C211722198BAD00CCFA39 /* UNNotificationResponse.swift in Sources */,
 				042F439D22015A0200AF2682 /* TaskAlarmsController.swift in Sources */,
@@ -1218,7 +1203,6 @@
 				04056BA821E29A2F00EBCE05 /* DeleteTagDropAreaVC.swift in Sources */,
 				B997F63A21A500BF00750092 /* TaskStateDelegate.swift in Sources */,
 				B9A8B143219843980085FCA0 /* TaskProgressVC.swift in Sources */,
-				04056BA621E290A300EBCE05 /* UIViewController.swift in Sources */,
 				04EDD99022493E1A00DF766C /* DeadlineVCDelegate.swift in Sources */,
 				B9A8B11B2196C7840085FCA0 /* ProgressTimesSource.swift in Sources */,
 				B9A8B16F219BC9F60085FCA0 /* TaskState.swift in Sources */,
@@ -1262,13 +1246,11 @@
 				041312D8226B4A2B00E8E920 /* DeadlinePostponable.swift in Sources */,
 				B9A8B161219A83740085FCA0 /* TaskStateRepresentingViewsController.swift in Sources */,
 				0408C6402211B669005B1B83 /* TaskAlarmActionsIdentifiers.swift in Sources */,
-				040F573F21E8F5680089DE82 /* Array.swift in Sources */,
 				048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */,
 				048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */,
 				04EEBBBD227DA59B00254FE7 /* PeriodModel+CoreDataClass.swift in Sources */,
 				04C23FC6220CB079006761ED /* TaskProgressPeriodGetable.swift in Sources */,
 				040C211A221BB17300CCFA39 /* UIAlertController.swift in Sources */,
-				0498EF4121EC1FCD00676FAB /* UILabel.swift in Sources */,
 				04F1700F22336195006F062D /* Month.swift in Sources */,
 				B96E0EBE2193D80A0097AB34 /* TaskStaticInfo.swift in Sources */,
 				047FACEC2253038F00DB59D9 /* TagCellConfiguring.swift in Sources */,

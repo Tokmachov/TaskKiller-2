@@ -85,7 +85,7 @@ extension CalendarVC {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let index = visibleSectionNumber()
         let description = monthStore.month(atIndex: index).description
-        monthAndYearLabel.setText(description)
+        monthAndYearLabel.text = description
     }
     private func visibleSectionNumber()-> Int {
         let sectionNumbers =  collectionView.indexPathsForVisibleItems.map { $0.section }
@@ -104,7 +104,7 @@ extension CalendarVC {
         let weekDaySymbols = Calendar.current.shortWeekdaySymbols
         for (index, weekDaySybol) in weekDaySymbols.enumerated() {
             let weekDayLabel = weekDaysStack.arrangedSubviews[index] as? UILabel
-            weekDayLabel!.setText(weekDaySybol)
+            weekDayLabel!.text = weekDaySybol
         }
     }
     private func setWeekDaysViewInsets() {

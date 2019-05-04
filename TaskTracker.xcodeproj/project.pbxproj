@@ -76,7 +76,6 @@
 		047FACEF22530A4E00DB59D9 /* TagConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACEE22530A4E00DB59D9 /* TagConstants.swift */; };
 		047FACF122530C7300DB59D9 /* EditTagVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */; };
 		047FACF42253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */; };
-		047FACF622545C7D00DB59D9 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FACF522545C7D00DB59D9 /* UICollectionView.swift */; };
 		048A4C01222E27A500D71D6E /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C00222E27A500D71D6E /* CalendarVC.swift */; };
 		048A4C1422322A2E00D71D6E /* MonthsModelsStoreFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */; };
 		0498212A221CF43900CEA932 /* AdditionalTimesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */; };
@@ -263,7 +262,6 @@
 		047FACEE22530A4E00DB59D9 /* TagConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagConstants.swift; sourceTree = "<group>"; };
 		047FACF022530C7300DB59D9 /* EditTagVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagVCDelegate.swift; sourceTree = "<group>"; };
 		047FACF32253183500DB59D9 /* TagsAddedToTaskCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsAddedToTaskCollectionLayout.swift; sourceTree = "<group>"; };
-		047FACF522545C7D00DB59D9 /* UICollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		048A4C00222E27A500D71D6E /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		048A4C1322322A2E00D71D6E /* MonthsModelsStoreFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthsModelsStoreFactory.swift; sourceTree = "<group>"; };
 		04982129221CF43900CEA932 /* AdditionalTimesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalTimesTableViewController.swift; sourceTree = "<group>"; };
@@ -591,7 +589,6 @@
 				0498EF3B21EC1F3C00676FAB /* UIDropSession.swift */,
 				040C211622198BAD00CCFA39 /* UNNotificationResponse.swift */,
 				040C2119221BB17300CCFA39 /* UIAlertController.swift */,
-				047FACF522545C7D00DB59D9 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1296,7 +1293,6 @@
 				047C4B3921C694270009ED40 /* ColorPaneBackgroundView.swift in Sources */,
 				B96E0EA92193D61C0097AB34 /* AvailableTagsVC.swift in Sources */,
 				B9A8B19D21A2D70D0085FCA0 /* TaskListModel.swift in Sources */,
-				047FACF622545C7D00DB59D9 /* UICollectionView.swift in Sources */,
 				042768D621FEAABC00FA2442 /* ProgressTimesLabelsController.swift in Sources */,
 				04F1701B223362B2006F062D /* Calendar.swift in Sources */,
 				04EEBBBF227DA59B00254FE7 /* TagModel+CoreDataClass.swift in Sources */,

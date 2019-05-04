@@ -85,7 +85,7 @@ extension CreateAdditionalTimeVC {
             .breakTime : "Additional break time"
         ]
         let typeName = additionalTimesTypeStringNamesForTypes[type]!
-        chosenAdditionalTimeTypeLabel.setText(typeName)
+        chosenAdditionalTimeTypeLabel.text = typeName
     }
     private func updateChosenAdditionalTimeType() {
         chosenAdditionalTimeType = additionalTimeType(forValue: slider.value)

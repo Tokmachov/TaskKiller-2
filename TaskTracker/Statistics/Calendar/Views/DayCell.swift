@@ -17,7 +17,7 @@ class DayCell: UICollectionViewCell {
         let dayType = dayModel.dayType
         let workHoursDescription = dayModel.workHoursDescriotion
         updateAppearance(forDayType: dayType)
-        dayNumberLabel.setText(dayNumber)
+        dayNumberLabel.text = dayNumber
     }
     private func updateAppearance(forDayType type: DayType) {
         switch type {

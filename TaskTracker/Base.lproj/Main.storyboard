@@ -282,7 +282,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6lA-9U-bkp">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6lA-9U-bkp">
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                                     <subviews>
                                                         <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-rn-XGt">
@@ -292,7 +292,8 @@
                                                             </connections>
                                                         </containerView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0T-FK-lFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                            <rect key="frame" x="101.5" y="0.0" width="117" height="43.5"/>
+                                                            <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="0.45601455480000003" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <state key="normal" title="Create tag"/>
                                                             <connections>
@@ -301,6 +302,7 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="5wX-rn-XGt" firstAttribute="width" secondItem="6lA-9U-bkp" secondAttribute="width" id="ZRW-mb-e7l"/>
                                                         <constraint firstAttribute="height" priority="999" constant="100" id="mfc-Wh-MGr"/>
                                                     </constraints>
                                                 </stackView>
@@ -680,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l39-Ul-iKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3493.125" y="-143.66197183098592"/>
+            <point key="canvasLocation" x="3679" y="-428"/>
         </scene>
         <!--DeadlineVC-->
         <scene sceneID="gFz-BH-y3h">
@@ -725,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihJ-Qc-fvQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3493.125" y="-20.598591549295776"/>
+            <point key="canvasLocation" x="3679" y="-303"/>
         </scene>
         <!--Create TagVC-->
         <scene sceneID="NwL-BU-7eb">
@@ -1157,7 +1159,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1r-Yh-lnF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5001" y="1060"/>
+            <point key="canvasLocation" x="4408" y="1027"/>
         </scene>
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
@@ -1596,7 +1598,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrM-2O-y9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4114" y="1722"/>
+            <point key="canvasLocation" x="4406" y="1686"/>
         </scene>
         <!--Delete Tag Drop AreaVC-->
         <scene sceneID="dfJ-TF-Ktw">
@@ -1753,7 +1755,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esl-3P-bis" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4114" y="1060"/>
+            <point key="canvasLocation" x="3632" y="1027"/>
         </scene>
         <!--Tags Added To TaskVC-->
         <scene sceneID="kbi-eK-4cV">
@@ -1822,7 +1824,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2m-F5-zjy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3446" y="89"/>
+            <point key="canvasLocation" x="3620" y="-176"/>
         </scene>
         <!--Task Static Info View Controller-->
         <scene sceneID="bQc-zT-jCt">
@@ -1879,7 +1881,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-OU-2Kg" userLabel="TagLabel" customClass="TagLabel" customModule="TaskTracker" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="49.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -1991,7 +1993,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FHp-kw-54w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3476" y="469"/>
+            <point key="canvasLocation" x="3679" y="200"/>
         </scene>
     </scenes>
     <resources>

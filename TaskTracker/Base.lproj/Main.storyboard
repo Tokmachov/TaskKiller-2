@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N6Q-aj-Cpr">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -13,35 +13,35 @@
         <!--Task ListVC-->
         <scene sceneID="sc0-5A-3qa">
             <objects>
-                <tableViewController id="3Nc-nP-Zvt" customClass="TaskListVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="3Nc-nP-Zvt" customClass="TaskListVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="JHD-gn-eoq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="lgd-TD-1yf" customClass="TaskListCell" customModule="TaskKiller" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="98"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TaskCell" rowHeight="98" id="lgd-TD-1yf" customClass="TaskListCell" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="98"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lgd-TD-1yf" id="6PC-Wo-H3o">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="97.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="97.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fEU-od-OWH">
-                                            <rect key="frame" x="0.0" y="20.5" width="320" height="77"/>
+                                            <rect key="frame" x="0.0" y="20.333333333333336" width="414" height="77.333333333333314"/>
                                             <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="0.43466395547945208" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="58" id="Q7A-p6-G3q"/>
                                             </constraints>
-                                            <collectionViewLayout key="collectionViewLayout" id="P5M-bX-F2a" customClass="TaskListTagCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
+                                            <collectionViewLayout key="collectionViewLayout" id="P5M-bX-F2a" customClass="TaskListTagCollectionFlowLayout" customModule="TaskTracker" customModuleProvider="target"/>
                                             <cells>
-                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="vZU-pk-bC2" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="vZU-pk-bC2" customClass="TagCell" customModule="TaskTracker" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-cz-urQ" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aLR-cz-urQ" customClass="TagLabel" customModule="TaskTracker" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                 <nil key="textColor"/>
@@ -66,7 +66,7 @@
                                             </connections>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaq-xA-2KJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="20.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="20.333333333333332"/>
                                             <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.48464255136986301" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <nil key="textColor"/>
@@ -111,9 +111,9 @@
         <!--CreateTask-->
         <scene sceneID="6lh-wR-R3F">
             <objects>
-                <tableViewController id="DrB-Rl-csE" userLabel="CreateTask" customClass="CreateTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="DrB-Rl-csE" userLabel="CreateTask" customClass="CreateTaskVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="qUH-yH-W4n">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <inset key="separatorInset" minX="14" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -121,14 +121,14 @@
                             <tableViewSection headerTitle="Describe your task here" id="5g1-Qg-VvS" userLabel="Description Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="eqP-Lb-N1M" userLabel="Description Cell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eqP-Lb-N1M" id="efL-3w-lmP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q5h-pO-1ZK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="VJF-I8-8ZI"/>
                                                     </constraints>
@@ -150,14 +150,14 @@
                             <tableViewSection headerTitle="Chose deadline" id="uiW-oZ-r6u" userLabel="Deadline Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="YLP-AT-n5n" userLabel="DeadLineCell">
-                                        <rect key="frame" x="0.0" y="155.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="155.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YLP-AT-n5n" id="PMj-B0-gXP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r8n-rC-kZ0">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="43" id="pM5-fF-5yf"/>
                                                     </constraints>
@@ -179,14 +179,14 @@
                             <tableViewSection headerTitle="Add tags" id="z31-gs-beA" userLabel="TagsAddedToTask Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="o2R-Hg-Vsq" userLabel="TagsAddedToTask Cell">
-                                        <rect key="frame" x="0.0" y="255.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="255.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o2R-Hg-Vsq" id="fNg-XQ-NVy">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fa-Gn-nhE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="350.33333333333331" height="43.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" priority="999" constant="60" id="bZL-R9-WvZ"/>
                                                     </constraints>
@@ -195,7 +195,7 @@
                                                     </connections>
                                                 </containerView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-4L-GSV">
-                                                    <rect key="frame" x="266.5" y="0.0" width="43.5" height="43.5"/>
+                                                    <rect key="frame" x="360.33333333333331" y="0.0" width="43.666666666666686" height="43.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="AnD-4L-GSV" secondAttribute="height" multiplier="1:1" id="cDZ-7M-YP9"/>
                                                     </constraints>
@@ -220,29 +220,29 @@
                             <tableViewSection id="Ot6-Kb-XXf" userLabel="AvailableTags Section">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="67" id="9zz-OW-wax" userLabel="DropAreasCell">
-                                        <rect key="frame" x="0.0" y="335.5" width="320" height="67"/>
+                                        <rect key="frame" x="0.0" y="335.33333333333337" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9zz-OW-wax" id="oba-70-yKF">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="66.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYD-Py-PCz">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="66.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="66.666666666666671"/>
                                                     <subviews>
                                                         <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vbk-5O-fLN">
-                                                            <rect key="frame" x="80" y="0.0" width="160" height="66.5"/>
+                                                            <rect key="frame" x="103.66666666666669" y="0.0" width="207" height="66.666666666666671"/>
                                                             <connections>
                                                                 <segue destination="oCO-i3-hlK" kind="embed" identifier="RemoveTagFromTaskVC" id="cac-C1-Zyn"/>
                                                             </connections>
                                                         </containerView>
                                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQE-wZ-ELv">
-                                                            <rect key="frame" x="183.5" y="0.0" width="106.5" height="66.5"/>
+                                                            <rect key="frame" x="246" y="0.0" width="138" height="66.666666666666671"/>
                                                             <connections>
                                                                 <segue destination="IXL-iE-dF2" kind="embed" identifier="EditTagDropAreaVC" id="BRM-AH-Wb1"/>
                                                             </connections>
                                                         </containerView>
                                                         <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G1O-Kf-yk5">
-                                                            <rect key="frame" x="30" y="0.0" width="106.5" height="66.5"/>
+                                                            <rect key="frame" x="30" y="0.0" width="138" height="66.666666666666671"/>
                                                             <connections>
                                                                 <segue destination="d01-Hu-STd" kind="embed" identifier="DeleteTagDropAreaVC" id="iOO-jU-l1O"/>
                                                             </connections>
@@ -275,23 +275,23 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="dH8-wu-Chv" userLabel="AvailableTags Cell">
-                                        <rect key="frame" x="0.0" y="402.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="402.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dH8-wu-Chv" id="KdD-xo-6tP">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6lA-9U-bkp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                     <subviews>
                                                         <containerView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="5wX-rn-XGt">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                                             <connections>
                                                                 <segue destination="jop-vk-JWU" kind="embed" identifier="AvailableTagsVC" id="nCi-nW-sjf"/>
                                                             </connections>
                                                         </containerView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0T-FK-lFW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <state key="normal" title="Create tag"/>
                                                             <connections>
@@ -353,16 +353,16 @@
         <!--Task ProgressVC-->
         <scene sceneID="EKI-3W-5U3">
             <objects>
-                <viewController id="vDa-62-zss" customClass="TaskProgressVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vDa-62-zss" customClass="TaskProgressVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P3w-DT-Cqc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ak7-sb-iQg" userLabel="Task Info Stack">
-                                <rect key="frame" x="0.0" y="20" width="320" height="440"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="440"/>
                                 <subviews>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQP-1g-cqV">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="177" id="vsh-El-Pak" userLabel="taskStaticInfoViewHeight"/>
@@ -372,38 +372,38 @@
                                         </connections>
                                     </containerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Time in progress " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qle-OL-FoA">
-                                        <rect key="frame" x="0.0" y="187" width="320" height="24"/>
+                                        <rect key="frame" x="0.0" y="187" width="414" height="24"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.11970248287671233" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4N-Mb-yMl">
-                                        <rect key="frame" x="0.0" y="221" width="320" height="36"/>
+                                        <rect key="frame" x="0.0" y="221" width="414" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Time left:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntI-aA-XW5">
-                                        <rect key="frame" x="0.0" y="267" width="320" height="24"/>
+                                        <rect key="frame" x="0.0" y="267" width="414" height="24"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.098057577054794523" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="748" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RFD-DE-oPk">
-                                        <rect key="frame" x="0.0" y="301" width="320" height="36"/>
+                                        <rect key="frame" x="0.0" y="301" width="414" height="36"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="pBF-fY-7PS" userLabel="Done and Start Stack">
-                                        <rect key="frame" x="0.0" y="347" width="320" height="93"/>
+                                        <rect key="frame" x="0.0" y="347" width="414" height="93"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zU9-IF-fUT">
-                                                <rect key="frame" x="145" y="0.0" width="30" height="30"/>
+                                                <rect key="frame" x="192" y="0.0" width="30" height="30"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="zU9-IF-fUT" secondAttribute="height" multiplier="1:1" id="Lmu-gI-fns"/>
@@ -413,7 +413,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-lT-KFS">
-                                                <rect key="frame" x="140.5" y="60" width="39" height="33"/>
+                                                <rect key="frame" x="187.66666666666666" y="60" width="39" height="33"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <state key="normal" title="done">
                                                     <color key="titleColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -459,7 +459,7 @@
                     <tabBarItem key="tabBarItem" title="Task list" id="exb-El-xab"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AWL-ha-xIl">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -494,17 +494,17 @@
         <!--Additional Times Table View Controller-->
         <scene sceneID="MBc-xp-yAD">
             <objects>
-                <tableViewController id="jb3-7V-fNn" customClass="AdditionalTimesTableViewController" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jb3-7V-fNn" customClass="AdditionalTimesTableViewController" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RKk-0g-5LJ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdditionalTimeCell" id="4WD-O5-uud" customClass="AdditionalTimeCell" customModule="TaskKiller" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AdditionalTimeCell" id="4WD-O5-uud" customClass="AdditionalTimeCell" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4WD-O5-uud" id="wca-Vh-Cfe">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ad1-mM-Bre">
@@ -549,13 +549,13 @@
         <!--Create Additional TimeVC-->
         <scene sceneID="1rB-9W-Vb8">
             <objects>
-                <viewController id="4bt-6h-XVl" customClass="CreateAdditionalTimeVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4bt-6h-XVl" customClass="CreateAdditionalTimeVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B26-u8-6af">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="in6-BS-wAs">
-                                <rect key="frame" x="0.0" y="20" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="162" id="zW2-jP-p6i"/>
                                 </constraints>
@@ -564,7 +564,7 @@
                                 </date>
                             </datePicker>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="a4j-d3-HqD">
-                                <rect key="frame" x="101" y="212" width="118" height="30"/>
+                                <rect key="frame" x="148" y="212" width="118" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="FT9-x5-xvt"/>
                                     <constraint firstAttribute="width" constant="114" id="aod-EV-a18"/>
@@ -574,20 +574,20 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bve-z4-xMR">
-                                <rect key="frame" x="139" y="271" width="42" height="21"/>
+                                <rect key="frame" x="186" y="271" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjZ-l1-OTG">
-                                <rect key="frame" x="89" y="364" width="48" height="30"/>
+                                <rect key="frame" x="136" y="448" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="canceledAdditionalTimeCreation" destination="4bt-6h-XVl" eventType="touchUpInside" id="EtB-KW-qtE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-5M-7hO">
-                                <rect key="frame" x="195" y="364" width="46" height="30"/>
+                                <rect key="frame" x="242" y="448" width="46" height="30"/>
                                 <state key="normal" title="Create"/>
                                 <connections>
                                     <action selector="createAdditionalTimeButtonWasPressed" destination="4bt-6h-XVl" eventType="touchUpInside" id="w5l-Ns-2br"/>
@@ -635,7 +635,7 @@
                     <tabBarItem key="tabBarItem" title="Times" id="8Yp-kr-M8h"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="68I-Pe-KJI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -650,13 +650,13 @@
         <!--Statistics-->
         <scene sceneID="GPI-VM-DDX">
             <objects>
-                <viewController id="8l1-9u-q6K" customClass="StatisticsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8l1-9u-q6K" customClass="StatisticsVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Oap-Yk-pAi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aq4-aF-V5w">
-                                <rect key="frame" x="16" y="135" width="275" height="277"/>
+                                <rect key="frame" x="16" y="303" width="369" height="277"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <connections>
                                     <segue destination="hLI-JX-rGt" kind="embed" id="rl4-LI-toi"/>
@@ -675,58 +675,58 @@
         <!--CalendarVC-->
         <scene sceneID="XMz-EZ-zO3">
             <objects>
-                <viewController id="hLI-JX-rGt" customClass="CalendarVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="hLI-JX-rGt" customClass="CalendarVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ait-BC-Xrh">
-                        <rect key="frame" x="0.0" y="0.0" width="275" height="277"/>
+                        <rect key="frame" x="0.0" y="0.0" width="369" height="277"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="ciU-AZ-obe">
-                                <rect key="frame" x="41.5" y="19.5" width="192.5" height="20.5"/>
+                                <rect key="frame" x="55.333333333333343" y="19.666666666666671" width="258.33333333333326" height="20.333333333333329"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="k3c-XV-ndx">
-                                        <rect key="frame" x="0.0" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="33.333333333333336" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="trP-oW-rio">
-                                        <rect key="frame" x="28" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="37.333333333333343" y="0.0" width="33.666666666666657" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="KED-21-BQz">
-                                        <rect key="frame" x="56" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="75" y="0.0" width="33.333333333333343" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="c90-mk-te7">
-                                        <rect key="frame" x="84" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="112.33333333333333" y="0.0" width="33.666666666666671" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="7QR-bp-pIF">
-                                        <rect key="frame" x="112" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="150" y="0.0" width="33.333333333333343" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="xV3-rr-Vc8">
-                                        <rect key="frame" x="140" y="0.0" width="24" height="20.5"/>
+                                        <rect key="frame" x="187.33333333333331" y="0.0" width="33.666666666666657" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="2" translatesAutoresizingMaskIntoConstraints="NO" id="Apb-9N-fbP">
-                                        <rect key="frame" x="168" y="0.0" width="24.5" height="20.5"/>
+                                        <rect key="frame" x="224.99999999999997" y="0.0" width="33.333333333333343" height="20.333333333333332"/>
                                         <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -735,13 +735,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnK-RR-LET">
-                                <rect key="frame" x="116.5" y="0.5" width="42" height="20.5"/>
+                                <rect key="frame" x="163.66666666666666" y="1" width="41.666666666666657" height="20.333333333333332"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-Rl-MMq">
-                                <rect key="frame" x="41.5" y="40" width="192.5" height="197"/>
+                                <rect key="frame" x="55.333333333333343" y="40" width="258.33333333333326" height="197"/>
                                 <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="197" id="ihh-eD-0om"/>
@@ -753,7 +753,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="91Y-Qa-FlD" customClass="DayCell" customModule="TaskKiller" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="91Y-Qa-FlD" customClass="DayCell" customModule="TaskTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -811,13 +811,13 @@
         <!--Task DescriptionVC-->
         <scene sceneID="1MA-P4-JgW">
             <objects>
-                <viewController id="QH6-yn-GcR" customClass="TaskDescriptionVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QH6-yn-GcR" customClass="TaskDescriptionVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ach-eh-KBd">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tt5-lY-D6R">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -846,13 +846,13 @@
         <!--DeadlineVC-->
         <scene sceneID="gFz-BH-y3h">
             <objects>
-                <viewController id="YxY-Hw-HrP" customClass="DeadlineVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YxY-Hw-HrP" customClass="DeadlineVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iCa-Pt-9R2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gE5-LU-2SS">
-                                <rect key="frame" x="134.5" y="0.0" width="51" height="33"/>
+                                <rect key="frame" x="181.66666666666666" y="0.0" width="51" height="33"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -860,7 +860,7 @@
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8VE-4w-Bff">
-                                <rect key="frame" x="0.0" y="33" width="320" height="162"/>
+                                <rect key="frame" x="0.0" y="33" width="414" height="162"/>
                                 <date key="date" timeIntervalSinceReferenceDate="576175790.74738598">
                                     <!--2019-04-05 16:49:50 +0000-->
                                 </date>
@@ -891,23 +891,23 @@
         <!--Create TagVC-->
         <scene sceneID="NwL-BU-7eb">
             <objects>
-                <tableViewController id="A9z-gl-o7Z" customClass="CreateTagVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="A9z-gl-o7Z" customClass="CreateTagVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ptc-mM-C23">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection headerTitle="Tag name" id="NhI-DM-LVM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Wln-ON-mg9">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Wln-ON-mg9" id="hEE-NN-ZtH">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fnW-hs-6B5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -930,14 +930,14 @@
                             <tableViewSection headerTitle="Chosen color" id="6mr-cx-UJk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="1Ji-iY-ClH">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ji-iY-ClH" id="LGa-cc-uX7">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrL-yx-UCg" customClass="ColorSampleView" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="132.5" y="11" width="55" height="55"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrL-yx-UCg" customClass="ColorSampleView" customModule="TaskTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="179.66666666666666" y="11" width="55" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="jrL-yx-UCg" secondAttribute="height" multiplier="1:1" id="ttK-2j-dJ1"/>
@@ -956,14 +956,14 @@
                             <tableViewSection headerTitle="Tag color" id="eLy-H8-1Id">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="324" id="3uq-va-a1a">
-                                        <rect key="frame" x="0.0" y="205" width="320" height="324"/>
+                                        <rect key="frame" x="0.0" y="205" width="414" height="324"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3uq-va-a1a" id="W3W-Z2-5be">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="323.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="323.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufD-em-Nej" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="29" y="31" width="262" height="262"/>
+                                                <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufD-em-Nej" customClass="ColorPaneBackgroundView" customModule="TaskTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="76" y="31" width="262" height="262"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -975,12 +975,12 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IJF-hx-zoi">
-                                                    <rect key="frame" x="39" y="41" width="242" height="242"/>
+                                                    <rect key="frame" x="86" y="41" width="242" height="242"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q7y-4K-wsI">
                                                             <rect key="frame" x="0.0" y="0.0" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-3w-9f2" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3aA-3w-9f2" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -996,7 +996,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="419-jl-Du0"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-oc-eDZ" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G3E-oc-eDZ" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1012,7 +1012,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="hw3-Yw-UcK"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2H-Js-SsH" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2H-Js-SsH" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1028,7 +1028,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="IVV-VQ-64T"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-Qt-ySZ" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7WB-Qt-ySZ" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1054,7 +1054,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="efU-uZ-kge">
                                                             <rect key="frame" x="0.0" y="63" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zML-EB-PdE" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zML-EB-PdE" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1070,7 +1070,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="ucH-vy-27M"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-K5-up6" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-K5-up6" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1086,7 +1086,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="oL1-rc-eae"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-Vp-LRL" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-Vp-LRL" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1102,7 +1102,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="8ZR-dw-HyZ"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-KZ-rsG" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUJ-KZ-rsG" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1128,7 +1128,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PZV-9m-Oy8">
                                                             <rect key="frame" x="0.0" y="126" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQF-iB-34A" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KQF-iB-34A" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1144,7 +1144,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="lft-wX-3Lj"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-nO-Nqk" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LBM-nO-Nqk" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1160,7 +1160,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="arY-q1-Qun"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8u-Eo-667" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a8u-Eo-667" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1176,7 +1176,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="6As-lM-VcK"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-W7-h0n" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-W7-h0n" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1202,7 +1202,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="94V-Qz-eYB">
                                                             <rect key="frame" x="0.0" y="189" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-bx-IBx" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-bx-IBx" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1218,7 +1218,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="J1J-dK-uqJ"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osg-TV-zfA" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Osg-TV-zfA" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1234,7 +1234,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="v09-wh-mfl"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQq-tp-KKc" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQq-tp-KKc" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1250,7 +1250,7 @@
                                                                         <action selector="tagColorBottonWasTapped:" destination="A9z-gl-o7Z" eventType="touchUpInside" id="s4E-rV-ijp"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEQ-Uo-i99" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEQ-Uo-i99" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1323,13 +1323,13 @@
         <!--Edit TagVC-->
         <scene sceneID="4fZ-sA-mRW">
             <objects>
-                <tableViewController storyboardIdentifier="EditTagVC" id="f5v-l2-p5b" customClass="EditTagVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditTagVC" id="f5v-l2-p5b" customClass="EditTagVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aE2-tO-kwQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Y81-9i-FNb">
-                            <rect key="frame" x="0.0" y="529" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="697" width="508" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="59z-ZK-uGo"/>
@@ -1352,14 +1352,14 @@
                             <tableViewSection headerTitle="Tag name" id="Iuu-QB-ZQp">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="isS-Fn-Tc1">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="isS-Fn-Tc1" id="OBa-Ao-KCH">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bvs-uD-1Ix">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1382,14 +1382,14 @@
                             <tableViewSection headerTitle="Chosen color" id="wwi-wY-uHf">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="77" id="Prc-VH-xif">
-                                        <rect key="frame" x="0.0" y="100" width="320" height="77"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Prc-VH-xif" id="0eX-3j-TZK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIT-OK-sZr" customClass="ColorSampleView" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="132.5" y="11" width="55" height="55"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIT-OK-sZr" customClass="ColorSampleView" customModule="TaskTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="179.66666666666666" y="11" width="55" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="mIT-OK-sZr" secondAttribute="height" multiplier="1:1" id="3Eg-oq-gjX"/>
@@ -1408,14 +1408,14 @@
                             <tableViewSection headerTitle="Tag color" id="RsG-YX-ZwW">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="324" id="ATT-Ae-RO1">
-                                        <rect key="frame" x="0.0" y="205" width="320" height="324"/>
+                                        <rect key="frame" x="0.0" y="205" width="414" height="324"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ATT-Ae-RO1" id="em7-31-sEb">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="323.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="323.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIp-cg-QLq" customClass="ColorPaneBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                                    <rect key="frame" x="29" y="31" width="262" height="262"/>
+                                                <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIp-cg-QLq" customClass="ColorPaneBackgroundView" customModule="TaskTracker" customModuleProvider="target">
+                                                    <rect key="frame" x="76" y="31" width="262" height="262"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -1427,12 +1427,12 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ftR-Tx-DK4">
-                                                    <rect key="frame" x="39" y="41" width="242" height="242"/>
+                                                    <rect key="frame" x="86" y="41" width="242" height="242"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="48u-qf-Tld">
                                                             <rect key="frame" x="0.0" y="0.0" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi9-Hx-EA1" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi9-Hx-EA1" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1448,7 +1448,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="8Tp-ae-w0x"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-6R-YdT" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU6-6R-YdT" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1464,7 +1464,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="qUO-cb-WPN"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-DG-LnR" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KP-DG-LnR" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1480,7 +1480,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="vFg-zD-pfn"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-7D-J2M" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2d1-7D-J2M" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1506,7 +1506,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hLR-T7-MjM">
                                                             <rect key="frame" x="0.0" y="63" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muf-5c-bms" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="muf-5c-bms" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1522,7 +1522,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="vkA-Gf-F11"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezF-ki-pXw" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezF-ki-pXw" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1538,7 +1538,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="b8b-Id-Mzm"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-dN-PyA" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAC-dN-PyA" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1554,7 +1554,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="63G-vA-nJK"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRO-O6-MEw" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HRO-O6-MEw" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1580,7 +1580,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="d38-3E-P5h">
                                                             <rect key="frame" x="0.0" y="126" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZQ-A1-kse" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZQ-A1-kse" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1596,7 +1596,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="wVA-FO-3TX"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-iy-0iK" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-iy-0iK" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1612,7 +1612,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="NSR-IR-fbb"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVF-CD-K4o" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVF-CD-K4o" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1628,7 +1628,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="6Ix-ua-tnn"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-FL-149" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nCy-FL-149" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1654,7 +1654,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q1b-k9-rsF">
                                                             <rect key="frame" x="0.0" y="189" width="242" height="53"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8le-K3-5VA" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8le-K3-5VA" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1670,7 +1670,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="yvh-L3-zNc"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAA-xk-U1v" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZAA-xk-U1v" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="63" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1686,7 +1686,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="Lzo-Lq-TI9"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X2-9A-UU7" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4X2-9A-UU7" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="126" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1702,7 +1702,7 @@
                                                                         <action selector="choseColorButtonWasPressed:" destination="f5v-l2-p5b" eventType="touchUpInside" id="1TX-Aa-loD"/>
                                                                     </connections>
                                                                 </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh8-VH-ukb" customClass="ColorSelectionButton" customModule="TaskKiller" customModuleProvider="target">
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eh8-VH-ukb" customClass="ColorSelectionButton" customModule="TaskTracker" customModuleProvider="target">
                                                                     <rect key="frame" x="189" y="0.0" width="53" height="53"/>
                                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -1762,17 +1762,17 @@
         <!--Delete Tag Drop AreaVC-->
         <scene sceneID="dfJ-TF-Ktw">
             <objects>
-                <viewController id="d01-Hu-STd" customClass="DeleteTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="d01-Hu-STd" customClass="DeleteTagDropAreaVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ll-WK-s6t">
-                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="66.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="66.666666666666671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-fV-oKx" userLabel="DropBackGround" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                <rect key="frame" x="2" y="2" width="102.5" height="62.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dv-fV-oKx" userLabel="DropBackGround" customClass="DropAreaBackgroundView" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="2" y="1.9999999999999964" width="134" height="62.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Delete" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-9m-hsw" userLabel="DeleteImage">
-                                <rect key="frame" x="22" y="2" width="62.5" height="62.5"/>
+                                <rect key="frame" x="37.666666666666671" y="1.9999999999999964" width="62.666666666666671" height="62.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9gd-9m-hsw" secondAttribute="height" multiplier="1:1" id="EPV-BQ-apm"/>
@@ -1802,17 +1802,17 @@
         <!--Edit Tag Drop AreaVC-->
         <scene sceneID="cqW-wJ-OBU">
             <objects>
-                <viewController id="IXL-iE-dF2" customClass="EditTagDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IXL-iE-dF2" customClass="EditTagDropAreaVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZrN-H0-KuA">
-                        <rect key="frame" x="0.0" y="0.0" width="106.5" height="66.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="138" height="66.666666666666671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0K-ax-NsL" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                <rect key="frame" x="2" y="2" width="102.5" height="62.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E0K-ax-NsL" customClass="DropAreaBackgroundView" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="2" y="1.9999999999999964" width="134" height="62.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="aZO-mr-gqR" userLabel="editImage">
-                                <rect key="frame" x="22" y="2" width="62.5" height="62.5"/>
+                                <rect key="frame" x="37.666666666666671" y="1.9999999999999964" width="62.666666666666671" height="62.666666666666657"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aZO-mr-gqR" secondAttribute="height" multiplier="1:1" id="pM6-dx-v0D"/>
                                 </constraints>
@@ -1842,17 +1842,17 @@
         <!--Remove Tag From Task Drop AreaVC-->
         <scene sceneID="XyF-9V-35M">
             <objects>
-                <viewController id="oCO-i3-hlK" customClass="RemoveTagFromTaskDropAreaVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oCO-i3-hlK" customClass="RemoveTagFromTaskDropAreaVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3v1-s4-q8w">
-                        <rect key="frame" x="0.0" y="0.0" width="160" height="66.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="207" height="66.666666666666671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9O-20-yg2" customClass="DropAreaBackgroundView" customModule="TaskKiller" customModuleProvider="target">
-                                <rect key="frame" x="2" y="2" width="156" height="62.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N9O-20-yg2" customClass="DropAreaBackgroundView" customModule="TaskTracker" customModuleProvider="target">
+                                <rect key="frame" x="2" y="1.9999999999999964" width="203" height="62.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remove" translatesAutoresizingMaskIntoConstraints="NO" id="Hmg-Vv-6oX">
-                                <rect key="frame" x="49" y="2" width="62.5" height="62.5"/>
+                                <rect key="frame" x="72.333333333333329" y="1.9999999999999964" width="62.666666666666671" height="62.666666666666657"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Hmg-Vv-6oX" secondAttribute="height" multiplier="1:1" id="XBv-r7-CUy"/>
@@ -1886,7 +1886,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XKa-Lr-mm0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fF5-iD-vre">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1904,7 +1904,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gLK-Tj-VvH" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="H81-3W-ZrZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1919,13 +1919,13 @@
         <!--Tags Added To TaskVC-->
         <scene sceneID="kbi-eK-4cV">
             <objects>
-                <viewController id="h9E-VH-fRi" customClass="TagsAddedToTaskVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="h9E-VH-fRi" customClass="TagsAddedToTaskVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zFj-n7-n9B">
-                        <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="350.33333333333331" height="43.666666666666664"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eM0-KV-8jY">
-                                <rect key="frame" x="0.0" y="0.0" width="256.5" height="43.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="350.33333333333331" height="43.666666666666664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Aax-27-pO9">
                                     <size key="itemSize" width="50" height="50"/>
@@ -1934,14 +1934,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="BTI-7f-Kc4" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-3.5" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="BTI-7f-Kc4" customClass="TagCell" customModule="TaskTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-3.3333333333333335" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEW-oA-0aL" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEW-oA-0aL" customClass="TagLabel" customModule="TaskTracker" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
@@ -1988,59 +1988,59 @@
         <!--Task Static Info View Controller-->
         <scene sceneID="bQc-zT-jCt">
             <objects>
-                <viewController id="5B1-zd-UAQ" customClass="TaskStaticInfoViewController" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5B1-zd-UAQ" customClass="TaskStaticInfoViewController" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KDx-N6-hp2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="odr-xN-VMq">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="177"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="176.66666666666666"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jOf-Rj-LLC">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="24"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.1251070205479452" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZZO-jV-eFE">
-                                        <rect key="frame" x="0.0" y="32" width="320" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="32" width="414" height="20.333333333333329"/>
                                         <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="0.066379494863013699" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Initial deadline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sDd-WU-NMh">
-                                        <rect key="frame" x="0.0" y="60.5" width="320" height="24"/>
+                                        <rect key="frame" x="0.0" y="60.333333333333343" width="414" height="24"/>
                                         <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.1191673801369863" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTn-wy-p8S">
-                                        <rect key="frame" x="0.0" y="92.5" width="320" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="92.333333333333329" width="414" height="20.333333333333329"/>
                                         <color key="backgroundColor" red="1" green="0.2527923882" blue="1" alpha="0.080532962328767124" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NVO-An-eEE">
-                                        <rect key="frame" x="0.0" y="121" width="320" height="56"/>
+                                        <rect key="frame" x="0.0" y="120.66666666666669" width="414" height="56"/>
                                         <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="0.10314105308219178" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="yBA-yX-VLD" userLabel="TagCollectionHeight"/>
                                         </constraints>
-                                        <collectionViewLayout key="collectionViewLayout" id="cGC-UK-aQz" customClass="TaskProgressTagsCollectionFlowLayout" customModule="TaskKiller" customModuleProvider="target"/>
+                                        <collectionViewLayout key="collectionViewLayout" id="cGC-UK-aQz" customClass="TaskProgressTagsCollectionFlowLayout" customModule="TaskTracker" customModuleProvider="target"/>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="2Ju-Ln-fg6" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="2Ju-Ln-fg6" customClass="TagCell" customModule="TaskTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-OU-2Kg" userLabel="TagLabel" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a09-OU-2Kg" userLabel="TagLabel" customClass="TagLabel" customModule="TaskTracker" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50.333333333333336"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2092,24 +2092,24 @@
         <!--Available TagsVC-->
         <scene sceneID="ipH-nn-xpu">
             <objects>
-                <viewController id="jop-vk-JWU" customClass="AvailableTagsVC" customModule="TaskKiller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jop-vk-JWU" customClass="AvailableTagsVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BT2-8C-Are">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="edZ-ua-k9H">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="Drm-Ih-boU" customClass="AvailableTagsCollectionLayout" customModule="TaskKiller" customModuleProvider="target"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Drm-Ih-boU" customClass="AvailableTagsCollectionLayout" customModule="TaskTracker" customModuleProvider="target"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="3eD-ZP-x3Z" customClass="TagCell" customModule="TaskKiller" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TagCell" id="3eD-ZP-x3Z" customClass="TagCell" customModule="TaskTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdg-2G-v9F" customClass="TagLabel" customModule="TaskKiller" customModuleProvider="target">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdg-2G-v9F" customClass="TagLabel" customModule="TaskTracker" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>

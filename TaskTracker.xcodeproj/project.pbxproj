@@ -953,9 +953,9 @@
 		B9A8B17C219D20230085FCA0 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				B997F63921A500BF00750092 /* TaskStateDelegate.swift */,
-				B9A8B173219BD3220085FCA0 /* TaskStateImp.swift */,
 				B9A8B16E219BC9F60085FCA0 /* TaskState.swift */,
+				B9A8B173219BD3220085FCA0 /* TaskStateImp.swift */,
+				B997F63921A500BF00750092 /* TaskStateDelegate.swift */,
 				04C23FC5220CB079006761ED /* TaskProgressPeriodGetable.swift */,
 				B9A8B175219BD77A0085FCA0 /* States.swift */,
 			);

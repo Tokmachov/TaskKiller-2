@@ -166,11 +166,11 @@ extension AdditionalTimesTableViewController {
 
 extension AdditionalTimesTableViewController {
     private func getSwitchedOnAdditionalWorkTimesAndIds() -> SwitchedOnAdditionalWorkTimesAndIds {
-        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on }.map { (UUID.init().uuidString, $0.time) }
+        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on && $0.type == .workTime }.map { (UUID.init().uuidString, $0.time) }
         return Dictionary(uniqueKeysWithValues: timesAndIds)
     }
     private func getSwitchedOnAdditionalBreakTimesAndIds() -> SwitchedOnAdditionalBreakTimesAndIds {
-        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on }.map { (UUID.init().uuidString, $0.time) }
+        let timesAndIds = additionalTimesStore.additionalTimes.filter { $0.toggleState == .on && $0.type == .breakTime }.map { (UUID.init().uuidString, $0.time) }
         return Dictionary(uniqueKeysWithValues: timesAndIds)
     }
 }

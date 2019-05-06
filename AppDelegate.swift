@@ -14,15 +14,26 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-//sasd
+    
+    private lazy var tagFactory = TagFactoryImp()
+    private lazy var taskFactory = TaskFactoryImp(tagFactory: tagFactory)
+    private lazy var taskListModelFactory = TaskListModelFactoryImp()
+    private lazy var taskProgressModelFactry = TaskProgressModelFactoryImp()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        //MARK: NotificationCenter request authorization
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: {(granted, error) in
                 // handle result
         })
-        
+        guard let rootController = window?.rootViewController as? UITabBarController else { fatalError() }
+        guard let taskListVC = ((rootController.viewControllers?[0] as? UINavigationController)?.viewControllers[0]) as? TaskListVC else { fatalError() }
+        taskListVC.taskFactory = taskFactory
+        taskListVC.taskListModelFactory = taskListModelFactory
+        taskListVC.taskProgressModelFactory = taskProgressModelFactry
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

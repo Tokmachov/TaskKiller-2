@@ -12,9 +12,9 @@ import CoreData
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
     private lazy var fetchRequestController: NSFetchedResultsController<TaskModel> = createFetchResultsController()
-    private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: TagFactoryImp())
-    private lazy var taskListModelFactory: TaskListModelFactory = TaskListModelFactoryImp()
-    private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
+    var taskFactory: TaskFactory!
+    var taskListModelFactory: TaskListModelFactory!
+    var taskProgressModelFactory: TaskProgressModelFactory!
     
     private var tagHeight: CGFloat {
         let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)

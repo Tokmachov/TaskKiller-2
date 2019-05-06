@@ -15,12 +15,12 @@ protocol SwitchedOnAdditionalTimesWithIdsSaving {
 
 extension SwitchedOnAdditionalTimesWithIdsSaving {
     func saveSwitchedOnAdditionalWorkTimesAndIds(_ times: SwitchedOnAdditionalWorkTimesAndIds) {
-        guard let userDeaults = UserDefaults(suiteName: TaskKillerGroupID.id) else { fatalError() }
+        guard let userDeaults = UserDefaults(suiteName: TaskTrackerGroupID.id) else { fatalError() }
         userDeaults.set(times, forKey: UserDefaultsKeys.additionalWorkTimesForIds)
     
     }
     func saveSwitchedOnAdditionalBreakTimesAndIds(_ times: SwitchedOnAdditionalBreakTimesAndIds) {
-        guard let userDeaults = UserDefaults(suiteName: TaskKillerGroupID.id) else { fatalError() }
+        guard let userDeaults = UserDefaults(suiteName: TaskTrackerGroupID.id) else { fatalError() }
         userDeaults.set(times, forKey: UserDefaultsKeys.breakTimesForIds)
     }
 }

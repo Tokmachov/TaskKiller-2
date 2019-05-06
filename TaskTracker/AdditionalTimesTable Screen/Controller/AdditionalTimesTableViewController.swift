@@ -146,7 +146,7 @@ extension AdditionalTimesTableViewController {
         return additionalTimesStore
     }
     private func loadAdditionalTimesDataFromUserDefaults() -> Data? {
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        let userDefaults = UserDefaults(suiteName: TaskTrackerGroupID.id)
         let additionalTimesData = userDefaults?.data(forKey: UserDefaultsKeys.additionalTimesKey)
         return additionalTimesData
     }
@@ -159,7 +159,7 @@ extension AdditionalTimesTableViewController {
     //MARKL: saveAdditionalTimes
     private func saveAdditionalTimes(_ times: AdditionalTimesStore) {
         let data = try! NSKeyedArchiver.archivedData(withRootObject: times, requiringSecureCoding: false)
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        let userDefaults = UserDefaults(suiteName: TaskTrackerGroupID.id)
         userDefaults!.set(data, forKey: UserDefaultsKeys.additionalTimesKey)
     }
 }

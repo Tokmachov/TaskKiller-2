@@ -35,7 +35,7 @@ class ProgressTimesUpdaterImp: ProgressTimesUpdater {
     //MARK: ProgressTimesUpdatable
     func updateProgressTimes(from progressTimesSource: ProgressTimesSource) {
         initialTimes = progressTimesSource.progressTimes
-        delegate.uIPrgressTimesUpdaterDidUpdateProgressTimes(self)
+        delegate.progressTimesUpdaterDidUpdateProgressTimes(self)
     }
     
     //MARK: TaskProgressTimesSource
@@ -49,7 +49,7 @@ class ProgressTimesUpdaterImp: ProgressTimesUpdater {
     }
    
     @objc private func reportOneSecondPassed() {
-        delegate.uIPrgressTimesUpdaterDidUpdateProgressTimes(self)
+        delegate.progressTimesUpdaterDidUpdateProgressTimes(self)
     }
 }
 

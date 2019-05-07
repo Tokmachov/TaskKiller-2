@@ -13,14 +13,13 @@ class TaskProgressVC: UIViewController,
     UIProgressTimesUpdaterDelegate,
     AlarmsControllerDelegate
 {
-    @IBOutlet weak var q: UIView!
     
     //MARK: model
     var model: TaskProgressModel!
     
     private var taskState: TaskState!
     private var taskTimeOutAlarmController: AlarmsControlling!
-    private var uIProgressTimesUpdater: UIProgressTimesUpdater!
+    private var uIProgressTimesUpdater: ProgressTimesUpdater!
     private var taskProgressTimesLabelsController: ProgressTimesLabelsController!
     private var taksStateRepresentingViewsController: TaskStateRepresenting!
     
@@ -42,7 +41,7 @@ class TaskProgressVC: UIViewController,
         super.viewDidLoad()
         taskState = TaskStateImp(delegate: self)
         taskTimeOutAlarmController = TaskAlarmsController(delegate: self)
-        uIProgressTimesUpdater = UIProgressTimesUpdater(delegate: self)
+        uIProgressTimesUpdater = ProgressTimesUpdaterImp(delegate: self)
         taskProgressTimesLabelsController = ProgressTimesLabelsController(
                 timeSpentInProgressLabel: timeSpentInProgressLabel,
                 timeLeftToDeadLineLabel: timeLeftToDeadlineLabel
@@ -100,7 +99,7 @@ class TaskProgressVC: UIViewController,
         finishTask()
     }
     
-    func uIPrgressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: UIProgressTimesUpdater) {
+    func progressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: ProgressTimesUpdater) {
         taskProgressTimesLabelsController.updateProgressTimes(from: uIProgressTimesUpdater)
     }
 

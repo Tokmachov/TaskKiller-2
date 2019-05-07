@@ -17,12 +17,12 @@ protocol SwitchedOnAdditionalTimesWithIdsLoading {
 }
 extension SwitchedOnAdditionalTimesWithIdsLoading {
     func loadSwitchedOnWorkTimesWithIds() -> [Id : AdditionalTimeValue] {
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        let userDefaults = UserDefaults(suiteName: TaskTrackerGroupID.id)
         let possibleAdditionalTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.additionalWorkTimesForIds) as? [Id : AdditionalTimeValue]
         return possibleAdditionalTimes!
     }
     func loadSwitchedOnBreakTimesWithIds() -> [Id : AdditionalTimeValue] {
-        let userDefaults = UserDefaults(suiteName: TaskKillerGroupID.id)
+        let userDefaults = UserDefaults(suiteName: TaskTrackerGroupID.id)
         let possibleBreakTimes = userDefaults?.dictionary(forKey: UserDefaultsKeys.breakTimesForIds) as? [Id : AdditionalTimeValue]
         return possibleBreakTimes!
     }

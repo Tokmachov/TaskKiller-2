@@ -11,30 +11,29 @@ import CoreData
 
 class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    private lazy var fetchRequestController: NSFetchedResultsController<TaskModel> = createFetchResultsController()
-    private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: TagFactoryImp())
-    private lazy var taskListModelFactory: TaskListModelFactory = TaskListModelFactoryImp()
-    private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
+    //MARK: model factories
+    var taskFactory: TaskFactory!
+    var taskListModelFactory: TaskListModelFactory!
+    var taskProgressModelFactory: TaskProgressModelFactory!
     
+    //MARK: fetchRequestController
+    private lazy var fetchRequestController: NSFetchedResultsController<TaskModel> = createFetchResultsController()
+    
+    //MARK: UI dimension values
     private var tagHeight: CGFloat {
         let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)
         heightReferenceTagLabel.name = "SomeName"
         return heightReferenceTagLabel.intrinsicContentSize.height
     }
     
+    //MARK: traitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         updateTagCollectionViewsInTaskCells()
     }
-    private func updateTagCollectionViewsInTaskCells() {
-        guard let endIndex = fetchRequestController.fetchedObjects?.endIndex else { return }
-        for index in 0..<endIndex {
-            let indexPath = IndexPath(row: index, section: 0)
-            guard let taskListCell = tableView.cellForRow(at: indexPath) as? TaskListCell else { return }
-            taskListCell.tagsCollectionView.reloadData()
-        }
-    }
-    //MARK:
+    
+    //MARK: segues
     @IBAction func backFromTaskVC(segue: UIStoryboardSegue) {}
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "Continue Task"?:
@@ -69,15 +68,6 @@ extension TaskListVC {
     }
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.endUpdates()
-    }
-    private func createFetchResultsController() -> NSFetchedResultsController<TaskModel> {
-        let fetchResuest: NSFetchRequest<TaskModel> = TaskModel.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: true)
-        fetchResuest.sortDescriptors = [sortDescriptor]
-        let fetchRequestController = NSFetchedResultsController(fetchRequest: fetchResuest, managedObjectContext: PersistanceService.context, sectionNameKeyPath: nil, cacheName: "TaskCache")
-        guard let _ = try? fetchRequestController.performFetch() else { fatalError() }
-        fetchRequestController.delegate = self
-        return fetchRequestController
     }
 }
 
@@ -118,7 +108,7 @@ extension TaskListVC {
         }
     }
 }
-//MARK: TagsCollection dataSource, DelegateFlowLayout methods
+//MARK: TagsCollection dataSource
 extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let cellIndexPath = taskCellIndexPathOfTagCollectionView(collectionView)
@@ -143,5 +133,27 @@ extension TaskListVC: UICollectionViewDataSource, TagCellConfiguring, UICollecti
     }
     private func taskCellIndexPathOfTagCollectionView(_ collectionView: UICollectionView) -> IndexPath {
         return IndexPath(item: collectionView.tag, section: 0)
+    }
+}
+
+//MARK: Utility functions
+extension TaskListVC {
+    private func createFetchResultsController() -> NSFetchedResultsController<TaskModel> {
+        let fetchResuest: NSFetchRequest<TaskModel> = TaskModel.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "dateCreated", ascending: true)
+        fetchResuest.sortDescriptors = [sortDescriptor]
+        let fetchRequestController = NSFetchedResultsController(fetchRequest: fetchResuest, managedObjectContext: PersistanceService.context, sectionNameKeyPath: nil, cacheName: "TaskCache")
+        guard let _ = try? fetchRequestController.performFetch() else { fatalError() }
+        fetchRequestController.delegate = self
+        return fetchRequestController
+    }
+    
+    private func updateTagCollectionViewsInTaskCells() {
+        guard let endIndex = fetchRequestController.fetchedObjects?.endIndex else { return }
+        for index in 0..<endIndex {
+            let indexPath = IndexPath(row: index, section: 0)
+            guard let taskListCell = tableView.cellForRow(at: indexPath) as? TaskListCell else { return }
+            taskListCell.tagsCollectionView.reloadData()
+        }
     }
 }

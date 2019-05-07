@@ -1,10 +1,9 @@
 //
 //  TaskProgressSaving.swift
-//  TaskKiller
-//
-//  Created by mac on 20/04/2019.
-//  Copyright © 2019 Oleg Tokmachov. All rights reserved.
-//
+//  TaskTracker
+
+// Protocol forms interface of Task and TaskProgressModel 
+
 
 import Foundation
 

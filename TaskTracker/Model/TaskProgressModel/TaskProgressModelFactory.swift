@@ -47,10 +47,10 @@ extension TaskProgressModelFactoryImp {
             task.saveProgressPeriod(period)
         }
         //MARK: ProgressTimesSource
-        var progressTimes: TaskProgressTimes {
+        var progressTimes: ProgressTimes {
             let timeLeftToDeadlineTimeIntervalValue = task.currentDeadline - task.timeSpentInProgress
             let timeLeftToDeadline = TimeLeftToDeadLine(timeLeftToDeadLine: timeLeftToDeadlineTimeIntervalValue)
-            let progressTimes = TaskProgressTimes(
+            let progressTimes = ProgressTimes(
                 timeSpentInprogress: task.timeSpentInProgress,
                 timeLeftToDeadLine: timeLeftToDeadline
             )

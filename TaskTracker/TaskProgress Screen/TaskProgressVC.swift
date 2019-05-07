@@ -13,14 +13,13 @@ class TaskProgressVC: UIViewController,
     UIProgressTimesUpdaterDelegate,
     AlarmsControllerDelegate
 {
-    @IBOutlet weak var q: UIView!
     
     //MARK: model
     var model: TaskProgressModel!
     
     private var taskState: TaskState!
     private var taskTimeOutAlarmController: AlarmsControlling!
-    private var uIProgressTimesUpdater: UIProgressTimesUpdater!
+    private var uIProgressTimesUpdater: ProgressTimesUpdater!
     private var taskProgressTimesLabelsController: ProgressTimesLabelsController!
     private var taksStateRepresentingViewsController: TaskStateRepresenting!
     
@@ -42,7 +41,7 @@ class TaskProgressVC: UIViewController,
         super.viewDidLoad()
         taskState = TaskStateImp(delegate: self)
         taskTimeOutAlarmController = TaskAlarmsController(delegate: self)
-        uIProgressTimesUpdater = UIProgressTimesUpdater(delegate: self)
+        uIProgressTimesUpdater = ProgressTimesUpdaterImp(delegate: self)
         taskProgressTimesLabelsController = ProgressTimesLabelsController(
                 timeSpentInProgressLabel: timeSpentInProgressLabel,
                 timeLeftToDeadLineLabel: timeLeftToDeadlineLabel
@@ -54,10 +53,6 @@ class TaskProgressVC: UIViewController,
         taksStateRepresentingViewsController.makeStoppedUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "TaskStaticInfoVC":
@@ -90,8 +85,7 @@ class TaskProgressVC: UIViewController,
         guard case .timeLeft = model.progressTimes.timeLeftToDeadLine else { fatalError() }
         taskTimeOutAlarmController.removeBreakTimeOutAlarm()
         taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.progressTimes.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
-        uIProgressTimesUpdater.updateProgressTimes(from: model)
-        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date)
+        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date, initialTimes: model)
         taksStateRepresentingViewsController.makeStartedUI()
     }
     func taskState(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {
@@ -105,7 +99,7 @@ class TaskProgressVC: UIViewController,
         finishTask()
     }
     
-    func uIPrgressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: UIProgressTimesUpdater) {
+    func progressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: ProgressTimesUpdater) {
         taskProgressTimesLabelsController.updateProgressTimes(from: uIProgressTimesUpdater)
     }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TaskProgressTimes {
+struct ProgressTimes {
     var timeSpentInprogress: TimeInterval
     var timeLeftToDeadLine: TimeLeftToDeadLine
 }

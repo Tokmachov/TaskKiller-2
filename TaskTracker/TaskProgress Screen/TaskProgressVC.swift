@@ -54,10 +54,6 @@ class TaskProgressVC: UIViewController,
         taksStateRepresentingViewsController.makeStoppedUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "TaskStaticInfoVC":
@@ -90,8 +86,7 @@ class TaskProgressVC: UIViewController,
         guard case .timeLeft = model.progressTimes.timeLeftToDeadLine else { fatalError() }
         taskTimeOutAlarmController.removeBreakTimeOutAlarm()
         taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.progressTimes.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
-        uIProgressTimesUpdater.updateProgressTimes(from: model)
-        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date)
+        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date, initialTimes: model)
         taksStateRepresentingViewsController.makeStartedUI()
     }
     func taskState(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {

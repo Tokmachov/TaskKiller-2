@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ProgressTimesSource {
-    var progressTimes: TaskProgressTimes {get }
+    var progressTimes: ProgressTimes {get }
 }
 

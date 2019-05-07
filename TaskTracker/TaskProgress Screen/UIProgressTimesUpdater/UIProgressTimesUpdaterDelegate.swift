@@ -9,5 +9,5 @@
 import Foundation
 
 protocol UIProgressTimesUpdaterDelegate: AnyObject {
-    func uIPrgressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: UIProgressTimesUpdater)
+    func uIPrgressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: ProgressTimesUpdater)
 }

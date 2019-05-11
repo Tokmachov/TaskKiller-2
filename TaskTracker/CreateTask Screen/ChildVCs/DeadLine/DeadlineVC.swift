@@ -28,7 +28,8 @@ class DeadlineVC: UIViewController {
     private var formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.minute, .hour, . second]
-        formatter.unitsStyle = .abbreviated
+        formatter.unitsStyle = .positional
+        
         return formatter
     }()
     
@@ -85,11 +86,11 @@ extension DeadlineVC {
     }
     private func updateDeadlineButtonTitle() {
         guard let deadline = deadline else {
-            deadlineButton.setTitle("Chose deadline", for: .normal)
+            deadlineButton.setTitle("Время выполнения", for: .normal)
             return
         }
         let chosenDeadline = formatter.string(from: deadline)
-        deadlineButton.setTitle("deadline: \(chosenDeadline!)", for: .normal)
+        deadlineButton.setTitle("Время выполнения: \(chosenDeadline!)", for: .normal)
     }
     private func reportDeadlineViewSizeWithHiddenPickerToParentVC() {
         preferredContentSize = viewWithHiddenPickerSize

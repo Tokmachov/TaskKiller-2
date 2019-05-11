@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Task ListVC-->
+        <!--Задания-->
         <scene sceneID="sc0-5A-3qa">
             <objects>
                 <tableViewController id="3Nc-nP-Zvt" customClass="TaskListVC" customModule="TaskTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,7 +97,7 @@
                             <outlet property="delegate" destination="3Nc-nP-Zvt" id="NFc-j0-xhy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="r96-CB-k9J">
+                    <navigationItem key="navigationItem" title="Задания" id="r96-CB-k9J">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jhK-Zb-Cmi">
                             <connections>
                                 <segue destination="XKa-Lr-mm0" kind="presentation" modalTransitionStyle="crossDissolve" id="Xni-x8-i0V"/>
@@ -706,6 +706,7 @@
                                 <date key="date" timeIntervalSinceReferenceDate="576175790.74738598">
                                     <!--2019-04-05 16:49:50 +0000-->
                                 </date>
+                                <locale key="locale" localeIdentifier="ru"/>
                                 <connections>
                                     <action selector="deadlineWasChanged:" destination="YxY-Hw-HrP" eventType="valueChanged" id="yE4-mw-svg"/>
                                 </connections>
@@ -1995,6 +1996,6 @@
         <image name="remove" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rDg-hA-lHD"/>
+        <segue reference="Ftz-p1-JVP"/>
     </inferredMetricsTieBreakers>
 </document>

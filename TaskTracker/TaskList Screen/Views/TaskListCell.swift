@@ -10,11 +10,13 @@ import UIKit
 
 class TaskListCell: UITableViewCell {
     
-    @IBOutlet weak var taskDescriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var tagsCollectionView: UICollectionView! 
     @IBOutlet weak var tagCollectionViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var spaceForTagCollectionConstraint: NSLayoutConstraint!
     
-    var taskDescription: String! { didSet { taskDescriptionLabel.text = taskDescription } }
+    
+    var taskDescription: String! { didSet { descriptionLabel.text = taskDescription } }
     var cellIndex: Int! {
         didSet {
             tagsCollectionView.tag = cellIndex
@@ -23,10 +25,11 @@ class TaskListCell: UITableViewCell {
     }
     
     func adjustTagCollectionViewHeight(to tagHeight: CGFloat) {
-        tagCollectionViewHeightConstraint.constant =
-            TaskListTagCollectionFlowLayout.Constants.sectionInsets.top +
+        let tagCollectionHeight = TaskListTagCollectionFlowLayout.Constants.sectionInsets.top +
             TaskListTagCollectionFlowLayout.Constants.sectionInsets.bottom +
-            tagHeight
+        tagHeight
+        tagCollectionViewHeightConstraint.constant = tagCollectionHeight
+        spaceForTagCollectionConstraint.constant = tagCollectionHeight 
     }
 }
 

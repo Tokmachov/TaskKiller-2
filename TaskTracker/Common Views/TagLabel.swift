@@ -42,7 +42,7 @@ class TagLabel: UILabel {
     override var intrinsicContentSize: CGSize {
         var intrinsicContentsSize = super.intrinsicContentSize
         intrinsicContentsSize.width *= 1.5
-        intrinsicContentsSize.height *= 1.5
+        intrinsicContentsSize.height *= 2
         return intrinsicContentsSize
     }
 }

@@ -1,7 +1,9 @@
 # TaskTracker
-This is a task time tracking app.
+Это приложение предназначено для учета и контроля времени выполнения различных заданий.
 
-You use an app in fallowing steps:
+Вы приложении вы сможете:
+1 Создать задание
+You use an app in fallowing st
 1 you create task record.
 2 you press start and time you chose for task starts to count down.
 3 you receive system notifications when task time is up and chose further actions: you opt in continuing task, you take a time 

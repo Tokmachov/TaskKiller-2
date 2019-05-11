@@ -28,7 +28,7 @@ class TaskProgressVC: UIViewController,
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.second, .minute, .hour]
-        formatter.unitsStyle = .abbreviated
+        formatter.unitsStyle = .positional
         return formatter
     }()
     

@@ -14,7 +14,7 @@ struct ProgressTimesLabelsController {
     private let formatter: DateComponentsFormatter = {
             let formatter = DateComponentsFormatter()
             formatter.allowedUnits = [.minute, .hour, .second]
-            formatter.unitsStyle = .abbreviated
+            formatter.unitsStyle = .positional
             return formatter
     }()
     

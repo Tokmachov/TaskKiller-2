@@ -11,17 +11,24 @@ import CoreData
 
 class AvailableTagsVC: UIViewController {
     
+    //MARK: Factrory
     private var tagFactory = TagFactoryImp()
     
+    //MARK: Delegate
     weak var delegate: AvailableTagsVCDelegate!
+    
+    //MARK: content height
     var heightOfContent: CGFloat {
         return tagsCollectionView.contentSize.height
     }
-    private var fetchResultsController: NSFetchedResultsController<TagModel>!
-    private var collectionViewChangeContentsOperations = [BlockOperation]()
     
+    //MARK: FetchResultsController
+    private var fetchResultsController: NSFetchedResultsController<TagModel>!
+    
+    //MARK: Outlets
     @IBOutlet weak var tagsCollectionView: UICollectionView!
     
+    //MARK: ViewController life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchResultsController = createTagFetchResultsController()
@@ -32,6 +39,8 @@ class AvailableTagsVC: UIViewController {
         super.viewWillDisappear(animated)
             alignTagModelsOrderPropertyWithTagsOrderIn(fetchResultsController.fetchedObjects!)
     }
+    
+    //MARK: TraitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         tagsCollectionView.reloadData()
     }

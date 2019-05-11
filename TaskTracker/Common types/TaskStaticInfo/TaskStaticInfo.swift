@@ -11,13 +11,13 @@ import Foundation
 
 struct TaskStaticInfo {
 
-    var taskDescription: String
+    var description: String
     var initialDeadLine: TimeInterval
     var tagsStore: ImmutableTagStore
 }
 
 extension TaskStaticInfo: Equatable {
     static func == (lhs: TaskStaticInfo, rhs: TaskStaticInfo) -> Bool {
-        return lhs.taskDescription == rhs.taskDescription
+        return lhs.description == rhs.description
     }
 }

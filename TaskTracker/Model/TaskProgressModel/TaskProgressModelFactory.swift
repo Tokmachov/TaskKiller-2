@@ -30,12 +30,12 @@ extension TaskProgressModelFactoryImp {
         }
         
         //MARK: TaskStaticInfoSource
-        var staticInfo: TaskStaticInfo {
+        var taskStaticInfo: TaskStaticInfo {
             let description = task.description
             let deadLine = task.initialDeadline
             let tagsStore = task.tagsStore
             let staticInfo = TaskStaticInfo(
-                taskDescription: description,
+                description: description,
                 initialDeadLine: deadLine,
                 tagsStore: tagsStore
             )

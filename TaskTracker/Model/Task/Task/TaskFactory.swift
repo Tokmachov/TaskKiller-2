@@ -35,7 +35,7 @@ struct TaskFactoryImp: TaskFactory {
 extension TaskFactoryImp {
     private func createTaskModel(from taskStaticInfo: TaskStaticInfo) -> TaskModel {
         let id = UUID.init().uuidString
-        let taskDescription = taskStaticInfo.taskDescription
+        let taskDescription = taskStaticInfo.description
         let initiaLdeadLine = Int16(taskStaticInfo.initialDeadLine)
         let postponableDeadline = Int16(taskStaticInfo.initialDeadLine)
         let currentDate = Date() as NSDate

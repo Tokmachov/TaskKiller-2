@@ -17,14 +17,18 @@ class TaskProgressVC: UIViewController,
     //MARK: model
     var model: TaskProgressModel!
     
-    private var taskState: TaskState!
-    private var taskTimeOutAlarmController: AlarmsControlling!
-    private var uIProgressTimesUpdater: ProgressTimesUpdater!
-    private var taskProgressTimesLabelsController: ProgressTimesLabelsController!
+    //MARK: controllers
+    private lazy var taskState: TaskState = TaskStateImp(delegate: self)
+    private lazy var alarmsController: AlarmsControlling = TaskAlarmsController(delegate: self)
+    private lazy var progressTimesUpdater: ProgressTimesUpdater = ProgressTimesUpdaterImp(delegate: self)
+    private var progressTimesLabelsController: ProgressTimesLabelsController!
     private var taksStateRepresentingViewsController: TaskStateRepresenting!
     
+    //MARK: additionslTimes with ids
     private lazy var workTimesWithIds = loadSwitchedOnWorkTimesWithIds()
     private lazy var breakTimesWithIds = loadSwitchedOnBreakTimesWithIds()
+    
+    //MARK: formatter
     private lazy var dateComponentsFormatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.second, .minute, .hour]
@@ -32,36 +36,41 @@ class TaskProgressVC: UIViewController,
         return formatter
     }()
     
+    //MARK: outlets
     @IBOutlet weak var taskStaticInfoViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var timeSpentInProgressLabel: UILabel!
     @IBOutlet weak var timeLeftToDeadlineLabel: UILabel!
+    
     //MARK: VC lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        taskState = TaskStateImp(delegate: self)
-        taskTimeOutAlarmController = TaskAlarmsController(delegate: self)
-        uIProgressTimesUpdater = ProgressTimesUpdaterImp(delegate: self)
-        taskProgressTimesLabelsController = ProgressTimesLabelsController(
+        progressTimesLabelsController = ProgressTimesLabelsController(
                 timeSpentInProgressLabel: timeSpentInProgressLabel,
                 timeLeftToDeadLineLabel: timeLeftToDeadlineLabel
         )
         taksStateRepresentingViewsController = TaskStateRepresentingViewsController(
                 startButton: startButton
         )
-        uIProgressTimesUpdater.updateProgressTimes(from: model)
         taksStateRepresentingViewsController.makeStoppedUI()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        progressTimesUpdater.updateProgressTimes(from: model)
+    }
     
+    //MARK: prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case "TaskStaticInfoVC":
             let taskStaticInfoVC = segue.destination as! TaskStaticInfoViewController
-            taskStaticInfoVC.staticInfo = model.staticInfo
+            taskStaticInfoVC.staticInfo = model.taskStaticInfo
             addChild(taskStaticInfoVC)
         default: break
         }
     }
+    
+    //MARK: preferredContentSizeDidChange
     override func preferredContentSizeDidChange(forChildContentContainer container: UIContentContainer) {
         switch container {
         case let vc where vc is TaskStaticInfoViewController:
@@ -69,10 +78,16 @@ class TaskProgressVC: UIViewController,
         default: break
         }
     }
+    
+    //MARK: actions
     @IBAction func playButtonPressed() {
         taskState.goToNextState()
     }
+    @IBAction func doneButtonPressed() {
+        finishTask()
+    }
     
+    //MARK: delege
     func taskStateCanChangeToStarted(_ taskState: TaskState) -> Bool {
         switch model.progressTimes.timeLeftToDeadLine {
         case .noTimeLeft:
@@ -83,24 +98,20 @@ class TaskProgressVC: UIViewController,
     }
     func taskState(_ taskState: TaskState, didDidChangeToStartedWith date: Date) {
         guard case .timeLeft = model.progressTimes.timeLeftToDeadLine else { fatalError() }
-        taskTimeOutAlarmController.removeBreakTimeOutAlarm()
-        taskTimeOutAlarmController.addTaskTimeOutAlarmThatFiresIn(model.progressTimes.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
-        uIProgressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date, initialTimes: model)
+        alarmsController.removeBreakTimeOutAlarm()
+        alarmsController.addTaskTimeOutAlarmThatFiresIn(model.progressTimes.timeLeftToDeadLine.timeLeft!, alarmInfo: model)
+        progressTimesUpdater.startUpdatingUIProgressTimes(dateStarted: date, initialTimes: model)
         taksStateRepresentingViewsController.makeStartedUI()
     }
     func taskState(_ taskState: TaskState, didChangeToStoppedWithPeriodPassed period: ProgressPeriod) {
         model.saveProgressPeriod(period)
-        taskTimeOutAlarmController.removeTaskTimeOutAlarm()
-        uIProgressTimesUpdater.stopUpdatingUIProgressTimes()
+        alarmsController.removeTaskTimeOutAlarm()
+        progressTimesUpdater.stopUpdatingUIProgressTimes()
         taksStateRepresentingViewsController.makeStoppedUI()
     }
     
-    @IBAction func doneButtonPressed() {
-        finishTask()
-    }
-    
-    func progressTimesUpdaterDidUpdateProgressTimes(_ uIProgressTimesUpdater: ProgressTimesUpdater) {
-        taskProgressTimesLabelsController.updateProgressTimes(from: uIProgressTimesUpdater)
+    func progressTimesUpdaterDidUpdateProgressTimes(_ progressTimesUpdater: ProgressTimesUpdater) {
+        progressTimesLabelsController.updateProgressTimes(from: progressTimesUpdater)
     }
 
     func alarmsController(_ alarmsController: AlarmsControlling, didReceiveAlarmWithResponseType responseType: AlarmResponseType) {
@@ -139,11 +150,11 @@ extension TaskProgressVC {
     }
     private func takeABreak(_ breakTime: TimeInterval) {
         self.taskState.goToStoppedState()
-        self.taskTimeOutAlarmController.addBreakTimeOutAlarmThatFiresIn(breakTime, alarmInfo: self.model)
+        self.alarmsController.addBreakTimeOutAlarmThatFiresIn(breakTime, alarmInfo: self.model)
     }
     private func finishTask() {
         taskState.goToStoppedState()
-        taskTimeOutAlarmController.removeBreakTimeOutAlarm()
+        alarmsController.removeBreakTimeOutAlarm()
         self.performSegue(withIdentifier: "Back To Task List", sender: nil)
     }
     private func removeBadgeFromIcon() {

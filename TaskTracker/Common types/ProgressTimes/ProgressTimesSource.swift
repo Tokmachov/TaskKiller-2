@@ -9,6 +9,6 @@
 import Foundation
 
 protocol ProgressTimesSource {
-    var progressTimes: ProgressTimes {get }
+    var progressTimes: ProgressTimes { get }
 }
 

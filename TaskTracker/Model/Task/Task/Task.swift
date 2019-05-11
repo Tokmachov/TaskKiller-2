@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-protocol Task: DeadlinePostponable, TaskProgressSaving  {
+protocol Task: DeadlinePostponable, ProgressSaving  {
     var id: String { get }
     var description: String { get }
     var initialDeadline: TimeInterval { get }

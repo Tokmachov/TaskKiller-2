@@ -60,7 +60,7 @@ extension TaskStaticInfoViewController: UICollectionViewDataSource, TagCellConfi
 
 extension TaskStaticInfoViewController {
     private func updateStaticInfoViews() {
-        taskDescriptionLabel.text = staticInfo.taskDescription
+        taskDescriptionLabel.text = staticInfo.description
         taskInitialDeadlineLabel.text = formatter.string(from: staticInfo.initialDeadLine)
         tagsStore = staticInfo.tagsStore
     }

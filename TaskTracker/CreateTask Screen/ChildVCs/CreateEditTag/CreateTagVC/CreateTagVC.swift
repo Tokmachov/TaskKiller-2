@@ -11,27 +11,37 @@ import UIKit
 class CreateTagVC: UITableViewController, UITextFieldDelegate {
     
     let maximunTagNameLength = TagConstants.tagMaximumCharacterLength
-    //Mark: model
+    
+    //MARK: model
     private var tagName: String? {
         didSet { updateSaveButtonEnability() }
     }
     private var tagColor: UIColor = UIColor.gray
+    
+    //MARK: State flag
     private var isTagInfoValid: Bool {
             if let tagName = tagName, !tagName.isEmpty { return true }
             return false
     }
+    
+    //MARK: Delegate
     var delegate: CreateTagVCDelegate!
     @IBOutlet weak var tagNameTextField: UITextField!
     @IBOutlet weak var chosenColorView: ColorSampleView! {
         didSet { chosenColorView.chosenColor = tagColor }
     }
+    
+    //MARK: Outlets
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
+    //MARK: ViewControlelr life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsSelection = false
         updateSaveButtonEnability()
     }
+    
+    //MARK: Actions
     @IBAction func tagNameWasChanged(_ sender: UITextField) {
         tagName = sender.text ?? ""
     }
@@ -40,7 +50,6 @@ class CreateTagVC: UITableViewController, UITextFieldDelegate {
         tagColor = colorButton.color
         chosenColorView.chosenColor = colorButton.color
     }
- 
     @IBAction func tagCreationWasCancelled(_ sender: UIBarButtonItem) {
         presentingViewController?.dismiss(animated: true, completion: nil)
     }

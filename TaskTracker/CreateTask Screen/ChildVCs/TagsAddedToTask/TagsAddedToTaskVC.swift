@@ -21,8 +21,11 @@ class TagsAddedToTaskVC: UIViewController {
     var tagsAddedToTaskStore: ImmutableTagStore {
         return tagsStore
     }
+    
+    //MARK: delegate
     weak var delegate: TagsAddedToTaskVCDelegate!
     
+    //MARK: View dimensions
     private var tagCollectionHeight: CGFloat {
         let tagLabel = TagLabel(frame: CGRect.zero)
         tagLabel.name = "Some name"
@@ -31,6 +34,8 @@ class TagsAddedToTaskVC: UIViewController {
                TagsAddedToTaskCollectionFlowLayout.Constants.sectionInsets.bottom +
                tagHeight
     }
+    
+    //MARK: Outlets
     @IBOutlet weak var tagsAddedToTaskCollectionView: UICollectionView!
     
     //MARK: ViewController lyfe cycle
@@ -41,22 +46,27 @@ class TagsAddedToTaskVC: UIViewController {
         tagsAddedToTaskCollectionView.dragInteractionEnabled = true
     }
     
+    //MARK: ViewController life cycle
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         reportSizeNeededByCollectionViewToParentVC()
     }
+    
+    //MARK: traitCollectionDidChange
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         reportSizeNeededByCollectionViewToParentVC()
         tagsAddedToTaskCollectionView.reloadData()
     }
+    
+    //MARK: Methods for perent ViewController acces.
     func removeFromTask(_ tag: Tag) {
         guard let index = tagsStore.index(Of: tag) else { return }
         let indexPathForTagToRemove = IndexPath(item: index, section: 0)
         tagsStore.remove(tag)
         tagsAddedToTaskCollectionView.deleteItems(at: [indexPathForTagToRemove])
     }
-    func tagAddedToTaskWasUpdated(_ tag: Tag) {
+    func tagWasEdited(_ tag: Tag) {
         guard let indexOfTag = tagsStore.index(Of: tag) else { return }
         let indexPath = IndexPath(item: indexOfTag, section: 0)
         tagsAddedToTaskCollectionView.reloadItems(at: [indexPath])

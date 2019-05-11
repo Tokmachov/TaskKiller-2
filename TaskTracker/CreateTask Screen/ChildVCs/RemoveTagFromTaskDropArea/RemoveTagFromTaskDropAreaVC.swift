@@ -9,7 +9,11 @@
 import UIKit
 
 class RemoveTagFromTaskDropAreaVC: UIViewController, UIDropInteractionDelegate {
+    
+    //MARK: delegate
     weak var delegate: RemoveTagFromTaskVCDelegate!
+    
+    //MARK: outlets
     @IBOutlet weak var dropAreaView: UIView! {
         didSet {
             let dropInteraction = UIDropInteraction(delegate: self)

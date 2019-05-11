@@ -10,7 +10,10 @@ import UIKit
 
 class EditTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
     
+    //MARK: delegate
     var delegate: EditTagDropAreaVCDelegate!
+    
+    //MARK: Outlets
     @IBOutlet weak var editTagDropAreaView: UIView! {
         didSet {
             let dropInteraction = UIDropInteraction(delegate: self)
@@ -22,6 +25,8 @@ class EditTagDropAreaVC: UIViewController, UIDropInteractionDelegate {
             dropAreaBackgroundView.backGroundColor = UIColor.green
         }
     }
+    
+    //MARK: UIDropInteractionDelegate
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         guard (session.items.first?.localObject as AnyObject) as? Tag != nil else { return false }
         return true

@@ -18,7 +18,7 @@ class CreateTaskVC: UITableViewController,
     TagsAddedToTaskVCDelegate,
     RemoveTagFromTaskVCDelegate
 {
-    
+    //MARK: model factiries
     private lazy var tagFactory: TagFactory = TagFactoryImp()
     private lazy var taskFactory: TaskFactory = TaskFactoryImp(tagFactory: tagFactory)
     private lazy var taskProgressModelFactory: TaskProgressModelFactory = TaskProgressModelFactoryImp()
@@ -34,7 +34,7 @@ class CreateTaskVC: UITableViewController,
         didSet { updateGoButtonEnability() }
     }
     private var taskStaticInfo: TaskStaticInfo {
-        return TaskStaticInfo(taskDescription: taskDescription!,
+        return TaskStaticInfo(description: taskDescription!,
                               initialDeadLine: deadline!,
                               tagsStore: tagsAddedToTask!
         )
@@ -134,6 +134,7 @@ class CreateTaskVC: UITableViewController,
         default: break
         }
     }
+    
     //MARK: Actions
     @IBAction func addTagButtonWasPressed() {
         switch isInTagAddingProcess {
@@ -197,7 +198,7 @@ class CreateTaskVC: UITableViewController,
     }
     
     func editTagVC(_ editTagVC: EditTagVC, didEditTag tag: Tag) {
-        tagsAddedToTaskVC.tagAddedToTaskWasUpdated(tag)
+        tagsAddedToTaskVC.tagWasEdited(tag)
     }
     
     func removeTagFromTaskDropAreaVC(_ removeTagFromTaskDropAreaVC: RemoveTagFromTaskDropAreaVC, removeTagFromTask tag: Tag) {

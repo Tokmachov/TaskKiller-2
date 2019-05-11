@@ -18,21 +18,25 @@ class DeadlineVC: UIViewController {
         }
     }
     
+    //MARK: State flag
     private var datePickerIsShown = false
     
+    //MARK: Delegate
     var delegate: DeadlineVCDelegate!
     
+    //MARK: Outlets
     @IBOutlet weak var deadlineButton: UIButton!
     @IBOutlet weak var datePickerView: UIDatePicker!
     
+    //MARK: formatter
     private var formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.minute, .hour, . second]
         formatter.unitsStyle = .positional
-        
         return formatter
     }()
     
+    //MARK: View sizes
     private var viewWithHiddenPickerSize: CGSize {
         let width = view.bounds.width
         let height = deadlineButton.intrinsicContentSize.height
@@ -43,7 +47,7 @@ class DeadlineVC: UIViewController {
         let height = deadlineButton.intrinsicContentSize.height + datePickerView.bounds.height
         return CGSize(width: width, height: height)
     }
-    
+    //MARK: ViewController life cycle
     override func viewDidLoad() {
         hideDatePicker()
         deadline = datePickerView.countDownDuration
@@ -52,6 +56,8 @@ class DeadlineVC: UIViewController {
         super.viewDidAppear(animated)
         setInitialDatePickerValue()
     }
+    
+    //MARK: Actions
     @IBAction func deadlineWasChanged(_ sender: UIDatePicker) {
         deadline = sender.countDownDuration
     }

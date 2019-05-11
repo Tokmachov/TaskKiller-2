@@ -10,9 +10,14 @@ import UIKit
 class EditTagVC: UITableViewController, UITextFieldDelegate {
     
     private let tagMaximumCharacterLength = TagConstants.tagMaximumCharacterLength
-    var tag: Tag! 
+    
+    //MARK: model
+    var tag: Tag!
+    
+    //MARK: Delegate
     var delegate: EditTagVCDelegate!
     
+    //MARK: Actions
     @IBOutlet weak var tagColorView: ColorSampleView! {
         didSet {
             tagColorView.chosenColor = tag.color
@@ -23,7 +28,6 @@ class EditTagVC: UITableViewController, UITextFieldDelegate {
             tagNameTextField.text = tag.name
         }
     }
-    
     @IBAction func choseColorButtonWasPressed(_ sender: ColorSelectionButton) {
         tagColorView.chosenColor = sender.color
         tag.color = sender.color
@@ -31,8 +35,6 @@ class EditTagVC: UITableViewController, UITextFieldDelegate {
     @IBAction func tagNameWasChanged(_ sender: UITextField) {
         tag.name = sender.text ?? ""
     }
-    
-    
     @IBAction func tagEditingIsDone(_ sender: Any) {
         delegate.editTagVC(self, didEditTag: tag)
         presentingViewController?.dismiss(animated: true, completion: nil)

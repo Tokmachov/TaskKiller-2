@@ -111,13 +111,13 @@ extension NotificationExtensionViewController {
         return actions
     }
     private func createNoWorkTimesSetAction() -> UNNotificationAction {
-        let actionTitle = "Please set Additional work times"
+        let actionTitle = "Установите значения дополнительного времени"
         let actionAdintifier = CategoriesInfo.taskTimeOutCategory.actionIDs.setWorkTimes
         return UNNotificationAction(identifier: actionAdintifier, title: actionTitle, options: [.foreground])
     }
     private func createAddWorkTimeActionTitle(from time: AdditionalTimeValue) -> String {
         let restInMinutes = dateComponentsFormatter.string(from: time)
-        return "Need \(restInMinutes ?? "Error") more"
+        return "Необходимо \(restInMinutes ?? "Error")"
     }
     //MARK: createAddBreakActions(from:)
     private func createAddBreakActions(from switchOnBreakTimes: [Id : AdditionalTimeValue]) -> [UNNotificationAction] {
@@ -137,13 +137,13 @@ extension NotificationExtensionViewController {
         return actions
     }
     private func createNoBreakTimesSetAction() -> UNNotificationAction {
-        let actionTitle = "Please set additional break times"
+        let actionTitle = "Установите значения дополнительного времени"
         let actionAdintifier = CategoriesInfo.breakTimeOutCategory.actionIDs.setBreakTimes
         return UNNotificationAction(identifier: actionAdintifier, title: actionTitle, options: [.foreground])
     }
     private func createAddBreakActionTitle(from time: AdditionalTimeValue) -> String {
         let timeStringRepresentation = dateComponentsFormatter.string(from: time)
-        return "Need a break for \(timeStringRepresentation ?? "Error")"
+        return "Отдых \(timeStringRepresentation ?? "Error")"
     }
     //MARK: openApp()
     private func openApp() {

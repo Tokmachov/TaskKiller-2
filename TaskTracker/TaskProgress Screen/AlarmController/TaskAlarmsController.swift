@@ -145,8 +145,8 @@ extension TaskAlarmsController {
         return content
     }
     private func getTaskDescriptionFrom(_ taskStaticInoSource: TaskStaticInfoSource) -> String {
-        let taskStaticInfo = taskStaticInoSource.staticInfo
-        let taskDescription = taskStaticInfo.taskDescription
+        let taskStaticInfo = taskStaticInoSource.taskStaticInfo
+        let taskDescription = taskStaticInfo.description
         return taskDescription
     }
     private func createNotificationTrigger(from timeInterval: TimeInterval) -> UNTimeIntervalNotificationTrigger {

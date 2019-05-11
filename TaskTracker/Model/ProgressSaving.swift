@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol TaskProgressSaving {
+protocol ProgressSaving {
     func saveProgressPeriod(_ period: ProgressPeriod)
 }

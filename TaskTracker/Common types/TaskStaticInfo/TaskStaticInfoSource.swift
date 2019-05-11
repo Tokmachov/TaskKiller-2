@@ -7,6 +7,6 @@
 //
 
 protocol TaskStaticInfoSource {
-    var staticInfo: TaskStaticInfo { get }
+    var taskStaticInfo: TaskStaticInfo { get }
 }
 

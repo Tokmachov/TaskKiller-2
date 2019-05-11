@@ -19,7 +19,7 @@ class TaskListVC: UITableViewController, NSFetchedResultsControllerDelegate {
     //MARK: fetchRequestController
     private lazy var fetchRequestController: NSFetchedResultsController<TaskModel> = createFetchResultsController()
     
-    //MARK: UI dimension values
+    //MARK: UI dimension value
     private var tagHeight: CGFloat {
         let heightReferenceTagLabel = TagLabel(frame: CGRect.zero)
         heightReferenceTagLabel.name = "SomeName"

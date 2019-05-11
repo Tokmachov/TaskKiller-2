@@ -191,7 +191,9 @@ class CreateTaskVC: UITableViewController,
         let editTagVC = storyBoard.instantiateViewController(withIdentifier: "EditTagVC") as! EditTagVC
         editTagVC.tag = tag
         editTagVC.delegate = self
-        present(editTagVC, animated: true, completion: nil)
+        let navigationController = UINavigationController(rootViewController: editTagVC)
+        navigationController.modalTransitionStyle = .crossDissolve
+        present(navigationController, animated: true, completion: nil)
     }
     
     func editTagVC(_ editTagVC: EditTagVC, didEditTag tag: Tag) {

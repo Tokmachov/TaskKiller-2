@@ -127,9 +127,9 @@ extension TaskAlarmsController {
     }
     private func createNotificationContentForTaskTimeOutAlarm(from taskStaticInfoSource: TaskStaticInfoSource) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.title = "This is task time alarm"
+        content.title = "Время выполнения задания вышло"
         let taskDescription = getTaskDescriptionFrom(taskStaticInfoSource)
-        content.body = "Task time of \(taskDescription) is up."
+        content.body = "Время задани: \(taskDescription) вышло."
         content.sound = UNNotificationSound.default
         content.badge = 1
         return content
@@ -137,8 +137,8 @@ extension TaskAlarmsController {
     private func createNotificationContentForBreakIsOverAlarm(from taskStatifoSource: TaskStaticInfoSource) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         let taskDescription = getTaskDescriptionFrom(taskStatifoSource)
-        let title = "Break is over"
-        let body = "Let's get back to \(taskDescription)"
+        let title = "Отдых окончен"
+        let body = "Вернуться к заданию \(taskDescription)"
         content.title = title
         content.body = body
         content.sound = UNNotificationSound.default
@@ -154,20 +154,20 @@ extension TaskAlarmsController {
         return trigger
     }
     private func createTaskTimeOutAlarmActions() -> [UNNotificationAction] {
-        let openApp = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.openApp, title: "Open App", options: [.foreground])
-        let needBreak = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.addBreak, title: "I need a break", options: [])
-        let needMoreTime = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.addWorkTime, title: "I need more time", options: [])
-        let taskIsFinished = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.taskIsFinished, title: "I finished task", options: [.destructive])
+        let openApp = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.openApp, title: "Открыть приложение", options: [.foreground])
+        let needBreak = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.addBreak, title: "Отдых", options: [])
+        let needMoreTime = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.addWorkTime, title: "Больше времени", options: [])
+        let taskIsFinished = UNNotificationAction(identifier: CategoriesInfo.taskTimeOutCategory.actionIDs.taskIsFinished, title: "Задание окончено", options: [.destructive])
         let actions = [needMoreTime, needBreak, taskIsFinished, openApp]
         return actions
     }
     
     
     private func createBreakTimeOutAlarmActions() -> [UNNotificationAction] {
-        let openAppAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.openApp, title: "Open App", options: [.foreground])
-        let needMoreBreakTimeAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.needBreak, title: "I need more break time", options: [])
-        let getBackToTaskAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.getBackToTask, title: "Get back to task", options: [])
-        let finishTaskAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.taskIsFinished, title: "Finish task", options: [])
+        let openAppAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.openApp, title: "Открыть задание", options: [.foreground])
+        let needMoreBreakTimeAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.needBreak, title: "Добавть время отдыха", options: [])
+        let getBackToTaskAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.getBackToTask, title: "Вернуться к заданию", options: [])
+        let finishTaskAction = UNNotificationAction(identifier: CategoriesInfo.breakTimeOutCategory.actionIDs.taskIsFinished, title: "Задание окончено", options: [])
         let actions = [getBackToTaskAction, needMoreBreakTimeAction, finishTaskAction, openAppAction]
         return actions
     }

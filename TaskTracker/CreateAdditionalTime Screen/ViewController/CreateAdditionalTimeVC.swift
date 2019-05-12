@@ -81,8 +81,8 @@ extension CreateAdditionalTimeVC {
     }
     private func updateChosenAdditionalTimeTypeLabel(withType type: AdditionalTime.AdditionalTimeType) {
         var additionalTimesTypeStringNamesForTypes: [AdditionalTime.AdditionalTimeType : String] = [
-            .workTime : "Additional work time",
-            .breakTime : "Additional break time"
+            .workTime : "Дополнительное рабочее время",
+            .breakTime : "Время отдыха"
         ]
         let typeName = additionalTimesTypeStringNamesForTypes[type]!
         chosenAdditionalTimeTypeLabel.text = typeName

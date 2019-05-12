@@ -115,7 +115,7 @@ extension AdditionalTimesTableViewController {
     }
     
     private func customizeNavigationBar() {
-        navigationItem.title = "Add times"
+        navigationItem.title = "Дополнительное время"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
